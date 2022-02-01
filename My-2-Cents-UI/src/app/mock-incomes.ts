@@ -1,5 +1,14 @@
-export interface Income {
+export interface Incomes {
     Name: string;
     Amount: number;
-    Items: [string, number, string, Date];
+    Transactions: [string, number, string, Date];
+}
+
+export interface Expenses {
+    Name: string;
+    Amount: number;
+    ItemName: string;
+    Price: number;
+    Detail: string;
+    showDate: Date;
 }
