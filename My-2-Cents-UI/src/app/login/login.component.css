@@ -38,7 +38,8 @@
   
   .button:hover {
     background: #dfb226ff;
-    border: black solid .25em;
+    border: black solid .16em;
+    
   }
   
   .button:active {
