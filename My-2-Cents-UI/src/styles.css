@@ -5,7 +5,7 @@ html {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.button {
+button {
   display: flex;
   background: radial-gradient(
     circle,
@@ -20,11 +20,11 @@ html {
   letter-spacing: 0.05em;
 }
 
-.button:hover {
+button:hover {
   border: black solid 0.16em;
 }
 
-.button:active {
+button:active {
   background: radial-gradient(
     circle,
     rgb(156, 142, 80) 10%,
