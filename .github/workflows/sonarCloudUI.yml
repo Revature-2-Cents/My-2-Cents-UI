@@ -13,6 +13,13 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+          
+      - name: Test Coverage
+        run: |
+          cd My-2-Cents-UI
+          npx ci
+          npx ng test --code-coverage --no-watch --browsers=ChromeHeadless
+          
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
