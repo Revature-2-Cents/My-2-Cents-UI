@@ -6,9 +6,20 @@ export interface Incomes {
 
 export interface Expenses {
     Name: string;
-    Amount: string;
+    Amount: number;
     ItemName: string;
-    Price: string;
+    Price: number;
     Detail: string;
     showDate: string;
 }
+
+export const Mock_Items: Expenses[] = [
+    {
+    'Name': 'Account',
+    'Amount': 100.00,
+    'ItemName': 'TestItem',
+    'Price': 10.00,
+    'Detail': 'Purchased today',
+    'showDate': '20220202'
+    }
+];

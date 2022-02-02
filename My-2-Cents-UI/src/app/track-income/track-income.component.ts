@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Expenses, Mock_Items } from '../mock-incomes'
 
 @Component({
   selector: 'app-track-income',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TrackIncomeComponent implements OnInit {
 
+  Items : Expenses[] = Mock_Items;
+  ShowDetails = false;
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  ToggleDetails(): void{
+    this.ShowDetails = !this.ShowDetails;
+  }
+
 
 }

@@ -2,9 +2,12 @@
 
 <div class="Headder"></div>
 
-<ul class="Account-Table">
-    <div><span>AccountName</span><div class="spacer"></div><span class="total">total</span></div>
+<ul class="Account-Table" *ngFor="let Item of Items">
+    <div><span>{{Item.Name}}</span><div class="spacer"></div><span class="total">{{Item.Amount}}</span></div>
     <li>
-        <span class="Item-Name">itemName</span><div class="spacer"></div><span class="Item-Cost">Cost</span><button  onclick="Toggle-Details" class="Down-Arrow">V</button>
+        <span class="Item-Name">{{Item.ItemName}}</span>
+        <div class="spacer"></div>
+        <span class="Item-Cost">{{Item.Price}}</span>
+        <button click="ToggleDetails()" class="Down-Arrow">V</button>
     </li>
 </ul>
