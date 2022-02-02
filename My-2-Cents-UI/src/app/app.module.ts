@@ -11,6 +11,9 @@ import { TransferMoneyComponent } from './transfer-money/transfer-money.componen
 import { TrackExpensesComponent } from './track-expenses/track-expenses.component';
 import { TrackMultipleAccountsComponent } from './track-multiple-accounts/track-multiple-accounts.component';
 
+import { AuthModule } from '@auth0/auth0-angular';
+import { environment as env } from '../environments/environment';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,13 +23,16 @@ import { TrackMultipleAccountsComponent } from './track-multiple-accounts/track-
     TrackIncomeComponent,
     TransferMoneyComponent,
     TrackExpensesComponent,
-    TrackMultipleAccountsComponent
+    TrackMultipleAccountsComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AuthModule.forRoot({
+      ...env.auth,
+    }),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
