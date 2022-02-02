@@ -1,13 +1,20 @@
-<p>track-income works!</p>
-
-<div class="Headder"></div>
+<div class="Headder">Check Account Page</div>
 
 <ul class="Account-Table" *ngFor="let Item of Items">
-    <div><span>{{Item.Name}}</span><div class="spacer"></div><span class="total">{{Item.Amount}}</span></div>
-    <li>
-        <span class="Item-Name">{{Item.ItemName}}</span>
-        <div class="spacer"></div>
-        <span class="Item-Cost">{{Item.Price}}</span>
-        <button click="ToggleDetails()" class="Down-Arrow">V</button>
-    </li>
+
+    <div class="Account content">
+        <span class="content">{{Item.Name}}</span>
+        <div class="spacer content"></div>
+        <span class="total content">{{Item.Amount}}</span>
+    </div>
+
+    <ul>
+        <div class="item">
+        <span class="Item-Name content">{{Item.ItemName}}</span>
+        <div class="spacer content"></div>
+        <span class="Item-Cost content">{{Item.Price}}</span>
+        <button click="ToggleDetails()" class="Down-Arrow content">V</button>
+        </div>
+    </ul>
+
 </ul>
