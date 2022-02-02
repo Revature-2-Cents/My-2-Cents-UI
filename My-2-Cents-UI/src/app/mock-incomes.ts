@@ -6,9 +6,9 @@ export interface Incomes {
 
 export interface Expenses {
     Name: string;
-    Amount: number;
+    Amount: string;
     ItemName: string;
-    Price: number;
+    Price: string;
     Detail: string;
-    showDate: Date;
+    showDate: string;
 }
