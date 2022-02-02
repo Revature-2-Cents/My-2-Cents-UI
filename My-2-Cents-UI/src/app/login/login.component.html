@@ -1,14 +1,16 @@
 <head>
     <link rel="stylesheet" href="./login.component.css">
 </head>
+
 <body>
     <div class='imagediv'>
-        <img class='image' src="https://media.discordapp.net/attachments/937791410889981983/938171320074661888/Logo.png">
-        <button class='button'>
+        <img class='image'
+            src="https://media.discordapp.net/attachments/937791410889981983/938171320074661888/Logo.png">
+        <button class='button' (click)="loginWithRedirect()">
             <b>Start Now</b>
         </button>
     </div>
     <span class='textdiv'>
-        <h3 class ='text'>Ready to put your<br> two cents in?</h3>
+        <h3 class='text'>Ready to put your<br> two cents in?</h3>
     </span>
 </body>
