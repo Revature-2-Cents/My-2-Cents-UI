@@ -3,7 +3,8 @@ body {
 }
 
 .component {
-    background: radial-gradient(#e9f1f7, #c2c3d3 , #9a9aa8);
+    background: radial-gradient(#e9f1f7, #c2c3d3 , #9a9aa8), url(https://media.discordapp.net/attachments/937791410889981983/938171320074661888/Logo.png
+    ) transparent;
     /* border: .15em solid grey;
     margin: 25%;
     border-radius: 15px;
