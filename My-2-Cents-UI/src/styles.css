@@ -5,13 +5,13 @@ body {
 .component {
     background: radial-gradient(#e9f1f7, #c2c3d3 , #9a9aa8), url(https://media.discordapp.net/attachments/937791410889981983/938171320074661888/Logo.png
     ) transparent;
-    /* border: .15em solid grey;
+    border: .15em solid grey;
     margin: 25%;
     border-radius: 15px;
-    padding-left: 12.5%; */
+    padding-left: 12.5%;
 }
 
-button {
+/* button {
     background: radial-gradient(circle,rgb(234, 215, 158) 10%,rgb(248, 220, 135) 30%,rgb(223, 178, 38));
     border-radius: 6px;
     padding: .75em 1.25em;
@@ -20,9 +20,9 @@ button {
     font-size:medium;
     letter-spacing: .05em;
     margin: 2em 3em;
-}
+} */
 
-button:active {
+/* button:active {
     background: radial-gradient(circle, rgb(156, 142, 80) 10%, rgb(163, 139, 73), rgb(114, 99, 35));
 }
 
@@ -31,7 +31,7 @@ button:hover {
     position: relative;
     left: -.04em;
     top: -.04em;
-}
+} */
 
 .alienMessage {
     color: green;

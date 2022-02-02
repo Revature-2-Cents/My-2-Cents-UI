@@ -1,13 +1,13 @@
-body {
+html {
     background-image: radial-gradient(#00d2e9ff, #045962ff);
 }
 
 .component {
     background: radial-gradient(#e9f1f7, #c2c3d3 , #9a9aa8);
-    /* border: .15em solid grey;
+    border: .15em solid grey;
     margin: 25%;
     border-radius: 15px;
-    padding-left: 12.5%; */
+    padding: 12.5%;
 }
 button {
     background: radial-gradient(circle,rgb(234, 215, 158) 10%,rgb(248, 220, 135) 30%,rgb(223, 178, 38));
