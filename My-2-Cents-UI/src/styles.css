@@ -11,7 +11,7 @@ body {
     padding-left: 12.5%;
 }
 
-/* button {
+button {
     background: radial-gradient(circle,rgb(234, 215, 158) 10%,rgb(248, 220, 135) 30%,rgb(223, 178, 38));
     border-radius: 6px;
     padding: .75em 1.25em;
@@ -20,9 +20,9 @@ body {
     font-size:medium;
     letter-spacing: .05em;
     margin: 2em 3em;
-} */
+}
 
-/* button:active {
+button:active {
     background: radial-gradient(circle, rgb(156, 142, 80) 10%, rgb(163, 139, 73), rgb(114, 99, 35));
 }
 
@@ -31,12 +31,5 @@ button:hover {
     position: relative;
     left: -.04em;
     top: -.04em;
-} */
-
-.alienMessage {
-    color: green;
 }
 
-.peopleMessage {
-    color: yellow
-}
