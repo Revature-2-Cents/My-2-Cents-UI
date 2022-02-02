@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 import { Expenses } from './mock-incomes';
+
+import { lastValueFrom, Observable, throwError } from 'rxjs';
+import { catchError, retry} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +12,9 @@ import { Expenses } from './mock-incomes';
 export class IncomesService {
   incomes: Expenses[] = [];
 
-  constructor() { }
+  defaultUrl = "http://my2centsapi.azurewebsites.net/";
+
+  constructor(private http : HttpClient) { }
 
   addToIncome(income: Expenses)
   {
@@ -24,5 +30,14 @@ export class IncomesService {
   {
     this.incomes = [];
     return this.incomes;
+  }
+
+  getAccountInfo(): Promise<Expenses[]>{
+    const headers = new HttpHeaders()
+      .set('content-type', 'text/plain')
+      .set('Access-Control-Allow-Origin', `*`)
+    // const params = new HttpParams()
+    //   .set('', this.incomes[0].Name);
+    return lastValueFrom(this.http.get<Expenses[]>(this.defaultUrl, {headers}));
   }
 }

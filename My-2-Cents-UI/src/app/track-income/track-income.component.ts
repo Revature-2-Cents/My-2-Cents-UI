@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Expenses, Mock_Items } from '../mock-incomes'
 
+import { IncomesService } from '../incomes.service';
+
 @Component({
   selector: 'app-track-income',
   templateUrl: './track-income.component.html',
@@ -11,7 +13,8 @@ export class TrackIncomeComponent implements OnInit {
   Items : Expenses[] = Mock_Items;
   ShowDetails = false;
 
-  constructor() { }
+  testHttp = this.iService.getAccountInfo();
+  constructor(private iService : IncomesService) { }
 
   ngOnInit(): void {
   }
@@ -20,5 +23,8 @@ export class TrackIncomeComponent implements OnInit {
     this.ShowDetails = !this.ShowDetails;
   }
 
+  test()
+  {
 
+  }
 }
