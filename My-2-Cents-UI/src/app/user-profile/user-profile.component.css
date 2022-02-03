@@ -8,6 +8,7 @@ html {
     margin: 25%;
     border-radius: 15px;
     padding: 12.5%;
+    /* background-image: url(https://media.discordapp.net/attachments/937791410889981983/938171320074661888/Logo.png); */
 }
 button {
     background: radial-gradient(circle,rgb(234, 215, 158) 10%,rgb(248, 220, 135) 30%,rgb(223, 178, 38));
