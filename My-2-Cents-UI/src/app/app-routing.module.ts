@@ -18,10 +18,9 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: TrackMultipleAccountsComponent,
-    // canActivate: [AuthGuard], // need authentication to see the page
+    canActivate: [AuthGuard], // need authentication to see the page
   },
 ];
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
