@@ -13,7 +13,16 @@ export class TrackMultipleAccountsComponent implements OnInit {
     @Inject(DOCUMENT) private doc: Document
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.AddUser;
+  }
+
+  AddUser() {
+    this.auth.user$.subscribe((profile) => {
+      console.log(profile);
+    });
+  }
+
   logout(): void {
     console.log(this.doc.location);
     this.auth.logout({ returnTo: this.doc.location.origin });
