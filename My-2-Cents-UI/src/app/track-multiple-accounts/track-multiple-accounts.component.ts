@@ -14,13 +14,11 @@ export class TrackMultipleAccountsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.GetUserInfo;
+    this.GetUserInfo();
   }
 
   GetUserInfo() {
-    this.auth.user$.subscribe((profile) => {
-      console.log(profile);
-    });
+    // A http GET method for getting user ID
   }
 
   logout(): void {
