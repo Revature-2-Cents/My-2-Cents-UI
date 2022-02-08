@@ -34,16 +34,6 @@ const routes: Routes = [
     component: UserChangeInfoComponent,
     //canActivate: [AuthGuard]
   },
-  {
-    path: 'track-expenses',
-    component: TrackExpensesComponent,
-    //canActivate: [AuthGuard]
-  },
-  {
-    path: 'track-income',
-    component: TrackIncomeComponent,
-    //canActivate: [AuthGuard]
-  }
 ];
 
 
