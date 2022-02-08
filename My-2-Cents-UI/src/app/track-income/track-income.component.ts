@@ -16,11 +16,11 @@ export class TrackIncomeComponent implements OnInit {
   testHttp = this.iService.getAccountInfo();
   constructor(private iService : IncomesService) { }
 
-  ngOnInit(): void {
+  ngOnInit(){
   }
 
-  ToggleDetails(): void{
-    this.ShowDetails = !this.ShowDetails;
+  ToggleDetails(){
+      this.ShowDetails = !this.ShowDetails;
   }
 
   test()

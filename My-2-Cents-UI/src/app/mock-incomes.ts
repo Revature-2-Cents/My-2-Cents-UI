@@ -21,5 +21,12 @@ export const Mock_Items: Expenses[] = [
     'Price': 10.00,
     'Detail': 'Purchased today',
     'showDate': '20220202'
+    },{
+    'Name': 'Account',
+    'Amount': 100.00,
+    'ItemName': 'TestItem2',
+    'Price': -20.00,
+    'Detail': 'Purchased Yesterday',
+    'showDate': '20220202'
     }
 ];

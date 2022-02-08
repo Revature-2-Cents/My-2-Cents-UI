@@ -1,19 +1,23 @@
 <div class="Headder">Check Account Page</div>
 
-<ul class="Account-Table" *ngFor="let Item of Items">
+<ul class="Account-Table">
 
     <div class="Account content">
-        <span class="content">{{Item.Name}}</span>
+        <span class="content">{{Items[0].Name}}</span>
         <div class="spacer content"></div>
-        <span class="total content">{{Item.Amount}}</span>
+        <span class="total content">{{Items[0].Amount}}</span>
     </div>
 
-    <ul>
+    <ul *ngFor="let Item of Items">
         <div class="item">
         <span class="Item-Name content">{{Item.ItemName}}</span>
         <div class="spacer content"></div>
         <span class="Item-Cost content">{{Item.Price}}</span>
-        <button click="ToggleDetails()" class="Down-Arrow content">V</button>
+        <button (click)="ToggleDetails()" class="Down-Arrow content">V</button>
+        </div>
+        <div class="details" [ngClass]="ShowDetails ? 'visible' : 'hidden'">
+            <p>{{Item.Detail}}</p>
+            <p>{{Item.showDate}}</p>
         </div>
     </ul>
 
