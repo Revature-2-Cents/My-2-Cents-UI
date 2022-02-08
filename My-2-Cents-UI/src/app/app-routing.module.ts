@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
+import { TransferMoneyComponent } from './transfer-money/transfer-money.component';
 
 import { AuthGuard } from '@auth0/auth0-angular';
 import { TrackMultipleAccountsComponent } from './track-multiple-accounts/track-multiple-accounts.component';
@@ -33,6 +34,11 @@ const routes: Routes = [
     path: 'user-change-info',
     component: UserChangeInfoComponent,
     //canActivate: [AuthGuard]
+  },
+  {
+    path: 'transfer',
+    component: TransferMoneyComponent,
+    canActivate: [AuthGuard], // need authentication to see the page
   },
 ];
 
