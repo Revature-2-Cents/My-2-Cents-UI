@@ -3,6 +3,19 @@
         <h1>home page</h1>
     </div>
 </header>
-<button class="login-button" (click)="logout()">Log out</button>
 
-<button class="transfer-button">Transfer Between Accounts</button>
+<nav>
+  <a href="">Checking Account</a>
+  <a href="">Savings Account</a>
+  <a href="">Investment Account</a>
+  <a href="">User Profile</a>
+  <a href="">Transfer Money</a>
+  <a href="">Add New Account</a>
+</nav>
+
+<button (click)="logout()">Log out</button>
+
+<!--
+  <div *ngFor(account in Accounts)></div>
+<button class="account-button">{{placeholder}}</button>
+-->
