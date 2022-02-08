@@ -4,6 +4,10 @@ import { LoginComponent } from './login/login.component';
 
 import { AuthGuard } from '@auth0/auth0-angular';
 import { TrackMultipleAccountsComponent } from './track-multiple-accounts/track-multiple-accounts.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { UserChangeInfoComponent } from './user-change-info/user-change-info.component';
+import { TrackExpensesComponent } from './track-expenses/track-expenses.component';
+import { TrackIncomeComponent } from './track-income/track-income.component';
 
 const routes: Routes = [
   {
@@ -20,6 +24,26 @@ const routes: Routes = [
     component: TrackMultipleAccountsComponent,
     //canActivate: [AuthGuard], // need authentication to see the page
   },
+  {
+    path: 'user-profile',
+    component: UserProfileComponent,
+    //canActivate: [AuthGuard]
+  },
+  {
+    path: 'user-change-info',
+    component: UserChangeInfoComponent,
+    //canActivate: [AuthGuard]
+  },
+  {
+    path: 'track-expenses',
+    component: TrackExpensesComponent,
+    //canActivate: [AuthGuard]
+  },
+  {
+    path: 'track-income',
+    component: TrackIncomeComponent,
+    //canActivate: [AuthGuard]
+  }
 ];
 
 @NgModule({

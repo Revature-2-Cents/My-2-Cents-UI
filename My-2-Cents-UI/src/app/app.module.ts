@@ -13,6 +13,7 @@ import { TrackMultipleAccountsComponent } from './track-multiple-accounts/track-
 
 import { AuthModule } from '@auth0/auth0-angular';
 import { environment as env } from '../environments/environment';
+import { UserChangeInfoComponent } from './user-change-info/user-change-info.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { environment as env } from '../environments/environment';
     TransferMoneyComponent,
     TrackExpensesComponent,
     TrackMultipleAccountsComponent,
+    UserChangeInfoComponent,
   ],
   imports: [
     BrowserModule,
