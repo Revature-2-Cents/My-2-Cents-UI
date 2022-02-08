@@ -1,1 +1,18 @@
-<p>transfer-money works!</p>
+<label for="accounts">From Account:</label>
+<select class="dropdown" #fromAccount>
+    <div *ngFor="let account in accounts">
+        <option value=account.AccountID>Account {{account.AccountID}}</option>    
+    </div>
+</select>
+
+<label for="accounts">To Account:</label>
+<select class="dropdown" #toAccount>
+    <div *ngFor="let account in accounts">
+        <option value=account.AccountID>Account {{account.AccountID}}</option>    
+    </div>
+</select>
+
+
+$<input type="number" min="0.01" step="0.01" #quantity>
+
+<button (click)="CheckFunds(+fromAccount.value, +toAccount.value, +quantity.value)">Transfer Funds</button>
