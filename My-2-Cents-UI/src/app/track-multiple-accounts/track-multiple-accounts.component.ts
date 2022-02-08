@@ -1,6 +1,7 @@
 import { Component, Inject, Injectable, OnInit } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
 import { DOCUMENT } from '@angular/common';
+import { UserLoginInfo } from '../Login';
 
 @Component({
   selector: 'app-track-multiple-accounts',
@@ -16,9 +17,16 @@ export class TrackMultipleAccountsComponent implements OnInit {
   ngOnInit(): void {
     this.GetUserInfo();
   }
+  UserLoginInfo = <UserLoginInfo>{};
 
   GetUserInfo() {
-    // A http GET method for getting user ID
+    // Getting user infomation after login
+    this.auth.user$.subscribe((data) => {
+      console.log(data!.sub!.substring(6));
+      this.UserLoginInfo.userID = +data!.sub!.substring(6);
+      this.UserLoginInfo.userName = data?.nickname;
+      this.UserLoginInfo.email = data?.email;
+    });
   }
 
   logout(): void {
