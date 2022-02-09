@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Account } from '../account';
-import { TransferService } from '../transfer-service';
+import { TransferService } from '../transfer.service';
 
 @Component({
   selector: 'app-transfer-money',
@@ -16,7 +16,7 @@ export class TransferMoneyComponent implements OnInit {
   @Output() toAccount = new EventEmitter<string>();
   @Output() quantity = new EventEmitter<number>();
 
-  constructor() { }
+  constructor(private transferService: TransferService) { }
 
   ngOnInit(): void {
   }
@@ -31,7 +31,7 @@ export class TransferMoneyComponent implements OnInit {
   }
 
   TransferFunds(fromAccount: number, toAccount: number, quantity: number) : void {
-    this.transactionService.TransferFunds(fromAccount, toAccount, quantity);
+    this.transferService.TransferFunds(fromAccount, toAccount, quantity);
 
   }
 
