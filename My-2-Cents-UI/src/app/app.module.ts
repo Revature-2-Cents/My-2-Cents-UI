@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -10,6 +10,12 @@ import { TrackIncomeComponent } from './track-income/track-income.component';
 import { TransferMoneyComponent } from './transfer-money/transfer-money.component';
 import { TrackExpensesComponent } from './track-expenses/track-expenses.component';
 import { TrackMultipleAccountsComponent } from './track-multiple-accounts/track-multiple-accounts.component';
+
+
+import { AuthModule } from '@auth0/auth0-angular';
+import { environment as env } from '../environments/environment';
+import { UserChangeInfoComponent } from './user-change-info/user-change-info.component';
+import {  HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,13 +27,17 @@ import { TrackMultipleAccountsComponent } from './track-multiple-accounts/track-
     TransferMoneyComponent,
     TrackExpensesComponent,
     TrackMultipleAccountsComponent,
+    UserChangeInfoComponent,
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
+    AuthModule.forRoot({
+      ...env.auth,
+    }),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
