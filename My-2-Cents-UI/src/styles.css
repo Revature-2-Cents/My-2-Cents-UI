@@ -32,3 +32,12 @@ button:active {
   );
 }
 
+.component {
+  background: radial-gradient(#e9f1f7, #c2c3d3 , #9a9aa8);
+  border: .15em solid grey;
+  margin: 4em auto;
+  width: 50%;
+  border-radius: 15px;
+  padding: 3em;
+}
+
