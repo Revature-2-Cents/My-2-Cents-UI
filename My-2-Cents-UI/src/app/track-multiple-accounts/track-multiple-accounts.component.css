@@ -1,3 +1,14 @@
-button {
-  margin-top: 100px;
+.component {
+  background: radial-gradient(#e9f1f7, #c2c3d3 , #9a9aa8);
+  border: .15em solid grey;
+  margin: 4em auto;
+  width: 50%;
+  border-radius: 15px;
+  padding: 3em;
+
+  /* background-image: url(https://media.discordapp.net/attachments/937791410889981983/938171320074661888/Logo.png); */
 }
+
+/* button {
+  margin-top: 100px;
+} */
