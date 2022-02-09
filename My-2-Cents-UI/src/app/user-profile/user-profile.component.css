@@ -1,3 +1,8 @@
+
+div.center {
+  text-align: center;
+}
+
 .component {
   background: radial-gradient(#e9f1f7, #c2c3d3 , #9a9aa8);
   border: .15em solid grey;
@@ -53,7 +58,3 @@ small {
   font: rgba(128, 128, 128, 0.322) 5pt
 }
 
-.center {
-  text-align: center;
-  border: black 2em;
-}
