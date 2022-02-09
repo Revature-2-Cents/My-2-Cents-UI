@@ -8,16 +8,17 @@
         <span class="total content">{{Items[0].Amount}}</span>
     </div>
 
-    <ul *ngFor="let Item of Items">
+    <ul *ngFor="let Item of Items; let i = index">
         <div class="item">
-        <span class="Item-Name content">{{Item.ItemName}}</span>
-        <div class="spacer content"></div>
-        <span class="Item-Cost content">{{Item.Price}}</span>
-        <button (click)="ToggleDetails()" class="Down-Arrow content">V</button>
+            <span class="Item-Name content">{{Item.ItemName}}</span>
+            <div class="spacer content"></div>
+            <span class="Item-Cost content">{{Item.Price}}</span>
+            <button (click)="selectItem(Item)" class="Down-Arrow content">V</button>
         </div>
-        <div class="details" [ngClass]="ShowDetails ? 'visible' : 'hidden'">
-            <p>{{Item.Detail}}</p>
-            <p>{{Item.showDate}}</p>
+
+        <div *ngIf="Item === selectedItem" class="details details.visible">
+                <p>{{selectedItem.Detail}}</p>
+                <p>{{selectedItem.showDate}}</p>
         </div>
     </ul>
 

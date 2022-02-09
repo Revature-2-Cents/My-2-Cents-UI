@@ -11,7 +11,8 @@ import { IncomesService } from '../incomes.service';
 export class TrackIncomeComponent implements OnInit {
 
   Items : Expenses[] = Mock_Items;
-  ShowDetails = false;
+
+  selectedItem?: Expenses;
 
   testHttp = this.iService.getAccountInfo();
   constructor(private iService : IncomesService) { }
@@ -19,8 +20,13 @@ export class TrackIncomeComponent implements OnInit {
   ngOnInit(){
   }
 
-  ToggleDetails(){
-      this.ShowDetails = !this.ShowDetails;
+  selectItem(Item: Expenses): void {
+    if(this.selectedItem === Item){
+      this.selectedItem = undefined;
+    }
+    else{
+      this.selectedItem = Item;
+    }
   }
 
   test()
