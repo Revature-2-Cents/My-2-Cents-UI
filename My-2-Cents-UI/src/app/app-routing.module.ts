@@ -10,6 +10,7 @@ import { UserChangeInfoComponent } from './user-change-info/user-change-info.com
 import { TrackExpensesComponent } from './track-expenses/track-expenses.component';
 import { TrackIncomeComponent } from './track-income/track-income.component';
 
+
 const routes: Routes = [
   {
     path: '',
@@ -38,7 +39,12 @@ const routes: Routes = [
   {
     path: 'transfer',
     component: TransferMoneyComponent,
-    canActivate: [AuthGuard], // need authentication to see the page
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'track-income/:AccountID',
+    component: TrackIncomeComponent,
+    canActivate: [AuthGuard],
   },
 ];
 

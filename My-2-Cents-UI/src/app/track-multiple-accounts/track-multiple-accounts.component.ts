@@ -4,6 +4,7 @@ import { DOCUMENT } from '@angular/common';
 import { UserLoginInfo } from '../Login';
 import { Account } from '../account';
 import { ThisReceiver } from '@angular/compiler';
+import { UserProfileComponent } from '../user-profile/user-profile.component';
 
 @Component({
   selector: 'app-track-multiple-accounts',

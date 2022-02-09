@@ -6,7 +6,6 @@ html {
 }
 
 button {
-  display: flex;
   background: radial-gradient(
     circle,
     rgb(234, 215, 158) 10%,
