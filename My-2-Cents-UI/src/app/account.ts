@@ -7,4 +7,3 @@ export interface Account {
   AccountTypeID: number;
   Interest: PercentPipe;
 }
-
