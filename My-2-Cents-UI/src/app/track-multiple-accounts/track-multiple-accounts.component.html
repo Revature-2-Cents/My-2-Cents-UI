@@ -4,13 +4,44 @@
     </div>
 </header>
 <nav class="topnav">
-  <a href="">Checking Account</a>
-  <a href="">Savings Account</a>
-  <a href="">Investment Account</a>
   <a id="user-profile" routerlink="/user-profile" href="#user-profile">My Profile</a>
   <a href="">Transfer Money</a>
   <a href="">Add New Account</a>
+</nav>
 
+<div *ngIf="viewAccounts != []; then accountsBlock; else notAccountsBlock">
+</div>
+<ng-template #accountsBlock>
+  <fieldset>
+    <legend>Checking</legend>
+  <div *ngFor = 'let Account of checkingArray'>
+    <a routerLink="./track-income/{{ Account.AccountID }}">
+      <button class="account-button">{{ Account.AccountID }}  {{ Account.TotalBalance }}</button>
+    </a>
+  </div>
+</fieldset>
+<fieldset>
+  <legend>Savings</legend>
+  <div *ngFor = 'let Account of savingArray'>
+    <a routerLink="./track-income/{{ Account.AccountID }}">
+      <button class="account-button">{{ Account.AccountID }}  {{ Account.TotalBalance }}</button>
+    </a>
+  </div>
+</fieldset>
+<fieldset>
+  <legend>Investment</legend>
+  <div *ngFor = 'let Account of investmentArray'>
+    <a routerLink="./track-income/{{ Account.AccountID }}">
+      <button class="account-button">{{ Account.AccountID }}  {{ Account.TotalBalance }}</button>
+    </a>
+  </div>
+</fieldset>
+
+</ng-template>
+
+<ng-template #notAccountsBlock>
+  <p>No accounts yet</p>
+</ng-template>
 
 
 <button (click)="logout()">Log out</button>
@@ -29,6 +60,7 @@
         User Email: {{UserLoginInfo.email}}
     </li>
 </ul>
+
 
 <!--
   <div *ngFor(account in Accounts)></div>
