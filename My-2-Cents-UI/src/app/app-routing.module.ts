@@ -28,12 +28,12 @@ const routes: Routes = [
   {
     path: 'user-profile',
     component: UserProfileComponent,
-    //canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
   },
   {
     path: 'user-change-info',
     component: UserChangeInfoComponent,
-    //canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
   },
   {
     path: 'transfer',

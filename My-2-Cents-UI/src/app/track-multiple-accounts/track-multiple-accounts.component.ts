@@ -17,6 +17,7 @@ export class TrackMultipleAccountsComponent implements OnInit {
   ngOnInit(): void {
     this.GetUserInfo();
   }
+
   UserLoginInfo = <UserLoginInfo>{};
 
   GetUserInfo() {
