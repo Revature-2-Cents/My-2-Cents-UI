@@ -1,14 +1,32 @@
-.component {
-  background: radial-gradient(#e9f1f7, #c2c3d3 , #9a9aa8);
-  border: .15em solid grey;
-  margin: 4em auto;
-  width: 50%;
-  border-radius: 15px;
-  padding: 3em;
-
-  /* background-image: url(https://media.discordapp.net/attachments/937791410889981983/938171320074661888/Logo.png); */
+.component .topnav {
+  margin-bottom: 2em;
+  margin-top: -1em;
+  background-color:rgb(48, 46, 48);
+  margin-left: -3em;
+  margin-right: -3em;
 }
 
-/* button {
-  margin-top: 100px;
-} */
+.topnav {
+  overflow:hidden;
+  padding: .5em 1em;
+}
+
+.topnav a {
+  color: rgba(250, 244, 232, 0.829);
+  padding: 2%;
+  text-decoration: none;
+  text-align: center;
+}
+.topnav a:hover {
+  background-color: rgb(224, 217, 217);
+  color: rgb(39, 38, 38)
+}
+
+.topnav a:active {
+  background-color: rgba(219, 176, 83, 0.418);
+  color:rgb(250, 244, 232)
+}
+
+button {
+  margin-top: 1.5em;
+}
