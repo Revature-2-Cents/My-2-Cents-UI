@@ -16,6 +16,7 @@ import { environment as env } from '../environments/environment';
 import { UserChangeInfoComponent } from './user-change-info/user-change-info.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { CreateProfileComponent } from './create-profile/create-profile.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
     TrackExpensesComponent,
     TrackMultipleAccountsComponent,
     UserChangeInfoComponent,
+    CreateProfileComponent,
   ],
   imports: [
     BrowserModule,
