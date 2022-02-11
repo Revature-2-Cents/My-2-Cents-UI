@@ -1,74 +1,67 @@
 <body>
-<nav class="topnav">
-  <a id="user-profile" routerLink="/user-profile">My Profile</a>
-  <a routerLink="/transfer-money">Transfer Money</a>
-  <a href="">Add New Account</a>
-
+  <nav class="topnav">
+    <a id="user-profile">My Profile</a>
+    <a routerLink="/transfer-money">Transfer Money</a>
+    <a href="">Add New Account</a>
     <a (click)="logout()">Log out</a>
-
-</nav>
-
+  </nav>
 
 
-  <div class="crop">
-  </div>
+  <div class="component">
+    <div *ngIf="NavName=='dashboard'">
+      <div *ngIf="viewAccounts.length else notAccountsBlock">
+        <fieldset>
+          <legend>Checking</legend>
+          <div *ngFor='let Account of checkingArray'>
+            <a routerLink="./track-income/{{ Account.AccountID }}">
+              <button class="account-button">{{ Account.AccountID }} {{ Account.TotalBalance }}</button>
+            </a>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Savings</legend>
+          <div *ngFor='let Account of savingArray'>
+            <a routerLink="./track-income/{{ Account.AccountID }}">
+              <button class="account-button">{{ Account.AccountID }} {{ Account.TotalBalance }}</button>
+            </a>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Investment</legend>
+          <div *ngFor='let Account of investmentArray'>
+            <a routerLink="./track-income/{{ Account.AccountID }}">
+              <button class="account-button">{{ Account.AccountID }} {{ Account.TotalBalance }}</button>
+            </a>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+    <ng-template #notAccountsBlock>
+      <h1>No accounts yet</h1>
+      <app-user-profile [userId]=UserLoginInfo.userID></app-user-profile>
+    </ng-template>
 
+    <ng-template #profile>
+      <app-user-profile [userId]=UserLoginInfo.userID></app-user-profile>
+    </ng-template>
 
-<div class="component">
-
-<div *ngIf="viewAccounts != []; then accountsBlock; else notAccountsBlock">
-</div>
-<ng-template #accountsBlock>
-  <fieldset>
-    <legend>Checking</legend>
-  <div *ngFor = 'let Account of checkingArray'>
-    <a routerLink="./track-income/{{ Account.AccountID }}">
-      <button class="account-button">{{ Account.AccountID }}  {{ Account.TotalBalance }}</button>
-    </a>
-  </div>
-</fieldset>
-<fieldset>
-  <legend>Savings</legend>
-  <div *ngFor = 'let Account of savingArray'>
-    <a routerLink="./track-income/{{ Account.AccountID }}">
-      <button class="account-button">{{ Account.AccountID }}  {{ Account.TotalBalance }}</button>
-    </a>
-  </div>
-</fieldset>
-<fieldset>
-  <legend>Investment</legend>
-  <div *ngFor = 'let Account of investmentArray'>
-    <a routerLink="./track-income/{{ Account.AccountID }}">
-      <button class="account-button">{{ Account.AccountID }}  {{ Account.TotalBalance }}</button>
-    </a>
-  </div>
-</fieldset>
-
-</ng-template>
-
-<ng-template #notAccountsBlock>
-  <p>No accounts yet</p>
-</ng-template>
-
-
-
-<h2>User Login Information:</h2>
-<ul *ngIf="auth.user$ | async as user">
-    <li>
+    <h2>User Login Information:</h2>
+    <ul *ngIf="auth.user$ | async as user">
+      <li>
         User ID: {{UserLoginInfo.userID}}
-    </li>
-    <li>
+      </li>
+      <li>
         Username: {{UserLoginInfo.userName}}
-    </li>
-    <li>
+      </li>
+      <li>
         User Email: {{UserLoginInfo.email}}
-    </li>
-</ul>
+      </li>
+    </ul>
 
 
-<!--
+    <!--
   <div *ngFor(account in Accounts)></div>
 <button class="account-button">{{placeholder}}</button>
 -->
-</div>
+  </div>
 </body>
