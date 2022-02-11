@@ -5,6 +5,7 @@ import { UserLoginInfo } from '../Login';
 import { Account } from '../account';
 import { ThisReceiver } from '@angular/compiler';
 import { UserProfileComponent } from '../user-profile/user-profile.component';
+import { UserLoginServiceService } from '../user-login-service.service';
 
 @Component({
   selector: 'app-track-multiple-accounts',
@@ -19,7 +20,8 @@ export class TrackMultipleAccountsComponent implements OnInit {
 
   constructor(
     public auth: AuthService,
-    @Inject(DOCUMENT) private doc: Document
+    @Inject(DOCUMENT) private doc: Document,
+    private userloginservice: UserLoginServiceService
   ) {}
 
   ngOnInit(): void {
@@ -30,12 +32,13 @@ export class TrackMultipleAccountsComponent implements OnInit {
   NavName: string = 'dashboard';
   GetUserInfo() {
     // Getting user infomation after login
-    this.auth.user$.subscribe((data) => {
-      console.log(data!.sub!.substring(6));
-      this.UserLoginInfo.userID = +data!.sub!.substring(6);
-      this.UserLoginInfo.userName = data?.nickname;
-      this.UserLoginInfo.email = data?.email;
-    });
+    // this.auth.user$.subscribe((data) => {
+    //   console.log(data!.sub!.substring(6));
+    //   this.UserLoginInfo.userID = +data!.sub!.substring(6);
+    //   this.UserLoginInfo.userName = data?.nickname;
+    //   this.UserLoginInfo.email = data?.email;
+    // });
+    this.UserLoginInfo = this.userloginservice.GetUser();
   }
 
   logout(): void {

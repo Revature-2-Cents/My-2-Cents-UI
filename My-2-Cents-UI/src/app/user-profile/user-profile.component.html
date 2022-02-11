@@ -1,72 +1,68 @@
-
-   
-   
-
-
-
 <body>
-  <div *ngFor="let json of data" >
-    
-    
-     
-  <div class="component">
-    <h1>{{json.firstName}}</h1>
-    <br>
+  <div *ngIf="auth.user$ | async as user">
+    <div *ngFor="let json of data">
 
-    <div class="container">
-      <div style="width: 50%;  float: left; "> Personal Info</div>
-      <div style="width: 50%;  float: left; "> Work Phone</div>
-   
-      <hr />
-      <span class="information-table">
-        <table>
-          <tr>
-            <td>Address:</td>
-            <td>{{json.mailingAddress}}</td>
-          </tr>
-          <tr>
-            <td>Home Phone:</td>
-            <td>{{ json.phone }}</td>
-          </tr>
-          <tr>
-            <td>Mobile Phone:</td>
-            <td>{{ json.phone }}</td>
-          </tr>
-          <tr>
-            <td>Email:</td>
-            <td>{{ json.email }}</td>
-          </tr>
-      </table>
 
-    </span>
 
-      <span class="information-table">
-        <table>
-          <tr>
-            <td>Address:</td>
-            <td>{{json.workAddress}}</td>
-          </tr>
-          <tr>
-            <td>Work Phone:</td>
-            <td>{{ json.workPhone }}</td>
-           
-          </tr>
-          <tr>
-            <td>Mobile Phone:</td>
-            <td>{{ json.phone }}</td>
-          </tr>
-          <tr>
-            <td>Email:</td>
-            <td>{{ json.email }}</td>
-          </tr>
-        </table>
-      </span>
-      <div class ="center">
-      <button type="button">Edit info</button>
+      <div class="component">
+        <h1>{{json.firstName}}</h1>
+        <br>
+
+        <div class="container">
+          <div style="width: 50%;  float: left; "> Personal Info</div>
+          <div style="width: 50%;  float: left; "> Work Phone</div>
+
+          <hr />
+          <span class="information-table">
+            <table>
+              <tr>
+                <td>Address:</td>
+                <td>{{json.mailingAddress}}</td>
+              </tr>
+              <tr>
+                <td>Home Phone:</td>
+                <td>{{ json.phone }}</td>
+              </tr>
+              <tr>
+                <td>Mobile Phone:</td>
+                <td>{{ json.phone }}</td>
+              </tr>
+              <tr>
+                <td>Email:</td>
+                <td>{{ json.email }}</td>
+              </tr>
+            </table>
+
+          </span>
+
+          <span class="information-table">
+            <table>
+              <tr>
+                <td>Address:</td>
+                <td>{{json.workAddress}}</td>
+              </tr>
+              <tr>
+                <td>Work Phone:</td>
+                <td>{{ json.workPhone }}</td>
+
+              </tr>
+              <tr>
+                <td>Mobile Phone:</td>
+                <td>{{ json.phone }}</td>
+              </tr>
+              <tr>
+                <td>Email:</td>
+                <td>{{ json.email }}</td>
+              </tr>
+            </table>
+          </span>
+          <div class="center">
+            <button type="button">Edit info</button>
+          </div>
+
+        </div>
       </div>
-    
     </div>
   </div>
-</div>
 
 </body>

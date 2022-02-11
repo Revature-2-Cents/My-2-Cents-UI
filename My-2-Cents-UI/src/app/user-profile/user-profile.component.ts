@@ -4,6 +4,7 @@ import { AuthService } from '@auth0/auth0-angular';
 import { HttpClient } from '@angular/common/http';
 import { UserLoginInfo } from '../Login';
 import { My2CentsService } from '../my2-cents.service';
+import { UserLoginServiceService } from '../user-login-service.service';
 
 @Injectable({
   providedIn: 'root',
@@ -20,34 +21,48 @@ export class UserProfileComponent implements OnInit {
     private http: HttpClient,
     private my2centsService: My2CentsService,
     public auth: AuthService,
+    private userloginservice: UserLoginServiceService,
     @Inject(DOCUMENT) private doc: Document
   ) {}
 
-  @Input() userId: number = -1;
+  UserLoginInfo = <UserLoginInfo>{};
   ngOnInit(): void {
     this.GetUserInfo();
-    this.getData();
-    console.log('this.userId=' + this.userId);
+    // this.getData();
+    this.GetUserProfile();
   }
-
-  UserLoginInfo = <UserLoginInfo>{};
 
   GetUserInfo() {
-    // Getting user infomation after login
-    this.auth.user$.subscribe((data) => {
-      console.log(data!.sub!.substring(6));
-      this.UserLoginInfo.userID = +data!.sub!.substring(6);
-    });
+    this.UserLoginInfo = this.userloginservice.GetUser();
   }
 
-  getData() {
-    //const url ='https://my2centsapi.azurewebsites.net/api/User/Info?userid=19'
-    const url = `https://my2centsapi.azurewebsites.net/api/User/Info?UserId=${this.userId}`;
-    // + this.UserLoginInfo.userID;
-    console.log(this.UserLoginInfo.userID);
-    this.http.get(url).subscribe((res) => {
-      this.data = res;
-      console.log(this.data);
-    });
+  // UserLoginInfo = <UserLoginInfo>{};
+
+  // GetUserInfo() {
+  //   // Getting user infomation after login
+  //   this.auth.user$.subscribe((data) => {
+  //     console.log(data!.sub!.substring(6));
+  //     this.UserLoginInfo.userID = +data!.sub!.substring(6);
+  //   });
+  // }
+
+  GetUserProfile() {
+    if (this.auth.user$) {
+      this.my2centsService
+        .getUserInfo(this.UserLoginInfo.userID)
+        .subscribe((data) => {
+          this.data = data;
+        });
+    }
   }
+  // getData() {
+  //   //const url ='https://my2centsapi.azurewebsites.net/api/User/Info?userid=19'
+  //   const url = `https://my2centsapi.azurewebsites.net/api/User/Info?UserId=${this.userId}`;
+  //   // + this.UserLoginInfo.userID;
+  //   console.log(this.UserLoginInfo.userID);
+  //   this.http.get(url).subscribe((res) => {
+  //     this.data = res;
+  //     console.log(this.data);
+  //   });
+  // }
 }
