@@ -41,11 +41,11 @@ export class TrackMultipleAccountsComponent implements OnInit {
     this.UserLoginInfo = this.userloginservice.GetUser();
   }
 
-  logout(): void {
-    console.log(this.doc.location);
-    this.auth.logout({ returnTo: this.doc.location.origin });
-    alert('Successfully logout!');
-  }
+  // logout(): void {
+  //   console.log(this.doc.location);
+  //   this.auth.logout({ returnTo: this.doc.location.origin });
+  //   alert('Successfully logout!');
+  // }
 
   getAccountArray(): void {
     for (let i = 0; i < this.viewAccounts.length; i++) {
