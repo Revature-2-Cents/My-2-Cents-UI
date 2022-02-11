@@ -5,6 +5,7 @@ import { UserLoginInfo } from '../Login';
 import { Account } from '../account';
 import { ThisReceiver } from '@angular/compiler';
 import { UserProfileComponent } from '../user-profile/user-profile.component';
+import { UserLoginServiceService } from '../user-login-service.service';
 
 @Component({
   selector: 'app-track-multiple-accounts',
@@ -12,7 +13,6 @@ import { UserProfileComponent } from '../user-profile/user-profile.component';
   styleUrls: ['./track-multiple-accounts.component.css'],
 })
 export class TrackMultipleAccountsComponent implements OnInit {
-
   viewAccounts: Account[] = [];
   checkingArray: Account[] = [];
   savingArray: Account[] = [];
@@ -20,7 +20,8 @@ export class TrackMultipleAccountsComponent implements OnInit {
 
   constructor(
     public auth: AuthService,
-    @Inject(DOCUMENT) private doc: Document
+    @Inject(DOCUMENT) private doc: Document,
+    private userloginservice: UserLoginServiceService
   ) {}
 
   ngOnInit(): void {
@@ -28,15 +29,16 @@ export class TrackMultipleAccountsComponent implements OnInit {
     this.getAccountArray();
   }
   UserLoginInfo = <UserLoginInfo>{};
-
+  NavName: string = 'dashboard';
   GetUserInfo() {
     // Getting user infomation after login
-    this.auth.user$.subscribe((data) => {
-      console.log(data!.sub!.substring(6));
-      this.UserLoginInfo.userID = +data!.sub!.substring(6);
-      this.UserLoginInfo.userName = data?.nickname;
-      this.UserLoginInfo.email = data?.email;
-    });
+    // this.auth.user$.subscribe((data) => {
+    //   console.log(data!.sub!.substring(6));
+    //   this.UserLoginInfo.userID = +data!.sub!.substring(6);
+    //   this.UserLoginInfo.userName = data?.nickname;
+    //   this.UserLoginInfo.email = data?.email;
+    // });
+    this.UserLoginInfo = this.userloginservice.GetUser();
   }
 
   logout(): void {
@@ -46,18 +48,15 @@ export class TrackMultipleAccountsComponent implements OnInit {
   }
 
   getAccountArray(): void {
-    for(let i=0; i<this.viewAccounts.length; i++){
-      if(this.viewAccounts[i].AccountType == 'Checking'){
+    for (let i = 0; i < this.viewAccounts.length; i++) {
+      if (this.viewAccounts[i].AccountType == 'Checking') {
         this.checkingArray.push(this.viewAccounts[i]);
-      }
-      else if(this.viewAccounts[i].AccountType == 'Savings'){
+      } else if (this.viewAccounts[i].AccountType == 'Savings') {
         this.savingArray.push(this.viewAccounts[i]);
-      }
-      else if(this.viewAccounts[i].AccountType== 'Investment'){
+      } else if (this.viewAccounts[i].AccountType == 'Investment') {
         this.investmentArray.push(this.viewAccounts[i]);
-      }
-      else{
-        console.log("Account type not valid" + this.viewAccounts[i]);
+      } else {
+        console.log('Account type not valid' + this.viewAccounts[i]);
       }
     }
   }
