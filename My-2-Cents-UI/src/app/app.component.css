@@ -17,6 +17,7 @@ header .toplogo {
   width: 100%;
   height: 60px;
   margin-top: -10px;
+  margin-left: -10px;
   position: absolute;
   background-color: rgb(31, 31, 31);
   float: left;
