@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Account } from '../account';
 import { TransferService } from '../transfer.service';
 
@@ -8,7 +8,7 @@ import { TransferService } from '../transfer.service';
   styleUrls: ['./transfer-money.component.css'],
 })
 export class TransferMoneyComponent implements OnInit {
-  account: Account[] = [];
+  @Input() account: Account[] = [];
   funds: boolean = true;
 
 
@@ -17,13 +17,26 @@ export class TransferMoneyComponent implements OnInit {
   @Output() quantity = new EventEmitter<number>();
 
   constructor(private transferService: TransferService) {}
+  
   CheckFunds(fromAccount: number, toAccount: number, quantity: number) {
-    
-    if (+this.account[+fromAccount].TotalBalance < quantity) {
-      this.funds = false;
-    } else {
-      this.TransferFunds(+fromAccount, +toAccount, quantity);
+
+    let fromAcc;
+
+    for (let i = 0; i < this.account.length; i++) {
+      if (this.account[i].AccountID == fromAccount) {
+        fromAcc = this.account[i];
+        break;
+      }
     }
+
+    if (fromAcc != undefined) {
+      if (+fromAcc.TotalBalance < quantity) {
+        this.funds = false;
+      } else {
+        this.TransferFunds(+fromAccount, +toAccount, quantity);
+      }
+    }
+    
   }
 
   TransferFunds(fromAccount: number, toAccount: number, quantity: number) : void {
