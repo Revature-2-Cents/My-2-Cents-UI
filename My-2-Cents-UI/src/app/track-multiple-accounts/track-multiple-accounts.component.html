@@ -1,15 +1,20 @@
-<div class="component">
-  <nav class="topnav">
-    <a id="user-profile" routerlink="/user-profile" href="../user-profile/user-profile.component.html">My Profile</a>
-    <a href="">Transfer Money</a>
-    <a href="">Add New Account</a>
-  </nav>
-<header>
-    <div class="crop">
-        <h1>home page</h1>
-    </div>
-</header>
+<body>
+<nav class="topnav">
+  <a id="user-profile" routerLink="/user-profile">My Profile</a>
+  <a routerLink="/transfer-money">Transfer Money</a>
+  <a href="">Add New Account</a>
 
+    <a (click)="logout()">Log out</a>
+
+</nav>
+
+
+
+  <div class="crop">
+  </div>
+
+
+<div class="component">
 
 <div *ngIf="viewAccounts != []; then accountsBlock; else notAccountsBlock">
 </div>
@@ -60,12 +65,10 @@
     </li>
 </ul>
 
-<div class="center">
-<button (click)="logout()">Log out</button>
-</div>
 
 <!--
   <div *ngFor(account in Accounts)></div>
 <button class="account-button">{{placeholder}}</button>
 -->
 </div>
+</body>

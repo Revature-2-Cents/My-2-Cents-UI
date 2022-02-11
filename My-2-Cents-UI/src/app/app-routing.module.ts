@@ -24,27 +24,27 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: TrackMultipleAccountsComponent,
-    canActivate: [AuthGuard], // need authentication to see the page
+    //canActivate: [AuthGuard], // need authentication to see the page
   },
   {
     path: 'user-profile',
     component: UserProfileComponent,
-    canActivate: [AuthGuard]
+    //canActivate: [AuthGuard]
   },
   {
     path: 'user-change-info',
     component: UserChangeInfoComponent,
-    canActivate: [AuthGuard]
+    //canActivate: [AuthGuard]
   },
   {
     path: 'transfer',
     component: TransferMoneyComponent,
-    canActivate: [AuthGuard],
+    //canActivate: [AuthGuard],
   },
   {
     path: 'track-income/:AccountID',
     component: TrackIncomeComponent,
-    canActivate: [AuthGuard],
+    //canActivate: [AuthGuard],
   },
 ];
 
