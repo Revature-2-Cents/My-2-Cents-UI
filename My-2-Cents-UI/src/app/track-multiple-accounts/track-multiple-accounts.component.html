@@ -39,7 +39,9 @@
       </div>
     </div>
 
-
+    <ng-template #notAccountsBlock>
+      <h1>No accounts yet</h1>
+    </ng-template>
 
     <div *ngIf="NavName=='My Profile'">
       <div *ngIf="auth.user$ | async as user">
