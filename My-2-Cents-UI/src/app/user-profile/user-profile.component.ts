@@ -25,16 +25,16 @@ export class UserProfileComponent implements OnInit {
     @Inject(DOCUMENT) private doc: Document
   ) {}
 
-  UserLoginInfo = <UserLoginInfo>{};
+  @Input() UserLoginInfo = <UserLoginInfo>{};
   ngOnInit(): void {
-    this.GetUserInfo();
+    // this.GetUserInfo();
     // this.getData();
     this.GetUserProfile();
   }
 
-  GetUserInfo() {
-    this.UserLoginInfo = this.userloginservice.GetUser();
-  }
+  // GetUserInfo() {
+  //   this.UserLoginInfo = this.userloginservice.GetUser();
+  // }
 
   // UserLoginInfo = <UserLoginInfo>{};
 

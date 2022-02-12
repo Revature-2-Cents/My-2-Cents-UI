@@ -22,11 +22,10 @@ button {
 button:hover {
   background-image: radial-gradient(
     circle,
-    /* rgb(223, 178, 38), */
-    rgb(238, 205, 105),
+    /* rgb(223, 178, 38), */ rgb(238, 205, 105),
     rgb(248, 220, 135),
-    rgb(234, 215, 158));
-
+    rgb(234, 215, 158)
+  );
 }
 
 button:active {
@@ -44,6 +43,7 @@ button:active {
   margin-top: 149px;
   margin-left: 3em;
   margin-right: 3em;
+
   border-radius: 15px;
   padding: 3em;
 }
@@ -51,6 +51,6 @@ button:active {
 fieldset {
   border-radius: 4px;
   max-width: 90%;
-  min-width: 50%
+  min-width: 50%;
 }
 

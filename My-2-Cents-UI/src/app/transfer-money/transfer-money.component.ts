@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Account } from '../account';
 // import { TransferService } from '../transfer-service';
 
@@ -8,7 +8,8 @@ import { Account } from '../account';
   styleUrls: ['./transfer-money.component.css'],
 })
 export class TransferMoneyComponent implements OnInit {
-  account: Account[] = [];
+  @Input() account: Account[] = [];
+
   funds: boolean = true;
 
   @Output() fromAccount = new EventEmitter<string>();
@@ -17,5 +18,7 @@ export class TransferMoneyComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.account);
+  }
 }
