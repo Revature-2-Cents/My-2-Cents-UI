@@ -1,0 +1,103 @@
+*{
+    font-family: Arial;
+}
+
+.Headder{
+    width:100%;
+    background-color: #B3B3B3FF ;
+    Height: 10%;
+    margin-top: -17px;
+}
+
+.back-button{
+    display: block;
+}
+
+div.Headder p
+{
+    padding: 2%;
+}
+
+
+.Account-Table{
+    display: inline-block;
+    margin-top: 2%;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding: 0;
+    width: 60%;
+    background-color: Gray;
+}
+
+.Account{
+    font-size: 28px;
+    width: 100%;
+    height: 80px;
+    background-color: #B3B3B3FF;
+    display: inline-block;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+}
+.content{
+    display: inline-block;
+}
+
+.spacer{
+    width: flex;
+}
+
+.total{
+    float: right;
+    margin-right: 20px;
+}
+
+ul{
+    padding: 0;
+}
+.item{
+    font-size: 20px;
+    height: 60px;
+    width: 100%;
+    background-color: lightgray;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+}
+
+.item-cost{
+    margin-left: 100px;
+}
+
+button{
+    float: right;
+    margin-top: 0.5%;
+    margin-right: 20px;
+}
+
+.details{
+    font-size: 12px;
+    width: 100%;
+    background-color: #E9F1F7;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+}
+
+.details.hidden{
+    display: none;
+}
+
+.details.visible{
+    display: inline-block;
+}
+
+.details p
+{
+    padding-left: 3%;
+}
+
+ul div.item span, div.Account span
+{
+    padding: 1.5%;
+}
