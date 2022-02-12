@@ -41,10 +41,9 @@ button:active {
 .component {
   background: radial-gradient(#e9f1f7, #e0e0e9 , #c9c9d3);
   border: .15em solid grey;
-  margin-top: 116px;
+  margin-top: 149px;
   margin-left: 3em;
   margin-right: 3em;
-  margin-bottom:auto;
   border-radius: 15px;
   padding: 3em;
 }
