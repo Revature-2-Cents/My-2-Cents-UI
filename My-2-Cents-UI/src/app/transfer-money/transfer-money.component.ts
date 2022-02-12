@@ -9,6 +9,7 @@ import { TransferService } from '../transfer.service';
 })
 export class TransferMoneyComponent implements OnInit {
   @Input() account: Account[] = [];
+
   funds: boolean = true;
 
   @Output() fromAccount = new EventEmitter<string>();
@@ -44,5 +45,7 @@ export class TransferMoneyComponent implements OnInit {
     this.transferService.TransferFunds(fromAccount, toAccount, quantity);
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.account);
+  }
 }

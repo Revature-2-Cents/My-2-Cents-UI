@@ -1,4 +1,4 @@
-name: Deploy Angular App to Azure
+name: Deploy Angular App to Azure Web Service
 on:
   push:
     branches:
