@@ -38,7 +38,12 @@ const routes: Routes = [
   {
     path: 'transfer',
     component: TransferMoneyComponent,
-    canActivate: [AuthGuard], // need authentication to see the page
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'track-income/:AccountID',
+    component: TrackIncomeComponent,
+    canActivate: [AuthGuard],
   },
 ];
 

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +16,9 @@ import { AuthModule } from '@auth0/auth0-angular';
 import { environment as env } from '../environments/environment';
 import { UserChangeInfoComponent } from './user-change-info/user-change-info.component';
 
+import { HttpClientModule } from '@angular/common/http';
+import { CreateProfileComponent } from './create-profile/create-profile.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,13 +30,16 @@ import { UserChangeInfoComponent } from './user-change-info/user-change-info.com
     TrackExpensesComponent,
     TrackMultipleAccountsComponent,
     UserChangeInfoComponent,
+    CreateProfileComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     AuthModule.forRoot({
       ...env.auth,
     }),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],
