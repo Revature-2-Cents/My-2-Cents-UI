@@ -11,15 +11,13 @@ export class TransferMoneyComponent implements OnInit {
   @Input() account: Account[] = [];
   funds: boolean = true;
 
-
   @Output() fromAccount = new EventEmitter<string>();
   @Output() toAccount = new EventEmitter<string>();
   @Output() quantity = new EventEmitter<number>();
 
   constructor(private transferService: TransferService) {}
-  
-  CheckFunds(fromAccount: number, toAccount: number, quantity: number) {
 
+  CheckFunds(fromAccount: number, toAccount: number, quantity: number) {
     let fromAcc;
 
     for (let i = 0; i < this.account.length; i++) {
@@ -36,12 +34,14 @@ export class TransferMoneyComponent implements OnInit {
         this.TransferFunds(+fromAccount, +toAccount, quantity);
       }
     }
-    
   }
 
-  TransferFunds(fromAccount: number, toAccount: number, quantity: number) : void {
+  TransferFunds(
+    fromAccount: number,
+    toAccount: number,
+    quantity: number
+  ): void {
     this.transferService.TransferFunds(fromAccount, toAccount, quantity);
-
   }
 
   ngOnInit(): void {}
