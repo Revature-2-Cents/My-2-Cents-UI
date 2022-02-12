@@ -30,6 +30,7 @@ export class TrackMultipleAccountsComponent implements OnInit {
     this.GetUserInfo();
     // this.getAccountArray();
   }
+
   UserLoginInfo = <UserLoginInfo>{};
   NavName: string = 'Dashboard';
   GetUserInfo() {

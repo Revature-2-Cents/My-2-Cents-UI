@@ -38,13 +38,11 @@
         </fieldset>
       </div>
     </div>
+
     <ng-template #notAccountsBlock>
       <h1>No accounts yet</h1>
     </ng-template>
-    <!--
-  <div *ngFor(account in Accounts)></div>
-<button class="account-button">{{placeholder}}</button>
--->
+
     <div *ngIf="NavName=='My Profile'">
       <div *ngIf="auth.user$ | async as user">
         <app-user-profile [UserLoginInfo]=UserLoginInfo></app-user-profile>
@@ -60,5 +58,6 @@
     <div *ngIf="NavName=='Add New Account'">
       <app-register></app-register>
     </div>
+
   </div>
 </body>
