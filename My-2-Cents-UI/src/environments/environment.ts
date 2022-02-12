@@ -6,7 +6,6 @@ import authInfo from '../../auth_config.json';
 
 export const environment = {
   production: false,
-  URLBase:'https://my2centsapi.azurewebsites.net/api/',
   auth: {
     domain: authInfo.domain,
     clientId: authInfo.clientId,
