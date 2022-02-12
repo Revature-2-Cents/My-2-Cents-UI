@@ -12,11 +12,9 @@ import { TransferMoneyComponent } from './transfer-money/transfer-money.componen
 import { TrackExpensesComponent } from './track-expenses/track-expenses.component';
 import { TrackMultipleAccountsComponent } from './track-multiple-accounts/track-multiple-accounts.component';
 
-
 import { AuthModule } from '@auth0/auth0-angular';
 import { environment as env } from '../environments/environment';
 import { UserChangeInfoComponent } from './user-change-info/user-change-info.component';
-import {  HttpClientModule } from '@angular/common/http';
 
 import { CreateProfileComponent } from './create-profile/create-profile.component';
 

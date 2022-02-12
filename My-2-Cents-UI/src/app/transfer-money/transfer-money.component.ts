@@ -17,7 +17,9 @@ export class TransferMoneyComponent implements OnInit {
   @Output() quantity = new EventEmitter<number>();
 
   constructor(private transferService: TransferService) {}
-
+  ngOnInit(): void {
+    console.log(this.account);
+  }
   CheckFunds(fromAccount: number, toAccount: number, quantity: number) {
     let fromAcc;
 
@@ -43,9 +45,5 @@ export class TransferMoneyComponent implements OnInit {
     quantity: number
   ): void {
     this.transferService.TransferFunds(fromAccount, toAccount, quantity);
-  }
-
-  ngOnInit(): void {
-    console.log(this.account);
   }
 }
