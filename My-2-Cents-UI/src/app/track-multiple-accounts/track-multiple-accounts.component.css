@@ -1,3 +1,50 @@
-button {
-  margin-top: 150px;
+/* .component .topnav {
+  margin-bottom: 2em;
+  position: relative;
+  top:0; */
+body {
+  padding-top: 75px;
+}
+
+.topnav {
+  overflow: hidden;
+  padding: 0.5em 1em;
+  margin-top: -10px;
+  margin-left: -10px;
+  font-size: 16pt;
+  background-color: rgba(0, 0, 0, 0.192);
+  width: 100%;
+}
+
+.topnav a {
+  color: rgba(250, 244, 232, 0.829);
+  padding: 2%;
+  text-decoration: none;
+  text-align: center;
+}
+.topnav a:hover {
+  background-color: rgb(224, 217, 217);
+  color: rgb(39, 38, 38);
+}
+
+.topnav a:active {
+  background-color: rgba(219, 176, 83, 0.418);
+  color: rgb(250, 244, 232);
+}
+
+/* button {
+  margin-top: 1.5em;
+} */
+
+.center {
+  text-align: right;
+  float: right;
+}
+.crop {
+  margin-left: 3em;
+}
+
+.navname {
+  padding-right: 3em;
+  color: black;
 }

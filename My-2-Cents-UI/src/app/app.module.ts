@@ -14,6 +14,10 @@ import { TrackMultipleAccountsComponent } from './track-multiple-accounts/track-
 
 import { AuthModule } from '@auth0/auth0-angular';
 import { environment as env } from '../environments/environment';
+import { UserChangeInfoComponent } from './user-change-info/user-change-info.component';
+
+import { HttpClientModule } from '@angular/common/http';
+import { CreateProfileComponent } from './create-profile/create-profile.component';
 
 @NgModule({
   declarations: [
@@ -25,10 +29,13 @@ import { environment as env } from '../environments/environment';
     TransferMoneyComponent,
     TrackExpensesComponent,
     TrackMultipleAccountsComponent,
+    UserChangeInfoComponent,
+    CreateProfileComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     AuthModule.forRoot({
       ...env.auth,
     }),

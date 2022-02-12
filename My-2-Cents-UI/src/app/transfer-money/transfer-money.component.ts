@@ -1,15 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Account } from '../account';
+// import { TransferService } from '../transfer-service';
 
 @Component({
   selector: 'app-transfer-money',
   templateUrl: './transfer-money.component.html',
-  styleUrls: ['./transfer-money.component.css']
+  styleUrls: ['./transfer-money.component.css'],
 })
 export class TransferMoneyComponent implements OnInit {
+  @Input() account: Account[] = [];
 
-  constructor() { }
+  funds: boolean = true;
+
+  @Output() fromAccount = new EventEmitter<string>();
+  @Output() toAccount = new EventEmitter<string>();
+  @Output() quantity = new EventEmitter<number>();
+
+  constructor() {}
 
   ngOnInit(): void {
+    console.log(this.account);
   }
-
 }
