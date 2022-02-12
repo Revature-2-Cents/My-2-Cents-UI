@@ -22,11 +22,10 @@ button {
 button:hover {
   background-image: radial-gradient(
     circle,
-    /* rgb(223, 178, 38), */
-    rgb(238, 205, 105),
+    /* rgb(223, 178, 38), */ rgb(238, 205, 105),
     rgb(248, 220, 135),
-    rgb(234, 215, 158));
-
+    rgb(234, 215, 158)
+  );
 }
 
 button:active {
@@ -39,12 +38,12 @@ button:active {
 }
 
 .component {
-  background: radial-gradient(#e9f1f7, #e0e0e9 , #c9c9d3);
-  border: .15em solid grey;
-  margin-top: 116px;
+  background: radial-gradient(#e9f1f7, #e0e0e9, #c9c9d3);
+  border: 0.15em solid grey;
+  /* margin-top: 116px; */
   margin-left: 3em;
   margin-right: 3em;
-  margin-bottom:auto;
+  margin-bottom: auto;
   border-radius: 15px;
   padding: 3em;
 }
@@ -52,6 +51,5 @@ button:active {
 fieldset {
   border-radius: 4px;
   max-width: 90%;
-  min-width: 50%
+  min-width: 50%;
 }
-

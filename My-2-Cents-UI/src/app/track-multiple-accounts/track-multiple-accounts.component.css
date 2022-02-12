@@ -7,14 +7,13 @@ body {
 }
 
 .topnav {
-  overflow:hidden;
-  padding: .5em 1em;
+  overflow: hidden;
+  padding: 0.5em 1em;
   margin-top: -10px;
-  margin-left: -10px;;
+  margin-left: -10px;
   font-size: 16pt;
   background-color: rgba(0, 0, 0, 0.192);
   width: 100%;
-
 }
 
 .topnav a {
@@ -25,18 +24,17 @@ body {
 }
 .topnav a:hover {
   background-color: rgb(224, 217, 217);
-  color: rgb(39, 38, 38)
+  color: rgb(39, 38, 38);
 }
 
 .topnav a:active {
   background-color: rgba(219, 176, 83, 0.418);
-  color:rgb(250, 244, 232)
+  color: rgb(250, 244, 232);
 }
 
 /* button {
   margin-top: 1.5em;
 } */
-
 
 .center {
   text-align: right;
@@ -44,4 +42,9 @@ body {
 }
 .crop {
   margin-left: 3em;
+}
+
+.navname {
+  padding-right: 3em;
+  color: black;
 }
