@@ -71,6 +71,7 @@ export class TransferMoneyComponent implements OnInit {
               console.log(data);
               if (data > 0) {
                 this.UpdateAccountList(); // synchronous update account list to dashboard component
+                console.log("help", data);
                 alert('Transaction succeed!');
                 return true;
               } else {
