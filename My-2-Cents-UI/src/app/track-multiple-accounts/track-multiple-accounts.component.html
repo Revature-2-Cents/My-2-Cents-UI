@@ -22,24 +22,24 @@
         <fieldset>
           <legend>Checking</legend>
           <div *ngFor='let Account of checkingArray'>
-            <a routerLink="./track-income/{{ Account.AccountID }}">
-              <button class="account-button">{{ Account.AccountID }} {{ Account.TotalBalance }}</button>
+            <a routerLink="./track-income/{{ Account.accountID }}">
+              <button class="account-button">{{ Account.accountID }} {{ Account.totalBalance }}</button>
             </a>
           </div>
         </fieldset>
         <fieldset>
           <legend>Savings</legend>
           <div *ngFor='let Account of savingArray'>
-            <a routerLink="./track-income/{{ Account.AccountID }}">
-              <button class="account-button">{{ Account.AccountID }} {{ Account.TotalBalance }}</button>
+            <a routerLink="./track-income/{{ Account.accountID }}">
+              <button class="account-button">{{ Account.accountID }} {{ Account.totalBalance }}</button>
             </a>
           </div>
         </fieldset>
         <fieldset>
           <legend>Investment</legend>
           <div *ngFor='let Account of investmentArray'>
-            <a routerLink="./track-income/{{ Account.AccountID }}">
-              <button class="account-button">{{ Account.AccountID }} {{ Account.TotalBalance }}</button>
+            <a routerLink="./track-income/{{ Account.accountID }}">
+              <button class="account-button">{{ Account.accountID }} {{ Account.totalBalance }}</button>
             </a>
           </div>
         </fieldset>
@@ -58,7 +58,7 @@
 
     <div *ngIf="NavName=='Transfer Money Between My Account'">
       <div *ngIf="auth.user$ | async as user">
-        <app-transfer-money [account]=viewAccounts></app-transfer-money>
+        <app-transfer-money [(account)]=viewAccounts [userId]=UserLoginInfo.userID></app-transfer-money>
       </div>
     </div>
 

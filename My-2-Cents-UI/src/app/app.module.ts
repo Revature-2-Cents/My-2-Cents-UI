@@ -32,6 +32,7 @@ import { CreateProfileComponent } from './create-profile/create-profile.componen
     CreateProfileComponent,
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

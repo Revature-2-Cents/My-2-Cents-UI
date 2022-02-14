@@ -71,14 +71,16 @@ nav(button: string) {
   }
 
   getAccountArray(): void {
-    for (let i = 0; i < this.account.length+1; i++) {
-      if (this.b.accountType == 'Checking') {
+
+    for (let i = 0; i < this.viewAccounts.length; i++) {
+      if (this.viewAccounts[i].accountType == 'Checking') {
         console.log('checking account added');
-        this.checkingArray.push(this.b);
-      } else if ((this.b.accountType == 'Savings')) {
-        this.savingArray.push(this.b);
-      } else if ((this.b.accountType == 'Investment')) {
-        this.investmentArray.push(this.b);
+        this.checkingArray.push(this.viewAccounts[i]);
+      } else if (this.viewAccounts[i].accountType == 'Savings') {
+        this.savingArray.push(this.viewAccounts[i]);
+      } else if (this.viewAccounts[i].accountType == 'Investment') {
+        this.investmentArray.push(this.viewAccounts[i]);
+
       } else {
         console.log('Account type not valid' + this.b);
       }
