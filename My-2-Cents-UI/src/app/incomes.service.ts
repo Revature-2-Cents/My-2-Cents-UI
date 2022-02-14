@@ -35,7 +35,7 @@ export class IncomesService {
   getAccountInfo(accountId: string): Promise<Incomes[]>{
     // const params = new HttpParams()
     //    .set('Id', accountId);
-    return lastValueFrom(this.http.get<Incomes[]>(`https://localhost:7106/api/Transactions/${accountId}`));
-    //return lastValueFrom(this.http.get<Incomes[]>(this.defaultUrl + `/api/Transactions/${accountId}`));
+    //return lastValueFrom(this.http.get<Incomes[]>(`https://localhost:7106/api/Transactions/${accountId}`));
+    return lastValueFrom(this.http.get<Incomes[]>(this.defaultUrl + `/api/Transactions/${accountId}`));
   }
 }

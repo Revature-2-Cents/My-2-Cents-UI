@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Expenses, Mock_Items } from '../mock-incomes'
-
+import { Expenses,Incomes, Mock_Items } from '../mock-incomes'
+import { Router,ActivatedRoute, ParamMap } from '@angular/router'
 import { IncomesService } from '../incomes.service';
 
 @Component({
@@ -12,31 +12,38 @@ export class TrackIncomeComponent implements OnInit {
 
   //Items : Expenses[] = Mock_Items;
 
-  selectedItem?: Expenses;
-
-  Items: Expenses[] = [];
-  constructor(private iService : IncomesService) { }
+  selectedItem?: Incomes;
+  id?: string;
+  Items: Incomes[] = [];
+  constructor(private iService : IncomesService,private ActiveRoute: ActivatedRoute
+    , private _router: Router,
+    ) { }
 
   ngOnInit(){
     // will automatically get information
-    this.iService.getAccountInfo('5').then((datas) => {
-      let testIncome: Expenses;
+    //alert("123");
+
+    this.id=this.ActiveRoute.snapshot.paramMap.get("AccountID") + "";    
+    this.iService.getAccountInfo(this.id+"").then((datas) => {
+
+      this.Items=datas;
+//      let testIncome: Expenses;
 
       // For loop to assign testIncome with necessary data
       // Use testIncome to add the information
-      for(let i = 0; i < datas.length; i++)
-      {
-        testIncome = { Name: datas[i].accountType, Amount: datas[i].totalBalance, ItemName: "test", 
-        Price: datas[i].amount, Detail: datas[i].transactionName, showDate: datas[i].transactionDate }
-        this.iService.addToIncome(testIncome);
-      }
+  //    for(let i = 0; i < datas.length; i++)
+  //    {
+   //     testIncome = { Name: datas[i].accountType, Amount: datas[i].totalBalance, ItemName: "test", 
+   //     Price: datas[i].amount, Detail: datas[i].transactionName, showDate: datas[i].transactionDate }
+    //    this.iService.addToIncome(testIncome);
+    //  }
     })
 
-    this.Items = this.iService.getIncomes();
-    console.log(this.Items);
+    //this.Items = this.iService.getIncomes();
+    //console.log(this.Items);
   }
 
-  selectItem(Item: Expenses): void {
+  selectItem(Item: Incomes): void {
     if(this.selectedItem === Item){
       this.selectedItem = undefined;
     }
@@ -45,6 +52,9 @@ export class TrackIncomeComponent implements OnInit {
     }
   }
 
+  navigateToDashBourd() {
+    this._router.navigate(['dashboard'])
+  }
   test()
   {
 
