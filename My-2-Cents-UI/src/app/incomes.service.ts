@@ -32,6 +32,7 @@ export class IncomesService {
   }
 
   getAccountInfo(accountId: number): Promise<Incomes[]>{
+
     return lastValueFrom(this.http.get<Incomes[]>(this.defaultUrl + `/api/Transactions/${accountId}`));
   }
 } 
