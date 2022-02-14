@@ -17,6 +17,7 @@ import { environment as env } from '../environments/environment';
 import { UserChangeInfoComponent } from './user-change-info/user-change-info.component';
 
 import { CreateProfileComponent } from './create-profile/create-profile.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,9 @@ import { CreateProfileComponent } from './create-profile/create-profile.componen
     CreateProfileComponent,
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     HttpClientModule,
     AuthModule.forRoot({

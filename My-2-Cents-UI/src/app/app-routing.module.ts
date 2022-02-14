@@ -26,18 +26,8 @@ const routes: Routes = [
     canActivate: [AuthGuard], // need authentication to see the page
   },
   {
-    path: 'user-profile',
-    component: UserProfileComponent,
-    canActivate: [AuthGuard],
-  },
-  {
     path: 'user-change-info',
     component: UserChangeInfoComponent,
-    canActivate: [AuthGuard],
-  },
-  {
-    path: 'transfer',
-    component: TransferMoneyComponent,
     canActivate: [AuthGuard],
   },
   {

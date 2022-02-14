@@ -5,6 +5,8 @@ import { TransferService } from '../transfer.service';
 import { Location } from '@angular/common';
 
 import { TestBed, async } from '@angular/core/testing';
+import { My2CentsService } from '../my2-cents.service';
+
 
 @Component({
   selector: 'app-transfer-money',
@@ -13,6 +15,10 @@ import { TestBed, async } from '@angular/core/testing';
 })
 export class TransferMoneyComponent implements OnInit {
   @Input() account: Account[] = [];
+  quantityFiller: string = "";
+
+  @Output() accountChange = new EventEmitter<Account[]>();
+  @Input() userId: number = -1;
 
   funds: boolean = true;
 
@@ -20,15 +26,30 @@ export class TransferMoneyComponent implements OnInit {
   @Output() toAccount = new EventEmitter<string>();
   @Output() quantity = new EventEmitter<number>();
 
-  constructor(private transferService: TransferService, private http: HttpClient, private location: Location) {}
+  constructor(
+    private transferService: TransferService,
+    private http: HttpClient,
+    private location: Location,
+    private my2centsservice: My2CentsService
+  ) {}
 
   ngOnInit(): void {
     console.log(this.account);
+    console.log(this.userId);
   }
 
-  CheckFunds(fromAccount: number, toAccount: number, quantity: number): boolean {
+  ClearQuantity() {
+    this.quantityFiller = "";
+  }
+
+  CheckFunds(
+    fromAccount: number,
+    toAccount: number,
+    quantity: number
+  ): boolean {
+    console.log(fromAccount + ' ' + toAccount + ' ' + quantity);
     if (fromAccount == toAccount) {
-      alert("Cannot Transfer From and To Same Account");
+      alert('Cannot Transfer From and To Same Account');
       return false;
     } else {
       let fromAcc;
@@ -43,19 +64,23 @@ export class TransferMoneyComponent implements OnInit {
       if (fromAcc != undefined) {
         if (+fromAcc.totalBalance < quantity) {
           this.funds = false;
+          alert("Insufficient Funds for Transfer");
           return false;
         } else {
-          this.TransferFunds(+fromAccount, +toAccount, quantity).subscribe((response: { status: any; body: number; }) => {
-            this.http.jsonp;
-            console.log(response.status)
-            if (response.body > 0) {
-              this.location.back();
-              return true;
-            } else {
-              alert("Server Error Please Contact the Bank for Assistance");
-              return false;
+          this.TransferFunds(+toAccount, +fromAccount, quantity).subscribe(
+            (data: number) => {
+              // this.http.jsonp;
+              console.log(data);
+              if (data > 0) {
+                this.UpdateAccountList(); // synchronous update account list to dashboard component
+                alert('Transaction succeed!');
+                return true;
+              } else {
+                alert('Server Error Please Contact the Bank for Assistance');
+                return false;
+              }
             }
-          });
+          );
         }
       }
     }
@@ -63,6 +88,15 @@ export class TransferMoneyComponent implements OnInit {
     return false;
   }
 
+  UpdateAccountList() {
+    this.my2centsservice.getUserAccounts(this.userId).subscribe((data) => {
+      // synchronous update account list
+      console.log('running emit');
+      this.account = data;
+      this.accountChange.emit(this.account);
+    });
+  }
+  
   TransferFunds(fromAccount: number, toAccount: number, quantity: number) : any {
     return this.transferService.TransferFunds(fromAccount, toAccount, quantity);
   }

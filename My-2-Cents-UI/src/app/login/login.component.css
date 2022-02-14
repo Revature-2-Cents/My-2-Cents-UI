@@ -1,4 +1,4 @@
-.imagediv {
+  .imagediv {
     position: absolute;
     text-align: center;
     transform: translate(-50%, -50%);
@@ -30,6 +30,12 @@
 
   .textdiv {
     display: flex;
+<<<<<<< HEAD
     justify-content: right;
     z-index: 10;
   }
+=======
+    justify-content: right;  
+    z-index: 10; 
+  }
+>>>>>>> 407caa5473fde717e4f04a8a9cadf41fcc73c17a

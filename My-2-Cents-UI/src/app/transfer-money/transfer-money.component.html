@@ -1,19 +1,21 @@
-<table></table>
 <label for="account">From Account:</label>
-<select class="dropdown" #fromAccount>
-    <div *ngFor="let accinfo of account">
-        <option value=accinfo.AccountID>Account {{accinfo.accountID}}</option>
-    </div>
+<select id="from" class="dropdown" #fromAccount>
+    <option aria-placeholder="Select Account" *ngFor="let accinfo of account" value={{accinfo.accountID}}>
+        #{{accinfo.accountID}} Balance: {{accinfo.totalBalance}}
+    </option>
 </select>
+<br>
 <br>
 <label for="account">To Account:</label>
-<select class="dropdown" #toAccount>
-    <div *ngFor="let accinfo of account">
-        <option value=accinfo.AccountID>Account {{accinfo.accountID}}</option>
-    </div>
+<select id="to" class="dropdown" aria-placeholder="Select Account" #toAccount>
+    <option *ngFor="let accinfo of account" value={{accinfo.accountID}}>
+        #{{accinfo.accountID}} Balance: {{accinfo.totalBalance}}
+    </option>
 </select>
 <br>
+<br>
 
-$<input type="number" min="0.01" step="0.01" #quantity>
-
-<button (click)="CheckFunds(+fromAccount.value, +toAccount.value, +quantity.value)">Transfer Funds</button>
+$<input id="quantity" type="number" min="0.01" step="0.01" [(ngModel)]="quantityFiller" #quantity>
+<br>
+<br>
+<button id="button" (click)="ClearQuantity()" (click)="CheckFunds(+fromAccount.value, +toAccount.value, +quantity.value)">Transfer Funds</button>
