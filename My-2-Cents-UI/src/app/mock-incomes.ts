@@ -9,4 +9,4 @@ export interface Incomes {
     transactionDate: string;
     transactionId: number;
     transactionName: string;
-}
+} 

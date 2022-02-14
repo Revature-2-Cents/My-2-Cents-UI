@@ -6,7 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 @Component({
-  selector: 'app-track-income',
+  selector: 'app-track-income', 
   templateUrl: './track-income.component.html',
   styleUrls: ['./track-income.component.css']
 })
@@ -50,7 +50,7 @@ export class TrackIncomeComponent implements OnInit {
     }
   }
 
-  back()
+  navigateToDashBoard()
   {
     this.location.back();
   }
