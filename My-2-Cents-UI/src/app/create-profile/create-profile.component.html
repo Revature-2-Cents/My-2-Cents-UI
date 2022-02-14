@@ -1,1 +1,67 @@
-<p>create-profile works!</p>
+<body >
+  <div class="component">
+    <h1>Create Profile</h1>
+<fieldset>
+  <legend><h2>Personal Info</h2></legend>
+  <form action="/" method="post">
+    <table>
+      <tr>
+        <td><label for="fname">First Name:*</label></td>
+        <td><input name="fname" type="text" required /></td>
+      </tr>
+      <tr>
+        <td><label for="lname">Last Name:*</label></td>
+        <td><input name="lname "type="text" required /></td>
+      </tr>
+      <tr>
+        <td><label for="streetAddressPersonal">Street Address:*</label></td>
+        <td><input name="streetAddressPersonal" type="text" required /></td>
+      </tr>
+      <tr>
+        <td><label for="cityPersonal">City:*</label></td>
+        <td><input name="cityPersonal" type="text" required /></td>
+      </tr>
+      <tr>
+        <td><label for="statePersonal">State:*</label></td>
+        <td><input name="statePersonal" type="text" required /></td>
+      </tr>
+      <tr>
+        <td><label for="phonePersonal">Phone <small>(Main)</small>:*</label></td>
+        <td><input name="phonePersonal" type="tel"
+          pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="205-555-5112" required /></td>
+      </tr>
+      <tr>
+        <td><label for="secondPhonePersonal">Phone <small class="extra-small">(Alternate)</small>:</label></td>
+        <td><input name="secondPhonePersonal" type="tel"
+          pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="205-555-5112"></td>
+      </tr>
+    </table>
+  </form>
+</fieldset>
+<div class="right">* indicates a required field</div>
+<fieldset>
+  <legend><h2>Work Info</h2></legend>
+  <form action="/" method="post">
+    <table>
+      <tr>
+        <td><label for="streetAddressWork">Street Address:</label></td>
+        <td><input name="streetAddressWork" type="text" /></td>
+      </tr>
+      <tr>
+        <td><label for="cityWork">City:</label></td>
+        <td><input name="cityWork" type="text" /></td>
+      </tr>
+      <tr>
+        <td><label for="stateWork">State:</label></td>
+        <td><input name="stateWork" type="text" /></td>
+      </tr>
+      <tr>
+        <td><label for="phoneWork">Phone:</label></td>
+        <td><input name="phoneWork" type="tel"
+          pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="205-555-5112" /> <label for="ext"> ext.</label><input name="ext" id="ext" type="text" placeholder="1234" ></td>
+      </tr>
+    </table>
+  </form>
+</fieldset>
+</div>
+</body>

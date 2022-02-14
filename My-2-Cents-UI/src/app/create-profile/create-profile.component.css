@@ -1,0 +1,23 @@
+.right {
+  text-align: right;
+}
+.extra-small {
+  font-size: 8pt;
+}
+::placeholder {
+  color:transparent;
+}
+input:hover::placeholder {
+  color:rgba(160, 152, 152, 0.65);
+  font-style:italic
+}
+input:focus::placeholder {
+  color:rgba(160, 152, 152, 0.65);
+}
+
+#ext {
+  width: 4em;
+}
+#ext::placeholder {
+  color:rgba(160, 152, 152, 0.65);
+}
