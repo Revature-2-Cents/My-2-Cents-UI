@@ -51,7 +51,7 @@
 
     <div *ngIf="NavName=='Transfer Money Between My Account'">
       <div *ngIf="auth.user$ | async as user">
-        <app-transfer-money [account]=viewAccounts></app-transfer-money>
+        <app-transfer-money [(account)]=viewAccounts [userId]=UserLoginInfo.userID></app-transfer-money>
       </div>
     </div>
 

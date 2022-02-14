@@ -31,7 +31,7 @@ const routes: Routes = [
         canActivate: [AuthGuard],
       },
       {
-        path: 'track-income/:AccountID',
+        path: 'track-income/:accountID',
         component: TrackIncomeComponent,
         canActivate: [AuthGuard],
       },

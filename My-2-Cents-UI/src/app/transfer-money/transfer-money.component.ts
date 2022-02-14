@@ -3,6 +3,7 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Account } from '../account';
 import { TransferService } from '../transfer.service';
 import { Location } from '@angular/common';
+import { My2CentsService } from '../my2-cents.service';
 
 @Component({
   selector: 'app-transfer-money',
@@ -11,6 +12,9 @@ import { Location } from '@angular/common';
 })
 export class TransferMoneyComponent implements OnInit {
   @Input() account: Account[] = [];
+
+  @Output() accountChange = new EventEmitter<Account[]>();
+  @Input() userId: number = -1;
 
   funds: boolean = true;
 
@@ -21,11 +25,13 @@ export class TransferMoneyComponent implements OnInit {
   constructor(
     private transferService: TransferService,
     private http: HttpClient,
-    private location: Location
+    private location: Location,
+    private my2centsservice: My2CentsService
   ) {}
 
   ngOnInit(): void {
     console.log(this.account);
+    console.log(this.userId);
   }
 
   CheckFunds(
@@ -50,14 +56,16 @@ export class TransferMoneyComponent implements OnInit {
       if (fromAcc != undefined) {
         if (+fromAcc.totalBalance < quantity) {
           this.funds = false;
+          alert("Insufficient Funds for Transfer");
           return false;
         } else {
-          this.TransferFunds(+fromAccount, +toAccount, quantity).subscribe(
-            (response: { status: any; body: number }) => {
-              this.http.jsonp;
-              console.log(response.status);
-              if (response.body > 0) {
-                this.location.back();
+          this.TransferFunds(+toAccount, +fromAccount, quantity).subscribe(
+            (data: number) => {
+              // this.http.jsonp;
+              console.log(data);
+              if (data > 0) {
+                this.UpdateAccountList(); // synchronous update account list to dashboard component
+                alert('Transaction succeed!');
                 return true;
               } else {
                 alert('Server Error Please Contact the Bank for Assistance');
@@ -70,6 +78,15 @@ export class TransferMoneyComponent implements OnInit {
     }
 
     return false;
+  }
+
+  UpdateAccountList() {
+    this.my2centsservice.getUserAccounts(this.userId).subscribe((data) => {
+      // synchronous update account list
+      console.log('running emit');
+      this.account = data;
+      this.accountChange.emit(this.account);
+    });
   }
 
   TransferFunds(fromAccount: number, toAccount: number, quantity: number): any {
