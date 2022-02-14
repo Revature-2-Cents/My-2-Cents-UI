@@ -1,9 +1,9 @@
 import { CurrencyPipe, PercentPipe } from '@angular/common';
 
 export interface Account {
-  AccountID: number;
+  accountID: number;
   // UserID: number;
-  TotalBalance: CurrencyPipe;
-  AccountType: string;
-  Interest: PercentPipe;
+  totalBalance: CurrencyPipe;
+  accountType: string;
+  interest: PercentPipe;
 }
