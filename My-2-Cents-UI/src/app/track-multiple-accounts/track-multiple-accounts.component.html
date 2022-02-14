@@ -11,7 +11,7 @@
     <h1>{{NavName}}</h1>
   </div>
   <div class="component">
-    <div *ngIf="NavName=='Dashboard'">
+    <div *ngIf="NavName=='Dashboard' && viewAccounts != null else notAccountsBlock">
       <div *ngIf="viewAccounts.length else notAccountsBlock">
         <fieldset>
           <legend>Checking</legend>

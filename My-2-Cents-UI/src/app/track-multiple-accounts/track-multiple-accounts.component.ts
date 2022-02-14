@@ -66,20 +66,23 @@ export class TrackMultipleAccountsComponent implements OnInit {
       });
     }
   }
-
+  
   getAccountArray(): void {
-    for (let i = 0; i < this.viewAccounts.length; i++) {
-      if ((this.viewAccounts[i].accountType == 'Checking')) {
-        console.log('checking account added');
-        this.checkingArray.push(this.viewAccounts[i]);
-      } else if ((this.viewAccounts[i].accountType == 'Savings')) {
-        this.savingArray.push(this.viewAccounts[i]);
-      } else if ((this.viewAccounts[i].accountType == 'Investment')) {
-        this.investmentArray.push(this.viewAccounts[i]);
-      } else {
-        console.log('Account type not valid' + this.viewAccounts[i]);
+    if (this.viewAccounts != null)
+    {
+      for (let i = 0; i < this.viewAccounts.length; i++) {
+        if ((this.viewAccounts[i].accountType == 'Checking')) {
+          console.log('checking account added');
+          this.checkingArray.push(this.viewAccounts[i]);
+        } else if ((this.viewAccounts[i].accountType == 'Savings')) {
+          this.savingArray.push(this.viewAccounts[i]);
+        } else if ((this.viewAccounts[i].accountType == 'Investment')) {
+          this.investmentArray.push(this.viewAccounts[i]);
+        } else {
+          console.log('Account type not valid' + this.viewAccounts[i]);
+        }
       }
+      console.log(this.checkingArray.length);
     }
-    console.log(this.checkingArray.length);
   }
 }
