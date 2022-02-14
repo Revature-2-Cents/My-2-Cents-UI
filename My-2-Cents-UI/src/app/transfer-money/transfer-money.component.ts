@@ -10,7 +10,7 @@ import { Location } from '@angular/common';
   styleUrls: ['./transfer-money.component.css'],
 })
 export class TransferMoneyComponent implements OnInit {
-  @Input() account: any;
+  @Input() account: Account[] = [];
 
   funds: boolean = true;
 
@@ -48,7 +48,7 @@ export class TransferMoneyComponent implements OnInit {
       }
 
       if (fromAcc != undefined) {
-        if (+fromAcc.TotalBalance < quantity) {
+        if (+fromAcc.totalBalance < quantity) {
           this.funds = false;
           return false;
         } else {
