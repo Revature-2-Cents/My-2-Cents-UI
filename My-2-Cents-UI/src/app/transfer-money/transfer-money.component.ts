@@ -13,8 +13,8 @@ import { TestBed, async } from '@angular/core/testing';
 })
 export class TransferMoneyComponent implements OnInit {
   @Input() account: Account[] = [];
-  funds: boolean = true;
 
+  funds: boolean = true;
 
   @Output() fromAccount = new EventEmitter<string>();
   @Output() toAccount = new EventEmitter<string>();
@@ -22,8 +22,11 @@ export class TransferMoneyComponent implements OnInit {
 
   constructor(private transferService: TransferService, private http: HttpClient, private location: Location) {}
 
-  CheckFunds(fromAccount: number, toAccount: number, quantity: number): boolean {
+  ngOnInit(): void {
+    console.log(this.account);
+  }
 
+  CheckFunds(fromAccount: number, toAccount: number, quantity: number): boolean {
     if (fromAccount == toAccount) {
       alert("Cannot Transfer From and To Same Account");
       return false;
@@ -56,19 +59,12 @@ export class TransferMoneyComponent implements OnInit {
         }
       }
     }
+
     return false;
   }
 
   TransferFunds(fromAccount: number, toAccount: number, quantity: number) : any {
     return this.transferService.TransferFunds(fromAccount, toAccount, quantity);
-
   }
-
-  ngOnInit(): void {}
 }
 
-describe('TransferMoneyComponent', () => {
-  beforeEach(async(() => {
-
-  });
-});

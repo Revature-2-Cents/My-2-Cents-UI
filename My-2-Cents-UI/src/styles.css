@@ -6,7 +6,6 @@ html {
 }
 
 button {
-  display: flex;
   background: radial-gradient(
     circle,
     rgb(234, 215, 158) 10%,
@@ -21,7 +20,12 @@ button {
 }
 
 button:hover {
-  border: black solid 0.16em;
+  background-image: radial-gradient(
+    circle,
+    /* rgb(223, 178, 38), */ rgb(238, 205, 105),
+    rgb(248, 220, 135),
+    rgb(234, 215, 158)
+  );
 }
 
 button:active {
@@ -31,5 +35,22 @@ button:active {
     rgb(163, 139, 73),
     rgb(114, 99, 35)
   );
+}
+
+.component {
+  background: radial-gradient(#e9f1f7, #e0e0e9, #c9c9d3);
+  border: 0.15em solid grey;
+  /* margin-top: 116px; */
+  margin-left: 3em;
+  margin-right: 3em;
+  margin-bottom: auto;
+  border-radius: 15px;
+  padding: 3em;
+}
+
+fieldset {
+  border-radius: 4px;
+  max-width: 90%;
+  min-width: 50%;
 }
 

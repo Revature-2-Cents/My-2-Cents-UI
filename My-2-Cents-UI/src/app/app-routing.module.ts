@@ -24,22 +24,39 @@ const routes: Routes = [
     path: 'dashboard',
     component: TrackMultipleAccountsComponent,
     canActivate: [AuthGuard], // need authentication to see the page
+    children: [
+      {
+        path: 'user-profile',
+        component: UserProfileComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'track-income/:AccountID',
+        component: TrackIncomeComponent,
+        canActivate: [AuthGuard],
+      },
+    ],
   },
-  {
-    path: 'user-profile',
-    component: UserProfileComponent,
-    //canActivate: [AuthGuard]
-  },
+  // {
+  //   path: 'user-profile',
+  //   component: UserProfileComponent,
+  //   canActivate: [AuthGuard],
+  // },
   {
     path: 'user-change-info',
     component: UserChangeInfoComponent,
-    //canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
   },
   {
     path: 'transfer',
     component: TransferMoneyComponent,
-    canActivate: [AuthGuard], // need authentication to see the page
+    canActivate: [AuthGuard],
   },
+  // {
+  //   path: 'track-income/:AccountID',
+  //   component: TrackIncomeComponent,
+  //   canActivate: [AuthGuard],
+  // },
 ];
 
 @NgModule({
