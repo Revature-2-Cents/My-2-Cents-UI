@@ -42,9 +42,10 @@ export class TransferMoneyComponent implements OnInit {
 
   CheckFunds(
     fromAccount: number,
-    toAccount: number,
-    quantity: number
+    toAccount: number
   ): boolean {
+    let quantity = +this.quantityFiller;
+    this.ClearQuantity();
     console.log(fromAccount + ' ' + toAccount + ' ' + quantity);
     if (fromAccount == toAccount) {
       alert('Cannot Transfer From and To Same Account');
