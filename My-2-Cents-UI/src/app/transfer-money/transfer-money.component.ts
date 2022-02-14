@@ -34,14 +34,14 @@ export class TransferMoneyComponent implements OnInit {
       let fromAcc;
 
       for (let i = 0; i < this.account.length; i++) {
-        if (this.account[i].AccountID == fromAccount) {
+        if (this.account[i].accountID == fromAccount) {
           fromAcc = this.account[i];
           break;
         }
       }
 
       if (fromAcc != undefined) {
-        if (+fromAcc.TotalBalance < quantity) {
+        if (+fromAcc.totalBalance < quantity) {
           this.funds = false;
           return false;
         } else {

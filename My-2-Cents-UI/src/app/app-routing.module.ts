@@ -9,7 +9,6 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserChangeInfoComponent } from './user-change-info/user-change-info.component';
 import { TrackExpensesComponent } from './track-expenses/track-expenses.component';
 import { TrackIncomeComponent } from './track-income/track-income.component';
-import { CreateProfileComponent } from './create-profile/create-profile.component';
 
 const routes: Routes = [
   {
@@ -34,11 +33,6 @@ const routes: Routes = [
   {
     path: 'user-change-info',
     component: UserChangeInfoComponent,
-    canActivate: [AuthGuard],
-  },
-  {
-    path: 'create-profile',
-    component: CreateProfileComponent,
     canActivate: [AuthGuard],
   },
   {
