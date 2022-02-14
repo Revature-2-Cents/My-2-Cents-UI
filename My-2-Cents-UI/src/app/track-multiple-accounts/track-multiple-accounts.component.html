@@ -1,16 +1,4 @@
 <body>
-
-  <nav class="topnav">
-    <a (click)="nav('Dashboard')">Dashboard</a>
-    <a id="user-profile" (click)="nav('My Profile')">My Profile</a>
-    <a (click)="nav('Transfer Money Between My Account')">Transfer Money</a>
-    <a (click)="nav('Add New Account')">Add New Account</a>
-    <a (click)="logout()">Log out</a>
-  </nav>
-  <div class="navname">
-    <h1>{{NavName}}</h1>
-  </div>
-
   <div class="component">
     <div *ngIf="NavName=='Dashboard'">
       <div *ngIf="viewAccounts.length else notAccountsBlock">
