@@ -1,7 +1,3 @@
-button {
-  margin-top: 1.5em;
-}
-
 table {
   border: none;
   margin: 12px;
@@ -36,34 +32,4 @@ small {
     border-radius: 15px;
     padding-left: 12.5%; */
 }
-button {
-  background: radial-gradient(
-    circle,
-    rgb(234, 215, 158) 10%,
-    rgb(248, 220, 135) 30%,
-    rgb(223, 178, 38)
-  );
-  border-radius: 6px;
-  padding: 0.75em 1.25em;
-  font-weight: 550;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: medium;
-  letter-spacing: 0.05em;
-  margin: 2em 3em;
-}
 
-button:active {
-  background: radial-gradient(
-    circle,
-    rgb(156, 142, 80) 10%,
-    rgb(163, 139, 73),
-    rgb(114, 99, 35)
-  );
-}
-
-button:hover {
-  border: black solid 0.16em;
-  position: relative;
-  left: -0.04em;
-  top: -0.04em;
-}
