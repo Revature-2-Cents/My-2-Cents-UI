@@ -1,27 +1,27 @@
 <div class="Headder">
     <p>Check Account Page</p>
-    <button class="content">Back</button>
+    <button class="content" (click)="back()"><a routeLink="/dashboard">Back</a></button>
 </div>
 
 <ul class="Account-Table">
 
     <div class="Account content">
-        <span class="content">{{Items[0].Name}}</span>
+        <span class="content">{{Items[0].accountType}}</span>
         <div class="spacer content"></div>
-        <span class="total content">{{Items[0].Amount}}</span>
+        <span class="total content">{{Items[0].totalBalance}}</span>
     </div>
 
     <ul *ngFor="let Item of Items; let i = index">
         <div class="item">
-            <span class="Item-Name content">{{Item.ItemName}}</span>
+            <span class="Item-Name content">Test</span>
             <div class="spacer content"></div>
-            <span class="item-cost content">{{Item.Price}}</span>
+            <span class="item-cost content">{{Item.amount}}</span>
             <button (click)="selectItem(Item)" class="Down-Arrow content">V</button>
         </div>
 
         <div *ngIf="Item === selectedItem" class="details details.visible">
-                <p>{{selectedItem.Detail}}</p>
-                <p>{{selectedItem.showDate}}</p>
+            <p>{{selectedItem.transactionName}}</p>
+            <p>{{selectedItem.transactionDate}}</p>
         </div>
     </ul>
 
