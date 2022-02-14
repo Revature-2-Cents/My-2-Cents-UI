@@ -66,5 +66,11 @@
       <app-register></app-register>
     </div>
 
+    <div *ngIf="NavName=='Create Profile'">
+      <div *ngIf="auth.user$ | async as user">
+        <app-create-profile></app-create-profile>
+      </div>
+    </div>
+
   </div>
 </body>

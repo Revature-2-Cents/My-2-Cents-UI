@@ -24,6 +24,7 @@ export class CreateProfileComponent implements OnInit {
     private userloginservice: UserLoginServiceService,
     @Inject(DOCUMENT) private doc: Document) { }
 
+
   ngOnInit(): void {
   }
 
