@@ -1,15 +1,14 @@
 <label for="account">From Account:</label>
 <select class="dropdown" #fromAccount>
-    <option *ngFor="let accinfo of account" value={{accinfo.AccountID}}>
-        #{{accinfo.AccountID}} Balance: {{accinfo.TotalBalance}}
+    <option *ngFor="let accinfo of account" value=5>
+        #{{accinfo.accountID}} Balance: {{accinfo.totalBalance}}
     </option>
 </select>
-<h1>testing: {{account[0].Interest}}</h1>
 <br>
 <label for="account">To Account:</label>
 <select class="dropdown" #toAccount>
-    <option *ngFor="let accinfo of account" value={{accinfo.AccountID}}>
-        #{{accinfo.AccountID}} Balance: {{accinfo.TotalBalance}}
+    <option *ngFor="let accinfo of account" value=14>
+        #{{accinfo.accountID}} Balance: {{accinfo.totalBalance}}
     </option>
 </select>
 <br>
