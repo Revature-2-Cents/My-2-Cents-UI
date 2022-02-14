@@ -14,10 +14,12 @@ import { My2CentsService } from '../my2-cents.service';
   styleUrls: ['./track-multiple-accounts.component.css'],
 })
 export class TrackMultipleAccountsComponent implements OnInit {
+  public account: Account[] = [];
   viewAccounts: Account[] = [];
   checkingArray: Account[] = [];
   savingArray: Account[] = [];
   investmentArray: Account[] = [];
+  b: any;
 
   constructor(
     public auth: AuthService,
@@ -28,7 +30,8 @@ export class TrackMultipleAccountsComponent implements OnInit {
 
   ngOnInit(): void {
     this.GetUserInfo();
-    // this.getAccountArray();
+    this.GetAccountInfo();
+    this.getAccountArray();
   }
 
   UserLoginInfo = <UserLoginInfo>{};
@@ -40,43 +43,43 @@ export class TrackMultipleAccountsComponent implements OnInit {
       this.UserLoginInfo.userID = +data!.sub!.substring(6);
       this.UserLoginInfo.userName = data?.nickname;
       this.UserLoginInfo.email = data?.email;
-      this.GetAccountInfo(this.UserLoginInfo.userID);
     });
     // this.UserLoginInfo = this.userloginservice.GetUser();
   }
-
-  nav(button: string) {
+nav(button: string) {
     this.NavName = button;
   }
 
-  // logout(): void {
-  //   console.log(this.doc.location);
-  //   this.auth.logout({ returnTo: this.doc.location.origin });
-  //   alert('Successfully logout!');
-  // }
+  logout(): void {
+    console.log(this.doc.location);
+    this.auth.logout({ returnTo: this.doc.location.origin });
+    alert('Successfully logout!');
+  }
 
-  GetAccountInfo(userid: number) {
-    console.log(this.UserLoginInfo);
+  GetAccountInfo() {
     if (this.auth.user$) {
-      this.my2centsservice.getUserAccounts(userid).subscribe((data) => {
-        this.viewAccounts = data;
-        // console.log('data: ' + this.viewAccounts[0]);
-        this.getAccountArray();
+      this.my2centsservice.getUserAccounts(this.UserLoginInfo.userID).subscribe((account) => {
+        var a = JSON.stringify(account[0]);
+        console.log(a);
+        this.b = JSON.parse(a);
+        console.log(this.b.accountType);
+        this.account = account;
+        console.log(account.length + " length");
       });
     }
   }
 
   getAccountArray(): void {
-    for (let i = 0; i < this.viewAccounts.length; i++) {
-      if ((this.viewAccounts[i].AccountType = 'Checking')) {
+    for (let i = 0; i < this.account.length+1; i++) {
+      if (this.b.accountType == 'Checking') {
         console.log('checking account added');
-        this.checkingArray.push(this.viewAccounts[i]);
-      } else if ((this.viewAccounts[i].AccountType = 'Savings')) {
-        this.savingArray.push(this.viewAccounts[i]);
-      } else if ((this.viewAccounts[i].AccountType = 'Investment')) {
-        this.investmentArray.push(this.viewAccounts[i]);
+        this.checkingArray.push(this.b);
+      } else if ((this.b.accountType == 'Savings')) {
+        this.savingArray.push(this.b);
+      } else if ((this.b.accountType == 'Investment')) {
+        this.investmentArray.push(this.b);
       } else {
-        console.log('Account type not valid' + this.viewAccounts[i]);
+        console.log('Account type not valid' + this.b);
       }
     }
     console.log(this.checkingArray.length);
