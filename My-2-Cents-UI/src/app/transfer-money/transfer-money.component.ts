@@ -3,19 +3,12 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Account } from '../account';
 import { TransferService } from '../transfer.service';
 import { Location } from '@angular/common';
-<<<<<<< HEAD
-<<<<<<< HEAD
 
 import { TestBed, async } from '@angular/core/testing';
-=======
-import { My2CentsService } from '../my2-cents.service';
->>>>>>> 183198825f53b5a7993170f9c0b7fb92451bc5fc
-=======
 
-import { TestBed, async } from '@angular/core/testing';
 import { My2CentsService } from '../my2-cents.service';
 
->>>>>>> a4f0adb505c1ae402530f372fa26fc68cbc96307
+
 
 @Component({
   selector: 'app-transfer-money',
