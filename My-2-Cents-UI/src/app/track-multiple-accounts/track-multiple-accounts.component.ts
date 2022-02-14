@@ -7,6 +7,7 @@ import { ThisReceiver } from '@angular/compiler';
 import { UserProfileComponent } from '../user-profile/user-profile.component';
 import { UserLoginServiceService } from '../user-login-service.service';
 import { My2CentsService } from '../my2-cents.service';
+import { CreateProfileComponent } from '../create-profile/create-profile.component';
 
 @Component({
   selector: 'app-track-multiple-accounts',
