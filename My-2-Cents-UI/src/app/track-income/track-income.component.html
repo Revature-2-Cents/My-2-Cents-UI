@@ -8,7 +8,7 @@
     <div class="Account content">
         <span class="content">{{Items[0].accountType}}</span>
         <div class="spacer content"></div>
-        <span class="total content"><b>Account Total: </b>${{Items[0].totalBalance| number : '1.2-2'}}</span>
+        <span class="total content"><b>Account Balance: </b>${{Items[0].totalBalance| number : '1.2-2'}}</span>
     </div>
 
     <ul *ngFor="let Item of Items; let i = index">
