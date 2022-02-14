@@ -57,13 +57,13 @@ export class TransferMoneyComponent implements OnInit {
           this.funds = false;
           return false;
         } else {
-          this.TransferFunds(+fromAccount, +toAccount, quantity).subscribe(
-            (response: { status: any; body: number }) => {
-              this.http.jsonp;
-              console.log(response.status);
-              if (response.body > 0) {
+          this.TransferFunds(+toAccount, +fromAccount, quantity).subscribe(
+            (data: number) => {
+              // this.http.jsonp;
+              console.log(data);
+              if (data > 0) {
                 this.UpdateAccountList(); // synchronous update account list to dashboard component
-                this.location.back();
+                alert('Transaction succeed!');
                 return true;
               } else {
                 alert('Server Error Please Contact the Bank for Assistance');
@@ -81,6 +81,7 @@ export class TransferMoneyComponent implements OnInit {
   UpdateAccountList() {
     this.my2centsservice.getUserAccounts(this.userId).subscribe((data) => {
       // synchronous update account list
+      console.log('running emit');
       this.account = data;
       this.accountChange.emit(this.account);
     });
