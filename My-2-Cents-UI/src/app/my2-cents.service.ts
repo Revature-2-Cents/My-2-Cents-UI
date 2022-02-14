@@ -27,7 +27,7 @@ export class My2CentsService {
 
   //GET user accounts
   getUserAccounts(userId: number): Observable<Account[]> {
-    let params = new HttpParams().set('UserID', userId);
+    let params = new HttpParams().set('UserID', userId);    
     return this.http.get<Account[]>(this.url + this.getUserAccountsUrl, {
       params,
     });

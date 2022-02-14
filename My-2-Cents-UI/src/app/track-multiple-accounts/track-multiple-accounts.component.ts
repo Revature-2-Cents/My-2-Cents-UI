@@ -15,7 +15,7 @@ import { CreateProfileComponent } from '../create-profile/create-profile.compone
   styleUrls: ['./track-multiple-accounts.component.css'],
 })
 export class TrackMultipleAccountsComponent implements OnInit {
-    viewAccounts: Account[] = [];
+  viewAccounts: Account[] = [];
   checkingArray: Account[] = [];
   savingArray: Account[] = [];
   investmentArray: Account[] = [];
@@ -69,12 +69,12 @@ export class TrackMultipleAccountsComponent implements OnInit {
 
   getAccountArray(): void {
     for (let i = 0; i < this.viewAccounts.length; i++) {
-      if ((this.viewAccounts[i].accountType = 'Checking')) {
+      if ((this.viewAccounts[i].accountType == 'Checking')) {
         console.log('checking account added');
         this.checkingArray.push(this.viewAccounts[i]);
-      } else if ((this.viewAccounts[i].accountType = 'Savings')) {
+      } else if ((this.viewAccounts[i].accountType == 'Savings')) {
         this.savingArray.push(this.viewAccounts[i]);
-      } else if ((this.viewAccounts[i].accountType = 'Investment')) {
+      } else if ((this.viewAccounts[i].accountType == 'Investment')) {
         this.investmentArray.push(this.viewAccounts[i]);
       } else {
         console.log('Account type not valid' + this.viewAccounts[i]);
