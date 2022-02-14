@@ -63,7 +63,7 @@ export class TransferMoneyComponent implements OnInit {
       if (fromAcc != undefined) {
         if (+fromAcc.totalBalance < quantity) {
           this.funds = false;
-          alert("Insufficient Funds for Transfer");
+          alert('Insufficient Funds for Transfer');
           return false;
         } else {
           this.TransferFunds(+toAccount, +fromAccount, quantity).subscribe(
