@@ -10,6 +10,7 @@
     border-radius: px;
     display: flex;
     justify-content: center;
+    z-index: -10;
   }
 
   .image {
@@ -29,5 +30,6 @@
 
   .textdiv {
     display: flex;
-    justify-content: right;   
+    justify-content: right;  
+    z-index: 10; 
   }

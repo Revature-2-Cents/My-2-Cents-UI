@@ -14,6 +14,7 @@ export class TransferMoneyComponent implements OnInit {
   @Input() account: Account[] = [];
   @Output() accountChange = new EventEmitter<Account[]>();
   @Input() userId: number = -1;
+
   funds: boolean = true;
 
   @Output() fromAccount = new EventEmitter<string>();
