@@ -13,13 +13,6 @@
     </div>
 
     <ul *ngFor="let Item of Items; let i = index">
-        
-        <div *ngIf="i === 0" class="item">
-            <span class="content"><b>Authorized</b></span>
-            <div class="spacer content"></div>
-            <span ><b>  Amount</b></span>
-        </div>
-
         <div class="item">
             <span class="Item-Name content">{{Item.authorized}}</span>
             <div class="spacer content"></div>
