@@ -1,1 +1,31 @@
-<p>track-income works!</p>
+<div class="Headder">
+    <p>Check Account Page</p>
+    <button class="content" (click)="navigateToDashBoard()">Back</button>
+
+</div>
+
+<ul class="Account-Table">
+
+    <div class="Account content">
+        <span class="content">{{Items[0].accountType}}</span>
+        <div class="spacer content"></div>
+        <span class="total content"><b>Account Balance: </b>${{Items[0].totalBalance| number : '1.2-2'}}</span>
+    </div>
+
+    <ul *ngFor="let Item of Items; let i = index">
+        <div class="item">
+            <span class="Item-Name content">{{Item.authorized}}</span>
+            <div class="spacer content"></div>
+            <span class="item-cost content">{{Item.amount | number : '1.2-2'}}</span>
+
+            <button (click)="selectItem(Item)" class="Down-Arrow content">V</button>
+        </div>
+
+        <div *ngIf="Item === selectedItem" class="details details.visible">
+            <p><b>Transaction Name: </b>{{selectedItem.transactionName}}</p>
+            <p><b>Transaction Date: </b>{{selectedItem.transactionDate | date: 'dd/MM/yyyy'}}</p>
+            <p><b>Availabe Balance: </b>${{selectedItem.lineAmount | number : '1.2-2' }}</p>
+        </div>
+    </ul>
+
+</ul>

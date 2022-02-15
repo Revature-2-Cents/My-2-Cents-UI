@@ -1,0 +1,65 @@
+<body>
+  <div>
+    <h1>Create Profile</h1>
+    <fieldset>
+      <legend>
+        <h2>Personal Info</h2>
+      </legend>
+      <form action="/" method="post">
+        <table>
+          <tr>
+            <td><label for="fname">First Name:</label></td>
+            <td><input name="fname" type="text" required /></td>
+          </tr>
+          <tr>
+            <td><label for="lname">Last Name:</label></td>
+            <td><input name="lname " type="text" required /></td>
+          </tr>
+          <tr>
+            <td><label for="streetAddressPersonal">Street Address:</label></td>
+            <td><input name="streetAddressPersonal" type="text" required /></td>
+          </tr>
+          <tr>
+            <td><label for="cityPersonal">City:</label></td>
+            <td><input name="cityPersonal" type="text" required /></td>
+          </tr>
+          <tr>
+            <td><label for="statePersonal">State:</label></td>
+            <td><input name="statePersonal" type="text" required /></td>
+          </tr>
+          <tr>
+            <td><label for="phonePersonal">Phone:</label></td>
+            <td><input name="phonePersonal" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="205-555-5112"
+                required /></td>
+          </tr>
+          <tr>
+            <td><label for="personalEmail">Email:</label></td>
+            <td><input name="personalEmail" type="email" required /></td>
+          </tr>
+        </table>
+      </form>
+    </fieldset>
+    <fieldset>
+      <legend>
+        <h2>Work Info</h2>
+      </legend>
+      <form action="/" method="post">
+        <table>
+          <tr>
+            <td><label for="employerName">Employer Name:</label></td>
+            <td><input name="employerName" type="text"></td>
+          </tr>
+          <tr>
+            <td><label for="addressWork">Work Address:</label></td>
+            <td><input name="addressWork" type="text" placeholder="100 Main St, Los Angeles, CA" /></td>
+          </tr>
+          <tr>
+            <td><label for="phoneWork">Phone:</label></td>
+            <td><input name="phoneWork" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="205-555-5112" />
+            </td>
+          </tr>
+        </table>
+      </form>
+    </fieldset>
+  </div>
+</body>

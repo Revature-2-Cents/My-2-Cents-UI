@@ -1,0 +1,36 @@
+  .imagediv {
+    position: absolute;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    top: 40%;
+    left: 50%;
+    color: rgb(0, 0, 0);
+    display: block;
+    padding: 0%;
+    border-radius: px;
+    display: flex;
+    justify-content: center;
+    z-index: -10;
+  }
+
+  .image {
+    margin-right: 16%;
+  }
+
+  .button {
+    margin-top: 75%;
+    position: absolute;
+  }
+
+  .text {
+    padding-right: 18%;
+    padding-top: 15%;
+    font-size: 28px;
+  }
+
+  .textdiv {
+    display: flex;
+    justify-content: right;
+    z-index: 10;
+  }
+
