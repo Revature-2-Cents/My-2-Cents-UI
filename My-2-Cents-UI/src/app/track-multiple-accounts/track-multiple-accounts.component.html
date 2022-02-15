@@ -1,5 +1,13 @@
-
 <body>
+  <header>
+    <span>
+      <img class="toplogo" src="https://cdn.discordapp.com/attachments/938474742946598944/941734233435672616/MY_2_CENTS-removebg-preview.png" alt=" "></span>
+    <div class="topPageBar">
+
+        My2Cents
+
+    </div>
+  </header>
   <nav class="topnav">
     <a (click)="nav('Dashboard')">Dashboard</a>
     <a id="user-profile" (click)="nav('My Profile')">My Profile</a>
@@ -11,7 +19,7 @@
     <h1>{{NavName}}</h1>
   </div>
   <div class="component">
-    <div *ngIf="NavName=='Dashboard' && viewAccounts != null else notAccountsBlock">
+    <div *ngIf="NavName=='Dashboard'">
       <div *ngIf="viewAccounts.length else notAccountsBlock">
         <fieldset>
           <legend>Checking</legend>
@@ -40,7 +48,6 @@
       </div>
     </div>
 
-
     <ng-template #notAccountsBlock>
       <h1>No accounts yet</h1>
     </ng-template>
@@ -59,12 +66,6 @@
 
     <div *ngIf="NavName=='Add New Account'">
       <app-register></app-register>
-    </div>
-
-    <div *ngIf="NavName=='Create Profile'">
-      <div *ngIf="auth.user$ | async as user">
-        <app-create-profile></app-create-profile>
-      </div>
     </div>
 
   </div>

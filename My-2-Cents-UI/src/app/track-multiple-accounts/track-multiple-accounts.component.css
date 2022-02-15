@@ -18,12 +18,16 @@
   float: left;
 }
 
+body {
+  padding-top: 75px;
+  overflow: hidden;
+  margin: 0 0 0 0;
+}
+
 .topnav {
-  overflow:hidden;
-  padding: .5em 1em;
-  position:absolute;
-  top: 79.5px;
-  left:0;
+  overflow: hidden;
+  padding: 0.5em 1em;
+  margin-top: -11px;
   font-size: 16pt;
   background-color: rgba(0, 0, 0, 0.192);
   width: 100%;
