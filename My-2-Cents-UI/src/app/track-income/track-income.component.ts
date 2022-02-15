@@ -29,13 +29,13 @@ export class TrackIncomeComponent implements OnInit {
 
       // For loop to assign testIncome with necessary data
       // Use testIncome to add the information
-      for(let i = 0; i < datas.length; i++)
-      {
+     // for(let i = 0; i < datas.length; i++)
+      //{
         this.Items=datas;
 
         // testIncome = datas[i];
         // this.iService.addToIncome(testIncome);
-      }
+      //}
     })
     //this.Items = this.iService.getIncomes();
   }
