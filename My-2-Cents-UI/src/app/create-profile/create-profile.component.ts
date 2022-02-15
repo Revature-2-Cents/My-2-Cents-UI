@@ -4,7 +4,7 @@ import { AuthService } from '@auth0/auth0-angular';
 import { HttpClient } from '@angular/common/http';
 import { UserLoginInfo } from '../Login';
 import { My2CentsService } from '../my2-cents.service';
-
+import { UserProfile } from 'src/app/userprofile';
 @Injectable({
   providedIn: 'root',
 })
@@ -16,14 +16,24 @@ import { My2CentsService } from '../my2-cents.service';
 })
 export class CreateProfileComponent implements OnInit {
 
-  constructor(
-    private http: HttpClient,
-    private my2centsService: My2CentsService,
-    public auth: AuthService,
-    @Inject(DOCUMENT) private doc: Document) { }
+  public data: any = [];
+  inputData: UserProfile = {} as UserProfile;
+  @Input() UserLoginInfo = <UserLoginInfo>{};
 
-    @Input() userId: number = -1;
+    
+  constructor(private my2centsService: My2CentsService,)
+   {}
+
   ngOnInit(): void {
   }
 
+
+  clickme(inputData: UserProfile) {
+   // console.log('it does nothing',inputData.FirstName);
+   inputData.UserID = this.UserLoginInfo.userID;
+   this.my2centsService
+        .PostUserAccounts(inputData)
+  }
+
+  
 }
