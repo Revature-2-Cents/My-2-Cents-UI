@@ -1,14 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { CreateProfileComponent } from './create-profile.component';
 
 describe('CreateProfileComponent', () => {
   let component: CreateProfileComponent;
   let fixture: ComponentFixture<CreateProfileComponent>;
+  let httpMock: HttpTestingController;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CreateProfileComponent ]
+      declarations: [ CreateProfileComponent ],
+      imports: [
+        HttpClientTestingModule
+      ]
     })
     .compileComponents();
   });

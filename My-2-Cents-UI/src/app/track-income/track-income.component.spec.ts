@@ -1,6 +1,7 @@
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TrackIncomeComponent } from './track-income.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('TrackIncomeComponent', () => {
   let component: TrackIncomeComponent;
@@ -11,7 +12,8 @@ describe('TrackIncomeComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ TrackIncomeComponent ],
       imports: [
-        HttpClientTestingModule
+        HttpClientTestingModule,
+        RouterTestingModule,
       ]
     })
     .compileComponents();

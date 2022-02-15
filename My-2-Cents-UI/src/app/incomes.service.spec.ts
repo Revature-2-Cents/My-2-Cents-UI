@@ -1,4 +1,7 @@
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import {
+  HttpClientTestingModule,
+  HttpTestingController,
+} from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 
 import { IncomesService } from './incomes.service';
@@ -6,13 +9,11 @@ import { IncomesService } from './incomes.service';
 describe('IncomesService', () => {
   let service: IncomesService;
 
-  let httoMock: HttpTestingController
+  let httoMock: HttpTestingController;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [
-        HttpClientTestingModule
-      ]
+      imports: [HttpClientTestingModule],
     });
     service = TestBed.inject(IncomesService);
   });
