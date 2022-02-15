@@ -20,8 +20,9 @@ export class UserProfileComponent implements OnInit {
     private http: HttpClient,
     private my2centsService: My2CentsService,
     public auth: AuthService,
-    @Inject(DOCUMENT) private doc: Document
-  ) {}
+    @Inject(DOCUMENT) private doc: Document) { }
+
+    @Input() userId: number = -1;
 
   @Input() UserLoginInfo = <UserLoginInfo>{};
   ngOnInit(): void {
