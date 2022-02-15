@@ -1,22 +1,21 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
-import { Expenses, Incomes } from './mock-incomes';
+import { Incomes } from './mock-incomes';
 
-import { lastValueFrom, Observable, throwError } from 'rxjs';
-import { catchError, retry} from 'rxjs/operators';
+import { lastValueFrom } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class IncomesService {
-  incomes: Expenses[] = [];
+  incomes: Incomes[] = [];
 
   defaultUrl = "http://my2centsapi.azurewebsites.net";
 
   constructor(private http : HttpClient) { }
 
-  addToIncome(income: Expenses)
+  addToIncome(income: Incomes)
   {
     this.incomes.push(income)
   }
@@ -32,10 +31,8 @@ export class IncomesService {
     return this.incomes;
   }
 
-  getAccountInfo(accountId: string): Promise<Incomes[]>{
-    // const params = new HttpParams()
-    //    .set('Id', accountId);
-    return lastValueFrom(this.http.get<Incomes[]>(`https://localhost:7106/api/Transactions/${accountId}`));
-    //return lastValueFrom(this.http.get<Incomes[]>(this.defaultUrl + `/api/Transactions/${accountId}`));
+  getAccountInfo(accountId: number): Promise<Incomes[]>{
+
+    return lastValueFrom(this.http.get<Incomes[]>(this.defaultUrl + `/api/Transactions/${accountId}`));
   }
-}
+} 
