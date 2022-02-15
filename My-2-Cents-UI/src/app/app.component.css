@@ -18,4 +18,9 @@
   float: left;
 }
 
-
+.version {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding-right: 6px;
+}

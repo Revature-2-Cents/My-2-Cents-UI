@@ -1,21 +1,27 @@
-<label for="account">From Account:</label>
-<select id="from" class="dropdown" #fromAccount>
-    <option aria-placeholder="Select Account" *ngFor="let accinfo of account" value={{accinfo.accountID}}>
-        #{{accinfo.accountID}} Balance: {{accinfo.totalBalance}}
-    </option>
-</select>
-<br>
-<br>
-<label for="account">To Account:</label>
-<select id="to" class="dropdown" aria-placeholder="Select Account" #toAccount>
-    <option *ngFor="let accinfo of account" value={{accinfo.accountID}}>
-        #{{accinfo.accountID}} Balance: {{accinfo.totalBalance}}
-    </option>
-</select>
-<br>
-<br>
+<body>
+    <form>
+        <label for="account">From Account:</label>
+        <select id="from" class="dropdown" #fromAccount>
+            <option aria-placeholder="Select Account" *ngFor="let accinfo of account" value={{accinfo.accountID}}>
+                Account #{{accinfo.accountID}} &nbsp; Balance: ${{accinfo.totalBalance}}
+            </option>
+        </select>
+        <br>
+        <br>
+        <label for="account">To Account:</label>
+        <select id="to" class="dropdown" aria-placeholder="Select Account" #toAccount>
+            <option *ngFor="let accinfo of account" value={{accinfo.accountID}}>
+                Account #{{accinfo.accountID}} &nbsp; Balance: ${{accinfo.totalBalance}}
+            </option>
+        </select>
+        <br>
+        <br>
+        Amount:
+        $<input id="quantity" type="number" min="0.01" step="0.01" name="quantity" [(ngModel)]="quantityFiller"
+            #quantity>
+        <br>
+        <br>
+        <button id="button" (click)="CheckFunds(+fromAccount.value, +toAccount.value)">Transfer Funds</button>
 
-$<input id="quantity" type="number" min="0.01" step="0.01" [(ngModel)]="quantityFiller" #quantity>
-<br>
-<br>
-<button id="button" (click)="ClearQuantity()" (click)="CheckFunds(+fromAccount.value, +toAccount.value, +quantity.value)">Transfer Funds</button>
+    </form>
+</body>
