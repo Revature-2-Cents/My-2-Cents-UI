@@ -5,7 +5,9 @@ import { TransferService } from '../transfer.service';
 import { Location } from '@angular/common';
 
 import { TestBed, async } from '@angular/core/testing';
+
 import { My2CentsService } from '../my2-cents.service';
+
 
 
 @Component({
@@ -26,6 +28,9 @@ export class TransferMoneyComponent implements OnInit {
   @Output() toAccount = new EventEmitter<string>();
   @Output() quantity = new EventEmitter<number>();
 
+
+
+
   constructor(
     private transferService: TransferService,
     private http: HttpClient,
@@ -44,9 +49,10 @@ export class TransferMoneyComponent implements OnInit {
 
   CheckFunds(
     fromAccount: number,
-    toAccount: number,
-    quantity: number
+    toAccount: number
   ): boolean {
+    let quantity = +this.quantityFiller;
+    this.ClearQuantity();
     console.log(fromAccount + ' ' + toAccount + ' ' + quantity);
     if (fromAccount == toAccount) {
       alert('Cannot Transfer From and To Same Account');
@@ -64,7 +70,7 @@ export class TransferMoneyComponent implements OnInit {
       if (fromAcc != undefined) {
         if (+fromAcc.totalBalance < quantity) {
           this.funds = false;
-          alert("Insufficient Funds for Transfer");
+          alert('Insufficient Funds for Transfer');
           return false;
         } else {
           this.TransferFunds(+toAccount, +fromAccount, quantity).subscribe(
@@ -73,6 +79,7 @@ export class TransferMoneyComponent implements OnInit {
               console.log(data);
               if (data > 0) {
                 this.UpdateAccountList(); // synchronous update account list to dashboard component
+                console.log("help", data);
                 alert('Transaction succeed!');
                 return true;
               } else {
@@ -96,7 +103,7 @@ export class TransferMoneyComponent implements OnInit {
       this.accountChange.emit(this.account);
     });
   }
-  
+
   TransferFunds(fromAccount: number, toAccount: number, quantity: number) : any {
     return this.transferService.TransferFunds(fromAccount, toAccount, quantity);
   }
