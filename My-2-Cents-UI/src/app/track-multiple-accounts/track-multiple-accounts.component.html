@@ -66,8 +66,14 @@
     </div>
 
     <div *ngIf="NavName=='Add New Account'">
+      <div *ngIf="auth.user$ | async as user">
       <app-register [userId]=UserLoginInfo.userID></app-register>
     </div>
-
+  </div>
+    <div *ngIf="NavName=='Create Profile'">
+      <div *ngIf="auth.user$ | async as user">
+      <app-create-profile [userId]=UserLoginInfo.userID></app-create-profile>
+    </div>
+  </div>
   </div>
 </body>
