@@ -11,7 +11,7 @@ import { lastValueFrom } from 'rxjs';
 export class IncomesService {
   incomes: Incomes[] = [];
 
-  defaultUrl = "http://my2centsapi.azurewebsites.net";
+  defaultUrl = "https://my2centsapi.azurewebsites.net";
 
   constructor(private http : HttpClient) { }
 
