@@ -60,12 +60,16 @@
       </div>
     </div>
     <div class="center">
-      <button type="button" (click)="nav('Edit Info')" >Edit info</button>
+      <button type="button" (click)="nav('Edit Info')">Edit Profile</button>
     </div>
   </div>
+
   <div *ngIf="forNav=='Edit Info'">
     <div *ngIf="auth.user$ | async as user">
-
-    <app-user-change-info [userId]=userId></app-user-change-info></div>
+      <app-user-change-info [userId]=userId></app-user-change-info>
+    </div>
+    <div class="center">
+      <button type="button" (click)="nav('Profile')">Go Back</button>
+    </div>
   </div>
 </body>
