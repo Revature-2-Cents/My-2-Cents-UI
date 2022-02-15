@@ -71,7 +71,7 @@ export class TrackMultipleAccountsComponent implements OnInit {
     if (this.auth.user$) {
       this.my2centsservice.getUserAccounts(userid).subscribe((data) => {
         this.viewAccounts = data;
-        // console.log('data: ' + this.viewAccounts[0]);
+        console.log('data: ' + this.viewAccounts[0]);
         this.getAccountArray();
       });
     }
