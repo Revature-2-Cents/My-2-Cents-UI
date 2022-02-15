@@ -3,8 +3,12 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Account } from '../account';
 import { TransferService } from '../transfer.service';
 import { Location } from '@angular/common';
+
+import { TestBed, async } from '@angular/core/testing';
+
 import { My2CentsService } from '../my2-cents.service';
 import { Pipe, PipeTransform } from '@angular/core';
+
 
 
 @Component({
@@ -26,6 +30,9 @@ export class TransferMoneyComponent implements OnInit {
   @Output() fromAccount = new EventEmitter<string>();
   @Output() toAccount = new EventEmitter<string>();
   @Output() quantity = new EventEmitter<number>();
+
+
+
 
   constructor(
     private transferService: TransferService,
@@ -82,7 +89,7 @@ export class TransferMoneyComponent implements OnInit {
               if (data > 0) {
                 this.UpdateAccountList(); // synchronous update account list to dashboard component
                 console.log("help", data);
-                alert('Transaction succeed!');
+                alert('Transaction succeeded!');
                 return true;
               } else {
                 alert('Server Error Please Contact the Bank for Assistance');
@@ -108,7 +115,7 @@ export class TransferMoneyComponent implements OnInit {
     });
   }
 
-  TransferFunds(fromAccount: number, toAccount: number, quantity: number): any {
+  TransferFunds(fromAccount: number, toAccount: number, quantity: number) : any {
     return this.transferService.TransferFunds(fromAccount, toAccount, quantity);
   }
 }
