@@ -4,7 +4,7 @@
 <div>
 <strong>From Account:</strong>
 <br>
-<select id="from" class="dropdown" name="fromAccount" [(ngModel)]="fromaccount" #fromAccount>
+<select id="from" class="dropdown" name="fromAccount" #fromAccount>
     <option value="" disabled selected>Select Account</option>
     <option  *ngFor="let accinfo of account" value={{accinfo.accountID}}>
         Account #{{accinfo.accountID}} &nbsp; Balance: ${{accinfo.totalBalance}}
@@ -15,14 +15,13 @@
 <br>
 <div><strong>To Account:</strong>
 <br>
-<select id="to" class="dropdown" name="toaccount" [(ngModel)]="toaccount" #toAccount>
+<select id="to" class="dropdown" name="toaccount" #toAccount>
     <option value="" disabled selected>Select Account</option>
-    <option *ngFor="let accinfo of account" value={{accinfo.accountID}} | remove>
+    <option *ngFor="let accinfo of account" value={{accinfo.accountID}}>
         <ng-container *ngIf="accinfo.accountID != fromaccount">
             Account #{{accinfo.accountID}} &nbsp; Balance: ${{accinfo.totalBalance}}
         </ng-container>
     </option>
-
 </select>
 </div>
 <br>
