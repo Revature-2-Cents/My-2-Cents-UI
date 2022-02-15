@@ -22,7 +22,7 @@ export class CreateProfileComponent implements OnInit {
     public auth: AuthService,
     @Inject(DOCUMENT) private doc: Document) { }
 
-
+    @Input() userId: number = -1;
   ngOnInit(): void {
   }
 
