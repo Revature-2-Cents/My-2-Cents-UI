@@ -2,7 +2,9 @@
     <form>
         <table>
 <label for="account">From Account:</label>
+
 <select id="from" class="dropdown" #fromAccount>
+
     <option aria-placeholder="Select Account" *ngFor="let accinfo of account" value={{accinfo.accountID}}>
         Account #{{accinfo.accountID}} &nbsp; Balance: ${{accinfo.totalBalance}}
     </option>
@@ -14,6 +16,7 @@
     <option *ngFor="let accinfo of account" value={{accinfo.accountID}}>
         Account #{{accinfo.accountID}} &nbsp; Balance: ${{accinfo.totalBalance}}
     </option>
+
 </select>
 <br>
 <br>

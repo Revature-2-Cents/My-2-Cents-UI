@@ -63,7 +63,7 @@ export class TrackMultipleAccountsComponent implements OnInit {
   logout(): void {
     console.log(this.doc.location);
     this.auth.logout({ returnTo: this.doc.location.origin });
-    alert('Successfully logout!');
+    alert('Successful logout!');
   }
 
   GetAccountInfo(userid: number) {

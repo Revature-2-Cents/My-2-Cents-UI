@@ -30,7 +30,7 @@ import { FormsModule } from '@angular/forms';
     TrackExpensesComponent,
     TrackMultipleAccountsComponent,
     UserChangeInfoComponent,
-    CreateProfileComponent,
+    CreateProfileComponent
   ],
   imports: [
     HttpClientModule,
