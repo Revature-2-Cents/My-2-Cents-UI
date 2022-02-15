@@ -27,11 +27,6 @@ const routes: Routes = [
     canActivate: [AuthGuard], // need authentication to see the page
   },
   {
-    path: 'user-change-info',
-    component: UserChangeInfoComponent,
-    canActivate: [AuthGuard],
-  },
-  {
     path: 'track-income/:AccountID',
     component: TrackIncomeComponent,
     canActivate: [AuthGuard],

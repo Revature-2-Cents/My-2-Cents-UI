@@ -11,7 +11,6 @@ import { DOCUMENT } from '@angular/common';
 import { UserLoginInfo } from '../Login';
 import { Account, AccountTypes, NewAccount } from '../account';
 import { My2CentsService } from '../my2-cents.service';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-track-multiple-accounts',

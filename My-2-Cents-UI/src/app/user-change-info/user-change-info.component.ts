@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { UserProfile } from 'src/app/userprofile';
 import { My2CentsService } from '../my2-cents.service';
 
@@ -15,11 +15,11 @@ export class UserChangeInfoComponent implements OnInit {
    public data: any = [];
 
   constructor(private my2centsService: My2CentsService
-    ) {  
+    ) {
     //  console.log(this.data.firstName);
-     // this.UProfile.FirstName = this.data.FirstName 
+     // this.UProfile.FirstName = this.data.FirstName
     }
-
+    @Input() userId: number = -1;
   ngOnInit(): void {
     this.GetUserProfile();
   }
@@ -30,18 +30,19 @@ export class UserChangeInfoComponent implements OnInit {
     this.my2centsService
          .PutUserAccounts(datas)
     //this.inputVar = 'changed';
-   
+
   }
 
   GetUserProfile() {
+    console.log(this.userId)
       this.my2centsService
        // .getUserInfo(this.UserLoginInfo.userID)
-       .getUserInfo(20)
+       .getUserInfo(this.userId)
         .subscribe((data) => {
           this.data = data;
          // this.inputData = this.data;
         });
     }
-    
+
 
 }

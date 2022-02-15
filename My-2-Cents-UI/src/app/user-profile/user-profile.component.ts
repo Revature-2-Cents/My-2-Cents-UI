@@ -15,22 +15,25 @@ import { My2CentsService } from '../my2-cents.service';
 })
 export class UserProfileComponent implements OnInit {
   //title = 'image-gallery';
+  public forNav: string = 'Profile';
   public data: any = [];
   constructor(
     private http: HttpClient,
     private my2centsService: My2CentsService,
     public auth: AuthService,
-    @Inject(DOCUMENT) private doc: Document) { }
+    @Inject(DOCUMENT) private doc: Document
+  ) {}
 
-    @Input() userId: number = -1;
+  @Input() userId: number = -1;
 
   @Input() UserLoginInfo = <UserLoginInfo>{};
   ngOnInit(): void {
-  
+    //console.log(this.userId);
     this.GetUserProfile();
   }
-
-
+  nav(str: string): void {
+    this.forNav = str;
+  }
 
   GetUserProfile() {
     if (this.auth.user$) {
@@ -42,5 +45,4 @@ export class UserProfileComponent implements OnInit {
         });
     }
   }
-  
 }
