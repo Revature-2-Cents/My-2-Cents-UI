@@ -55,7 +55,7 @@
 
     <div *ngIf="NavName=='My Profile'">
       <div *ngIf="auth.user$ | async as user">
-        <app-user-profile [UserLoginInfo]=UserLoginInfo></app-user-profile>
+        <app-user-profile [UserLoginInfo]=UserLoginInfo [userId]=UserLoginInfo.userID></app-user-profile>
       </div>
     </div>
 
