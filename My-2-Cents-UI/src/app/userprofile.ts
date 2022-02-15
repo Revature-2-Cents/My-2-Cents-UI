@@ -10,4 +10,6 @@ export interface UserProfile {
     Employer: string | undefined;
     WorkAddress: string | undefined;
     WorkPhone: string | undefined;
+    email: string | undefined;
+
 }
