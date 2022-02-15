@@ -22,7 +22,6 @@
         <div *ngIf="Item === selectedItem" class="details details.visible">
             <p><b>Transaction Status: </b>{{selectedItem.authorized}}</p>
             <p><b>Transaction Date: </b>{{selectedItem.transactionDate | date: 'dd/MM/yyyy'}}</p>
-            <p><b>Availabe Balance: </b>${{selectedItem.lineAmount | number : '1.2-2' }}</p>
         </div>
     </ul>
 
