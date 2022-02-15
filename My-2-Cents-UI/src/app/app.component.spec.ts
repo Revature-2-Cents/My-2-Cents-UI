@@ -41,10 +41,4 @@ describe('AppComponent', () => {
         const app = fixture.debugElement.componentInstance;
         expect(app.title).toEqual('My-2-Cents-UI');
     }));
-    it(`should render 'My2Cents' in header tag`, waitForAsync(() => {
-        const fixture = TestBed.createComponent(AppComponent);
-        fixture.detectChanges();
-        const compiled = fixture.debugElement.nativeElement;
-        expect(compiled.querySelector('header').textContent).toContain('My2Cents');
-    }));
 });
