@@ -55,3 +55,12 @@ legend {
 .light {
   font-weight:100;
 }
+
+.addNewBank {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.accountLabel {
+  margin-right: 10px;
+}
