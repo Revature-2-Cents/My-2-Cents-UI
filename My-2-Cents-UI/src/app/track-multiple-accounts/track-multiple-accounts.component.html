@@ -21,7 +21,13 @@
   <div class="component">
     <div *ngIf="NavName=='Dashboard'">
       <div *ngIf="auth.user$ | async as user">
-        <app-register [userId]=UserLoginInfo.userID></app-register>
+        <form>
+          <label for="accountsTypes">Choose Account Type:</label>
+          <select name="accounts" id="accounts" #chooseAccountType>
+              <option aria-placeholder="Account Type" *ngFor="let type of accountTypes" value={{type.accountTypeId}}>{{type.accountType1}}</option>
+          </select>
+      </form>
+      <button class="openAccount" (click)="NewBankAccount(+chooseAccountType.value)">Open Account</button>
       </div>
       <div *ngIf="viewAccounts.length else notAccountsBlock">
         <fieldset>
