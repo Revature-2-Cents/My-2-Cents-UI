@@ -15,6 +15,7 @@ import { My2CentsService } from '../my2-cents.service';
 })
 export class UserProfileComponent implements OnInit {
   //title = 'image-gallery';
+  public forNav: string = "Profile";
   public data: any = [];
   constructor(
     private http: HttpClient,
@@ -26,8 +27,11 @@ export class UserProfileComponent implements OnInit {
 
   @Input() UserLoginInfo = <UserLoginInfo>{};
   ngOnInit(): void {
-  
+    //console.log(this.userId);
     this.GetUserProfile();
+  }
+  nav(str: string):void {
+    this.forNav = str;
   }
 
 
@@ -42,5 +46,5 @@ export class UserProfileComponent implements OnInit {
         });
     }
   }
-  
+
 }
