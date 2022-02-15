@@ -80,7 +80,7 @@ export class TransferMoneyComponent implements OnInit {
               if (data > 0) {
                 this.UpdateAccountList(); // synchronous update account list to dashboard component
                 console.log("help", data);
-                alert('Transaction succeed!');
+                alert('Transaction succeeded!');
                 return true;
               } else {
                 alert('Server Error Please Contact the Bank for Assistance');
