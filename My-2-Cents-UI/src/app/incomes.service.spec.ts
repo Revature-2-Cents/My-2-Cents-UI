@@ -1,17 +1,20 @@
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 
 import { IncomesService } from './incomes.service';
 
 describe('IncomesService', () => {
   let service: IncomesService;
-  let httoMock: HttpTestingController
+
+  let fakeHttp: any;
 
   beforeEach(() => {
+    fakeHttp = {
+      get() {},
+    };
+
     TestBed.configureTestingModule({
-      imports: [
-        HttpClientTestingModule
-      ]
+      providers: [{ provide: HttpClient, useValue: fakeHttp }],
     });
     service = TestBed.inject(IncomesService);
   });
