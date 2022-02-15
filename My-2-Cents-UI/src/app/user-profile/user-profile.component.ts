@@ -26,24 +26,11 @@ export class UserProfileComponent implements OnInit {
 
   @Input() UserLoginInfo = <UserLoginInfo>{};
   ngOnInit(): void {
-    // this.GetUserInfo();
-    // this.getData();
+  
     this.GetUserProfile();
   }
 
-  // GetUserInfo() {
-  //   this.UserLoginInfo = this.userloginservice.GetUser();
-  // }
 
-  // UserLoginInfo = <UserLoginInfo>{};
-
-  // GetUserInfo() {
-  //   // Getting user infomation after login
-  //   this.auth.user$.subscribe((data) => {
-  //     console.log(data!.sub!.substring(6));
-  //     this.UserLoginInfo.userID = +data!.sub!.substring(6);
-  //   });
-  // }
 
   GetUserProfile() {
     if (this.auth.user$) {
@@ -51,17 +38,9 @@ export class UserProfileComponent implements OnInit {
         .getUserInfo(this.UserLoginInfo.userID)
         .subscribe((data) => {
           this.data = data;
+          //console.log(this.data);
         });
     }
   }
-  // getData() {
-  //   //const url ='https://my2centsapi.azurewebsites.net/api/User/Info?userid=19'
-  //   const url = `https://my2centsapi.azurewebsites.net/api/User/Info?UserId=${this.userId}`;
-  //   // + this.UserLoginInfo.userID;
-  //   console.log(this.UserLoginInfo.userID);
-  //   this.http.get(url).subscribe((res) => {
-  //     this.data = res;
-  //     console.log(this.data);
-  //   });
-  // }
+  
 }
