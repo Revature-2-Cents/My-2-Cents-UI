@@ -1,4 +1,7 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import {
+  HttpClientTestingModule,
+  HttpTestingController,
+} from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 
 import { IncomesService } from './incomes.service';
@@ -6,15 +9,11 @@ import { IncomesService } from './incomes.service';
 describe('IncomesService', () => {
   let service: IncomesService;
 
-  let fakeHttp: any;
+  let httoMock: HttpTestingController;
 
   beforeEach(() => {
-    fakeHttp = {
-      get() {},
-    };
-
     TestBed.configureTestingModule({
-      providers: [{ provide: HttpClient, useValue: fakeHttp }],
+      imports: [HttpClientTestingModule],
     });
     service = TestBed.inject(IncomesService);
   });
