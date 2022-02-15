@@ -22,7 +22,7 @@ button {
 button:hover {
   background-image: radial-gradient(
     circle,
-    /* rgb(223, 178, 38), */ rgb(238, 205, 105),
+    rgb(238, 205, 105),
     rgb(248, 220, 135),
     rgb(234, 215, 158)
   );
@@ -38,14 +38,14 @@ button:active {
 }
 
 .component {
-  background: radial-gradient(#e9f1f7, #e0e0e9, #c9c9d3);
-  border: 0.15em solid grey;
-  /* margin-top: 116px; */
+  background: radial-gradient(#e9f1f7, #e0e0e9 , #c9c9d3);
+  border: .15em solid grey;
+  margin-top: 5px;
   margin-left: 3em;
   margin-right: 3em;
-  margin-bottom: auto;
+
   border-radius: 15px;
-  padding: 3em;
+  padding: 1em 3em;
 }
 
 fieldset {
@@ -53,4 +53,28 @@ fieldset {
   max-width: 90%;
   min-width: 50%;
 }
+.topnav {
+  overflow: hidden;
+  padding: 0.5em 1em;
+  margin-top: -3px;
+  font-size: 16pt;
+  background-color: rgba(0, 0, 0, 0.192);
+  width: 100vw;
 
+}
+
+.topnav a {
+  color: rgba(250, 244, 232, 0.829);
+  padding: 2%;
+  text-decoration: none;
+  text-align: center;
+}
+.topnav a:hover {
+  background-color: rgb(224, 217, 217);
+  color: rgb(39, 38, 38)
+}
+
+.topnav a:active {
+  background-color: rgba(219, 176, 83, 0.418);
+  color:rgb(250, 244, 232)
+}
