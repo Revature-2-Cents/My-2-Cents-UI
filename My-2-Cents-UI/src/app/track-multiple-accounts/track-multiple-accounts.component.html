@@ -25,7 +25,7 @@
           <legend>Checking</legend>
           <div *ngFor='let Account of checkingArray'>
             <a routerLink="/track-income/{{ Account.accountID }}">
-              <div class="center"> <button class="account-button"> <span class="left"> Account ID: {{ Account.accountID }}</span> <span class="right"> Balance: {{ Account.totalBalance | currency }}</span></button></div>
+              <div class="center"> <button class="account-button"> <span class="left"> <span class="light"> Account ID: </span>{{ Account.accountID }}</span> <span class="right"><span class="light"> Balance: </span>{{ Account.totalBalance | currency }}</span></button></div>
             </a>
           </div>
         </fieldset>
@@ -33,7 +33,7 @@
           <legend>Savings</legend>
           <div *ngFor='let Account of savingArray'>
             <a routerLink="/track-income/{{ Account.accountID }}">
-              <div class="center"><button class="account-button"><span class="left">Account ID: {{ Account.accountID }}</span> <span class="right">Balance: {{ Account.totalBalance | currency }}</span></button></div>
+              <div class="center"><button class="account-button"><span class="left"><span class="light">Account ID: </span>{{ Account.accountID }}</span> <span class="right"><span class="light">Balance: </span>{{ Account.totalBalance | currency }}</span></button></div>
             </a>
           </div>
         </fieldset>
@@ -41,7 +41,7 @@
           <legend>Investment</legend>
           <div *ngFor='let Account of investmentArray'>
             <a routerLink="/track-income/{{ Account.accountID }}">
-              <div class="center"><button class="account-button"> <span class="left"> Account ID: {{ Account.accountID }}</span> <span class="right"> Balance: {{ Account.totalBalance | currency }}</span></button></div>
+              <div class="center"><button class="account-button"> <span class="left"><span class="light"> Account ID: </span>{{ Account.accountID }}</span> <span class="right"> <span class="light">Balance: </span>{{ Account.totalBalance | currency }}</span></button></div>
             </a>
           </div>
         </fieldset>

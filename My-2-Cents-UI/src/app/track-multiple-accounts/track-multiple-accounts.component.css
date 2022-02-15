@@ -41,3 +41,11 @@ body {
 .center {
   text-align: center;
 }
+
+legend {
+  font-size: 16pt;
+}
+
+.light {
+  font-weight:100;
+}
