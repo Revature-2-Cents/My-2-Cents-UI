@@ -1,9 +1,19 @@
 <body>
+  <header>
+    <span>
+      <img class="toplogo" src="https://cdn.discordapp.com/attachments/938474742946598944/941734233435672616/MY_2_CENTS-removebg-preview.png" alt=" "></span>
+    <div class="topPageBar">
+
+        My2Cents
+
+    </div>
+  </header>
   <nav class="topnav">
     <a (click)="nav('Dashboard')">Dashboard</a>
     <a id="user-profile" (click)="nav('My Profile')">My Profile</a>
     <a (click)="nav('Transfer Money')">Transfer Money</a>
     <a (click)="nav('Add New Account')">Add New Account</a>
+    <a (click)="nav('Create Profile')">Create Profile</a>
     <a (click)="logout()">Log out</a>
   </nav>
   <div class="navname">
@@ -16,7 +26,7 @@
           <legend>Checking</legend>
           <div *ngFor='let Account of checkingArray'>
             <a routerLink="/track-income/{{ Account.accountID }}">
-              <button class="account-button">{{ Account.accountID }} {{ Account.totalBalance }}</button>
+              <div class="center"> <button class="account-button"> <span class="left"> <span class="light"> Account ID: </span>{{ Account.accountID }}</span> <span class="right"><span class="light"> Balance: </span>{{ Account.totalBalance | currency }}</span></button></div>
             </a>
           </div>
         </fieldset>
@@ -24,7 +34,7 @@
           <legend>Savings</legend>
           <div *ngFor='let Account of savingArray'>
             <a routerLink="/track-income/{{ Account.accountID }}">
-              <button class="account-button">{{ Account.accountID }} {{ Account.totalBalance }}</button>
+              <div class="center"><button class="account-button"><span class="left"><span class="light">Account ID: </span>{{ Account.accountID }}</span> <span class="right"><span class="light">Balance: </span>{{ Account.totalBalance | currency }}</span></button></div>
             </a>
           </div>
         </fieldset>
@@ -32,7 +42,7 @@
           <legend>Investment</legend>
           <div *ngFor='let Account of investmentArray'>
             <a routerLink="/track-income/{{ Account.accountID }}">
-              <button class="account-button">{{ Account.accountID }} {{ Account.totalBalance }}</button>
+              <div class="center"><button class="account-button"> <span class="left"><span class="light"> Account ID: </span>{{ Account.accountID }}</span> <span class="right"> <span class="light">Balance: </span>{{ Account.totalBalance | currency }}</span></button></div>
             </a>
           </div>
         </fieldset>
@@ -40,12 +50,12 @@
     </div>
 
     <ng-template #notAccountsBlock>
-      <h1>No accounts yet</h1>
+      <h1>Open a banking account to get started.</h1>
     </ng-template>
 
     <div *ngIf="NavName=='My Profile'">
       <div *ngIf="auth.user$ | async as user">
-        <app-user-profile [UserLoginInfo]=UserLoginInfo></app-user-profile>
+        <app-user-profile [UserLoginInfo]=UserLoginInfo [userId]=UserLoginInfo.userID></app-user-profile>
       </div>
     </div>
 
@@ -56,8 +66,14 @@
     </div>
 
     <div *ngIf="NavName=='Add New Account'">
-      <app-register></app-register>
+      <div *ngIf="auth.user$ | async as user">
+      <app-register [userId]=UserLoginInfo.userID></app-register>
     </div>
-
+  </div>
+    <div *ngIf="NavName=='Create Profile'">
+      <div *ngIf="auth.user$ | async as user">
+      <app-create-profile [UserLoginInfo]=UserLoginInfo></app-create-profile>
+    </div>
+  </div>
   </div>
 </body>

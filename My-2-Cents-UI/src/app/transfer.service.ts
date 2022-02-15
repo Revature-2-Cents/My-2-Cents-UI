@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Account } from './account';
 
 @Injectable({
+
   providedIn: 'root',
 })
 export class TransferService {
@@ -18,4 +19,5 @@ export class TransferService {
   }
 
   constructor(private http: HttpClient) {}
+
 }
