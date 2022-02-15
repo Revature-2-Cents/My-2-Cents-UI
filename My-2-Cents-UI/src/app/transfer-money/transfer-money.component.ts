@@ -5,6 +5,7 @@ import { TransferService } from '../transfer.service';
 import { Location } from '@angular/common';
 import { My2CentsService } from '../my2-cents.service';
 
+
 @Component({
   selector: 'app-transfer-money',
   templateUrl: './transfer-money.component.html',
@@ -12,6 +13,7 @@ import { My2CentsService } from '../my2-cents.service';
 })
 export class TransferMoneyComponent implements OnInit {
   @Input() account: Account[] = [];
+  quantityFiller: string = "";
 
   @Output() accountChange = new EventEmitter<Account[]>();
   @Input() userId: number = -1;
@@ -34,11 +36,16 @@ export class TransferMoneyComponent implements OnInit {
     console.log(this.userId);
   }
 
+  ClearQuantity() {
+    this.quantityFiller = "";
+  }
+
   CheckFunds(
     fromAccount: number,
-    toAccount: number,
-    quantity: number
+    toAccount: number
   ): boolean {
+    let quantity = +this.quantityFiller;
+    this.ClearQuantity();
     console.log(fromAccount + ' ' + toAccount + ' ' + quantity);
     if (fromAccount == toAccount) {
       alert('Cannot Transfer From and To Same Account');
@@ -56,7 +63,7 @@ export class TransferMoneyComponent implements OnInit {
       if (fromAcc != undefined) {
         if (+fromAcc.totalBalance < quantity) {
           this.funds = false;
-          alert("Insufficient Funds for Transfer");
+          alert('Insufficient Funds for Transfer');
           return false;
         } else {
           this.TransferFunds(+toAccount, +fromAccount, quantity).subscribe(
@@ -65,6 +72,7 @@ export class TransferMoneyComponent implements OnInit {
               console.log(data);
               if (data > 0) {
                 this.UpdateAccountList(); // synchronous update account list to dashboard component
+                console.log("help", data);
                 alert('Transaction succeed!');
                 return true;
               } else {
