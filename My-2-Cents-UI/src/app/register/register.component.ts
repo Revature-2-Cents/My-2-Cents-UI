@@ -40,7 +40,7 @@ viewAccounts: Account[] = [];
 
   NewBankAccount(accountTypeId: number) {
     this.CreateNewAccount(+accountTypeId).subscribe();
-    alert('Account Created!')
+    alert('Account Created!');
     this.GetAccountTypes();
   }
 }
