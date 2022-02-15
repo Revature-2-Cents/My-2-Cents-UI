@@ -24,28 +24,20 @@ body {
   margin: 0 0 0 0;
 }
 
-.topnav {
-  overflow: hidden;
-  padding: 0.5em 1em;
-  margin-top: -11px;
-  font-size: 16pt;
-  background-color: rgba(0, 0, 0, 0.192);
-  width: 100%;
-
+.account-button {
+  width: 60%;
 }
 
-.topnav a {
-  color: rgba(250, 244, 232, 0.829);
-  padding: 2%;
-  text-decoration: none;
+.left {
+  float: left;
+  margin-left: 25px;
+}
+
+.right {
+  float: right;
+  margin-right: 25px;
+}
+
+.center {
   text-align: center;
-}
-.topnav a:hover {
-  background-color: rgb(224, 217, 217);
-  color: rgb(39, 38, 38)
-}
-
-.topnav a:active {
-  background-color: rgba(219, 176, 83, 0.418);
-  color:rgb(250, 244, 232)
 }
