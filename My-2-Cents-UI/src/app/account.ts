@@ -1,9 +1,18 @@
-import { CurrencyPipe, PercentPipe } from '@angular/common';
-
 export interface Account {
   accountID: number;
-  // UserID: number;
   totalBalance: number;
   accountType: string;
+  interest: number;
+}
+
+export interface AccountTypes {
+  accountTypeId: number;
+  accountType1: string;
+}
+
+export interface NewAccount {
+  userId: number;
+  totalBalance: number;
+  accountTypeId: number;
   interest: number;
 }

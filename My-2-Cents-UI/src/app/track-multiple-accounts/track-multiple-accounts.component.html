@@ -49,7 +49,7 @@
     </div>
 
     <ng-template #notAccountsBlock>
-      <h1>No accounts yet</h1>
+      <h1>Open a banking account to get started.</h1>
     </ng-template>
 
     <div *ngIf="NavName=='My Profile'">
@@ -65,7 +65,7 @@
     </div>
 
     <div *ngIf="NavName=='Add New Account'">
-      <app-register></app-register>
+      <app-register [userId]=UserLoginInfo.userID></app-register>
     </div>
 
   </div>
