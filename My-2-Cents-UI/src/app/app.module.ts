@@ -37,11 +37,9 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule,
     AuthModule.forRoot({
       ...env.auth,
     }),
-    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

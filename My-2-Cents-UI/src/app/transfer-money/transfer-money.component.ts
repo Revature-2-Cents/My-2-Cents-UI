@@ -7,6 +7,7 @@ import { Location } from '@angular/common';
 import { TestBed, async } from '@angular/core/testing';
 
 import { My2CentsService } from '../my2-cents.service';
+import { Pipe, PipeTransform } from '@angular/core';
 
 
 
@@ -18,6 +19,8 @@ import { My2CentsService } from '../my2-cents.service';
 export class TransferMoneyComponent implements OnInit {
   @Input() account: Account[] = [];
   quantityFiller: string = "";
+  fromaccount: number = -1;
+  toaccount: number = -1;
 
   @Output() accountChange = new EventEmitter<Account[]>();
   @Input() userId: number = -1;
@@ -67,7 +70,13 @@ export class TransferMoneyComponent implements OnInit {
         }
       }
 
-      if (fromAcc != undefined) {
+      if (quantity <= 0) {
+        alert("Quantity must be above $0");
+        return false;
+      }
+
+      if (fromAcc != undefined && toAccount != 0) {
+        console.log("inbetween ifs");
         if (+fromAcc.totalBalance < quantity) {
           this.funds = false;
           alert('Insufficient Funds for Transfer');
@@ -89,9 +98,11 @@ export class TransferMoneyComponent implements OnInit {
             }
           );
         }
+      } else {
+      alert("Select an Account to Transfer");
+      return false;
       }
     }
-
     return false;
   }
 
