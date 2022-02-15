@@ -28,9 +28,7 @@ export class TrackMultipleAccountsComponent implements OnInit {
   newAccount: NewAccount[] = [];
 
   @Output() accountTypeChange = new EventEmitter<AccountTypes[]>();
-
   @Output() chooseAccountType = new EventEmitter<number>();
-
   @Output() getAccounts = new EventEmitter<Account[]>();
 
   constructor(
@@ -79,7 +77,6 @@ export class TrackMultipleAccountsComponent implements OnInit {
 
   GetAccountInfo(userid: number) {
     console.log(this.UserLoginInfo);
-    this.getAccounts.emit(this.viewAccounts);
     if (this.auth.user$) {
       this.my2centsservice.getUserAccounts(userid).subscribe((data) => {
         this.viewAccounts = data;
@@ -100,11 +97,26 @@ export class TrackMultipleAccountsComponent implements OnInit {
     return this.my2centsservice.createNewAccount(this.UserLoginInfo.userID, accountTypeId);
   }
 
+  UpdateAccountInfo(userid: number) {
+    this.viewAccounts = [];
+    this.checkingArray = [];
+    this.savingArray = [];
+    this.investmentArray = [];
+    if (this.auth.user$) {
+      this.my2centsservice.getUserAccounts(userid).subscribe((data) => {
+        this.viewAccounts = data;
+        this.getAccountArray();
+        this.getAccounts.emit(this.viewAccounts);
+      });
+    }
+  }
+
   NewBankAccount(accountTypeId: number) {
     this.CreateNewAccount(+accountTypeId).subscribe();
     alert('Account Created!');
     this.GetAccountTypes();
-    this.GetAccountInfo(this.UserLoginInfo.userID);
+    this.viewAccounts = [];
+    this.UpdateAccountInfo(this.UserLoginInfo.userID);
   }
 
   getAccountArray(): void {

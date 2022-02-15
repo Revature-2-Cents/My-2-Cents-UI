@@ -29,6 +29,11 @@ body {
   margin: 0.3px;
 }
 
+.openAccount {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 .left {
   float: left;
   margin-left: 25px;
