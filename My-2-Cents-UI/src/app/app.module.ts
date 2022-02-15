@@ -11,7 +11,7 @@ import { TrackIncomeComponent } from './track-income/track-income.component';
 import { TransferMoneyComponent } from './transfer-money/transfer-money.component';
 import { TrackExpensesComponent } from './track-expenses/track-expenses.component';
 import { TrackMultipleAccountsComponent } from './track-multiple-accounts/track-multiple-accounts.component';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+
 import { AuthModule } from '@auth0/auth0-angular';
 import { environment as env } from '../environments/environment';
 import { UserChangeInfoComponent } from './user-change-info/user-change-info.component';
@@ -40,7 +40,6 @@ import { FormsModule } from '@angular/forms';
     AuthModule.forRoot({
       ...env.auth,
     }),
-    HttpClientTestingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
