@@ -8,32 +8,24 @@ import { UserProfile } from 'src/app/userprofile';
 @Injectable({
   providedIn: 'root',
 })
-
 @Component({
   selector: 'app-create-profile',
   templateUrl: './create-profile.component.html',
-  styleUrls: ['./create-profile.component.css']
+  styleUrls: ['./create-profile.component.css'],
 })
 export class CreateProfileComponent implements OnInit {
-
   public data: any = [];
   inputData: UserProfile = {} as UserProfile;
   @Input() UserLoginInfo = <UserLoginInfo>{};
 
-    
-  constructor(private my2centsService: My2CentsService,)
-   {}
+  constructor(private my2centsService: My2CentsService) {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 
   clickme(inputData: UserProfile) {
-   // console.log('it does nothing',inputData.FirstName);
-   inputData.UserID = this.UserLoginInfo.userID;
-   this.my2centsService
-        .PostUserAccounts(inputData)
+    // console.log('it does nothing',inputData.FirstName);
+    inputData.UserID = this.UserLoginInfo.userID;
+    inputData.email = this.UserLoginInfo.email;
+    this.my2centsService.PostUserAccounts(inputData);
   }
-
-  
 }
