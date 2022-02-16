@@ -42,6 +42,7 @@ export class CreateProfileComponent implements OnInit {
         this.display = '';
         //inputData.UserID = this.UserLoginInfo.userID;
         this.my2centsService.PostUserAccounts(inputData);
+        break;
       }
     }
   }
