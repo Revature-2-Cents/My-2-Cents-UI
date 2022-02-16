@@ -30,7 +30,7 @@ export class CreateProfileComponent implements OnInit {
     for (let key in this.mydata) {
       console.log(this.mydata[key]);
 
-      if (key == 'SecondaryEmail' && this.mydata[key].includes('@')) {
+      if (key == 'SecondaryEmail' && !this.mydata[key].includes('@')) {
         this.display = 'Invaid email address';
       } else if (key == 'WorkPhone' && isNaN(this.mydata[key])) {
         this.display = 'Invaid Work phone number';
