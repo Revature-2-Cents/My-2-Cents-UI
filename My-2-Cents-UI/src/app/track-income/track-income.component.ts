@@ -17,27 +17,13 @@ export class TrackIncomeComponent implements OnInit {
 
   constructor(private iService : IncomesService, private route: ActivatedRoute, private location: Location) { }
 
-  // will automatically get information
   ngOnInit(){
-    // Pull the number from the url
     const id = Number(this.route.snapshot.paramMap.get('AccountID'));
     console.log("ID: " + id);
     
-    // Send Http Request based on id
     this.iService.getAccountInfo(id).then((datas) => {
-      //let testIncome: Incomes;
-
-      // For loop to assign testIncome with necessary data
-      // Use testIncome to add the information
-     // for(let i = 0; i < datas.length; i++)
-      //{
         this.Items=datas;
-
-        // testIncome = datas[i];
-        // this.iService.addToIncome(testIncome);
-      //}
     })
-    //this.Items = this.iService.getIncomes();
   }
 
   selectItem(Item: Incomes): void {

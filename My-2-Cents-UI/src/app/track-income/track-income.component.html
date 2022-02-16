@@ -12,10 +12,12 @@
 
 <ul class="Account-Table">
 
-    <div class="Account">
-        <span class="head-a"><strong>{{Items[0].accountType}}</strong> #{{Items[0].accountId}}</span>
-        <div class="head-b"></div>
-        <span class="head-c"><strong>Account Balance: </strong>${{Items[0].totalBalance| number : '1.2-2'}}</span>
+    <div *ngFor="let account of Items; let x = index">
+        <div class="Account" *ngIf="x === 1">
+            <span class="head-a" ><strong>{{account.accountType}}</strong> #{{Items[0].accountId}}</span>
+            <div class="head-b"></div>
+            <span class="head-c"><strong>Account Balance: </strong>${{Items[0].totalBalance| number : '1.2-2'}}</span>
+        </div>
     </div>
 
     <ul *ngFor="let Item of Items; let i = index">
