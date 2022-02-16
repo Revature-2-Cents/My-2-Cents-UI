@@ -1,10 +1,12 @@
 <body>
   <header>
     <span>
-      <img class="toplogo" src="https://cdn.discordapp.com/attachments/938474742946598944/941734233435672616/MY_2_CENTS-removebg-preview.png" alt=" "></span>
+      <img class="toplogo"
+        src="https://cdn.discordapp.com/attachments/938474742946598944/941734233435672616/MY_2_CENTS-removebg-preview.png"
+        alt=" "></span>
     <div class="topPageBar">
 
-        My2Cents
+      My2Cents
 
     </div>
   </header>
@@ -34,7 +36,9 @@
           <legend>Checking</legend>
           <div *ngFor='let Account of checkingArray'>
             <a routerLink="/track-income/{{ Account.accountID }}">
-              <div class="center"> <button class="account-button"> <span class="left"> <span class="light"> Account ID: </span>{{ Account.accountID }}</span> <span class="right"><span class="light"> Balance: </span>{{ Account.totalBalance | currency }}</span></button></div>
+              <div class="center"> <button class="account-button"> <span class="left"> <span class="light"> Account ID:
+                    </span>{{ Account.accountID }}</span> <span class="right"><span class="light"> Balance: </span>{{
+                    Account.totalBalance | currency }}</span></button></div>
             </a>
           </div>
         </fieldset>
@@ -42,7 +46,9 @@
           <legend>Savings</legend>
           <div *ngFor='let Account of savingArray'>
             <a routerLink="/track-income/{{ Account.accountID }}">
-              <div class="center"><button class="account-button"><span class="left"><span class="light">Account ID: </span>{{ Account.accountID }}</span> <span class="right"><span class="light">Balance: </span>{{ Account.totalBalance | currency }}</span></button></div>
+              <div class="center"><button class="account-button"><span class="left"><span class="light">Account ID:
+                    </span>{{ Account.accountID }}</span> <span class="right"><span class="light">Balance: </span>{{
+                    Account.totalBalance | currency }}</span></button></div>
             </a>
           </div>
         </fieldset>
@@ -50,7 +56,9 @@
           <legend>Investment</legend>
           <div *ngFor='let Account of investmentArray'>
             <a routerLink="/track-income/{{ Account.accountID }}">
-              <div class="center"><button class="account-button"> <span class="left"><span class="light"> Account ID: </span>{{ Account.accountID }}</span> <span class="right"> <span class="light">Balance: </span>{{ Account.totalBalance | currency }}</span></button></div>
+              <div class="center"><button class="account-button"> <span class="left"><span class="light"> Account ID:
+                    </span>{{ Account.accountID }}</span> <span class="right"> <span class="light">Balance: </span>{{
+                    Account.totalBalance | currency }}</span></button></div>
             </a>
           </div>
         </fieldset>
@@ -73,11 +81,10 @@
       </div>
     </div>
 
+
     <div *ngIf="NavName=='Create Profile'">
       <div *ngIf="auth.user$ | async as user">
       <app-create-profile [UserLoginInfo]=UserLoginInfo></app-create-profile>
     </div>
-  </div>
-
   </div>
 </body>
