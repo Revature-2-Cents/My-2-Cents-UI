@@ -27,7 +27,8 @@
           <option aria-placeholder="Account Type" *ngFor="let type of accountTypes" value={{type.accountTypeId}}>{{type.accountType1}}</option>
         </select>
       </form>
-      <div *ngIf="viewAccounts.length else notAccountsBlock">
+      <button class="openAccount" (click)="NewBankAccount(+chooseAccountType.value)">Open Account</button>
+      <div *ngIf="viewAccounts else notAccountsBlock">
         <fieldset>
           <legend>Checking</legend>
           <div *ngFor='let Account of checkingArray'>

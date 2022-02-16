@@ -8,27 +8,30 @@
         <table>
           <tr>
             <td><label for="fname">First Name:</label></td>
-            <td><input type="text" id="fname" name="fname"required  [(ngModel)]="inputData.FirstName" /></td>
+            <td><input type="text" id="fname" name="fname" required [(ngModel)]="inputData.FirstName" /></td>
           </tr>
           <tr>
             <td><label for="lname">Last Name:</label></td>
-            <td><input type="text" id="lname" name="lname"required [(ngModel)]="inputData.LastName" /></td>
+            <td><input type="text" id="lname" name="lname" required [(ngModel)]="inputData.LastName" /></td>
           </tr>
           <tr>
             <td><label for="streetAddressPersonal">Street Address:</label></td>
-            <td><input type="text" id="streetAddressPersonal" name="streetAddressPersonal"required [(ngModel)]="inputData.MailingAddress" /></td>
+            <td><input type="text" id="streetAddressPersonal" name="streetAddressPersonal" required
+                [(ngModel)]="inputData.MailingAddress" /></td>
           </tr>
           <tr>
             <td><label for="cityPersonal">City:</label></td>
-            <td><input type="text" id="cityPersonal" name="cityPersonal"required [(ngModel)]="inputData.City" /></td>
+            <td><input type="text" id="cityPersonal" name="cityPersonal" required [(ngModel)]="inputData.City" /></td>
           </tr>
           <tr>
             <td><label for="statePersonal">State:</label></td>
-            <td><input type="text" id="statePersonal" name="statePersonal"required [(ngModel)]="inputData.State" /></td>
+            <td><input type="text" id="statePersonal" name="statePersonal" required [(ngModel)]="inputData.State" />
+            </td>
           </tr>
           <tr>
             <td><label for="phonePersonal">Phone:</label></td>
-            <td> <input type="text" id="phonePersonal" name="phonePersonal" required  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="205-555-5112" [(ngModel)]="inputData.Phone"
+            <td> <input type="text" id="phonePersonal" name="phonePersonal" required
+                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="xxx-xxx-xxxx" [(ngModel)]="inputData.Phone"
                 required /></td>
           </tr>
         </table>
@@ -50,7 +53,8 @@
           </tr>
           <tr>
             <td><label for="phoneWork">Phone:</label></td>
-            <td> <input type="text" id="WorkPhone" name="WorkPhone" [(ngModel)]="inputData.WorkPhone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="205-555-5112" />
+            <td> <input type="text" id="WorkPhone" name="WorkPhone" [(ngModel)]="inputData.WorkPhone"
+                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="xxx-xxx-xxxx" />
             </td>
           </tr>
           <tr>
@@ -63,5 +67,6 @@
   </div>
 
   <button type="button" (click)="clickme(inputData)">Create</button>
+  <h2>{{display}}</h2>
 
 </body>
