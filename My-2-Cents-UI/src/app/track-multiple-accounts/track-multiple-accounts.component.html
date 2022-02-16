@@ -21,6 +21,13 @@
   </div>
   <div class="component">
     <div *ngIf="NavName=='Dashboard'">
+      <form>
+        <label class="accountLabel" for="accountsTypes">Choose Account Type:</label>
+        <select name="accounts" id="accounts" #chooseAccountType>
+          <option aria-placeholder="Account Type" *ngFor="let type of accountTypes" value={{type.accountTypeId}}>{{type.accountType1}}</option>
+        </select>
+      </form>
+      <button class="openAccount" (click)="NewBankAccount(+chooseAccountType.value)">Open Account</button>
       <div *ngIf="viewAccounts else notAccountsBlock">
         <fieldset>
           <legend>Checking</legend>
