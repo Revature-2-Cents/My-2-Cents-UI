@@ -1,1 +1,38 @@
-<p>track-income works!</p>
+<header>
+    <span>
+      <img class="toplogo" src="https://cdn.discordapp.com/attachments/938474742946598944/941734233435672616/MY_2_CENTS-removebg-preview.png" alt=" "></span>
+    <div class="topPageBar">
+        My2Cents
+    </div>
+  </header>
+
+<div class="headder">
+    <button class="backButton" (click)="navigateToDashBoard()">Back</button>
+</div>
+
+<ul class="Account-Table">
+
+    <div *ngFor="let account of Items; let x = index">
+        <div class="Account" *ngIf="x === 1">
+            <span class="head-a" ><strong>{{account.accountType}}</strong> #{{Items[0].accountId}}</span>
+            <div class="head-b"></div>
+            <span class="head-c"><strong>Account Balance: </strong>${{Items[0].totalBalance| number : '1.2-2'}}</span>
+        </div>
+    </div>
+
+    <ul *ngFor="let Item of Items; let i = index">
+        <div class="item">
+            <span class="item-a">{{Item.transactionName}}</span>
+            <div class=" item-b"></div>
+            <span [style.color]="Item.amount>0? 'green': 'red'" class="item-c">{{Item.amount | currency : 'USD'}}</span>
+
+            <button (click)="selectItem(Item)" class="item-d">V</button>
+        </div>
+
+        <div *ngIf="Item === selectedItem" class="details details.visible">
+            <p><strong>Transaction Status: </strong>{{selectedItem.authorized}}</p>
+            <p><strong>Transaction Date: </strong>{{selectedItem.transactionDate | date: 'dd/MM/yyyy'}}</p>
+        </div>
+    </ul>
+
+</ul>

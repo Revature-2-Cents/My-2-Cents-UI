@@ -1,24 +1,87 @@
-<h1>User profile</h1>
-<br>
+<body>
 
+  <div *ngIf="data else CreateProfile">
+    <div *ngIf="forNav=='Profile'">
+      <div *ngFor="let json of data">
 
-<h4>name</h4>
+        <h1>{{json.firstName}}</h1>
+        <br>
+        <div class="container">
+          <div style="width: 50%;  float: left; "> Personal Info</div>
+          <div style="width: 50%;  float: left; "> Work Phone</div>
 
-<br>
+          <hr />
+          <span class="information-table">
+            <table>
+              <tr>
+                <td>Address:</td>
+                <td>{{json.mailingAddress}}</td>
+              </tr>
+              <tr>
+                <td>Home Phone:</td>
+                <td>{{ json.phone }}</td>
+              </tr>
+              <tr>
+                <td>Mobile Phone:</td>
+                <td>{{ json.phone }}</td>
+              </tr>
+              <tr>
+                <td>Email:</td>
+                <td></td>
 
-<div>
+              </tr>
+              <tr>
+                <td></td>
+                <td>{{ json.email }}</td>
+              </tr>
+            </table>
 
-    <span>Personal Info</span>
-    <br>
-    <p>Address: 100 main st</p>
-    <br>
-    <p>Phone: 204-444-2321 </p>
-    <br>
-    <p>Email: mike123@mail.com</p>
+          </span>
 
+          <span class="information-table">
+            <table>
+              <tr>
+                <td>Address:</td>
+                <td>{{json.workAddress}}</td>
+              </tr>
+              <tr>
+                <td>Work Phone:</td>
+                <td>{{ json.workPhone }}</td>
 
-    <button type="button">Edit info</button>
+              </tr>
+              <tr>
+                <td>Mobile Phone:</td>
+                <td>{{ json.phone }}</td>
+              </tr>
+              <tr>
+                <td>Work Email:</td>
+                <td>{{ json.secondaryEmail }}</td>
+              </tr>
+            </table>
+          </span>
+        </div>
+      </div>
+      <div class="center">
+        <button type="button" (click)="nav('Edit Info')">Edit Profile</button>
+      </div>
+    </div>
+  </div>
 
-</div>
+  <ng-template #CreateProfile>
+    <div *ngIf="auth.user$ | async as user">
+      <app-create-profile [UserLoginInfo]=UserLoginInfo></app-create-profile>
+    </div>
+    <!-- <div class="center">
+      <button type="button" (click)="nav('Profile')">Go Back</button>
+    </div> -->
+  </ng-template>
 
-
+  <div *ngIf="forNav=='Edit Info'">
+    <div *ngIf="auth.user$ | async as user">
+      <app-user-change-info [userId]=userId></app-user-change-info>
+    </div>
+    <div class="center">
+      <button type="button" (click)="nav('Profile')">Go Back</button>
+    </div>
+  </div>
+</body>
