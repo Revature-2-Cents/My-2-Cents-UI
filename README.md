@@ -10,6 +10,10 @@ My 2 Cents is an Banking APP...
 - IDE: Visual Studio/Visual Studio Code
 - Microsoft SQL Server Management Studio
 
+## Features
+- Create new account
+- Login to My 2 Cents
+
 ## Getting Started
 - See `STARTUP.md`
 
