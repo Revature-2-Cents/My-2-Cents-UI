@@ -17,6 +17,7 @@ jobs:
       - name: Test Coverage
         run: |
           cd My-2-Cents-UI
+          npm ci
           npm test --code-coverage --no-watch --browsers=ChromeHeadless
           
       - name: SonarCloud Scan
