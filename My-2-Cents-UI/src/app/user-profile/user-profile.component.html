@@ -4,7 +4,7 @@
     <div *ngIf="forNav=='Profile'">
       <div *ngFor="let json of data">
 
-        <h1>{{json.firstName}}</h1>
+        <h1>{{json.firstName}} {{json.lastName}}</h1>
         <br>
         <div class="container">
           <div style="width: 50%;  float: left; "> Personal Info</div>
@@ -13,13 +13,14 @@
           <hr />
           <span class="information-table">
             <table>
+              <caption></caption>
               <tr>
-                <td>Address:</td>
-                <td>{{json.mailingAddress}}</td>
+                <th></th>
+                <th></th>
               </tr>
               <tr>
-                <td>Home Phone:</td>
-                <td>{{ json.phone }}</td>
+                <td>Address:</td>
+                <td>{{json.mailingAddress}} {{json.city}}, {{json.state}}</td>
               </tr>
               <tr>
                 <td>Mobile Phone:</td>
@@ -37,6 +38,15 @@
 
           <span class="information-table">
             <table>
+              <caption></caption>
+              <tr>
+                <th></th>
+                <th></th>
+              </tr>
+              <tr>
+                <td>Employer:</td>
+                <td>{{json.employer}}</td>
+              </tr>
               <tr>
                 <td>Address:</td>
                 <td>{{json.workAddress}}</td>
@@ -45,10 +55,6 @@
                 <td>Work Phone:</td>
                 <td>{{ json.workPhone }}</td>
 
-              </tr>
-              <tr>
-                <td>Mobile Phone:</td>
-                <td>{{ json.phone }}</td>
               </tr>
               <tr>
                 <td>Work Email:</td>

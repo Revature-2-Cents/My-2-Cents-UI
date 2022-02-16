@@ -1,133 +1,123 @@
-*{
-    font-family: Arial;
-}
-
 .toplogo {
-    position: absolute;
-    z-index: 100;
-    width: 110px;
-    top: -14.5px;
-  }
-  .topPageBar {
-    text-align: center;
-    padding-top: 20px;
-    font-size: 35px;
-    color: rgb(236, 236, 236);
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 60px;
-    position: absolute;
-    background-color: rgb(31, 31, 31);
-    float: left;
-  }
-  
-
-.headder{
-    margin-top: 80px;
+  position: absolute;
+  z-index: 100;
+  width: 110px;
+  top: -14.5px;
+}
+.topPageBar {
+  text-align: center;
+  padding-top: 20px;
+  font-size: 35px;
+  color: rgb(236, 236, 236);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  position: absolute;
+  background-color: rgb(31, 31, 31);
+  float: left;
 }
 
-.Account-Table{
-    display: inline-block;
-    margin-top: 2%;
-    margin-left: 20%;
-    margin-right: 20%;
-    padding: 0;
-    width: 60%;
-    background-color: Gray;
+.headder {
+  margin-top: 80px;
 }
 
-.Account{
-    font-size: 28px;
-    background-color: #B3B3B3FF;
-    border-style: solid;
-    border-width: 1px;
-    border-color: black;
-    width: 100%;
-
-    display: grid;
-    grid-template-columns: 30% auto auto;
-    grid-template-rows: 80px;
-    grid-template-areas: "itemname space total";
-    align-items: center;
-    justify-content: stretch;
-}
-.head-a{
-    grid-area: itemname;
-    justify-items: start;
-    margin-left: 15px;
-}
-.head-b{
-    grid-area: space;
-}
-.head-c{
-    grid-area: total;
-    justify-self: end;
-    margin-right: 15px;
+.Account-Table {
+  display: inline-block;
+  margin-top: 2%;
+  margin-left: 20%;
+  margin-right: 20%;
+  padding: 0;
+  width: 60%;
+  background-color: Gray;
 }
 
+.Account {
+  font-size: 28px;
+  background-color: #b3b3b3ff;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  width: 100%;
 
-.item{
-    font-size: 20px;
-    height: 60px;
-    width: 100%;
-    background-color: lightgray;
-    border-style: solid;
-    border-width: 1px;
-    border-color: black;
-
-    display: grid;
-    width: 100%;
-    grid-template-columns: 300px auto 200px 50px 10px;
-    grid-template-rows: auto;
-    grid-template-areas: "name spacer amount but spacer2";
-    align-items: center;
-    justify-content: stretch;
-    justify-items: start;
+  display: grid;
+  grid-template-columns: 30% auto auto;
+  grid-template-rows: 80px;
+  grid-template-areas: "itemname space total";
+  align-items: center;
+  justify-content: stretch;
 }
-.item-a{
-    grid-area: name;
-    margin-left: 15px;
+.head-a {
+  grid-area: itemname;
+  justify-items: start;
+  margin-left: 15px;
 }
-.item-b{
-    grid-area: spacer;
+.head-b {
+  grid-area: space;
 }
-.item-c{
-    grid-area: amount;
-    
-}
-.item-d{
-    grid-area: but;
-    justify-items: center;
+.head-c {
+  grid-area: total;
+  justify-self: end;
+  margin-right: 15px;
 }
 
-ul{
-    padding: 0;
+.item {
+  font-size: 20px;
+  height: 60px;
+  width: 100%;
+  background-color: lightgray;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  display: grid;
+  grid-template-columns: 300px auto 200px 50px 10px;
+  grid-template-rows: auto;
+  grid-template-areas: "name spacer amount but spacer2";
+  align-items: center;
+  justify-content: stretch;
+  justify-items: start;
+}
+.item-a {
+  grid-area: name;
+  margin-left: 15px;
+}
+.item-b {
+  grid-area: spacer;
+}
+.item-c {
+  grid-area: amount;
+}
+.item-d {
+  grid-area: but;
+  justify-items: center;
 }
 
-.backButton{
-    float: right;
-    margin-top: 0.5%;
-    margin-right: 20px;
+ul {
+  padding: 0;
 }
 
-.details{
-    font-size: 12px;
-    width: 100%;
-    background-color: #E9F1F7;
-    border-style: solid;
-    border-width: 1px;
-    border-color: black;
-}
-.details.hidden{
-    display: none;
-}
-.details.visible{
-    display: inline-block;
+.backButton {
+  float: right;
+  margin-top: 0.5%;
+  margin-right: 20px;
 }
 
-.details p
-{
-    padding-left: 3%;
-    font-size: 16px;
+.details {
+  font-size: 12px;
+  width: 100%;
+  background-color: #e9f1f7;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+}
+.details.hidden {
+  display: none;
+}
+.details.visible {
+  display: inline-block;
+}
+
+.details p {
+  padding-left: 3%;
+  font-size: 16px;
 }
