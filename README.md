@@ -14,6 +14,16 @@ My 2 Cents is an Banking APP...
 - Create new account
 - Login to My 2 Cents
 
+## Technologies Used
+- ASP.NET Core
+- Azure SQL Server
+- Entity Framework
+- REST API
+- Azure App Service
+- xUnit Test
+- SonarCloud
+- GitHub
+
 ## Getting Started
 - See `STARTUP.md`
 
