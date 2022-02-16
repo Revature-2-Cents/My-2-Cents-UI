@@ -29,6 +29,11 @@ body {
   margin: 0.3px;
 }
 
+.openAccount {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 .left {
   float: left;
   margin-left: 25px;
@@ -49,4 +54,13 @@ legend {
 
 .light {
   font-weight:100;
+}
+
+.addNewBank {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.accountLabel {
+  margin-right: 10px;
 }

@@ -9,7 +9,7 @@ import {
 import { AuthService } from '@auth0/auth0-angular';
 import { DOCUMENT } from '@angular/common';
 import { UserLoginInfo } from '../Login';
-import { Account } from '../account';
+import { Account, AccountTypes, NewAccount } from '../account';
 import { My2CentsService } from '../my2-cents.service';
 
 @Component({
@@ -22,6 +22,14 @@ export class TrackMultipleAccountsComponent implements OnInit {
   checkingArray: Account[] = [];
   savingArray: Account[] = [];
   investmentArray: Account[] = [];
+
+  accountTypes: AccountTypes[] = [];
+  newAccount: NewAccount[] = [];
+
+  @Output() accountTypeChange = new EventEmitter<AccountTypes[]>();
+  @Output() chooseAccountType = new EventEmitter<number>();
+  @Output() getAccounts = new EventEmitter<Account[]>();
+
   constructor(
     public auth: AuthService,
     @Inject(DOCUMENT) private doc: Document,
@@ -30,6 +38,7 @@ export class TrackMultipleAccountsComponent implements OnInit {
 
   ngOnInit(): void {
     this.GetUserInfo();
+    this.GetAccountTypes();
     console.log('dashboard ngOnInit gets called!');
     // this.getAccountArray();
   }
@@ -74,6 +83,39 @@ export class TrackMultipleAccountsComponent implements OnInit {
         this.getAccountArray();
       });
     }
+  }
+
+  GetAccountTypes() {
+    this.my2centsservice.getAccountTypes().subscribe((data) => {
+      this.accountTypes = data;
+      this.accountTypeChange.emit(this.accountTypes);
+    });
+  }
+
+  CreateNewAccount(accountTypeId: number) {
+    return this.my2centsservice.createNewAccount(this.UserLoginInfo.userID, accountTypeId);
+  }
+
+  UpdateAccountInfo(userid: number) {
+    this.viewAccounts = [];
+    this.checkingArray = [];
+    this.savingArray = [];
+    this.investmentArray = [];
+    if (this.auth.user$) {
+      this.my2centsservice.getUserAccounts(userid).subscribe((data) => {
+        this.viewAccounts = data;
+        this.getAccountArray();
+        this.getAccounts.emit(this.viewAccounts);
+      });
+    }
+  }
+
+  NewBankAccount(accountTypeId: number) {
+    this.CreateNewAccount(+accountTypeId).subscribe();
+    alert('Account Created!');
+    this.GetAccountTypes();
+    this.viewAccounts = [];
+    this.UpdateAccountInfo(this.UserLoginInfo.userID);
   }
 
   getAccountArray(): void {
