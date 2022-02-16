@@ -18,51 +18,29 @@ export class CreateProfileComponent implements OnInit {
   inputData: UserProfile = {} as UserProfile;
   @Input() UserLoginInfo = <UserLoginInfo>{};
   display: string | undefined;
-  mydata:any;
+  mydata: any;
   constructor(private my2centsService: My2CentsService) {}
 
   ngOnInit(): void {}
 
   clickme(inputData: UserProfile) {
-   
-    this.mydata = inputData
-console.log(this.mydata)
+    this.mydata = inputData;
+    console.log(this.mydata);
 
-for (let key in this.mydata){
-  console.log(this.mydata[key]);
-  
-  if(key == 'SecondaryEmail' && this.mydata[key].includes('@'))
-   {
-     this.display = "Invaid email address";
-   }
-   else if(key == 'WorkPhone' && isNaN(this.mydata[key]))
-   {
-     this.display = "Invaid Work phone  number";
-   }
-   else if(key == 'Phone' && isNaN(this.mydata[key]))
-   {
-     this.display = "Invaid phone  number";
-   }
-  
-  else{  
-    this.display ="";
-    //inputData.UserID = this.UserLoginInfo.userID;
-    this.my2centsService
-         .PostUserAccounts(inputData)
+    for (let key in this.mydata) {
+      console.log(this.mydata[key]);
+
+      if (key == 'SecondaryEmail' && this.mydata[key].includes('@')) {
+        this.display = 'Invaid email address';
+      } else if (key == 'WorkPhone' && isNaN(this.mydata[key])) {
+        this.display = 'Invaid Work phone number';
+      } else if (key == 'Phone' && isNaN(this.mydata[key])) {
+        this.display = 'Invaid phone number';
+      } else {
+        this.display = '';
+        //inputData.UserID = this.UserLoginInfo.userID;
+        this.my2centsService.PostUserAccounts(inputData);
       }
- 
- 
-   
-   }
-}
-
-
-   
- 
+    }
   }
-
-
-
-
-  
-
+}

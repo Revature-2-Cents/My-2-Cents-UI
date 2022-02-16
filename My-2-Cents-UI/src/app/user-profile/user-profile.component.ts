@@ -33,6 +33,7 @@ export class UserProfileComponent implements OnInit {
   }
   nav(str: string): void {
     this.forNav = str;
+    this.GetUserProfile();
   }
 
   GetUserProfile() {
