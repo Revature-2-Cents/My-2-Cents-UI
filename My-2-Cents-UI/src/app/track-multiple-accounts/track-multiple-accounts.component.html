@@ -21,7 +21,7 @@
   </div>
   <div class="component">
     <div *ngIf="NavName=='Dashboard'">
-      <div *ngIf="viewAccounts.length else notAccountsBlock">
+      <div *ngIf="viewAccounts else notAccountsBlock">
         <fieldset>
           <legend>Checking</legend>
           <div *ngFor='let Account of checkingArray'>

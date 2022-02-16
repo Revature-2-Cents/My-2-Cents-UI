@@ -1,67 +1,69 @@
 <body>
 
-  <div *ngIf="data && forNav=='Profile' else CreateProfile">
-    <div *ngFor="let json of data">
+  <div *ngIf="data else CreateProfile">
+    <div *ngIf="forNav=='Profile'">
+      <div *ngFor="let json of data">
 
-      <h1>{{json.firstName}}</h1>
-      <br>
-      <div class="container">
-        <div style="width: 50%;  float: left; "> Personal Info</div>
-        <div style="width: 50%;  float: left; "> Work Phone</div>
+        <h1>{{json.firstName}}</h1>
+        <br>
+        <div class="container">
+          <div style="width: 50%;  float: left; "> Personal Info</div>
+          <div style="width: 50%;  float: left; "> Work Phone</div>
 
-        <hr />
-        <span class="information-table">
-          <table>
-            <tr>
-              <td>Address:</td>
-              <td>{{json.mailingAddress}}</td>
-            </tr>
-            <tr>
-              <td>Home Phone:</td>
-              <td>{{ json.phone }}</td>
-            </tr>
-            <tr>
-              <td>Mobile Phone:</td>
-              <td>{{ json.phone }}</td>
-            </tr>
-            <tr>
-              <td>Email:</td>
-              <td></td>
+          <hr />
+          <span class="information-table">
+            <table>
+              <tr>
+                <td>Address:</td>
+                <td>{{json.mailingAddress}}</td>
+              </tr>
+              <tr>
+                <td>Home Phone:</td>
+                <td>{{ json.phone }}</td>
+              </tr>
+              <tr>
+                <td>Mobile Phone:</td>
+                <td>{{ json.phone }}</td>
+              </tr>
+              <tr>
+                <td>Email:</td>
+                <td></td>
 
-            </tr>
-            <tr>
-              <td></td>
-              <td>{{ json.email }}</td>
-            </tr>
-          </table>
+              </tr>
+              <tr>
+                <td></td>
+                <td>{{ json.email }}</td>
+              </tr>
+            </table>
 
-        </span>
+          </span>
 
-        <span class="information-table">
-          <table>
-            <tr>
-              <td>Address:</td>
-              <td>{{json.workAddress}}</td>
-            </tr>
-            <tr>
-              <td>Work Phone:</td>
-              <td>{{ json.workPhone }}</td>
+          <span class="information-table">
+            <table>
+              <tr>
+                <td>Address:</td>
+                <td>{{json.workAddress}}</td>
+              </tr>
+              <tr>
+                <td>Work Phone:</td>
+                <td>{{ json.workPhone }}</td>
 
-            </tr>
-            <tr>
-              <td>Mobile Phone:</td>
-              <td>{{ json.phone }}</td>
-            </tr>
-            <tr>
-              <td>Work Email:</td>
-              <td>{{ json.secondaryEmail }}</td>
-            </tr>
-          </table>
-        </span>
+              </tr>
+              <tr>
+                <td>Mobile Phone:</td>
+                <td>{{ json.phone }}</td>
+              </tr>
+              <tr>
+                <td>Work Email:</td>
+                <td>{{ json.secondaryEmail }}</td>
+              </tr>
+            </table>
+          </span>
+        </div>
       </div>
-    </div>
-    <div class="center">
-      <button type="button" (click)="nav('Edit Info')">Edit Profile</button>
+      <div class="center">
+        <button type="button" (click)="nav('Edit Info')">Edit Profile</button>
+      </div>
     </div>
   </div>
 
@@ -69,9 +71,9 @@
     <div *ngIf="auth.user$ | async as user">
       <app-create-profile [UserLoginInfo]=UserLoginInfo></app-create-profile>
     </div>
-    <div class="center">
+    <!-- <div class="center">
       <button type="button" (click)="nav('Profile')">Go Back</button>
-    </div>
+    </div> -->
   </ng-template>
 
   <div *ngIf="forNav=='Edit Info'">
