@@ -13,6 +13,8 @@ My 2 Cents is an Banking APP...
 ## Features
 - Create new account
 - Login to My 2 Cents
+- Able to create new bank account for the user
+- Able to transfer money between accounts that user own
 
 ## Technologies Used
 - ASP.NET Core
