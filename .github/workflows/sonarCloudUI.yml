@@ -2,7 +2,7 @@ name: SonarCloud My_2_Cents_UI
 on:
   push:
     branches:
-      - dev
+      - main
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
