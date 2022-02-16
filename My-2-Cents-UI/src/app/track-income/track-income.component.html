@@ -1,10 +1,12 @@
 <header>
     <span>
-      <img class="toplogo" src="https://cdn.discordapp.com/attachments/938474742946598944/941734233435672616/MY_2_CENTS-removebg-preview.png" alt=" "></span>
+        <img class="toplogo"
+            src="https://cdn.discordapp.com/attachments/938474742946598944/941734233435672616/MY_2_CENTS-removebg-preview.png"
+            alt=" "></span>
     <div class="topPageBar">
         My2Cents
     </div>
-  </header>
+</header>
 
 <div class="headder">
     <button class="backButton" (click)="navigateToDashBoard()">Back</button>
@@ -13,8 +15,8 @@
 <ul class="Account-Table">
 
     <div *ngFor="let account of Items; let x = index">
-        <div class="Account" *ngIf="x === 1">
-            <span class="head-a" ><strong>{{account.accountType}}</strong> #{{Items[0].accountId}}</span>
+        <div class="Account" *ngIf="x === 0">
+            <span class="head-a"><strong>{{account.accountType}}</strong> #{{Items[0].accountId}}</span>
             <div class="head-b"></div>
             <span class="head-c"><strong>Account Balance: </strong>${{Items[0].totalBalance| number : '1.2-2'}}</span>
         </div>

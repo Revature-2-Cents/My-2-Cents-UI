@@ -6,33 +6,33 @@ import { Incomes } from './mock-incomes';
 import { lastValueFrom } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class IncomesService {
   incomes: Incomes[] = [];
 
-  defaultUrl = "https://my2centsapi.azurewebsites.net";
+  defaultUrl = 'https://my2centsapi.azurewebsites.net';
 
-  constructor(private http : HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  addToIncome(income: Incomes)
-  {
-    this.incomes.push(income)
+  addToIncome(income: Incomes) {
+    this.incomes.push(income);
   }
 
-  getIncomes()
-  {
-    return this.incomes
+  getIncomes() {
+    return this.incomes;
   }
 
-  clearIncomes()
-  {
+  clearIncomes() {
     this.incomes = [];
     return this.incomes;
   }
 
-  getAccountInfo(accountId: number): Promise<Incomes[]>{
-
-    return lastValueFrom(this.http.get<Incomes[]>(this.defaultUrl + `/api/Transactions/${accountId}`));
+  getAccountInfo(accountId: number): Promise<Incomes[]> {
+    return lastValueFrom(
+      this.http.get<Incomes[]>(
+        this.defaultUrl + `/api/Transactions/${accountId}`
+      )
+    );
   }
-} 
+}
