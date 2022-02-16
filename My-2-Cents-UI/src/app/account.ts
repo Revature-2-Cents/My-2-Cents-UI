@@ -12,7 +12,5 @@ export interface AccountTypes {
 
 export interface NewAccount {
   userId: number;
-  totalBalance: number;
   accountTypeId: number;
-  interest: number;
 }

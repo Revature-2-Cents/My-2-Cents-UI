@@ -43,14 +43,14 @@ export class My2CentsService {
     return this.http.get<AccountTypes[]>(this.url + this.getAccountTypesUrl);
   }
 
-  createNewAccount(userId: number, totalBalance: number, accountTypeId: number, interest: number) {
+  //Post New bank account
+  createNewAccount(userId: number, accountTypeId: number) {
     return this.http.post<NewAccount[]>(this.url + this.postNewAccountUrl,
       {
         userId,
-        totalBalance,
-        accountTypeId,
-        interest
+        accountTypeId
       });
+
   }
 
 
