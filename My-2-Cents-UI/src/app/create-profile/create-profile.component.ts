@@ -17,15 +17,52 @@ export class CreateProfileComponent implements OnInit {
   public data: any = [];
   inputData: UserProfile = {} as UserProfile;
   @Input() UserLoginInfo = <UserLoginInfo>{};
-
+  display: string | undefined;
+  mydata:any;
   constructor(private my2centsService: My2CentsService) {}
 
   ngOnInit(): void {}
 
   clickme(inputData: UserProfile) {
-    // console.log('it does nothing',inputData.FirstName);
-    inputData.UserID = this.UserLoginInfo.userID;
-    inputData.email = this.UserLoginInfo.email;
-    this.my2centsService.PostUserAccounts(inputData);
-  }
+   
+    this.mydata = inputData
+console.log(this.mydata)
+
+for (let key in this.mydata){
+  console.log(this.mydata[key]);
+  
+  if(key == 'SecondaryEmail' && this.mydata[key].includes('@'))
+   {
+     this.display = "Invaid email address";
+   }
+   else if(key == 'WorkPhone' && isNaN(this.mydata[key]))
+   {
+     this.display = "Invaid Work phone  number";
+   }
+   else if(key == 'Phone' && isNaN(this.mydata[key]))
+   {
+     this.display = "Invaid phone  number";
+   }
+  
+  else{  
+    this.display ="";
+    //inputData.UserID = this.UserLoginInfo.userID;
+    this.my2centsService
+         .PostUserAccounts(inputData)
+      }
+ 
+ 
+   
+   }
 }
+
+
+   
+ 
+  }
+
+
+
+
+  
+

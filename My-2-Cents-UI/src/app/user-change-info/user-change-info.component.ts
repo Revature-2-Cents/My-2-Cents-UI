@@ -13,7 +13,7 @@ export class UserChangeInfoComponent implements OnInit {
    inputVar: string | undefined;
    UProfile: any;
    public data: any = [];
-
+   display: string | undefined;
   constructor(private my2centsService: My2CentsService
     ) {
     //  console.log(this.data.firstName);
@@ -25,13 +25,31 @@ export class UserChangeInfoComponent implements OnInit {
   }
   public changeInputVar(datas:any): void {
     //console.log(datas);
-    //inputData.UserID = this.UserLoginInfo.userID;
-    //datas.email = this.inputData.email
+    //inputData.UserID
+
+if(!datas[0].secondaryEmail.includes('@'))
+{
+  //console.log("before loop "+datas[0].secondaryEmail)
+  this.display = "Invaid email address";
+  console.log("before loop "+datas[0].secondaryEmail)
+}
+else if(isNaN(datas[0].phone))
+{
+  this.display = "Invaid phone  number";
+  console.log("before loop "+datas[0].phone)
+}
+else if(isNaN(datas[0].workPhone))
+{
+  this.display = "Invaid work phone  number";
+  console.log("before loop "+datas[0].workPhone)
+}
+else{  
+this.display ="";
     this.my2centsService
          .PutUserAccounts(datas)
-    //this.inputVar = 'changed';
-
+   
   }
+}
 
   GetUserProfile() {
     console.log(this.userId)
