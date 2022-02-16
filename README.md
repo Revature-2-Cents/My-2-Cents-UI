@@ -3,6 +3,7 @@
 ## Azure Web Service URL: https://my2centsui.azurewebsites.net/
 
 ## Project Description
+
 My 2 Cents is an Banking Application that allows users to create accounts, check transactions in those accounts, and make transfers between existing accounts.
 
 Login:
@@ -28,6 +29,7 @@ Transfer Money:
 Add Account:
 - Allows a user to add a new account to their profile
 - Will require functionality change if a banking system is incorperated
+
 
 ## Prerequisites/Additional Software
 - Bash terminal
