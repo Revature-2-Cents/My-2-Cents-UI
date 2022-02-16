@@ -73,10 +73,11 @@
       </div>
     </div>
 
-  </div>
     <div *ngIf="NavName=='Create Profile'">
       <div *ngIf="auth.user$ | async as user">
       <app-create-profile [UserLoginInfo]=UserLoginInfo></app-create-profile>
     </div>
+  </div>
+
   </div>
 </body>
