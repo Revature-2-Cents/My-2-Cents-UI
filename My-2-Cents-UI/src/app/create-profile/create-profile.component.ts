@@ -24,6 +24,8 @@ export class CreateProfileComponent implements OnInit {
   ngOnInit(): void {}
 
   clickme(inputData: UserProfile) {
+    inputData.UserID = this.UserLoginInfo.userID;
+    inputData.email = this.UserLoginInfo.email;
     this.mydata = inputData;
     console.log(this.mydata);
 
