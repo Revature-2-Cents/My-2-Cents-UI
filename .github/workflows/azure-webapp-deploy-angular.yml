@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - dev
+      - main
 env:
   AZURE_WEBAPP_NAME: My2CentsUI
   AZURE_WEBAPP_PACKAGE_PATH: './My-2-Cents-UI/dist/my-2-cents-ui'
