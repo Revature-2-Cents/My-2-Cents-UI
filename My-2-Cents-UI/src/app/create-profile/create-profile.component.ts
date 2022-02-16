@@ -22,7 +22,7 @@ export class CreateProfileComponent implements OnInit {
   constructor(private my2centsService: My2CentsService) {}
 
   ngOnInit(): void {}
-
+  bdisable: any = 'false';
   clickme(inputData: UserProfile) {
     inputData.UserID = this.UserLoginInfo.userID;
     inputData.email = this.UserLoginInfo.email;
@@ -42,6 +42,7 @@ export class CreateProfileComponent implements OnInit {
         this.display = '';
         //inputData.UserID = this.UserLoginInfo.userID;
         this.my2centsService.PostUserAccounts(inputData);
+        this.bdisable = 'true';
         break;
       }
     }
