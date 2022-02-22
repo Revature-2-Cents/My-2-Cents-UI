@@ -30,4 +30,4 @@
      - `dotnet ef` checks if you install successfully
 2. Run EF scaffold command if you update any structure in database
    - `cd ./My2Cents.API/My2Cents.DataInfrastructure/ScaffoldModel/`
-   - `dotnet ef dbcontext scaffold '<db-connection-string>' --no-onconfiguring --force `
+   - `dotnet ef dbcontext scaffold '<db-connection-string>' Microsoft.EntityFrameworkCore.SqlServer --no-onconfiguring --force `
