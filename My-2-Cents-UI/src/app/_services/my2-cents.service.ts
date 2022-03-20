@@ -9,18 +9,18 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class My2CentsService {
+  private readonly  apiUrl = environment.apiUrl;
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+  };
+
   private getUserInfoUrl = 'User/Info';
   private getUserAccountsUrl = 'AccountType/Accounts';
   private getAccountTypesUrl = 'AccountType/AccountsTypes';
   private postNewAccountUrl = 'AccountType/NewAccount';
   private postNewUser = 'User/NewUser';
   private updateUser = 'User/Update';
-
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-  };
-  private readonly  apiUrl = environment.apiUrl;
-
+  
   constructor(private http: HttpClient) {}
 
   //GET user info
