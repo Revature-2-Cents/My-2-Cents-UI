@@ -2,8 +2,8 @@ import { DOCUMENT } from '@angular/common';
 import { Component, Inject, Injectable, Input, OnInit } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
 import { HttpClient } from '@angular/common/http';
-import { UserLoginInfo } from '../Login';
-import { My2CentsService } from '../my2-cents.service';
+import { UserLoginInfo } from '../_models/Login';
+import { My2CentsService } from '../_services/my2-cents.service';
 
 @Injectable({
   providedIn: 'root',

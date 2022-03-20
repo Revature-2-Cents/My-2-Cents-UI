@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Incomes } from '../mock-incomes';
+import { Incomes } from '../_models/mock-incomes';
 
-import { IncomesService } from '../incomes.service';
+import { IncomesService } from '../_services/incomes.service';
 
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';

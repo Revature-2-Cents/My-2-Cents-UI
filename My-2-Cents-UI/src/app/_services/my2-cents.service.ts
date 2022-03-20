@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { lastValueFrom, Observable } from 'rxjs';
-import { UserProfile } from './userprofile';
-import { Account, AccountTypes, NewAccount } from './account';
+import { UserProfile } from '../_models/userprofile';
+import { Account, AccountTypes, NewAccount } from '../_models/account';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -15,17 +16,17 @@ export class My2CentsService {
   private postNewUser = 'User/NewUser';
   private updateUser = 'User/Update';
 
-  private url = 'https://my2centsapi.azurewebsites.net/api/';
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
+  private readonly  apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) {}
 
   //GET user info
   getUserInfo(userId: number): Observable<UserProfile[]> {
     let params = new HttpParams().set('UserID', userId);
-    return this.http.get<UserProfile[]>(this.url + this.getUserInfoUrl, {
+    return this.http.get<UserProfile[]>(this.apiUrl + this.getUserInfoUrl, {
       params,
     });
   }
@@ -33,19 +34,19 @@ export class My2CentsService {
   //GET user accounts
   getUserAccounts(userId: number): Observable<Account[]> {
     let params = new HttpParams().set('UserID', userId);
-    return this.http.get<Account[]>(this.url + this.getUserAccountsUrl, {
+    return this.http.get<Account[]>(this.apiUrl + this.getUserAccountsUrl, {
       params,
     });
   }
 
   //Get account types
   getAccountTypes(): Observable<AccountTypes[]> {
-    return this.http.get<AccountTypes[]>(this.url + this.getAccountTypesUrl);
+    return this.http.get<AccountTypes[]>(this.apiUrl + this.getAccountTypesUrl);
   }
 
   //Post New bank account
   createNewAccount(userId: number, accountTypeId: number) {
-    return this.http.post<NewAccount[]>(this.url + this.postNewAccountUrl, {
+    return this.http.post<NewAccount[]>(this.apiUrl + this.postNewAccountUrl, {
       userId,
       accountTypeId,
     });
@@ -57,7 +58,7 @@ export class My2CentsService {
   PostUserAccounts(inputData: UserProfile) {
     lastValueFrom(
       this.http.post<any>(
-        this.url + this.postNewUser,
+        this.apiUrl + this.postNewUser,
         inputData,
         this.httpOptions
       )
@@ -89,7 +90,7 @@ export class My2CentsService {
 
     lastValueFrom(
       this.http.put<any>(
-        this.url + this.updateUser,
+        this.apiUrl + this.updateUser,
         this.inputData,
         this.httpOptions
       )

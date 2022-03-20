@@ -8,9 +8,9 @@ import {
 } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
 import { DOCUMENT } from '@angular/common';
-import { UserLoginInfo } from '../Login';
-import { Account, AccountTypes, NewAccount } from '../account';
-import { My2CentsService } from '../my2-cents.service';
+import { UserLoginInfo } from '../_models/Login';
+import { Account, AccountTypes, NewAccount } from '../_models/account';
+import { My2CentsService } from '../_services/my2-cents.service';
 
 @Component({
   selector: 'app-track-multiple-accounts',

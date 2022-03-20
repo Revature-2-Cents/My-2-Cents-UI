@@ -11,6 +11,7 @@ export const environment = {
     clientId: authInfo.clientId,
     redirectUri: window.location.origin,
   },
+  apiUrl: 'https://localhost:7106/api/'
 };
 
 /*
