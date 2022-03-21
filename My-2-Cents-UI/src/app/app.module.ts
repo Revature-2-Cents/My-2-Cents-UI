@@ -16,7 +16,7 @@ import { environment as env } from '../environments/environment';
 import { UserChangeInfoComponent } from './user-change-info/user-change-info.component';
 
 import { CreateProfileComponent } from './create-profile/create-profile.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BudgetCalculatorComponent } from './budget-calculator/budget-calculator.component';
 
 @NgModule({
@@ -36,6 +36,7 @@ import { BudgetCalculatorComponent } from './budget-calculator/budget-calculator
     HttpClientModule,
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     AuthModule.forRoot({
       ...env.auth,
