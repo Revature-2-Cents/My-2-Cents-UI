@@ -1,53 +1,50 @@
-<body>
-    <form>
-        <table>
-            <caption></caption>
-            <tr>
-                <th></th>
-                <th></th>
-            </tr>
-            <tr>
-                <td><strong>From Account:</strong></td>
-                <td>
-                    <select id="from" class="dropdown" name="fromAccount" #fromAccount>
-                        <option value="" disabled selected>Select Account</option>
-                        <option *ngFor="let accinfo of account" value={{accinfo.accountID}}>
+<form>
+    <table>
+        <caption></caption>
+        <tr>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr>
+            <td><strong>From Account:</strong></td>
+            <td>
+                <select id="from" class="dropdown" name="fromAccount" #fromAccount>
+                    <option value="" disabled selected>Select Account</option>
+                    <option *ngFor="let accinfo of account" value={{accinfo.accountID}}>
+                        Account #{{accinfo.accountID}} &nbsp; Balance: ${{accinfo.totalBalance}}
+                    </option>
+                </select>
+            </td>
+        </tr>
+        <br>
+        <tr>
+            <td><strong>To Account:</strong></td>
+            <td>
+                <select id="to" class="dropdown" name="toaccount" #toAccount>
+                    <option value="" disabled selected>Select Account</option>
+                    <option *ngFor="let accinfo of account" value={{accinfo.accountID}}>
+                        <ng-container *ngIf="accinfo.accountID != fromaccount">
                             Account #{{accinfo.accountID}} &nbsp; Balance: ${{accinfo.totalBalance}}
-                        </option>
-                    </select>
-                </td>
-            </tr>
-            <br>
-            <tr>
-                <td><strong>To Account:</strong></td>
-                <td>
-                    <select id="to" class="dropdown" name="toaccount" #toAccount>
-                        <option value="" disabled selected>Select Account</option>
-                        <option *ngFor="let accinfo of account" value={{accinfo.accountID}}>
-                            <ng-container *ngIf="accinfo.accountID != fromaccount">
-                                Account #{{accinfo.accountID}} &nbsp; Balance: ${{accinfo.totalBalance}}
-                            </ng-container>
-                        </option>
-                    </select>
-                </td>
-            </tr>
-            <br>
-            <tr id="quantitydiv">
-                <td><strong>Amount:</strong></td>
-                <td>
-                    $<input id="quantity" type="number" min="0.01" step="0.01" name="quantity"
-                        [(ngModel)]="quantityFiller" #quantity>
-                </td>
-
-            </tr>
-        </table>
+                        </ng-container>
+                    </option>
+                </select>
+            </td>
+        </tr>
         <br>
-        <br>
-        <div id=buttondiv>
-            <button id="button" (click)="CheckFunds(+fromAccount.value, +toAccount.value)">
-                Transfer Funds
-            </button>
-        </div>
+        <tr id="quantitydiv">
+            <td><strong>Amount:</strong></td>
+            <td>
+                $<input id="quantity" class="form-control" type="number" min="0.01" step="0.01" name="quantity"
+                    [(ngModel)]="quantityFiller" #quantity>
+            </td>
 
-    </form>
-</body>
+        </tr>
+    </table>
+    <br>
+    <br>
+    <div id=buttondiv>
+        <button class="btn btn-primary" id="button" (click)="CheckFunds(+fromAccount.value, +toAccount.value)">
+            Transfer Funds
+        </button>
+    </div>
+</form>
