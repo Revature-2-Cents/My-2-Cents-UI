@@ -17,6 +17,7 @@ import { UserChangeInfoComponent } from './user-change-info/user-change-info.com
 
 import { CreateProfileComponent } from './create-profile/create-profile.component';
 import { FormsModule } from '@angular/forms';
+import { InvestmentPortfolioComponent } from './investment-portfolio/investment-portfolio.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { FormsModule } from '@angular/forms';
     TrackExpensesComponent,
     TrackMultipleAccountsComponent,
     UserChangeInfoComponent,
-    CreateProfileComponent
+    CreateProfileComponent,
+    InvestmentPortfolioComponent
   ],
   imports: [
     HttpClientModule,
