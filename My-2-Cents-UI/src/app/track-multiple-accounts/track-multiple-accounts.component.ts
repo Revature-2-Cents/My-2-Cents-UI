@@ -11,6 +11,8 @@ import { DOCUMENT } from '@angular/common';
 import { UserLoginInfo } from '../_models/Login';
 import { Account, AccountTypes, NewAccount } from '../_models/account';
 import { My2CentsService } from '../_services/my2-cents.service';
+import { Observable } from 'rxjs';
+import { DarkModeService } from 'angular-dark-mode';
 
 @Component({
   selector: 'app-track-multiple-accounts',
@@ -18,6 +20,9 @@ import { My2CentsService } from '../_services/my2-cents.service';
   styleUrls: ['./track-multiple-accounts.component.css'],
 })
 export class TrackMultipleAccountsComponent implements OnInit {
+
+  darkMode$: Observable<boolean> = this.darkModeService.darkMode$;
+
   viewAccounts: Account[] = [];
   checkingArray: Account[] = [];
   savingArray: Account[] = [];
@@ -33,7 +38,8 @@ export class TrackMultipleAccountsComponent implements OnInit {
   constructor(
     public auth: AuthService,
     @Inject(DOCUMENT) private doc: Document,
-    private my2centsservice: My2CentsService
+    private my2centsservice: My2CentsService,
+    private darkModeService: DarkModeService
   ) {}
 
   ngOnInit(): void {
@@ -55,6 +61,10 @@ export class TrackMultipleAccountsComponent implements OnInit {
       this.GetAccountInfo(this.UserLoginInfo.userID);
     });
     // this.UserLoginInfo = this.userloginservice.GetUser();
+  }
+
+  onToggle(): void {
+    this.darkModeService.toggle();
   }
 
   nav(button: string) {

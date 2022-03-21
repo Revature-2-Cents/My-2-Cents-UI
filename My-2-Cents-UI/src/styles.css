@@ -5,6 +5,11 @@ html {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+body.dark-mode {
+  background-color: #2d3436;
+  color: #dfe6e9;
+}
+
 button {
   background: radial-gradient(
     circle,
