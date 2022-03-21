@@ -1,0 +1,8 @@
+.table{
+    justify-content: center;
+    display: flex;
+    padding: 5rem;
+}
+.cryptoTable{
+    margin-right: 5rem;
+}
