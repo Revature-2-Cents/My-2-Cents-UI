@@ -10,6 +10,8 @@ import { UserChangeInfoComponent } from './user-change-info/user-change-info.com
 import { TrackExpensesComponent } from './track-expenses/track-expenses.component';
 import { TrackIncomeComponent } from './track-income/track-income.component';
 import { CreateProfileComponent } from './create-profile/create-profile.component';
+import { InvestmentPortfolioMainComponent } from './investment-portfolio/investment-portfolio-main/investment-portfolio-main.component';
+
 
 const routes: Routes = [
   {
@@ -35,6 +37,11 @@ const routes: Routes = [
     path: 'create-profile',
     component: CreateProfileComponent,
     canActivate: [AuthGuard],
+  },
+  {
+    path: 'investment-portfolio',
+    component: InvestmentPortfolioMainComponent,
+    canActivate: [AuthGuard],
   }
 ];
 
@@ -42,4 +49,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

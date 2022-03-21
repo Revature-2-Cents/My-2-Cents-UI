@@ -17,10 +17,10 @@ import { UserChangeInfoComponent } from './user-change-info/user-change-info.com
 
 import { CreateProfileComponent } from './create-profile/create-profile.component';
 import { FormsModule } from '@angular/forms';
-import { InvestmentPortfolioComponent } from './investment-portfolio/investment-portfolio.component';
 import { InvestmentPortfolioMainComponent } from './investment-portfolio/investment-portfolio-main/investment-portfolio-main.component';
 import { InvestmentPortfolioTableComponent } from './investment-portfolio/investment-portfolio-table/investment-portfolio-table.component';
 import { OrderHistoryComponent } from './investment-portfolio/order-history/order-history.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -33,7 +33,6 @@ import { OrderHistoryComponent } from './investment-portfolio/order-history/orde
     TrackMultipleAccountsComponent,
     UserChangeInfoComponent,
     CreateProfileComponent,
-    InvestmentPortfolioComponent,
     InvestmentPortfolioMainComponent,
     InvestmentPortfolioTableComponent,
     OrderHistoryComponent
@@ -46,8 +45,9 @@ import { OrderHistoryComponent } from './investment-portfolio/order-history/orde
     AuthModule.forRoot({
       ...env.auth,
     }),
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
