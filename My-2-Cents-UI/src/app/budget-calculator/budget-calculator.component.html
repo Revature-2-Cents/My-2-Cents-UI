@@ -1,1 +1,25 @@
-<p>budget-calculator works!</p>
+<form [formGroup]="budgetFormGroup">
+    <div class="mb-3">
+        <label class="form-label">Income</label>
+        <input type="number" class="form-control" [(ngModel)]="userIncome" formControlName="income" > 
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Expenses</label>
+        <input type="number" class="form-control" [(ngModel)]="userExpenses" formControlName="expenses">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Wants</label>
+        <input type="number" class="form-control" [(ngModel)]="userWants" formControlName="wants">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Savings</label>
+        <input type="number" class="form-control" [(ngModel)]="userSavings" formControlName="savings">
+    </div>
+    <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input">
+        <label class="form-check-label">Check me out</label>
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="onClick()">Submit</button>
+</form>
+
+
