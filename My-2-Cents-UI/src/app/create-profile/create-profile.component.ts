@@ -1,10 +1,9 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, Inject, Injectable, Input, OnInit } from '@angular/core';
-import { AuthService } from '@auth0/auth0-angular';
 import { HttpClient } from '@angular/common/http';
-import { UserLoginInfo } from '../_models/Login';
 import { My2CentsService } from '../_services/my2-cents.service';
 import { UserProfile } from 'src/app/_models/userprofile';
+import { User } from '../_models/User';
 @Injectable({
   providedIn: 'root',
 })
@@ -16,7 +15,7 @@ import { UserProfile } from 'src/app/_models/userprofile';
 export class CreateProfileComponent implements OnInit {
   public data: any = [];
   inputData: UserProfile = {} as UserProfile;
-  @Input() UserLoginInfo = <UserLoginInfo>{};
+  @Input() User = <User>{};
   display: string | undefined;
   mydata: any;
   constructor(private my2centsService: My2CentsService) {}
@@ -24,8 +23,8 @@ export class CreateProfileComponent implements OnInit {
   ngOnInit(): void {}
   bdisable: any = 'false';
   clickme(inputData: UserProfile) {
-    inputData.UserID = this.UserLoginInfo.userID;
-    inputData.email = this.UserLoginInfo.email;
+    inputData.UserID = this.User.userId;
+    inputData.email = this.User.email;
     this.mydata = inputData;
     console.log(this.mydata);
 
@@ -40,7 +39,6 @@ export class CreateProfileComponent implements OnInit {
         this.display = 'Invaid phone number';
       } else {
         this.display = '';
-        //inputData.UserID = this.UserLoginInfo.userID;
         this.my2centsService.PostUserAccounts(inputData);
         this.bdisable = 'true';
         break;
