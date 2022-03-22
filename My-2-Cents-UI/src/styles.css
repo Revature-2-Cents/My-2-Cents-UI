@@ -78,3 +78,6 @@ fieldset {
   background-color: rgba(219, 176, 83, 0.418);
   color:rgb(250, 244, 232)
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
