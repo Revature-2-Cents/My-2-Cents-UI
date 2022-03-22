@@ -1,22 +1,29 @@
-import { Component, Inject } from '@angular/core';
-import { AuthService } from '@auth0/auth0-angular';
+import { Component, Inject, OnInit } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
+import { User } from './_models/User';
+import { AccountService } from './_services/account.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
 
   constructor(
-    public auth: AuthService,
-    @Inject(DOCUMENT) private doc: Document,) {}
+    private accountService: AccountService,
+    @Inject(DOCUMENT) private doc: Document) {}
   title = 'My-2-Cents-UI';
+  users: any;
 
-  logout(): void {
-    console.log(this.doc.location);
-    this.auth.logout({ returnTo: this.doc.location.origin });
-    alert('Successfully logout!');
+  ngOnInit() {
+    this.setCurrentUser();
+  }
+
+  setCurrentUser(){
+    const user: User = JSON.parse(localStorage.getItem('user'));
+    if (user) {
+      this.accountService.setCurrentUser(user);
+    }
   }
 }
