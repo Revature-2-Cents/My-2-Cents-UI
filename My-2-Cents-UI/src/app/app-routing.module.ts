@@ -12,6 +12,7 @@ import { TrackIncomeComponent } from './track-income/track-income.component';
 import { CreateProfileComponent } from './create-profile/create-profile.component';
 import { InvestmentPortfolioMainComponent } from './investment-portfolio/investment-portfolio-main/investment-portfolio-main.component';
 
+
 const routes: Routes = [
   {
     path: '',
