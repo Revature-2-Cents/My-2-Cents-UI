@@ -11,6 +11,7 @@ import { TrackIncomeComponent } from './track-income/track-income.component';
 import { CreateProfileComponent } from './create-profile/create-profile.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './_authGuards/auth.guard';
+import { InvestmentPortfolioMainComponent } from './investment-portfolio/investment-portfolio-main/investment-portfolio-main.component';
 
 const routes: Routes = [
   // {
@@ -22,7 +23,8 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'dashboard', component: TrackMultipleAccountsComponent, canActivate: [AuthGuard] },
   { path: 'track-income/:AccountID', component: TrackIncomeComponent, canActivate: [AuthGuard] },
-  { path: 'create-profile', component: CreateProfileComponent, canActivate: [AuthGuard] }
+  { path: 'create-profile', component: CreateProfileComponent, canActivate: [AuthGuard] },
+  { path: 'investment-portfolio', component: InvestmentPortfolioMainComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

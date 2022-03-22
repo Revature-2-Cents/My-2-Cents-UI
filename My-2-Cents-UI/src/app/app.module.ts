@@ -18,6 +18,9 @@ import { CreateProfileComponent } from './create-profile/create-profile.componen
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { JwtInterceptor } from './_interceptors/jwt.interceptor';
+import { InvestmentPortfolioMainComponent } from './investment-portfolio/investment-portfolio-main/investment-portfolio-main.component';
+import { InvestmentPortfolioTableComponent } from './investment-portfolio/investment-portfolio-table/investment-portfolio-table.component';
+import { OrderHistoryComponent } from './investment-portfolio/order-history/order-history.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,10 @@ import { JwtInterceptor } from './_interceptors/jwt.interceptor';
     TrackMultipleAccountsComponent,
     UserChangeInfoComponent,
     CreateProfileComponent,
-    RegisterComponent
+    RegisterComponent,
+    InvestmentPortfolioMainComponent,
+    InvestmentPortfolioTableComponent,
+    OrderHistoryComponent
   ],
   imports: [
     HttpClientModule,
