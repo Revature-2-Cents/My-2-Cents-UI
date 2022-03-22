@@ -6,11 +6,13 @@ import {
   OnInit,
   Output,
 } from '@angular/core';
-import { AuthService } from '@auth0/auth0-angular';
 import { DOCUMENT } from '@angular/common';
-import { UserLoginInfo } from '../_models/Login';
+import { take } from 'rxjs/operators';
 import { Account, AccountTypes, NewAccount } from '../_models/account';
 import { My2CentsService } from '../_services/my2-cents.service';
+import { User } from '../_models/User';
+import { AccountService } from '../_services/account.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-track-multiple-accounts',
@@ -26,35 +28,32 @@ export class TrackMultipleAccountsComponent implements OnInit {
   accountTypes: AccountTypes[] = [];
   newAccount: NewAccount[] = [];
 
+  User = <User>{};
+
   @Output() accountTypeChange = new EventEmitter<AccountTypes[]>();
   @Output() chooseAccountType = new EventEmitter<number>();
   @Output() getAccounts = new EventEmitter<Account[]>();
 
   constructor(
-    public auth: AuthService,
+    // public auth: AuthService,
+    public accountService: AccountService,
+    private router: Router,
     @Inject(DOCUMENT) private doc: Document,
     private my2centsservice: My2CentsService
   ) {}
 
   ngOnInit(): void {
+    this.accountService.currentUser.pipe(take(1)).subscribe((data) => this.User = data);
     this.GetUserInfo();
     this.GetAccountTypes();
     console.log('dashboard ngOnInit gets called!');
     // this.getAccountArray();
   }
 
-  UserLoginInfo = <UserLoginInfo>{};
   NavName: string = 'Dashboard';
   GetUserInfo() {
     // Getting user infomation after login
-    this.auth.user$.subscribe((data) => {
-      console.log(data!.sub!.substring(6));
-      this.UserLoginInfo.userID = +data!.sub!.substring(6);
-      this.UserLoginInfo.userName = data?.nickname;
-      this.UserLoginInfo.email = data?.email;
-      this.GetAccountInfo(this.UserLoginInfo.userID);
-    });
-    // this.UserLoginInfo = this.userloginservice.GetUser();
+    this.GetAccountInfo(this.User.userId);
   }
 
   nav(button: string) {
@@ -63,26 +62,25 @@ export class TrackMultipleAccountsComponent implements OnInit {
       this.checkingArray = [];
       this.savingArray = [];
       this.investmentArray = [];
-      this.GetAccountInfo(this.UserLoginInfo.userID);
+      this.GetAccountInfo(this.User.userId);
     }
     this.NavName = button;
   }
 
   logout(): void {
     console.log(this.doc.location);
-    this.auth.logout({ returnTo: this.doc.location.origin });
+    this.accountService.logout();
+    this.router.navigateByUrl('/');
     alert('Successful logout!');
   }
 
   GetAccountInfo(userid: number) {
-    console.log(this.UserLoginInfo);
-    if (this.auth.user$) {
-      this.my2centsservice.getUserAccounts(userid).subscribe((data) => {
-        this.viewAccounts = data;
-        // console.log('data: ' + this.viewAccounts[0]);
-        this.getAccountArray();
-      });
-    }
+    console.log(this.User);
+    this.my2centsservice.getUserAccounts(userid).subscribe((data) => {
+      this.viewAccounts = data;
+      // console.log('data: ' + this.viewAccounts[0]);
+      this.getAccountArray();
+    });
   }
 
   GetAccountTypes() {
@@ -94,7 +92,7 @@ export class TrackMultipleAccountsComponent implements OnInit {
 
   CreateNewAccount(accountTypeId: number) {
     return this.my2centsservice.createNewAccount(
-      this.UserLoginInfo.userID,
+      this.User.userId,
       accountTypeId
     );
   }
@@ -104,13 +102,11 @@ export class TrackMultipleAccountsComponent implements OnInit {
     this.checkingArray = [];
     this.savingArray = [];
     this.investmentArray = [];
-    if (this.auth.user$) {
-      this.my2centsservice.getUserAccounts(userid).subscribe((data) => {
-        this.viewAccounts = data;
-        this.getAccountArray();
-        this.getAccounts.emit(this.viewAccounts);
-      });
-    }
+    this.my2centsservice.getUserAccounts(userid).subscribe((data) => {
+      this.viewAccounts = data;
+      this.getAccountArray();
+      this.getAccounts.emit(this.viewAccounts);
+    });
   }
 
   NewBankAccount(accountTypeId: number) {
@@ -118,7 +114,7 @@ export class TrackMultipleAccountsComponent implements OnInit {
     alert('Account Created!');
     this.GetAccountTypes();
     this.viewAccounts = [];
-    this.UpdateAccountInfo(this.UserLoginInfo.userID);
+    this.UpdateAccountInfo(this.User.userId);
   }
 
   getAccountArray(): void {

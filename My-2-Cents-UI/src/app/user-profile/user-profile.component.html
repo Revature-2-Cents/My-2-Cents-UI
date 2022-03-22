@@ -71,8 +71,8 @@
   </div>
 
   <ng-template #CreateProfile>
-    <div *ngIf="auth.user$ | async as user">
-      <app-create-profile [UserLoginInfo]=UserLoginInfo></app-create-profile>
+    <div *ngIf="accountService.currentUser| async as user">
+      <app-create-profile [User]=User></app-create-profile>
     </div>
     <!-- <div class="center">
       <button type="button" (click)="nav('Profile')">Go Back</button>
@@ -80,7 +80,7 @@
   </ng-template>
 
   <div *ngIf="forNav=='Edit Info'">
-    <div *ngIf="auth.user$ | async as user">
+    <div *ngIf="accountService.currentUser | async as user">
       <app-user-change-info [userId]=userId></app-user-change-info>
     </div>
     <div class="center">

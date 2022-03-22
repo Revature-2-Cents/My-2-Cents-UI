@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,12 +11,13 @@ import { TransferMoneyComponent } from './transfer-money/transfer-money.componen
 import { TrackExpensesComponent } from './track-expenses/track-expenses.component';
 import { TrackMultipleAccountsComponent } from './track-multiple-accounts/track-multiple-accounts.component';
 
-import { AuthModule } from '@auth0/auth0-angular';
 import { environment as env } from '../environments/environment';
 import { UserChangeInfoComponent } from './user-change-info/user-change-info.component';
 
 import { CreateProfileComponent } from './create-profile/create-profile.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RegisterComponent } from './register/register.component';
+import { JwtInterceptor } from './_interceptors/jwt.interceptor';
 
 @NgModule({
   declarations: [
@@ -28,18 +29,19 @@ import { FormsModule } from '@angular/forms';
     TrackExpensesComponent,
     TrackMultipleAccountsComponent,
     UserChangeInfoComponent,
-    CreateProfileComponent
+    CreateProfileComponent,
+    RegisterComponent
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    AuthModule.forRoot({
-      ...env.auth,
-    }),
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

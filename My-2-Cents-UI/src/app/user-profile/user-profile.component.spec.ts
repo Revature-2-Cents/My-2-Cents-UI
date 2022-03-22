@@ -1,6 +1,5 @@
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { AuthModule } from '@auth0/auth0-angular';
 import { UserProfileComponent } from './user-profile.component';
 
 describe('UserProfileComponent', () => {
@@ -13,10 +12,6 @@ describe('UserProfileComponent', () => {
       declarations: [ UserProfileComponent ],
       imports: [
         HttpClientTestingModule,
-        AuthModule.forRoot({
-          domain: 'environment.auth.domain',
-          clientId: 'environment.auth.clientId',
-        })
       ]
     })
     .compileComponents();
