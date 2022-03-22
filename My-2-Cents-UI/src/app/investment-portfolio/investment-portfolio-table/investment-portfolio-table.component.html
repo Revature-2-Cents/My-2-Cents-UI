@@ -1,1 +1,94 @@
-<p>investment-portfolio-table works!</p>
+<h1 id="heading">{{title}}</h1>
+<style>
+    .child {
+        float: left;
+        width: 50%;
+    }
+
+    .parent {
+        display: flex;
+    }
+</style>
+<section class="parent">
+    <div>
+        <h2>
+            {{subtitle[0]}}
+        </h2>
+        <table class="child">
+            <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Investment Buy Date</td>
+                    <td>Amount Invested</td>
+                    <td>Shares Owned</td>
+                    <td>Price Per Share</td>
+                    <td>Gain/Loss</td>
+                    <td>Dollar Value</td>
+                </tr>
+
+            </thead>
+            <tbody>
+                <tr *ngFor="let stockData of stockDataSource">
+                    <td>{{stockData.name}}</td>
+                    <td>
+                        {{stockData.investmentBuyDate}}
+                    </td>
+                    <td>
+                        {{stockData.amountInvested}}
+                    </td>
+                    <td>
+                        {{stockData.sharesOwned}}
+                    </td>
+                    <td>
+                        {{stockData.pricePerShare}}
+                    </td>
+                    <td>
+                        {{stockData.gainsLoss}}
+                    </td>
+                    <td>
+                        {{stockData.dollarValue}}
+                    </td>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <h2>
+            {{subtitle[1]}}
+        </h2>
+        <table class="child">
+            <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Investment Buy Date</td>
+                    <td>Amount Invested</td>
+                    <td>Shares Owned</td>
+                    <td>Price Per Share</td>
+                    <td>Gain/Loss</td>
+                    <td>Dollar Value</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let stockData of crytoDataSource">
+                    <td>{{stockData.name}}</td>
+                    <td>
+                        {{stockData.investmentBuyDate}}
+                    </td>
+                    <td>
+                        {{stockData.amountInvested}}
+                    </td>
+                    <td>
+                        {{stockData.sharesOwned}}
+                    </td>
+                    <td>
+                        {{stockData.pricePerShare}}
+                    </td>
+                    <td>
+                        {{stockData.gainsLoss}}
+                    </td>
+                    <td>
+                        {{stockData.dollarValue}}
+                    </td>
+            </tbody>
+        </table>
+    </div>
+</section>
