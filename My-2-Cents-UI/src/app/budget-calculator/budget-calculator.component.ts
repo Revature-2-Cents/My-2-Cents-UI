@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-budget-calculator',
@@ -7,30 +7,74 @@ import { FormControl, FormGroup, ReactiveFormsModule, FormsModule } from '@angul
   styleUrls: ['./budget-calculator.component.css']
 })
 export class BudgetCalculatorComponent implements OnInit {
-  budgetFormGroup = new FormGroup({
-    income: new FormControl(0),
-    expenses: new FormControl(0),
-    wants: new FormControl(0),
-    savings: new FormControl(0)
+  income: number = 1200;
+  expenes: number [] = [300,320,150];
+
+  
+
+  BudgetGroup = new FormGroup({
+        income: new FormControl(0,[Validators.required]),
+
   })
 
-  userIncome = 0;
-  userExpenses = 0;
-  userWants = 0;
-  userSavings = 0;
+    get userIncome()
+    {
+      return this.BudgetGroup.get("income");
+    }
+    get userWants()
+    {
+      return this.BudgetGroup.get("wants");
+    }
+    get userNeeds()
+    {
+      return this.BudgetGroup.get("needs");
+    }
 
+    get userSavings()
+    {
+      return this.BudgetGroup.get("savings");
+    }
 
-  constructor() { }
+  constructor() { 
+    this.listOfExpenses = [];
+    
+    }
+    listOfExpenses: number[];
 
   ngOnInit(): void {
-
-
-  }
-
-  onClick () {
     
   }
+  calculate()
+  {
+    let totalRemaining:number = this.income;
+    for (let i = 0; i < this.listOfExpenses.length; i++) {
+      const expense = this.listOfExpenses[i];
+      totalRemaining = totalRemaining - expense;
+    }
+    return totalRemaining;
+  };
+  
 
+  percentCheck()
+  {
+    let needPercent = this.income * 0.5;
+    let wantPercent = this.income * 0.3;
+    let savePercent = this.income * 0.2;
+      if(this.calculate() < needPercent)
+      {
+        alert("your expenses are too high.");
+        if (this.calculate() + wantPercent > needPercent) {
+          alert("Reccomend lessening  wants.")
+        }
+        else if(this.calculate() + needPercent + wantPercent + savePercent > this.income){
+           alert("reccomend lessing savings");
+        }
+        
+      }
+      else{
+          alert("Congrats your on budget");
+      }
+  }
 }
 
 
