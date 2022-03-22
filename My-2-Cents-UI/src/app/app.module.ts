@@ -20,7 +20,6 @@ import { FormsModule } from '@angular/forms';
 import { InvestmentPortfolioMainComponent } from './investment-portfolio/investment-portfolio-main/investment-portfolio-main.component';
 import { InvestmentPortfolioTableComponent } from './investment-portfolio/investment-portfolio-table/investment-portfolio-table.component';
 import { OrderHistoryComponent } from './investment-portfolio/order-history/order-history.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -45,9 +44,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AuthModule.forRoot({
       ...env.auth,
     }),
-    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
