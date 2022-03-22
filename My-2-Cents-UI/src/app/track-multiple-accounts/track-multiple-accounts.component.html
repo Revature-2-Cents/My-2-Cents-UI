@@ -68,14 +68,14 @@
     </ng-template>
 
     <div *ngIf="NavName=='My Profile'">
-      <div *ngIf="auth.user$ | async as user">
-        <app-user-profile [UserLoginInfo]=UserLoginInfo [userId]=UserLoginInfo.userID></app-user-profile>
+      <div *ngIf="accountService.currentUser | async as user">
+        <app-user-profile [User]=User [userId]=User.userId></app-user-profile>
       </div>
     </div>
 
     <div *ngIf="NavName=='Transfer Money'">
-      <div *ngIf="auth.user$ | async as user">
-        <app-transfer-money [(account)]=viewAccounts [userId]=UserLoginInfo.userID></app-transfer-money>
+      <div *ngIf="accountService.currentUser | async as user">
+        <app-transfer-money [(account)]=viewAccounts [userId]=User.userId></app-transfer-money>
       </div>
     </div>
   </div>
