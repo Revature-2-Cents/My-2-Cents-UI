@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-budget-calculator',
@@ -12,28 +12,19 @@ export class BudgetCalculatorComponent implements OnInit {
 
   
 
-  BudgetGroup = new FormGroup({
-        income: new FormControl(0,[Validators.required]),
-
+  budgetFormGroup = new FormGroup({
+    income: new FormControl(0),
+    expenses: new FormControl(0),
+    wants: new FormControl(0),
+    savings: new FormControl(0)
   })
 
-    get userIncome()
-    {
-      return this.BudgetGroup.get("income");
-    }
-    get userWants()
-    {
-      return this.BudgetGroup.get("wants");
-    }
-    get userNeeds()
-    {
-      return this.BudgetGroup.get("needs");
-    }
-
-    get userSavings()
-    {
-      return this.BudgetGroup.get("savings");
-    }
+  
+  userIncome = 0;
+  userExpenses = 0;
+  userWants = 0;
+  userSavings = 0;
+  
 
   constructor() { 
     this.listOfExpenses = [];
@@ -74,6 +65,11 @@ export class BudgetCalculatorComponent implements OnInit {
       else{
           alert("Congrats your on budget");
       }
+  }
+
+  
+  onClick () {
+
   }
 }
 
