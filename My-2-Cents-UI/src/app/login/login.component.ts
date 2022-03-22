@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '@auth0/auth0-angular';
+import { Router } from '@angular/router';
+import { AccountService } from '../_services/account.service';
 
 @Component({
   selector: 'app-login',
@@ -7,12 +8,25 @@ import { AuthService } from '@auth0/auth0-angular';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  constructor(public auth: AuthService) {}
+  model: any = {}
+  users: any;
+
+  constructor(public accountService: AccountService, private router: Router) {}
 
   ngOnInit(): void {}
-  loginWithRedirect(): void {
-    this.auth.loginWithRedirect({
-      appState: { target: '/dashboard' },
-    });
+  
+  // loginWithRedirect(): void {
+  //   this.auth.loginWithRedirect({
+  //     appState: { target: '/dashboard' },
+  //   });
+  // }
+
+  login(){
+    this.accountService.login(this.model).subscribe(response => {
+      this.router.navigateByUrl('/dashboard');
+    }, error => {
+      console.log(error);
+      alert(error);
+    })
   }
 }

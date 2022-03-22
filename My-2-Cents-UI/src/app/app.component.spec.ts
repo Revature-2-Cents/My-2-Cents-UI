@@ -2,7 +2,6 @@ import { TestBed, waitForAsync } from '@angular/core/testing';
 import { APP_BASE_HREF } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
-import { AuthModule, AuthService, User } from '@auth0/auth0-angular';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { TrackIncomeComponent } from './track-income/track-income.component';
 import { TrackMultipleAccountsComponent } from './track-multiple-accounts/track-multiple-accounts.component';
@@ -25,10 +24,7 @@ describe('AppComponent', () => {
             ],
             imports: [
                 RouterModule.forRoot(routes),
-                AuthModule.forRoot({
-                    domain: 'environment.auth.domain',
-                    clientId: 'environment.auth.clientId'
-                }),
+
             ],
             providers: [
                 { provide: APP_BASE_HREF, useValue: '/' },
