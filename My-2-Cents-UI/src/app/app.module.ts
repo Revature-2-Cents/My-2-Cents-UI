@@ -18,6 +18,7 @@ import { CreateProfileComponent } from './create-profile/create-profile.componen
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { JwtInterceptor } from './_interceptors/jwt.interceptor';
+import { BudgetCalculatorComponent } from './budget-calculator/budget-calculator.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { JwtInterceptor } from './_interceptors/jwt.interceptor';
     TrackMultipleAccountsComponent,
     UserChangeInfoComponent,
     CreateProfileComponent,
+    BudgetCalculatorComponent,
     RegisterComponent
   ],
   imports: [
@@ -41,8 +43,8 @@ import { JwtInterceptor } from './_interceptors/jwt.interceptor';
     ReactiveFormsModule
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

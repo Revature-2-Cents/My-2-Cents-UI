@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, NgModule } from '@angular/core';
 import { FormControl, FormGroup, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { Chart } from 'node_modules/chart.js';
 @Component({
@@ -10,6 +10,17 @@ export class BudgetCalculatorComponent implements OnInit {
   income: number = 1200;
   expenes: number[] = [300, 320, 150];
 
+  @Input()
+  userIncome: string = "";
+  @Input()
+  userExpenses: string = "";
+  @Input()
+  userWants: string = "";
+  @Input()
+  userSavings: string = "";
+
+
+
 
 
   budgetFormGroup = new FormGroup({
@@ -20,10 +31,10 @@ export class BudgetCalculatorComponent implements OnInit {
   })
 
 
-  userIncome = 0;
-  userExpenses = 0;
-  userWants = 0;
-  userSavings = 0;
+  // userIncome = 0;
+  // userExpenses = 0;
+  // userWants = 0;
+  // userSavings = 0;
 
 
   constructor() {
