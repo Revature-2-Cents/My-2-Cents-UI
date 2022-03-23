@@ -43,8 +43,8 @@ import { BudgetCalculatorComponent } from './budget-calculator/budget-calculator
     ReactiveFormsModule
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

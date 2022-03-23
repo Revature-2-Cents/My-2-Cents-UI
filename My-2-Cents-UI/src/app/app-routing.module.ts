@@ -24,11 +24,12 @@ const routes: Routes = [
   { path: 'dashboard', component: TrackMultipleAccountsComponent, canActivate: [AuthGuard] },
   { path: 'track-income/:AccountID', component: TrackIncomeComponent, canActivate: [AuthGuard] },
   { path: 'create-profile', component: CreateProfileComponent, canActivate: [AuthGuard] },
-  { path: 'budget-calculator', component: BudgetCalculatorComponent, canActivate: [AuthGuard] }
+  // { path: 'budget-calculator', component: BudgetCalculatorComponent, canActivate: [AuthGuard] }
+  { path: 'budget-calculator', component: BudgetCalculatorComponent }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
