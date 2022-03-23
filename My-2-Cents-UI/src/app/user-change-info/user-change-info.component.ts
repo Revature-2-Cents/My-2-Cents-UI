@@ -52,15 +52,13 @@ this.display ="";
 }
 
   GetUserProfile() {
-    console.log(this.userId)
-      this.my2centsService
-       // .getUserInfo(this.UserLoginInfo.userID)
-       .getUserInfo(this.userId)
-        .subscribe((data) => {
-          this.data = data;
-         // this.inputData = this.data;
-        });
+    console.log(this.userId);
+    this.my2centsService
+      .getUserInfo(this.userId)
+      .subscribe((data) => {
+        this.data = data;
+        // this.inputData = this.data;
+      });
     }
-
 
 }
