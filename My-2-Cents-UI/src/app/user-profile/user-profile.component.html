@@ -1,6 +1,4 @@
-<body>
-
-  <div *ngIf="data else CreateProfile">
+<div *ngIf="data else CreateProfile">
     <div *ngIf="forNav=='Profile'">
       <div *ngFor="let json of data">
 
@@ -65,7 +63,7 @@
         </div>
       </div>
       <div class="center">
-        <button type="button" (click)="nav('Edit Info')">Edit Profile</button>
+        <button class="btn btn-primary" type="button" (click)="nav('Edit Info')">Edit Profile</button>
       </div>
     </div>
   </div>
@@ -87,4 +85,3 @@
       <button type="button" (click)="nav('Profile')">Go Back</button>
     </div>
   </div>
-</body>
