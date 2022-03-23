@@ -4,3 +4,67 @@
     height: 400px;
 
 }
+
+form{
+    margin-right: auto;
+    margin-left: auto;
+    
+}
+
+.mb-3{
+    margin-left: 2rem;
+    
+}
+
+
+
+#label-income{
+    
+    padding: 0.5rem;
+    
+    
+}
+
+#label-expense{
+    
+    padding: 0.5rem;
+    
+}
+
+#label-want{
+    
+    padding: 0.5rem;
+    
+    
+}
+
+#label-save{
+    
+    padding: 0.5rem;
+    
+    
+}
+
+#income{
+    
+    padding: 0.5rem;
+    margin: 1.5rem;
+}
+
+#expenses{
+    border: 0.1rem solid black;
+    padding: 0.5rem;
+    margin: 0.5rem;
+}
+
+#wants{
+    border: 0.1rem solid black;
+    padding: 0.5rem;
+    margin: 2.2rem;
+}
+
+#savings{
+    border: 0.1rem solid black;
+    padding: 0.5rem;
+    margin: 1.5rem;
+}
