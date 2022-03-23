@@ -31,8 +31,8 @@ import { BudgetCalculatorComponent } from './budget-calculator/budget-calculator
     TrackMultipleAccountsComponent,
     UserChangeInfoComponent,
     CreateProfileComponent,
-    BudgetCalculatorComponent,
-    RegisterComponent
+    RegisterComponent,
+    BudgetCalculatorComponent
   ],
   imports: [
     HttpClientModule,
