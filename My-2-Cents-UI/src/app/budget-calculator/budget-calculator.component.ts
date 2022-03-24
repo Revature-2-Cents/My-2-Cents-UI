@@ -83,32 +83,46 @@ export class BudgetCalculatorComponent implements OnInit {
   }
   calculate() {
     let totalRemaining: number = this.income;
-    for (let i = 0; i < this.listOfExpenses.length; i++) {
-      const expense = this.listOfExpenses[i];
-      totalRemaining = totalRemaining - expense;
-    }
+    totalRemaining -= this.userExpenses;
+    console.log(totalRemaining);
     return totalRemaining;
   };
 
 
   percentCheck() {
-    let needPercent = this.income * 0.5;
-    let wantPercent = this.income * 0.3;
-    let savePercent = this.income * 0.2;
+    let needPercent = this.displayneeds();
+    let wantPercent = this.displaywant();
+    let savePercent = this.displaysave();
     if (this.calculate() < needPercent) {
       alert("your expenses are too high.");
       if (this.calculate() + wantPercent > needPercent) {
         alert("Reccomend lessening  wants.")
       }
       else if (this.calculate() + needPercent + wantPercent + savePercent > this.income) {
-        alert("reccomend lessing savings");
+        alert("reccomend lessening wants and savings until expenses are lessened");
       }
 
     }
     else {
+      console.log(this.calculate());
+      console.log(needPercent);
       alert("Congrats your on budget");
     }
   }
+
+displaysave()
+{
+  return this.income * 0.2;
+}
+
+displayneeds()
+{
+  return this.income * 0.5;
+}
+displaywant()
+{
+  return this.income * 0.3;
+}
 
 
   onClick(budgetFormGroup: FormGroup) {
