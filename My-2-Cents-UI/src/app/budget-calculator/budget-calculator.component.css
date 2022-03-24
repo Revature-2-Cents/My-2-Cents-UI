@@ -1,70 +1,68 @@
-#divChart{
-    display: block;
-    width: 400px;
-    height: 400px;
+*, *:before, *:after {
+    box-sizing: border-box;
+  }
 
+
+.container-1{
+    border: 0.25rem solid rgb(253, 181, 21);
+    display: flex;
+    background: radial-gradient(#e9f1f7, #c2c3d3, #9a9aa8);
+    border-radius: 1rem;
 }
 
-form{
-    margin-right: auto;
-    margin-left: auto;
-    
-}
-
-.mb-3{
-    margin-left: 2rem;
-    
+.container-1 div{
+    text-align: center;
+    font-weight: 900;
+    font-size: 18px;
 }
 
 
-
-#label-income{
-    
-    padding: 0.5rem;
-    
-    
+.box-1{
+    flex: 1;
+    border: 0.25rem solid rgb(253, 181, 21);
+    padding-top: 1rem;
+    text-align: center;
+    flex-shrink: 1;
 }
 
-#label-expense{
-    
-    padding: 0.5rem;
-    
+.box-2{
+    border: 0.25rem solid rgb(253, 181, 21);
+    flex: 1;
+    padding-top: 5rem;
+    flex-shrink: 1;
 }
 
-#label-want{
-    
-    padding: 0.5rem;
-    
-    
+
+
+.box-1 img{
+    max-width: 60%;
+    height: auto;
 }
 
-#label-save{
-    
-    padding: 0.5rem;
-    
-    
+.container-2{
+    border: 0.25rem solid rgb(253, 181, 21);
+    display: flex;
+    background: radial-gradient(#e9f1f7, #c2c3d3, #9a9aa8);
+    align-items: flex-start;
+    flex-direction: row;
+    border-radius: 1rem;
 }
 
-#income{
-    
-    padding: 0.5rem;
-    margin: 1.5rem;
+.container-2 div{
+    text-align: center;
+    font-weight: 900;
+    font-size: 18px;
 }
 
-#expenses{
-    border: 0.1rem solid black;
-    padding: 0.5rem;
-    margin: 0.5rem;
+
+.box-3{
+    flex: 1;
+    color: rgb(0, 0, 0);
+    font-weight: 900;
+    font-size: 18px;
+    text-align: center; 
 }
 
-#wants{
-    border: 0.1rem solid black;
-    padding: 0.5rem;
-    margin: 2.2rem;
-}
-
-#savings{
-    border: 0.1rem solid black;
-    padding: 0.5rem;
-    margin: 1.5rem;
+.box-4{
+    flex: 2;
 }
