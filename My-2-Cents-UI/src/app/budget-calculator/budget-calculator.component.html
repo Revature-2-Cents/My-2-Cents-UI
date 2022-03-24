@@ -1,22 +1,20 @@
 <div class="container-1">
     <div class="box-1">
         <img src="https://media.discordapp.net/attachments/937791410889981983/938171320074661888/Logo.png">
-        <h2>Budget Calculator</h2>
+        <h2 style="font-weight: 900;">Budget Calculator</h2>
     </div>
     <div class="box-2">
         <form [formGroup]="budgetFormGroup">
             <div>
-                <label class="form-label">Income</label>
+                <label class="form-label" style="font-size: 150%;">Income</label>
                 <div>
-                    <input type="number" style="height: 1.5rem;" class="form-control" [(ngModel)]="userIncome"
-                        formControlName="income">
+                    <input type="number" class="form-control" [(ngModel)]="userIncome" formControlName="income">
                 </div>
             </div>
             <div>
-                <label id="label" class="form-label">Expenses</label>
+                <label id="label" class="form-label" style="font-size: 150%;">Expenses</label>
                 <div>
-                    <input type="number" style="height: 1.5rem;" class="form-control" [(ngModel)]="userExpenses"
-                        formControlName="expenses">
+                    <input  type="number" class="form-control" [(ngModel)]="userExpenses" formControlName="expenses">
                 </div>
             </div>
             <div style="padding-top: 1rem;">
@@ -35,3 +33,6 @@
         <h1>Content 4</h1>
     </div>
 </div>
+
+
+
