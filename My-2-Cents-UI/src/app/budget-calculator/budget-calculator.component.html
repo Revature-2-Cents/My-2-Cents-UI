@@ -8,13 +8,15 @@
             <div>
                 <label class="form-label">Income</label>
                 <div>
-                    <input type="number" style="height: 1.5rem;" class="form-control" [(ngModel)]="userIncome" formControlName="income">
+                    <input type="number" style="height: 1.5rem;" class="form-control" [(ngModel)]="userIncome"
+                        formControlName="income">
                 </div>
             </div>
             <div>
                 <label id="label" class="form-label">Expenses</label>
                 <div>
-                    <input  type="number" style="height: 1.5rem;" class="form-control" [(ngModel)]="userExpenses" formControlName="expenses">
+                    <input type="number" style="height: 1.5rem;" class="form-control" [(ngModel)]="userExpenses"
+                        formControlName="expenses">
                 </div>
             </div>
             <div style="padding-top: 1rem;">
@@ -26,11 +28,10 @@
 
 <div class="container-2">
     <div class="box-3">
+        <app-budget-chart></app-budget-chart>
         <h1>Content 3</h1>
     </div>
     <div class="box-4">
         <h1>Content 4</h1>
     </div>
 </div>
-
-

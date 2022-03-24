@@ -19,6 +19,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { JwtInterceptor } from './_interceptors/jwt.interceptor';
 import { BudgetCalculatorComponent } from './budget-calculator/budget-calculator.component';
+import { BudgetChartComponent } from './budget-chart/budget-chart.component';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { BudgetCalculatorComponent } from './budget-calculator/budget-calculator
     UserChangeInfoComponent,
     CreateProfileComponent,
     RegisterComponent,
-    BudgetCalculatorComponent
+    BudgetCalculatorComponent,
+    BudgetChartComponent
   ],
   imports: [
     HttpClientModule,
@@ -40,7 +43,8 @@ import { BudgetCalculatorComponent } from './budget-calculator/budget-calculator
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgChartsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }

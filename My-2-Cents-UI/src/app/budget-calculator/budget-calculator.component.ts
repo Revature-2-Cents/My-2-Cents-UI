@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, NgModule } from '@angular/core';
 import { FormControl, FormGroup, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { Chart } from 'node_modules/chart.js';
+// import { Chart } from 'node_modules/chart.js';
 @Component({
   selector: 'app-budget-calculator',
   templateUrl: './budget-calculator.component.html',
@@ -36,7 +36,7 @@ export class BudgetCalculatorComponent implements OnInit {
 
   }
 
-  
+
   calculate() {
     let totalRemaining: number = this.income;
     totalRemaining -= this.userExpenses;
@@ -66,19 +66,16 @@ export class BudgetCalculatorComponent implements OnInit {
     }
   }
 
-displaysave()
-{
-  return this.income * 0.2;
-}
+  displaysave() {
+    return this.income * 0.2;
+  }
 
-displayneeds()
-{
-  return this.income * 0.5;
-}
-displaywant()
-{
-  return this.income * 0.3;
-}
+  displayneeds() {
+    return this.income * 0.5;
+  }
+  displaywant() {
+    return this.income * 0.3;
+  }
 
 
   onClick(budgetFormGroup: FormGroup) {
