@@ -13,6 +13,8 @@ import { My2CentsService } from '../_services/my2-cents.service';
 import { User } from '../_models/User';
 import { AccountService } from '../_services/account.service';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { DarkModeService } from 'angular-dark-mode';
 
 @Component({
   selector: 'app-track-multiple-accounts',

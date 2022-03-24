@@ -1,3 +1,105 @@
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    position: relative;
+    font-size: 1rem;
+    font-weight: 200;
+}
+
+.row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.justify-content-center {
+    -webkit-box-pack: center!important;
+    -ms-flex-pack: center!important;
+    justify-content: center!important;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 8%), 0 3px 3px 0 rgb(0 0 0 / 5%);
+    
+}
+.login-wrap {
+    position: relative;
+    background: #fff;
+    border-radius: 10px;
+    -webkit-box-shadow: 0 10px 34px -15px rgb(0 0 0 / 24%);
+    -moz-box-shadow: 0 10px 34px -15px rgba(0,0,0,.24);
+    box-shadow: 0 10px 34px -15px rgb(0 0 0 / 24%);
+}
+.login-wrap .icon {
+    width: 80px;
+    height: 80px;
+    background: #8d8844;
+    border-radius: 50%;
+    font-size: 30px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+.content-card {
+    background: #fff;
+    border: 1px solid #c9ced2;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 8%), 0 3px 3px 0 rgb(0 0 0 / 5%);
+    position: relative;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-top: 2rem;
+    padding: 1.5rem 1.5rem 3rem;
+}
+.col-md-6 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+form{
+  display:block;
+  margin-top: 0em;
+}
+.form-outline {
+    height: 48px;
+    background: rgba(0,0,0,.05);
+    color: #000;
+    font-size: 16px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: 1px solid transparent;
+    padding-left: 20px;
+    padding-right: 20px;
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+.form-control {
+    height: 48px;
+    background: rgba(0,0,0,.05);
+    color: #000;
+    font-size: 16px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: 1px solid transparent;
+    padding-left: 20px;
+    padding-right: 20px;
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+.form-group{
+margin-bottom: 1rem;
+}
 .imagediv {
   position: absolute;
   text-align: center;
@@ -11,14 +113,20 @@
   justify-content: center;
   z-index: -10;
 }
-
 .image {
   margin-right: 16%;
 }
 
-.button {
-  margin-top: 75%;
+.btn {
+  margin-top: 2rem;
   position: absolute;
+  cursor: pointer;
+  border-radius: 40px;
+  -webkit-box-shadow: none!important;
+  box-shadow: none!important;
+  font-size: 15px;
+  padding:0.3rem 4rem;
+  margin-left: 25%;
 }
 
 .text {
