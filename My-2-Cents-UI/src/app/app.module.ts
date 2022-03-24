@@ -18,7 +18,10 @@ import { CreateProfileComponent } from './create-profile/create-profile.componen
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { JwtInterceptor } from './_interceptors/jwt.interceptor';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faIcons, faPersonMilitaryToPerson, faUser, faUserGroup } from '@fortawesome/free-solid-svg-icons';
 import { InvestingComponent } from './investing/investing.component';
+
 
 @NgModule({
   declarations: [
@@ -39,7 +42,9 @@ import { InvestingComponent } from './investing/investing.component';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FontAwesomeModule
+   
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}
