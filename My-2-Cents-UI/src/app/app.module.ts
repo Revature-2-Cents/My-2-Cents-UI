@@ -20,6 +20,7 @@ import { RegisterComponent } from './register/register.component';
 import { JwtInterceptor } from './_interceptors/jwt.interceptor';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faIcons, faPersonMilitaryToPerson, faUser, faUserGroup } from '@fortawesome/free-solid-svg-icons';
+import { InvestingComponent } from './investing/investing.component';
 
 
 @NgModule({
@@ -34,7 +35,7 @@ import { faIcons, faPersonMilitaryToPerson, faUser, faUserGroup } from '@fortawe
     UserChangeInfoComponent,
     CreateProfileComponent,
     RegisterComponent,
-    
+    InvestingComponent
   ],
   imports: [
     HttpClientModule,

@@ -64,7 +64,7 @@ body.light-mode {
 
 .card {
   border: .15em solid rgb(0, 0, 0);
-  border-radius: 0px;
+  border-radius: 0px !important;
 }
 .dark-mode .card {
   background-color: rgba(0, 0, 0, 0) !important;
@@ -100,4 +100,40 @@ fieldset {
   border-radius: 4px;
   max-width: 90%;
   min-width: 50%;
+}
+
+.dark-mode .card {
+  background-color: rgba(0,0,0,0) !important;
+  color: rgb(200, 200, 200) !important;
+  border-color: rgb(200, 200, 200) !important;
+}
+.dark-mode .table {
+  background-color: rgba(0,0,0,0) !important;
+  color: rgb(200, 200, 200) !important;
+}
+.dark-mode .form-control {
+  background-color: rgba(0,0,0,0) ! important;
+  color: rgb(200, 200, 200) !important;
+}
+
+/* investing page */
+.cryptoSelect:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+.cryptologo {
+  width: 24px;
+  height: 24px;
+}
+.cryptoGreen {
+  color: rgb(0, 152, 0) !important;
+}
+.cryptoRed {
+  color: rgb(182, 0, 0) !important;
+}
+.dark-mode .cryptoGreen {
+  color: rgb(0, 203, 0) !important;
+}
+.dark-mode .cryptoRed {
+  color: rgb(229, 0, 0) !important;
 }

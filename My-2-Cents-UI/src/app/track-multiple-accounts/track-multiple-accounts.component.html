@@ -16,6 +16,9 @@
             <a class="nav-link" (click)="nav('Transfer Money')">Transfer Money</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" (click)="nav('Invest')">Invest</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" (click)="logout()">Log out</a>
           </li>
       </ul>
@@ -52,6 +55,12 @@
     <div *ngIf="NavName=='Transfer Money'">
       <div *ngIf="accountService.currentUser | async as user">
         <app-transfer-money [(account)]=viewAccounts [userId]=User.userId></app-transfer-money>
+      </div>
+    </div>
+
+    <div *ngIf="NavName=='Invest'">
+      <div *ngIf="accountService.currentUser | async as user">
+        <app-investing [User]=User [userId]=User.userId></app-investing>
       </div>
     </div>
   </div>
