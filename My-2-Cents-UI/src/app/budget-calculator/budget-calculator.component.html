@@ -1,31 +1,36 @@
-<head></head>
-
-<body>
-    <form [formGroup]="budgetFormGroup">
-        <div class="mb-3">
-            <label id="label-income" class="form-label">Income</label>
-            <input type="text" [(ngModel)]="userIncome" id="income" class="form-control" formControlName="income">
-        </div>
-        <div class="mb-3">
-            <label id="label-expense" class="form-label">Expenses</label>
-            <input id="expenses" type="text" class="form-control" [(ngModel)]="userExpenses" formControlName="expenses">
-        </div>
-        <div class="mb-3">
-            <label id="label-want" class="form-label">Wants</label>
-            <input id="wants" type="text" class="form-control" [(ngModel)]="userWants" formControlName="wants">
-        </div>
-        <div class="mb-3">
-            <label id="label-save" class="form-label">Savings</label>
-            <input id="savings" type="text" class="form-control" [(ngModel)]="userSavings" formControlName="savings">
-        </div>
-        <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input">
-            <label class="form-check-label">Check me out</label>
-        </div>
-        <button type="submit" class="btn btn-primary" (click)="onClick(budgetFormGroup)">Submit</button>
-    </form>
-
-    <div id="divChart">
-        <canvas id="myChart"></canvas>
+<div class="container-1">
+    <div class="box-1">
+        <img src="https://media.discordapp.net/attachments/937791410889981983/938171320074661888/Logo.png">
+        <h2>Budget Calculator</h2>
     </div>
-</body>
+    <div class="box-2">
+        <form [formGroup]="budgetFormGroup">
+            <div>
+                <label class="form-label">Income</label>
+                <div>
+                    <input type="number" style="height: 1.5rem;" class="form-control" [(ngModel)]="userIncome" formControlName="income">
+                </div>
+            </div>
+            <div>
+                <label id="label" class="form-label">Expenses</label>
+                <div>
+                    <input  type="number" style="height: 1.5rem;" class="form-control" [(ngModel)]="userExpenses" formControlName="expenses">
+                </div>
+            </div>
+            <div style="padding-top: 1rem;">
+                <button type="submit" class="btn btn-primary" (click)="onClick(budgetFormGroup)">SUBMIT</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="container-2">
+    <div class="box-3">
+        <h1>Content 3</h1>
+    </div>
+    <div class="box-4">
+        <h1>Content 4</h1>
+    </div>
+</div>
+
+
