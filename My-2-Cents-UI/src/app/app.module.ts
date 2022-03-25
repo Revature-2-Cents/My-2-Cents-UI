@@ -21,6 +21,7 @@ import { JwtInterceptor } from './_interceptors/jwt.interceptor';
 import { BudgetCalculatorComponent } from './budget-calculator/budget-calculator.component';
 import { BudgetChartComponent } from './budget-chart/budget-chart.component';
 import { NgChartsModule } from 'ng2-charts';
+import { BudgetInfoComponent } from './budget-info/budget-info.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { NgChartsModule } from 'ng2-charts';
     CreateProfileComponent,
     RegisterComponent,
     BudgetCalculatorComponent,
-    BudgetChartComponent
+    BudgetChartComponent,
+    BudgetInfoComponent
   ],
   imports: [
     HttpClientModule,
