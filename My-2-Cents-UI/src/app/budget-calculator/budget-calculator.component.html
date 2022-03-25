@@ -14,7 +14,7 @@
             <div>
                 <label id="label" class="form-label" style="font-size: 150%;">Expenses</label>
                 <div>
-                    <input  type="number" class="form-control" [(ngModel)]="userExpenses" formControlName="expenses">
+                    <input type="number" class="form-control" [(ngModel)]="userExpenses" formControlName="expenses">
                 </div>
             </div>
             <div style="padding-top: 1rem;">
@@ -25,14 +25,14 @@
 </div>
 
 <div class="container-2">
-    <div class="box-3">
+    <div class="chart">
         <app-budget-chart [userIncome] = "userIncome" [userExpenses] = "userExpenses" *ngIf="useChart" ></app-budget-chart>
-        <h1>Content 3</h1>
+        <h1>Budget Chart</h1>
     </div>
     <div class="box-4">
-        <h1>Content 4</h1>
+        <div class="textbox">
+            <app-budget-info></app-budget-info>
+            <h1>Budget Advice</h1>
+        </div>
     </div>
 </div>
-
-
-
