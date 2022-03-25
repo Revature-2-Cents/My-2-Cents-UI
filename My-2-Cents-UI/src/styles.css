@@ -67,9 +67,11 @@ body.light-mode {
   border-radius: 0px;
 }
 .dark-mode .card {
-  background-color: rgba(0, 0, 0, 0) !important;
+  background-color: rgba(243, 239, 239, 0) !important;
   border: .15em solid rgb(255, 255, 255);
+  color:#fff;
 }
+
 
 .component {
   border: .15em solid rgb(0, 0, 0);
