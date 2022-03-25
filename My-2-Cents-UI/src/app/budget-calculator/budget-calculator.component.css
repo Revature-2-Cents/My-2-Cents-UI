@@ -1,13 +1,20 @@
 *, *:before, *:after {
     box-sizing: border-box;
+    font-size: .7rem;
   }
 
+  body {  
+    width:100vw;
+    height:100vh;
+    margin: 0px;
+  }
 
 .container-1{
     border: 0.25rem solid rgb(253, 181, 21);
     display: flex;
     background: radial-gradient(#e9f1f7, #c2c3d3, #9a9aa8);
     border-radius: 1rem;
+    justify-content: center;
 }
 
 .container-1 div{
@@ -23,6 +30,10 @@
     padding-top: 1rem;
     text-align: center;
     flex-shrink: 1;
+    min-height: 0;
+    min-width: 0;
+    overflow:hidden; 
+
 }
 
 .box-2{
@@ -30,6 +41,9 @@
     flex: 1;
     padding-top: 5rem;
     flex-shrink: 1;
+    min-height: 0;
+    min-width: 0;
+    overflow:hidden; 
 }
 
 
@@ -43,16 +57,18 @@
     width: 11.5rem;
     height: 2.75rem; 
     font-size: 150%; 
-    min-width: 0;
+    
 }
 
 .container-2{
     border: 0.25rem solid rgb(253, 181, 21);
     display: flex;
     background: radial-gradient(#e9f1f7, #c2c3d3, #9a9aa8);
-    align-items: flex-start;
+    align-items: center;
     flex-direction: row;
     border-radius: 1rem;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .container-2 div{
@@ -68,10 +84,47 @@
     font-weight: 900;
     font-size: 18px;
     text-align: center;
-    flex-shrink: 1; 
+    flex-shrink: 1;
+    min-height: 0;
+    min-width: 0; 
 }
 
 .box-4{
     flex: 1;
     flex-shrink: 1;
+    min-height: 0;
+    min-width: 0;
+    flex-wrap: wrap;
+    font-size: 5vw;
+    text-align: center;
+    max-width: 75%;
 }
+
+.chart{
+    width: 35vw;
+    height: 35vw;
+    justify-content: center;
+}
+
+.textbox {
+    display: inline-flex;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    display: block;
+    font-size: 1rem;
+    padding: 2rem;
+
+}
+
+@media screen and (min-width: 600px) {
+    .container-2{
+      flex-direction: row;
+    }  
+    
+  
+    * {
+        font-size: 1rem;
+      }
+    }
+  
