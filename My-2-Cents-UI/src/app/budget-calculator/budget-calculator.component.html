@@ -25,10 +25,8 @@
 </div>
 
 <div class="container-2">
-    <div class="box-3">
-        <div class="chart">
-            <app-budget-chart></app-budget-chart>
-        </div>
+    <div class="chart">
+        <app-budget-chart [userIncome] = "userIncome" [userExpenses] = "userExpenses" *ngIf="useChart" ></app-budget-chart>
         <h1>Budget Chart</h1>
     </div>
     <div class="box-4">
