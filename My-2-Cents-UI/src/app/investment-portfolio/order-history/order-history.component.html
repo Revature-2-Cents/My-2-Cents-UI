@@ -14,33 +14,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Bitcoin</td>
-                        <td>$10000.00</td>
-                        <td>December.19.2021</td>
-                        <td>60</td>
-                        <td>Buy</td>
-                    </tr>
-                    <tr>
-                        <td>Ethereum</td>
-                        <td>$6000.00</td>
-                        <td>November.19.2021</td>
-                        <td>60</td>
-                        <td>Buy</td>
-                    </tr>
-                    <tr>
-                        <td>Dogecoin</td>
-                        <td>$3420.00</td>
-                        <td>October.19.2021</td>
-                        <td>1670</td>
-                        <td>Sell</td>
-                    </tr>
-                    <tr>
-                        <td>Shiba Inu</td>
-                        <td>$4500.00</td>
-                        <td>May.19.2021</td>
-                        <td>330,000,000.00</td>
-                        <td>Buy</td>
+                    <tr *ngFor="let order of listOfCryptoOrders">
+                        <td>{{order.crypto}}</td>
+                        <td>{{order.orderPrice}}</td>
+                        <td>{{order.orderTime}}</td>
+                        <td>{{order.quantity}}</td>
+                        <td>{{order.orderType}}</td>
                     </tr>
                 </tbody>
             </table>
