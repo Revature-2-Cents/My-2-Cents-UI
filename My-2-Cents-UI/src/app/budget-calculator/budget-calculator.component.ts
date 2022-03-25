@@ -7,8 +7,7 @@ import { FormControl, FormGroup, Validators, ReactiveFormsModule, FormsModule } 
   styleUrls: ['./budget-calculator.component.css']
 })
 export class BudgetCalculatorComponent implements OnInit {
-  income: number = 1200;
-  expenses: number[] = [300, 320, 150];
+  
 
 
   budgetFormGroup = new FormGroup({
@@ -23,6 +22,7 @@ export class BudgetCalculatorComponent implements OnInit {
   userExpenses: number = 0;
   userWants: number = 0;
   userSavings: number = 0;
+  useChart: boolean = false;
 
 
   constructor() {
@@ -38,7 +38,7 @@ export class BudgetCalculatorComponent implements OnInit {
 
 
   calculate() {
-    let totalRemaining: number = this.income;
+    let totalRemaining: number = this.userIncome;
     totalRemaining -= this.userExpenses;
     console.log(totalRemaining);
     return totalRemaining;
@@ -54,7 +54,7 @@ export class BudgetCalculatorComponent implements OnInit {
       if (this.calculate() + wantPercent > needPercent) {
         alert("Reccomend lessening  wants.")
       }
-      else if (this.calculate() + needPercent + wantPercent + savePercent > this.income) {
+      else if (this.calculate() + needPercent + wantPercent + savePercent > this.userIncome) {
         alert("reccomend lessening wants and savings until expenses are lessened");
       }
 
@@ -67,14 +67,14 @@ export class BudgetCalculatorComponent implements OnInit {
   }
 
   displaysave() {
-    return this.income * 0.2;
+    return this.userIncome * 0.2;
   }
 
   displayneeds() {
-    return this.income * 0.5;
+    return this.userIncome * 0.5;
   }
   displaywant() {
-    return this.income * 0.3;
+    return this.userIncome * 0.3;
   }
 
 
@@ -88,12 +88,13 @@ export class BudgetCalculatorComponent implements OnInit {
     this.userWants = budgetFormGroup.get("wants").value;
     console.log(this.userWants);
 
-    this.income = this.userIncome;
-    console.log(this.income);
-    this.expenses = [this.userExpenses, this.userSavings, this.userWants];
-    console.log(this.expenses);
+    // this.income = this.userIncome;
+    // console.log(this.income);
+    // this.expenses = [this.userExpenses, this.userSavings, this.userWants];
+    // console.log(this.expenses);
 
     this.percentCheck();
+    this.useChart = !this.useChart;
   }
 
 

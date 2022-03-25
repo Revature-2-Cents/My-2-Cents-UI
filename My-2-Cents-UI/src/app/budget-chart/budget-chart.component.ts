@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Chart, ChartType } from 'chart.js';
 
 @Component({
@@ -8,24 +8,73 @@ import { Chart, ChartType } from 'chart.js';
 })
 export class BudgetChartComponent implements OnInit {
 
-  income: number = 5000;
-  expenses: number = 2500;
+  want: number;
+  save: number;
+
+  @Input()
+  userIncome: number;
+  @Input()
+  userExpenses: number;
+  // @Input()
+  // useChart: boolean;
+
+  
+
   constructor() { }
 
+  
+
   ngOnInit(): void {
+    this.calculate();
+    this.createChart();
+  }
+
+
+  update()
+  {
+    
+  }
+
+  calculate()
+  {
+    if (this.userExpenses <= this.userIncome * 0.5)
+    {
+      this.want = this.userIncome * 0.3;
+      this.save = this.userIncome * 0.2;
+    }
+    else if (this.userExpenses <= this.userIncome * 0.8) 
+    {
+      this.want = this.userIncome * (0.8 - (this.userExpenses / this.userIncome));
+      this.save = this.userIncome * 0.2;  
+    }
+    else if (this.userExpenses <= this.userIncome * 0.99)
+    {
+      this.want = 0;
+      this.save = this.userIncome * (1 - (this.userExpenses / this.userIncome));
+    }
+    else
+    {
+      this.want = 0;
+      this.save = 0;
+    }
+  }
+
+  createChart()
+  {
     const ctx = document.getElementById('myChart');
     const myChart = new Chart("myChart", {
       type: 'doughnut',
       data: {
         // labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        labels: ['income', 'expenses'],
+        labels: ['Expenses', 'Wants', 'Save'],
         datasets: [{
           label: '# of Votes',
-          data: [this.income, this.expenses],
+          // data: [this.income, this.expenses],
+          data: [this.userExpenses, this.want, this.save],
           backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
             'rgba(54, 162, 235, 0.2)',
-            // 'rgba(255, 206, 86, 0.2)',
+            'rgba(255, 206, 86, 0.2)'
             // 'rgba(75, 192, 192, 0.2)',
             // 'rgba(153, 102, 255, 0.2)',
             // 'rgba(255, 159, 64, 0.2)'
