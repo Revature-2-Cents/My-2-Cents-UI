@@ -39,13 +39,13 @@ export class BudgetChartComponent implements OnInit {
   {
     if (this.userExpenses <= this.userIncome * 0.5)
     {
-      this.want = this.userIncome * 0.3;
+      this.want = this.userIncome * (0.3 + (0.5 - (this.userExpenses / this.userIncome)));
       this.save = this.userIncome * 0.2;
     }
     else if (this.userExpenses <= this.userIncome * 0.8) 
     {
       this.want = this.userIncome * (0.8 - (this.userExpenses / this.userIncome));
-      this.save = this.userIncome * 0.2;  
+      this.save = this.userIncome * 0.2;
     }
     else if (this.userExpenses <= this.userIncome * 0.99)
     {
