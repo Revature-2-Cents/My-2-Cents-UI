@@ -21,6 +21,11 @@ export class BudgetInfoComponent implements OnInit {
 
   savings: number = (this.userIncome - this.userExpenses) * 0.4;
 
+  //change these to be percentages of Income
+  expensesPercentage: number = 0;
+  wantsPercentage: number = 0;
+  savingsPercentage: number = 0;
+
 
   constructor() { }
 
