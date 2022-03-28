@@ -9,35 +9,17 @@
     <p>Finally, Savings is equal to 20 percent so your 401K, mutual funds, index funds</p>
     <p>or however you chose to save your money</p>
 </div>
-<div *ngIf="displayBudgetInfo; then thenBlock; else elseBlock; else elseBlockTwo"></div>
 
-<ng-template #thenBlock>
-    <div style="border: 0.1rem solid black">
-        <h4>Your Budget Break Down</h4><br>
-        <p>Your Income {{income}}</p>
-        <p>Your Expenses {{expenses}}</p>
-        <P>Your Wants {{wants}}</P>
-        <p>Your Savings {{savings}}</p>
-        <p>Your Needs are at 50 percent so your looking good there.</p>
-        <p>Your Wants are at 30 percent so your budget is in tune</p>
-        <p>Your Savings is at 20 percent so your budget is perfectly inline with the 50 - 30 - 20 Rule</p>
-    </div>
-</ng-template>
 
-<ng-template #elseBlock>
-    <div style="border: 0.1rem solid black">
-        <h4>Your Budget Break Down</h4>
-        <p>Your Needs are exceding 50 percent. You may want to consider lowering your Needs</p>
-        <p>Your Wants are exceding 30 percent</p>
-        <p>Your Savings are execeding 20 percent</p>
-    </div>
-</ng-template>
 
-<ng-template #elseBlockTwo>
-    <div style="border: 0.1rem solid black">
-        <h4>Your Budget Break Down</h4>
-        <p>Your Needs are below 50 percent</p>
-        <p>Your Wants are below 30 percent</p>
-        <p>Your Savings are below 20 percent</p>
-    </div>
-</ng-template>
+<div style="border: 0.1rem solid black">
+    <h4>Your Budget Break Down</h4><br>
+    <p>Your Income {{income}}</p>
+    <p>Your Expenses {{expenses}}</p>
+    <P>Your Wants {{wants}}</P>
+    <p>Your Savings {{savings}}</p>
+    <p>Your Needs are at {{expensesPercentage}} percent so your looking good there.</p>
+    <p>Your Wants are at {{wantsPercentage}} percent so your budget is in tune</p>
+    <p>Your Savings is at {{savingsPercentage}} percent so your budget is perfectly inline with the 50 - 30 - 20 Rule
+    </p>
+</div>
