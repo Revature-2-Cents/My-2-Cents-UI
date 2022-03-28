@@ -21,18 +21,21 @@
                 <button type="submit" class="btn btn-primary" (click)="onClick(budgetFormGroup)">SUBMIT</button>
             </div>
         </form>
+        <div style="margin-top: 3rem;">
+        <p>Please enter your Monthly Income and Expenses.</p>
+        <p>After that, we will do the rest.</p>
+        <p>It's that simple.</p>
+        </div>
     </div>
 </div>
 
 <div class="container-2">
     <div class="chart">
-        <app-budget-chart [userIncome]="userIncome" [userExpenses]="userExpenses" *ngIf="useChart"></app-budget-chart>
-        <h1>Budget Chart</h1>
+        <app-budget-chart [userIncome]="userIncome" [userExpenses]="userExpenses" *ngIf="useChart"></app-budget-chart>      
     </div>
     <div class="box-4">
         <div class="textbox">
             <app-budget-info [userIncome]="userIncome" [userExpenses]="userExpenses" *ngIf="useChart"></app-budget-info>
-            <h1>Budget Advice</h1>
         </div>
     </div>
 </div>
