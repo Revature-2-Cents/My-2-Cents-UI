@@ -1,18 +1,16 @@
-export interface CrytoOrder
-{
-    cryptoOrderId: number;
-    userId: number;
-    cryptoId: number;
-    orderPrice: number;
-    quantity: number;
-    orderType: string;
-    orderTime: Date;
-    crypto: string;
-    user: string;
+export interface CrytoOrder {
+  cryptoOrderId: number;
+  userId: number;
+  cryptoId: number;
+  orderPrice: number;
+  quantity: number;
+  orderType: string;
+  orderTime: Date;
+  crypto: string;
+  user: string;
 }
 
-export interface StockOrder
-{
+export interface StockOrder {
   // stockOrderId : number;
   // userId: number;
   // stockId: number;
@@ -30,14 +28,13 @@ export interface StockOrder
 }
 
 
-export interface StockAsset
-{
-  name:string;
-  initialInvestmentDate: Date;
+export interface StockAsset {
+  name: string;
+  initialInvestmentDate: string;
   currentInvestment: number;
   ownedShares: number;
   sharePrice: number;
   returns: number;
-  stockPrice: number;     
-  
+  stockPrice: number;
+
 }
