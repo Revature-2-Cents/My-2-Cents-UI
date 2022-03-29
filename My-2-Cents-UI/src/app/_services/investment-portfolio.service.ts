@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { CrytoOrder } from '../_models/investmentPortfolio';
+import { CrytoOrder, StockOrder } from '../_models/investmentPortfolio';
 import { User } from '../_models/User';
 
 @Injectable({
@@ -11,12 +11,21 @@ import { User } from '../_models/User';
 export class InvestmentPortfolioService {
   ApiURL = environment.apiUrl;
   crytoOrders: CrytoOrder[] = [];
+  stockOrders: StockOrder[] = [];
   user: User;
 
   constructor(private http: HttpClient) { }
 
-  getAllCryptoOrderHistoryByUser(userID: number): Observable<any> {
-    return this.http.get<any>(this.ApiURL + `CryptoPortfolio/GetCryptoOrderhistorybyUser/${userID}`);
+  getAllCryptoOrderHistoryByUser(userId: string | number | any): Observable<any> {
+    return this.http.get<any>(this.ApiURL + `CryptoPortfolio/GetCryptoOrderhistorybyUser?_userID=${userId}`);
   }
-  
+
+  getAllStockOrderHistoryByUser(userId: string | number | any): Observable<any> {
+    return this.http.get<any>(this.ApiURL + `StockPortfolio/StockOrders/OrderPortfolio/${userId}`);  
+  }
+
+  getAllStockAssetByUser(userId: string | number | any): Observable<any> {
+    return this.http.get<any>(this.ApiURL + `StockPortfolio/StockOrders/AssetsPortfolio/${userId}`);  
+  }
+
 }

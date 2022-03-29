@@ -37,33 +37,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Google</td>
-                        <td>$1000.00</td>
-                        <td>December.19.2021</td>
-                        <td>50</td>
-                        <td>Buy</td>
-                    </tr>
-                    <tr>
-                        <td>Apple</td>
-                        <td>$1200.00</td>
-                        <td>November.19.2021</td>
-                        <td>31</td>
-                        <td>Buy</td>
-                    </tr>
-                    <tr>
-                        <td>Meta</td>
-                        <td>$3000.00</td>
-                        <td>October.19.2021</td>
-                        <td>11</td>
-                        <td>Sell</td>
-                    </tr>
-                    <tr>
-                        <td>Amazon</td>
-                        <td>$4500.00</td>
-                        <td>May.19.2021</td>
-                        <td>5</td>
-                        <td>Buy</td>
+                    <tr *ngFor="let order of listOfStockOrders">
+                        <td>{{order.name}}</td>
+                        <td>${{order.currentInvestment}}</td>
+                        <td>{{order.initialInvestmentDate}}</td>
+                        <td>{{order.ownedShares}}</td>
+                        <td>{{order.transactionType}}</td>
                     </tr>
                 </tbody>
             </table>
