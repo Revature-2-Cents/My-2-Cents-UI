@@ -1,4 +1,4 @@
-export interface CrytoOrder {
+export interface CryptoOrder {
   cryptoOrderId: number;
   userId: number;
   cryptoId: number;

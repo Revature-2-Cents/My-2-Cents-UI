@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { take } from 'rxjs/operators';
-import { CrytoOrder, StockOrder } from 'src/app/_models/investmentPortfolio';
+import { CryptoOrder, StockOrder } from 'src/app/_models/investmentPortfolio';
 import { User } from 'src/app/_models/User';
 import { AccountService } from 'src/app/_services/account.service';
 import { InvestmentPortfolioService } from 'src/app/_services/investment-portfolio.service';
@@ -14,36 +14,36 @@ import { InvestmentPortfolioService } from 'src/app/_services/investment-portfol
 })
 export class OrderHistoryComponent implements OnInit {
   user: User;
-  listOfCryptoOrders: CrytoOrder[];
+  listOfCryptoOrders: CryptoOrder[];
   listOfStockOrders: StockOrder[];
   userId: number;
 
   constructor(private route: ActivatedRoute,
-              private accountService: AccountService,
-              private investmentPortfolioServce: InvestmentPortfolioService, 
-              private http: HttpClient, 
-              private router: Router) {
-                this.accountService.currentUser.pipe(take(1)).subscribe(user => this.user = user)
-               }
+    private accountService: AccountService,
+    private investmentPortfolioServce: InvestmentPortfolioService,
+    private http: HttpClient,
+    private router: Router) {
+    this.accountService.currentUser.pipe(take(1)).subscribe(user => this.user = user)
+  }
 
   ngOnInit(): void {
     this.getAllCryptoOrderHistoryByUser(this.user.userId);
     this.getAllStockOrderHistoryByUser(this.user.userId);
-    
+
   }
-  
-  getAllCryptoOrderHistoryByUser(userId){
+
+  getAllCryptoOrderHistoryByUser(userId) {
     this.investmentPortfolioServce.getAllCryptoOrderHistoryByUser(userId).subscribe(result => {
       this.listOfCryptoOrders = result;
       console.log(result);
     });
-    
+
   }
-  getAllStockOrderHistoryByUser(userId){
+  getAllStockOrderHistoryByUser(userId) {
     this.investmentPortfolioServce.getAllStockOrderHistoryByUser(userId).subscribe(result => {
       this.listOfStockOrders = result;
       console.log(result);
     });
-    
+
   }
 }
