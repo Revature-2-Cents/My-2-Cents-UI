@@ -29,13 +29,13 @@
     </div>
 </div>
 
-<div class="container-2">
+<div class="container-2" *ngIf="useChart">
     <div class="chart">
-        <app-budget-chart [userIncome]="userIncome" [userExpenses]="userExpenses" *ngIf="useChart"></app-budget-chart>      
+        <app-budget-chart [userIncome]="userIncome" [userExpenses]="userExpenses"></app-budget-chart>      
     </div>
     <div class="box-4">
         <div class="textbox">
-            <app-budget-info [userIncome]="userIncome" [userExpenses]="userExpenses" *ngIf="useChart"></app-budget-info>
+            <app-budget-info [userIncome]="userIncome" [userExpenses]="userExpenses"></app-budget-info>
         </div>
     </div>
 </div>
