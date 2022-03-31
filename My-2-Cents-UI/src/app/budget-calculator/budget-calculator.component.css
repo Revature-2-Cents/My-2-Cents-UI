@@ -10,7 +10,7 @@
   }
 
 .container-1{
-    border: 0.25rem solid rgb(253, 181, 21);
+    border: 0.25rem solid rgb(223, 178, 38);
     display: flex;
     background: radial-gradient(#e9f1f7, #c2c3d3, #9a9aa8);
     border-radius: 1rem;
@@ -26,7 +26,7 @@
 
 .box-1{
     flex: 1;
-    border: 0.25rem solid rgb(253, 181, 21);
+    border: 0.25rem solid rgb(223, 178, 38);
     padding-top: 1rem;
     text-align: center;
     flex-shrink: 1;
@@ -37,7 +37,7 @@
 }
 
 .box-2{
-    border: 0.25rem solid rgb(253, 181, 21);
+    border: 0.25rem solid rgb(223, 178, 38);
     flex: 1;
     padding-top: 5rem;
     flex-shrink: 1;
@@ -57,11 +57,12 @@
     width: 11.5rem;
     height: 2.75rem; 
     font-size: 150%; 
-    
+    min-width: auto;
+    min-height: auto;
 }
 
 .container-2{
-    border: 0.25rem solid rgb(253, 181, 21);
+    border: 0.25rem solid rgb(223, 178, 38);
     display: flex;
     background: radial-gradient(#e9f1f7, #c2c3d3, #9a9aa8);
     align-items: center;
@@ -97,12 +98,12 @@
     flex-wrap: wrap;
     font-size: 5vw;
     text-align: center;
-    max-width: 75%;
+    /* max-width: 75%; */
 }
 
 .chart{
-    width: 35vw;
-    height: 35vw;
+    width: 40vw;
+    height: 40vw;
     justify-content: center;
 }
 
@@ -113,8 +114,17 @@
     word-wrap: break-word;
     display: block;
     font-size: 1rem;
-    padding: 1rem;
+    padding: .75rem;
 
+}
+
+.shadowbox{
+    box-shadow: 10px 10px 10px;
+    width:25vw; 
+    border: 0.25rem solid rgb(253, 181, 21);
+    text-align: center; 
+    border-radius: 25px;flex-shrink: 1;
+    font-size: 5;
 }
 
 @media screen and (min-width: 600px) {
