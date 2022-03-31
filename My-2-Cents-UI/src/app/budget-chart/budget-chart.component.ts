@@ -108,12 +108,7 @@ export class BudgetChartComponent implements OnInit {
           borderWidth: 2
         }]
       },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: false
-          }
-        }
+      options: { 
       }
     });
   }

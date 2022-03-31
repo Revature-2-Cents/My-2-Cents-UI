@@ -1,7 +1,9 @@
 <div class="container-1">
     <div class="box-1">
         <img src="https://media.discordapp.net/attachments/937791410889981983/938171320074661888/Logo.png">
-        <h2 style="font-weight: 900; font-size: 3vw;">Budget Calculator</h2>
+        <div>
+            <h2 style="font-weight: 900; font-size: 3vw;">Budget Calculator</h2>
+        </div>
     </div>
     <div class="box-2">
         <form [formGroup]="budgetFormGroup">
@@ -21,10 +23,13 @@
                 <button type="submit" class="btn btn-primary" (click)="onClick(budgetFormGroup)">SUBMIT</button>
             </div>
         </form>
-        <div style="margin-top: 3rem;">
-        <p>Please enter your Monthly Income and Expenses.</p>
-        <p>After that, we will do the rest.</p>
-        <p>It's that simple.</p>
+        <div style="margin-top: 2rem; margin-bottom: 2rem; display: inline-flex;">
+            <div class="shadowbox">
+                <!-- <p>Please enter your Monthly Expenses.<br>
+                After that, we do the rest.<br>
+                It's that simple.</p> -->
+                <p>Enter your monthly income and expenses.<br> Let us do all the rest.<br> It's that simple.</p>
+            </div>
         </div>
     </div>
 </div>
