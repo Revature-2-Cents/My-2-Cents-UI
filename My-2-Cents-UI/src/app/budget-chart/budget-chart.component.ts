@@ -123,7 +123,11 @@ export class BudgetChartComponent implements OnInit, DoCheck {
           ],
           borderWidth: 2
         }]
-      }
+      },
+      options: { 
+        responsive:true,
+        maintainAspectRatio: true,
+        },
     });
   }
 
