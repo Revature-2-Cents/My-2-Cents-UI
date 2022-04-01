@@ -1,11 +1,16 @@
+<div>
+    <h2>
+        Total Investment:
+    </h2>
 <h1 id="heading">Assets</h1>
 
+</div>
 <div class="tableContainer">
 
     <div class="stockTable">
-            <h1>
+            <h2>
                 Stocks
-            </h1>
+            </h2>
             <table class="child">
                 <thead>
                     <tr>
@@ -26,16 +31,16 @@
                             {{stockData.initialInvestmentDate}}
                         </td>
                         <td>
-                            {{stockData.currentInvestment}}
+                            ${{stockData.currentInvestment}}
                         </td>
                         <td>
                             {{stockData.ownedShares}}
                         </td>
                         <td>
-                            {{stockData.sharePrice}}
+                            ${{stockData.sharePrice}}
                         </td>
                         <td>
-                           
+                           {{stockData.returns}}%
                         </td>
                         <td>
                             {{stockData.stockPrice}}
@@ -60,26 +65,26 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td></td>
-                        <td>
-                            
-                        </td>
-                        <td>
-                           
-                        </td>
-                        <td>
-                           
-                        </td>
-                        <td>
-                            
-                        </td>
-                        <td>
-                            
-                        </td>
-                        <td>
-                           
-                        </td>
+                    <tr *ngFor="let cryptoData of listOfCryptoAssets">
+                    <td>{{cryptoData.name}}</td>
+                    <td>
+                        {{cryptoData.initialInvestmentDate}}
+                    </td>
+                    <td>
+                        ${{cryptoData.currentInvestment}}
+                    </td>
+                    <td>
+                        {{cryptoData.ownedShares}}
+                    </td>
+                    <td>
+                        ${{cryptoData.sharePrice}}
+                    </td>
+                    <td>
+                        {{cryptoData.returns}}%
+                    </td>
+                    <td>
+                        ${{cryptoData.cryptoPrice}}
+                    </td>
                 </tbody>
             </table>
 

@@ -15,11 +15,11 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let order of listOfCryptoOrders">
-                        <td>{{order.crypto}}</td>
-                        <td>{{order.orderPrice}}</td>
-                        <td>{{order.orderTime}}</td>
-                        <td>{{order.quantity}}</td>
-                        <td>{{order.orderType}}</td>
+                        <td>{{order.name}}</td>
+                        <td>${{order.currentInvestment}}</td>
+                        <td>{{order.initialInvestmentDate}}</td>
+                        <td>{{order.ownedShares}}</td>
+                        <td>{{order.transactionType}}</td>
                     </tr>
                 </tbody>
             </table>
