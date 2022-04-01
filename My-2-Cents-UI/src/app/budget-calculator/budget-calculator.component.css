@@ -40,8 +40,6 @@
     flex: 1;
     padding-top: 5rem;
     flex-shrink: 1;
-    min-height: 0;
-    min-width: 0;
     overflow:hidden; 
 }
 
@@ -52,7 +50,6 @@
 }
 
 .box-2 input{
-
     width: 11.5rem;
     height: 2.75rem; 
     font-size: 150%; 
@@ -64,7 +61,7 @@
     border: 0.25rem solid rgb(223, 178, 38);
     display: flex;
     background: radial-gradient(#e9f1f7, #c2c3d3, #9a9aa8);
-    align-items: flex-start;
+    align-items: center;
     flex-direction: row;
     border-radius: 1rem;
     justify-content: center;
@@ -80,14 +77,6 @@
 
 .box-3{
     flex: 1;
-    color: rgb(0, 0, 0);
-    font-weight: 900;
-    font-size: 18px;
-    text-align: center;
-    flex-shrink: 1;
-    min-height: 0;
-    min-width: 0;
-    margin-top: 2rem; 
 }
 
 .box-4{
@@ -106,7 +95,7 @@
     justify-content: center;
 }
 
-.textbox {
+.budgetinfo {
     display: inline-flex;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -122,8 +111,14 @@
     width:25vw; 
     border: 0.25rem solid rgb(253, 181, 21);
     text-align: center; 
-    border-radius: 25px;flex-shrink: 1;
+    border-radius: 25px;
+    flex-shrink: 1;
     font-size: 5;
+}
+
+.title{
+    font-weight: 900; 
+    font-size: 3vw;
 }
 
 @media screen and (min-width: 600px) {
@@ -136,4 +131,32 @@
         font-size: 1rem;
       }
     }
-  
+
+
+@media screen and (max-width: 450px) {
+    .container-1{
+        flex-direction: column;
+    }
+
+    .container-2{
+        justify-content: center;
+        align-items: center;
+    }
+
+    .chart{
+        width: 80vw;
+        height: 80vw;
+    }
+    
+    .shadowbox{
+        width: 80vw;
+    }
+    .title{
+        font-size: 1.25rem;
+    }
+    
+    
+    * {
+        font-size: 1rem;
+        }
+    }
