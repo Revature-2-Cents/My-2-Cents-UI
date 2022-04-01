@@ -21,6 +21,10 @@ import { JwtInterceptor } from './_interceptors/jwt.interceptor';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faIcons, faPersonMilitaryToPerson, faUser, faUserGroup } from '@fortawesome/free-solid-svg-icons';
 import { InvestingComponent } from './investing/investing.component';
+import { CryptoComponent } from './crypto/crypto.component';
+import { StockComponent } from './stock/stock.component';
+import { RouterModule } from '@angular/router';
+import { NgChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -35,7 +39,9 @@ import { InvestingComponent } from './investing/investing.component';
     UserChangeInfoComponent,
     CreateProfileComponent,
     RegisterComponent,
-    InvestingComponent
+    InvestingComponent,
+    CryptoComponent,
+    StockComponent
   ],
   imports: [
     HttpClientModule,
@@ -43,8 +49,12 @@ import { InvestingComponent } from './investing/investing.component';
     FormsModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FontAwesomeModule
-   
+    FontAwesomeModule,
+    NgChartsModule,
+    RouterModule.forRoot([
+      {path: "crypto/:cryptoname", component: CryptoComponent},
+      {path: "stock/:stockname", component: StockComponent}
+    ])
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}

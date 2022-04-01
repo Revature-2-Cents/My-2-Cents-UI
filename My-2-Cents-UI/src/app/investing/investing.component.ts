@@ -1,37 +1,10 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { Subscription, switchMap, timer } from 'rxjs';
+import { MarketCoin } from '../_models/marketcoin.model';
+import { Stock } from '../_models/stock.model';
 import { User } from '../_models/User';
-
-interface Coin {
-  id: string;
-  image: string;
-  name: string;
-  symbol: string;
-  current_price: number;
-  price_change_24h: number;
-  price_change_percentage_24h: number;
-}
-
-interface Stock {
-  symbol: string;
-  marketCap: number;
-  longName: string;
-  name: string;
-  regularMarketPrice: number;
-  regularMarketChange: number;
-  regularMarketChangePercent: number;
-  regularMarketDayHigh: number;
-  regularMarketDayLow: number;
-  regularMarketVolume: number;
-  fiftyTwoWeekLowChange: number;
-  fiftyTwoWeekLowChangePercent: number;
-  fiftyTwoWeekRange: number;
-  fiftyTwoWeekHighChange: number;
-  fiftyTwoWeekHighChangePercent: number;
-  fiftyTwoWeekLow: number;
-  fiftyTwoWeekHigh: number;
-}
+import { AssetExchangeService } from '../_services/assetexchange.service';
 
 @Component({
   selector: 'app-investing',
@@ -46,23 +19,18 @@ export class InvestingComponent implements OnInit {
   searchStocks: Stock[] = [];
   filteredStocks: Stock[] = [];
   stocks: Stock[] = [];
-  tradableCoins: Coin[] = [];
-  coins: Coin[] = [];
-  filteredCoins: Coin[] = [];
+  tradableCoins: MarketCoin[] = [];
+  coins: MarketCoin[] = [];
+  filteredCoins: MarketCoin[] = [];
   searchCryptoText = '';
   searchStockText = '';
   tradableSymbols = [];
-  cryptoAPI: string =
-    'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=50&page=1&sparkline=false';
-
-  stockAPI: string =
-    'https://yfapi.net/v6/finance/quote?region=US&lang=en&symbols=DIA%2CSPY%2CQQQ%2CIWM';
 
   @Input() userId: number = -1;
 
   @Input() User = <User>{};
 
-  constructor(private http: HttpClient) {
+  constructor(public service:AssetExchangeService) {
     this.tradableSymbols = ["btc", "eth", "bnb", "xrp", "doge", "shib", "usdt", "usdc", "ada", "ltc", "bch", "xlm", "xmr"];
   }
 
@@ -73,8 +41,13 @@ export class InvestingComponent implements OnInit {
   searchCoin() {
     this.filteredCoins = this.tradableCoins.filter(
       (coin) => coin.name.toLowerCase().includes(this.searchCryptoText.toLowerCase()) ||
-                coin.symbol.toLowerCase().includes(this.searchCryptoText.toLowerCase())
+                coin.shortenedName.toLowerCase().includes(this.searchCryptoText.toLowerCase())
     );
+  }
+
+  NavName: string = 'Dashboard';
+  nav(button: string) {
+    this.NavName = button;
   }
 
   searchStock(): void {
@@ -85,12 +58,9 @@ export class InvestingComponent implements OnInit {
     } else {
       this.isSearching = true;
       this.isDefault = false;
-      let headers = new HttpHeaders();
-      headers = headers.set('x-api-key', 'f1Txvh597x1PlwqtqNYTpuLVwM8CdO57zVZAMjM1');
-      let searchAPI = "https://yfapi.net/v6/finance/autocomplete?region=US&lang=en&query="+ this.searchStockText;
 
-      this.http
-        .get<Stock[]>(searchAPI, { headers: headers })
+      this.service
+        .loadCrypto()
         .subscribe((res) => {
           this.searchStocks = res["ResultSet"].Result;
           console.log(res["ResultSet"].Result);
@@ -107,13 +77,9 @@ export class InvestingComponent implements OnInit {
   loadDefaultStocks(): void {
     this.isDefault = true;
     this.isSearching = false;
-    let headers = new HttpHeaders();
-    headers = headers.set('x-api-key', 'LQowaJNjfK77RALb1dZpT3OauQfZkaQJ8mnRB7iw');
 
-    this.http
-    .get<Stock[]>(this.stockAPI, {
-      headers: headers
-    })
+    this.service
+    .loadStock()
     .subscribe((res) => {
       this.stocks = res["quoteResponse"].result;
     },
@@ -121,14 +87,13 @@ export class InvestingComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.subscription = timer(0, 10000).pipe(
-      switchMap(() => this.http
-      .get<Coin[]>(this.cryptoAPI))
-    ).subscribe((res) => {
+    this.service
+      .loadCrypto()
+      .subscribe((res) => {
       this.coins = res;
       this.tradableCoins = [];
       for(var coin in this.coins) {
-        if(this.tradableSymbols.find(u=> u == this.coins[coin].symbol)) {
+        if(this.tradableSymbols.find(u=> u == this.coins[coin].shortenedName)) {
           this.tradableCoins.push(this.coins[coin]);
         }
       }

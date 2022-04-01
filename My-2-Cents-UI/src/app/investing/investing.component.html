@@ -22,13 +22,13 @@
                   </tr>
                 </thead>
                 <tbody id="crypto">
-                  <tr *ngFor="let coin of filteredCoins" [routerLink]="['/crypto', coin.id]" class ="cryptoSelect">
-                    <td><img [src]="coin.image" alt="{{ coin.name }}" class="cryptologo"/></td>
+                  <tr *ngFor="let coin of filteredCoins" [routerLink]="['/crypto', coin.name]" class ="cryptoSelect">
+                    <td><img [src]="coin.imageURL" alt="{{ coin.name }}" class="cryptologo"/></td>
                     <td>{{coin.name}}</td>
-                    <td class="text-uppercase">{{coin.symbol}}</td>
-                    <td>{{coin.current_price}}</td>
-                    <td [ngClass]="coin.price_change_percentage_24h > 0 ? 'cryptoGreen' : 'cryptoRed'">{{coin.price_change_24h > 0 ? '+' : ''}}{{coin.price_change_24h.toLocaleString()}}</td>
-                    <td [ngClass]="coin.price_change_percentage_24h > 0 ? 'cryptoGreen' : 'cryptoRed'">{{coin.price_change_percentage_24h > 0 ? '+' : ''}}{{convertDecimal(coin.price_change_percentage_24h)}}%</td>
+                    <td class="text-uppercase">{{coin.shortenedName}}</td>
+                    <td>{{coin.currentPrice}}</td>
+                    <td [ngClass]="coin.priceChangePercentage > 0 ? 'cryptoGreen' : 'cryptoRed'">{{coin.priceChange > 0 ? '+' : ''}}{{coin.priceChange.toLocaleString()}}</td>
+                    <td [ngClass]="coin.priceChangePercentage > 0 ? 'cryptoGreen' : 'cryptoRed'">{{coin.priceChangePercentage > 0 ? '+' : ''}}{{service.convertDecimal(coin.priceChangePercentage)}}%</td>
                   </tr>
                 </tbody>
               </table>
@@ -75,12 +75,12 @@
                   </tr>
                 </thead>
                 <tbody id="crypto">
-                  <tr *ngFor="let stock of stocks" class ="cryptoSelect">
+                  <tr *ngFor="let stock of stocks" [routerLink]="['/stock', stock.symbol]" class ="cryptoSelect">
                     <td>{{stock.longName}}</td>
                     <td class="text-uppercase">{{stock.symbol}}</td>
                     <td>{{stock.regularMarketPrice}}</td>
                     <td [ngClass]="stock.regularMarketChangePercent > 0 ? 'cryptoGreen' : 'cryptoRed'">{{stock.regularMarketChange > 0 ? '+' : ''}}{{stock.regularMarketChangePercent.toLocaleString()}}</td>
-                    <td [ngClass]="stock.regularMarketChangePercent > 0 ? 'cryptoGreen' : 'cryptoRed'">{{stock.regularMarketChangePercent > 0 ? '+' : ''}}{{convertDecimal(stock.regularMarketChangePercent)}}%</td>
+                    <td [ngClass]="stock.regularMarketChangePercent > 0 ? 'cryptoGreen' : 'cryptoRed'">{{stock.regularMarketChangePercent > 0 ? '+' : ''}}{{service.convertDecimal(stock.regularMarketChangePercent)}}%</td>
                   </tr>
                 </tbody>
               </table>

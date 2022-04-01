@@ -1,8 +1,9 @@
 export interface MarketCoin {
-    id: string;
-    image: string;
+    cryptoId: number;
+    imageURL: string;
     name: string;
-    current_price: number;
-    price_change_24h: number;
-    price_change_percentage_24h: number;
+    shortenedName: string;
+    currentPrice: number;
+    priceChange: number;
+    priceChangePercentage: number;
 }
