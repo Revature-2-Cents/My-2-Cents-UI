@@ -9,16 +9,20 @@ import { FormControl, FormGroup, Validators, ReactiveFormsModule, FormsModule } 
 export class BudgetCalculatorComponent implements OnInit {
 
   budgetFormGroup = new FormGroup({
-    income: new FormControl(0),
-    expenses: new FormControl(0),
-    wants: new FormControl(0),
-    savings: new FormControl(0)
+    income: new FormControl([Validators.required]),
+    expenses: new FormControl(),
+    wants: new FormControl(),
+    savings: new FormControl(),
   })
-
-  userIncome: number = 0;
-  userExpenses: number = 0;
-  userWants: number = 0;
-  userSavings: number = 0;
+  
+  get income()
+  {
+    return this.budgetFormGroup.get("income");
+  }
+  userIncome: number ;
+  userExpenses: number ;
+  userWants: number;
+  userSavings: number ;
   useChart: boolean = false;
 
   constructor() {
@@ -30,6 +34,7 @@ export class BudgetCalculatorComponent implements OnInit {
   onClick(budgetFormGroup: FormGroup) {
     this.userIncome = budgetFormGroup.get("income").value;
     console.log(this.userIncome);
+   
     this.userExpenses = budgetFormGroup.get("expenses").value;
     console.log(this.userExpenses);
     this.useChart = !this.useChart;

@@ -10,7 +10,9 @@
             <div>
                 <label class="form-label" style="font-size: 150%;">Income</label>
                 <div>
-                    <input type="number" class="form-control" [(ngModel)]="userIncome" formControlName="income">
+                    <input type="number" class="form-control"  [(ngModel)]="userIncome" formControlName="income">
+                    <span *ngIf="income?.touched && income?.errors?.['required']" style="color:red">Required</span>
+                     <span *ngif="userIncome?.touched && userIncome.errors?.['pattern']" style="color:red">Numbers Only Please</span>
                 </div>
             </div>
             <div>
@@ -19,6 +21,7 @@
                     <input type="number" class="form-control" [(ngModel)]="userExpenses" formControlName="expenses">
                 </div>
             </div>
+            
             <div style="padding-top: 1rem;">
                 <button type="submit" class="btn btn-primary" (click)="onClick(budgetFormGroup)">SUBMIT</button>
             </div>
