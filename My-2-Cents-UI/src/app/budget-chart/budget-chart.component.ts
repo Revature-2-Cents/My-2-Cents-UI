@@ -79,6 +79,16 @@ export class BudgetChartComponent implements OnInit {
             'rgba(25, 4, 255, 0.5)', //#1904ff
             'rgba(4, 255, 25, 0.5)'  //#04ff19
           ],
+          hoverBackgroundColor:[
+            'rgba(65, 50, 230, 1)', //#4132e6
+            'rgba(50, 230, 65, 1)', //#32e641
+            'rgba(230, 65, 50, 1)', //#e64132
+          ],
+          hoverBorderColor:[
+            'rgba(255, 25, 4, 0.5)', //#ff1904
+            'rgba(25, 4, 255, 0.5)', //#1904ff
+            'rgba(4, 255, 25, 0.5)'  //#04ff19
+          ],
           borderColor: [
             'rgba(65, 50, 230, 1)', //#4132e6
             'rgba(50, 230, 65, 1)', //#32e641
