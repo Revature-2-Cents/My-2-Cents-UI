@@ -59,7 +59,8 @@ body.light-mode {
   border-color: black;
 }
 .dark-mode .form-control {
-  border-color: rgb(255, 255, 255);
+  background-color: rgba(0,0,0,0) ! important;
+  color: rgb(200, 200, 200) !important;
 }
 
 .card {
@@ -98,6 +99,30 @@ body.light-mode {
   border-color: rgb(195, 162, 14);
 }
 
+.btn-secondary {
+  letter-spacing: 1px;
+  display: inline-block;
+  border-radius: 50px;
+  transition: 0.5s;
+  margin: 25px 0 0 0;
+  color: #fff;
+  border-color: rgb(126, 104, 6);
+  background: rgb(195, 162, 14);
+  text-decoration: none;
+}
+.btn-secondary:hover {
+  background: rgb(126, 104, 6);
+  border-color: rgb(195, 162, 14);
+}
+.btn-group {
+  align-items: center;
+}
+
+.alert-danger {
+  color: rgb(185, 51, 51) !important;
+  background-color: rgba(0,0,0,0) !important;
+}
+
 fieldset {
   border-radius: 4px;
   max-width: 90%;
@@ -111,10 +136,6 @@ fieldset {
 }
 .dark-mode .table {
   background-color: rgba(0,0,0,0) !important;
-  color: rgb(200, 200, 200) !important;
-}
-.dark-mode .form-control {
-  background-color: rgba(0,0,0,0) ! important;
   color: rgb(200, 200, 200) !important;
 }
 
@@ -138,4 +159,38 @@ fieldset {
 }
 .dark-mode .cryptoRed {
   color: rgb(229, 0, 0) !important;
+}
+
+/* crypto / stock page */
+.sell {
+  background-color: rgb(149, 0, 0) !important;
+  border-color: rgb(149, 0, 0) !important;
+}
+.sell:hover {
+  background-color: rgb(105, 0, 0) !important;
+  border-color: rgb(105, 0, 0) !important;
+}
+.buy {
+  background-color: rgb(0, 142, 95) !important;
+  border-color: rgb(0, 142, 95) !important;
+}
+.buy:hover {
+  background-color: rgb(0, 110, 73) !important;
+  border-color: rgb(0, 110, 73) !important;
+}
+.dark-mode .buy {
+  background-color: rgb(0, 203, 0) !important;
+  border-color: rgb(0, 203, 0) !important;
+}
+.dark-mode .sell {
+  background-color: rgb(229, 0, 0) !important;
+  border-color: rgb(229, 0, 0) !important;
+}
+.dark-mode .buy:hover {
+  background-color: rgb(0, 146, 0) !important;
+  border-color: rgb(0, 146, 0) !important;
+}
+.dark-mode .sell:hover {
+  background-color: rgb(163, 0, 0) !important;
+  border-color: rgb(163, 0, 0) !important;
 }
