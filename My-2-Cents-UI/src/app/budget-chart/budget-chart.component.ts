@@ -119,7 +119,9 @@ export class BudgetChartComponent implements OnInit {
         }]
       },
       options: { 
-      }
+        responsive:true,
+        maintainAspectRatio: true,
+        },
     });
   }
 

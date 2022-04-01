@@ -1,7 +1,8 @@
-<div class="textbox">
+<div class="textbox-1">
     <div class="shadow">
-        <div style="margin-bottom: 1rem; padding: 2rem;">
+        <div style="margin-bottom: 1rem;">
             <h3>The 50 - 30 - 20 Budgeting Rule</h3><br>
+<<<<<<< Updated upstream
             <p>This budget calculator is based on the 50 - 30 - 20 rule of thumb.</p>
             <p>Essentially, this rule breaks down your income into percentages that represent categories.</p>
             <p>Your Needs are equal to 50% percent of your total income.</p>
@@ -10,36 +11,61 @@
                 hobbies, vacation, or shopping.</p>
             <p>Finally, Savings is equal to 20 percent of your income and represents items such as your
                 401K, mutual funds, index funds, or other related holdings.</p>
+=======
+            <div class="explain">
+                <p>This budget calculator is based on the 50 - 30 - 20 rule of thumb.
+                Essentially, this rule breaks down your income into percentages that represent categories.
+                Your Needs are equal to 50% percent of your total income.
+                Needs qualify as things you cannot live without like: groceries, mortgage, insurance.
+                Your Wants are equal to 30 percent of your income and would be eating out,
+                hobbies, vacation, or shopping.
+                Finally, Savings is equal to 20 percent of your income and represents items such as your
+                401K, mutual funds, index funds, or other related holdings.</p>
+            </div>
+>>>>>>> Stashed changes
         </div>
     </div>
 </div>
-<div class="textbox">
+<div class="textbox-2">
     <div class="shadow">
-        <div style="margin-bottom: 1rem; padding: 2rem;">
+        <div style="margin-bottom: 1rem;">
             <div>
                 <h3>Your Personalized Budget Break Down</h3><br>
             </div>
             <div class="budget-table">
                 <table>
                     <tr>
-                        <th>Budget Category</th>
-                        <th>Amount</th>
-                    </tr>
+                        <th>Income</th>
+                        <td style="width: 5rem;">{{userIncome}}</td>
+                    </tr>   
+                </table>   
+            </div>
+            <hr>
+            <div class="budget-table">
+                <table>
                     <tr>
-                        <td>Income</td>
-                        <td style="text-align: right;">${{income}}</td>
+                        <th>Budget Category</th>
+                        <th>Amount Allocated</th>
+                        <th>Percentage of Income</th>
+                        <th>Goal Achieved?</th>
                     </tr>
                     <tr>
                         <td>Expenses</td>
-                        <td style="text-align: right;">${{expenses}}</td>
+                        <td>{{expenses}}</td>
+                        <td>{{expensesPercentage}}</td>
+                        <td>{{expensesGoal}}</td>
                     </tr>
                     <tr>
                         <td>Wants</td>
-                        <td style="text-align: right;">${{wants}}</td>
+                        <td>{{wants}}</td>
+                        <td>{{wantsPercentage}}</td>
+                        <td>{{wantsGoal}}</td>
                     </tr>
                     <tr>
                         <td>Savings</td>
-                        <td style="text-align: right;">${{savings}}</td>
+                        <td style="text-align: right;">{{savings}}</td>
+                        <td>{{savingsPercentage}}</td>
+                        <td>{{savingsGoal}}</td>
                     </tr>
                 </table>
             </div>

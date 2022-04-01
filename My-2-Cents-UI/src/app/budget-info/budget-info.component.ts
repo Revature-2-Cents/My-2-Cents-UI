@@ -21,11 +21,11 @@ export class BudgetInfoComponent implements OnInit {
 
   //change these to be percentages of Income
   expensesPercentage: ConstrainDouble = 0;
-  wantsPercentage: ConstrainDouble = 0;
-  savingsPercentage: ConstrainDouble = 0;
-
-
-
+  wantsPercentage:ConstrainDouble = 0;
+  savingsPercentage:ConstrainDouble = 0;
+  expensesGoal:string = "";
+  wantsGoal:string = "";
+  savingsGoal:string = "";
 
   createPercentage() {
 
@@ -56,14 +56,41 @@ export class BudgetInfoComponent implements OnInit {
     this.savingsPercentage = Math.round(((this.savings / this.income * 100) + Number.EPSILON) * 100) / 100;
 
   }
+  
+  createGoals(){
+    if(this.expensesPercentage <= 50)
+    {
+      this.expensesGoal = "YES";
+    }
+    else
+    {
+      this.expensesGoal = "NO";
+    }
+    if(this.wantsPercentage >= 30)
+    {
+      this.wantsGoal = "YES";
+    }
+    else
+    {
+      this.wantsGoal = "NO";
+    }
+    if(this.savingsPercentage >= 20)
+    {
+      this.savingsGoal = "YES";
+    }
+    else
+    {
+      this.savingsGoal = "NO";
+    }
 
+  }
 
 
   constructor() { }
 
   ngOnInit(): void {
     this.createPercentage();
+    this.createGoals();
   }
-
 
 }
