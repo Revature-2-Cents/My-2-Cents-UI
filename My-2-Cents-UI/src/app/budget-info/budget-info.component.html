@@ -7,9 +7,9 @@
             <p>Your Needs are equal to 50% percent of your total income.</p>
             <p>Needs qualify as things you cannot live without like: groceries, mortgage, insurance.</p>
             <p>Your Wants are equal to 30 percent of your income and would be eating out,
-            hobbies, vacation, or shopping.</p>
-            <p >Finally, Savings is equal to 20 percent of your income and represents items such as your
-            401K, mutual funds, index funds, or other related holdings.</p>
+                hobbies, vacation, or shopping.</p>
+            <p>Finally, Savings is equal to 20 percent of your income and represents items such as your
+                401K, mutual funds, index funds, or other related holdings.</p>
         </div>
     </div>
 </div>
@@ -17,7 +17,7 @@
     <div class="shadow">
         <div style="margin-bottom: 1rem; padding: 2rem;">
             <div>
-            <h3>Your Personalized Budget Break Down</h3><br>
+                <h3>Your Personalized Budget Break Down</h3><br>
             </div>
             <div class="budget-table">
                 <table>
@@ -40,15 +40,38 @@
                     <tr>
                         <td>Savings</td>
                         <td style="text-align: right;">${{savings}}</td>
-                    </tr>     
+                    </tr>
                 </table>
             </div>
-            <div>
+
+            <div *ngIf="expensesPercentage <= 50; else second">
                 <p>Your Needs are at {{expensesPercentage}} percent, so you are looking good there.</p>
                 <p>Your Wants are at {{wantsPercentage}} percent, so your budget is in tune.</p>
-                <p >Your Savings is at {{savingsPercentage}} percent, so your budget is perfectly in-line with the 50 - 30 - 20 Rule.
+                <p>Your Savings is at {{savingsPercentage}} percent, so your budget is perfectly in-line with the 50
+                    -
+                    30 - 20 Rule.
                 </p>
             </div>
+            <ng-template #second>
+                <ng-container *ngIf="expensesPercentage < 80; else third">
+                    <p>Your Needs are currently at {{expensesPercentage}} percent which is above 50 percent of your
+                        Income
+                        so we are
+                        going to suggest moving some money from your wants to compinsate for this difference</p>
+                    <p>This sets your Wants currently at {{wantsPercentage}} percent</p>
+                    <p>We think your savings are important so we left them alone at {{savingsPercentage}} percent</p>
+                </ng-container>
+
+            </ng-template>
+            <ng-template #third>
+                <p>Your Needs are currently at {{expensesPercentage}} percent which is at or above 80 percent of your
+                    Income
+                    so at this point we have taken all of the money from your wants and are going to suggest taking
+                    money from your savings to compinsate for the difference</p>
+                <p>This sets your Wants currently at {{wantsPercentage}} percent</p>
+                <p>While your savings are at {{savingsPercentage}} percent</p>
+            </ng-template>
+
         </div>
     </div>
 </div>
