@@ -17,7 +17,7 @@ export class InvestmentPortfolioService {
   constructor(private http: HttpClient) { }
 
   getAllCryptoOrderHistoryByUser(userId: string | number | any): Observable<any> {
-    return this.http.get<any>(this.ApiURL + `CryptoPortfolio/GetCryptoOrderhistorybyUser?_userID=${userId}`);
+    return this.http.get<any>(this.ApiURL + `CryptoPortfolio/GetCryptoOrderhistoryTable?_userID=${userId}`);
   }
 
   getAllStockOrderHistoryByUser(userId: string | number | any): Observable<any> {
@@ -26,6 +26,10 @@ export class InvestmentPortfolioService {
 
   getAllStockAssetByUser(userId: string | number | any): Observable<any> {
     return this.http.get<any>(this.ApiURL + `StockPortfolio/StockOrders/AssetsPortfolio/${userId}`);
+  }
+
+  getAllCryptoAssetByUser(userId: string | number | any): Observable<any> {
+    return this.http.get<any>(this.ApiURL + `CryptoPortfolio/GetCryptoAssetTable?_userID=${userId}`);
   }
 
 }

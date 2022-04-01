@@ -1,29 +1,16 @@
 export interface CryptoOrder {
-  cryptoOrderId: number;
-  userId: number;
-  cryptoId: number;
-  orderPrice: number;
-  quantity: number;
-  orderType: string;
-  orderTime: Date;
-  crypto: string;
-  user: string;
+  name: string;
+  currentInvestment: number;
+  initialInvestmentDate: Date;
+  ownedShares: number;
+  transactionType: string
 }
 
 export interface StockOrder {
-  // stockOrderId : number;
-  // userId: number;
-  // stockId: number;
-  // orderPrice: number;
-  // quantity: number;
-  // orderType: string;
-  // orderTime: Date;
-  // stock: string;
-  // user: string;
-  name: string,
-  currentInvestment: number,
-  initialInvestmentDate: Date,
-  ownedShares: number,
+  name: string;
+  currentInvestment: number;
+  initialInvestmentDate: Date;
+  ownedShares: number;
   transactionType: string
 }
 
@@ -37,4 +24,14 @@ export interface StockAsset {
   returns: number;
   stockPrice: number;
 
+}
+
+export interface CryptoAsset {
+  name: string;
+  initialInvestmentDate: Date;
+  currentInvestment: number;
+  ownedShares: number;
+  sharePrice: number;
+  returns: number;
+  cryptoPrice: number
 }
