@@ -13,17 +13,17 @@ import { InvestmentPortfolioService } from 'src/app/_services/investment-portfol
   styleUrls: ['./investment-portfolio-table.component.css']
 })
 export class InvestmentPortfolioTableComponent implements OnInit {
-  user: User;
+  user = <User>{};
   listOfStockAssets: StockAsset[];
   listOfCryptoAssets: CryptoAsset[];
-  userId: number;
+  //userId: number | undefined;
 
-  constructor(private route: ActivatedRoute,
+  constructor(
     private accountService: AccountService,
     private investmentPortfolioServce: InvestmentPortfolioService,
     private http: HttpClient,
     private router: Router) {
-    this.accountService.currentUser.pipe(take(1)).subscribe(user => this.user = user)
+    this.accountService.currentUser.pipe(take(1)).subscribe((data) => this.user = data)
   }
 
   ngOnInit(): void {
@@ -44,7 +44,4 @@ export class InvestmentPortfolioTableComponent implements OnInit {
       console.log(result);
     });
   }
-
-
-
 }

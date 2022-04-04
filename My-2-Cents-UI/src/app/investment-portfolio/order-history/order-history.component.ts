@@ -13,17 +13,17 @@ import { InvestmentPortfolioService } from 'src/app/_services/investment-portfol
   styleUrls: ['./order-history.component.css']
 })
 export class OrderHistoryComponent implements OnInit {
-  user: User;
+  user = <User>{};
   listOfCryptoOrders: CryptoOrder[];
   listOfStockOrders: StockOrder[];
-  userId: number;
+  
 
   constructor(private route: ActivatedRoute,
     private accountService: AccountService,
     private investmentPortfolioServce: InvestmentPortfolioService,
     private http: HttpClient,
     private router: Router) {
-    this.accountService.currentUser.pipe(take(1)).subscribe(user => this.user = user)
+    this.accountService.currentUser.pipe(take(1)).subscribe((data) => this.user = data)
   }
 
   ngOnInit(): void {
