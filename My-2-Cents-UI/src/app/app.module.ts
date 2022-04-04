@@ -53,8 +53,8 @@ import { NgChartsModule } from 'ng2-charts';
     FontAwesomeModule,
     NgChartsModule,
     RouterModule.forRoot([
-      {path: "crypto/:cryptoname", component: CryptoComponent},
-      {path: "stock/:stockname", component: StockComponent}
+      //{path: "crypto/:cryptoname", component: CryptoComponent},
+      //{path: "stock/:shortenedName", component: StockComponent}
     ])
   ],
   providers: [

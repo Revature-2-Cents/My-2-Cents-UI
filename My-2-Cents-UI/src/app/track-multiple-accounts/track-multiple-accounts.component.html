@@ -60,7 +60,7 @@
 
     <div *ngIf="NavName=='Invest'">
       <div *ngIf="accountService.currentUser | async as user">
-        <app-investing [User]=User [userId]=User.userId></app-investing>
+        <app-investing></app-investing>
       </div>
     </div>
   </div>
