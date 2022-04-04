@@ -1,3 +1,4 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component, Input, OnInit, NgModule } from '@angular/core';
 import { FormControl, FormGroup, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { delay } from 'rxjs';
@@ -22,11 +23,12 @@ export class BudgetCalculatorComponent implements OnInit {
   userExpenses: number = 0;
   userWants: number = 0;
   userSavings: number = 0;
-  useChart: boolean = false;
+  useChart: boolean;
   buttonCheck: boolean = false;
+  buttonCheck2: boolean = false;
 
-  constructor() {
-  }
+
+  constructor() {  }
 
   ngOnInit(): void {
   }
@@ -36,14 +38,23 @@ export class BudgetCalculatorComponent implements OnInit {
     console.log(this.userIncome);
     this.userExpenses = budgetFormGroup.get("expenses").value;
     console.log(this.userExpenses);
-    // if (!this.useChart)
-    // {
-      this.useChart = !this.useChart;
-    // }
-    // else
-    // {
-    //   this.buttonCheck = !this.buttonCheck;
-    // }
+    console.log("Button check is = " + this.buttonCheck);
+    if (!this.useChart)
+    {
+      this.useChart = !this.useChart;      
+    }
+    else
+    {
+      this.buttonCheck = true;
+      this.buttonCheck2 = true;
+    }
+    console.log("Button check is = " + this.buttonCheck);
+  }
+  
+  returnButtonEventListener(buttonReturn: boolean)
+  {
+    this.buttonCheck = buttonReturn;
+    this.buttonCheck2 = buttonReturn;
   }
 
 
