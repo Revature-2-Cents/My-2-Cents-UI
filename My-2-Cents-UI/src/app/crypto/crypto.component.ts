@@ -9,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 import { AssetExchangeService } from '../_services/assetexchange.service';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AccountService } from '../_services/account.service';
+import { My2CentsService } from '../_services/my2-cents.service';
 
 @Component({
   selector: 'app-crypto',
@@ -35,6 +36,9 @@ export class CryptoComponent implements OnInit {
   coin: MarketCoin;
   graph: GraphCoin;
   user: User;
+  currentCash: number;
+
+  @Input() Crypto = <MarketCoin>{};
 
   public lineChartData: ChartConfiguration['data'];
   public lineChartOptions: ChartConfiguration['options'] = {
@@ -54,7 +58,7 @@ export class CryptoComponent implements OnInit {
   };
   public lineChartType: ChartType = 'line';
 
-  constructor(private router:ActivatedRoute, private formBuilder: FormBuilder, public service:AssetExchangeService, private account:AccountService) {
+  constructor(private router:ActivatedRoute, private formBuilder: FormBuilder, public service:AssetExchangeService, private account:AccountService, private cents:My2CentsService) {
     this.coin = {
       cryptoId: 0,
       imageURL: '',
@@ -86,10 +90,15 @@ export class CryptoComponent implements OnInit {
     };
   }
 
+  updateCash(): void
+  {
+    this.cents.getUserAccounts(this.user.userId).subscribe(res => this.currentCash = res[0].totalBalance);
+  }
+
   ngOnInit(): void {
     this.account.currentUser.pipe(take(1)).subscribe((data) => this.user = data);
 
-    this.cryptoName = this.router.snapshot.paramMap.get("cryptoname");
+    this.cryptoName = this.Crypto.cryptoNameId;
     this.service.loadCrypto().subscribe((res) => {
       var temp = res.find(d => d.cryptoNameId == this.cryptoName);
       this.coin = temp;
@@ -124,6 +133,8 @@ export class CryptoComponent implements OnInit {
       };
     },
     (err) => console.log(err));
+
+    this.updateCash();
 
     this.purchasing = this.formBuilder.group(
       {
@@ -170,19 +181,31 @@ export class CryptoComponent implements OnInit {
     this.isSellingFailed = false;
   }
 
+
+  softReset(): void {
+    this.isBuyingSuccess = false;
+    this.isSellingSuccess = false;
+    this.isBuyingFailed = false;
+    this.isSellingFailed = false;
+  }
+
   sendBuyOrder(): void {
+    this.softReset();
     if(this.attemptingToPurchase) {
+
       const amount = this.purchasing.get("amount")?.value;
       if(this.isInFiat) {
         this.service.buyCryptoInFiat(this.user.userId, amount, this.coin).subscribe(result=>
           {
             this.isBuyingSuccess = true;
+            this.updateCash();
         },
         (err) => this.isBuyingFailed = true);
       } else {
         this.service.buyCrypto(this.user.userId, amount, this.coin).subscribe(result=>
           {
             this.isBuyingSuccess = true;
+            this.updateCash();
         },
         (err) => this.isBuyingFailed = true);
       }
@@ -190,7 +213,25 @@ export class CryptoComponent implements OnInit {
   }
 
   sendSellOrder(): void {
-
+    this.softReset();
+    if(this.attemptingToSell) {
+      const amount = this.selling.get("amount")?.value;
+      if(this.isInFiat) {
+        this.service.sellCryptoInFiat(this.user.userId, amount, this.coin).subscribe(result=>
+          {
+            this.isSellingSuccess = true;
+            this.updateCash();
+        },
+        (err) => this.isSellingFailed = true);
+      } else {
+        this.service.sellCrypto(this.user.userId, amount, this.coin).subscribe(result=>
+          {
+            this.isSellingSuccess = true;
+            this.updateCash();
+        },
+        (err) => this.isSellingFailed = true);
+      }
+    }
   }
 
   get f(): { [key: string]: AbstractControl } {

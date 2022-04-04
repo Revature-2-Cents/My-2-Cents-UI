@@ -13,10 +13,9 @@ import { AssetExchangeService } from '../_services/assetexchange.service';
 })
 export class InvestingComponent implements OnInit {
 
-  subscription: Subscription = new Subscription;
+  showList = true;
   isDefault = true;
   isSearching = false;
-  searchStocks: Stock[] = [];
   filteredStocks: Stock[] = [];
   stocks: Stock[] = [];
   coins: MarketCoin[] = [];
@@ -24,13 +23,10 @@ export class InvestingComponent implements OnInit {
   searchCryptoText = '';
   searchStockText = '';
   tradableSymbols = [];
-
-  @Input() userId: number = -1;
-
-  @Input() User = <User>{};
+  selectedAsset: any;
 
   constructor(public service:AssetExchangeService) {
-    
+
   }
 
   convertDecimal(num:number) {
@@ -44,33 +40,11 @@ export class InvestingComponent implements OnInit {
     );
   }
 
-  NavName: string = 'Dashboard';
-  nav(button: string) {
-    this.NavName = button;
-  }
-
   searchStock(): void {
-    if (this.searchStockText == '') {
-      this.isSearching = false;
-      this.isDefault = true;
-      this.loadDefaultStocks();
-    } else {
-      this.isSearching = true;
-      this.isDefault = false;
-
-      this.service
-        .loadCrypto()
-        .subscribe((res) => {
-          this.searchStocks = res["ResultSet"].Result;
-          console.log(res["ResultSet"].Result);
-        },
-        (err) => console.log(err));
-
-        this.filteredStocks = this.searchStocks.filter(
-          (stock) => stock.name.toLowerCase().includes(this.searchStockText.toLowerCase()) ||
-                    stock.shortenedName.toLowerCase().includes(this.searchStockText.toLowerCase())
-        );
-    }
+    this.filteredStocks = this.stocks.filter(
+      (s) => s.name.toLowerCase().includes(this.searchStockText.toLowerCase()) ||
+                s.shortenedName.toLowerCase().includes(this.searchStockText.toLowerCase())
+    );
   }
 
   loadDefaultStocks(): void {
@@ -86,6 +60,10 @@ export class InvestingComponent implements OnInit {
     (err) => console.log(err));
   }
 
+  showListings(): void {
+    this.showList = true;
+  }
+
   ngOnInit(): void {
     this.service
       .loadCrypto()
@@ -97,5 +75,15 @@ export class InvestingComponent implements OnInit {
 
       this.loadDefaultStocks();
   }
+
+  nav(str: string, asset: any): void {
+    this.forNav = str;
+    this.selectedAsset = asset;
+    if(str != "Investing") {
+      this.showList = false;
+    }
+  }
+
+  public forNav: string = 'Investing';
 
 }

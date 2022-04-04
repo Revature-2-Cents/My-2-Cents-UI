@@ -60,18 +60,17 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!--<p>Estimated price: ${{coin.current_price.toLocaleString()}}</p>
-                                    <p>You have ${{currentCash.toLocaleString()}} available</p>-->
+                                    <p>You have ${{currentCash.toLocaleString()}} available</p>
                                 </div>
-                                <div class="form-group row">
+                                <div class="form-group row mb-2">
                                     <button type="submit" class="btn btn-secondary btn-sm" (click)="sendBuyOrder()">Submit Order</button>
                                     <button type="submit" class="btn btn-secondary btn-sm sell" (click)="reset()">Cancel Order</button>
                                 </div>
                                 <div class="form-group">
-                                    <div class="alert alert-danger"
+                                    <div class="alert alert-success"
                                         role="alert"
                                         *ngIf="isBuyingSuccess">
-                                        Successfully bought crypto!
+                                        Successfully bought {{coin.shortenedName}}!
                                     </div>
                                     <div class="alert alert-danger"
                                         role="alert"
@@ -99,18 +98,17 @@
                                         </div>
                                       </div>
                                     </div>
-                                    <!--<p>Estimated price: ${{coin.current_price}}</p>
-                                    <p>You have ${{currentCash.toLocaleString()}} available</p>-->
+                                    <p>You have ${{currentCash.toLocaleString()}} available</p>
                                 </div>
-                                <div class="form-group row">
+                                <div class="form-group row mb-2">
                                     <button type="submit" class="btn btn-secondary btn-sm" (click)="sendSellOrder()">Submit Order</button>
                                     <button type="submit" class="btn btn-secondary btn-sm sell" (click)="reset()">Cancel Order</button>
                                 </div>
                                 <div class="form-group">
-                                    <div class="alert alert-danger"
+                                    <div class="alert alert-success"
                                       role="alert"
                                       *ngIf="isSellingSuccess">
-                                      Successfully sold crypto!
+                                      Successfully sold {{coin.shortenedName}}!
                                     </div>
                                     <div class="alert alert-danger"
                                       role="alert"
