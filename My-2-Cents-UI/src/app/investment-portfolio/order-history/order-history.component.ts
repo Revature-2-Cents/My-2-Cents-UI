@@ -45,6 +45,6 @@ export class OrderHistoryComponent implements OnInit {
       this.listOfStockOrders = result;
       console.log(result);
     });
-
   }
+  
 }
