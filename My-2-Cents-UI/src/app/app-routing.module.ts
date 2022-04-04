@@ -21,7 +21,8 @@ const routes: Routes = [
   // },
   { path: '', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'dashboard', component: TrackMultipleAccountsComponent, canActivate: [AuthGuard] },
+  // { path: 'dashboard', component: TrackMultipleAccountsComponent, canActivate: [AuthGuard] },
+  { path: 'dashboard', component: TrackMultipleAccountsComponent },
   { path: 'track-income/:AccountID', component: TrackIncomeComponent, canActivate: [AuthGuard] },
   { path: 'create-profile', component: CreateProfileComponent, canActivate: [AuthGuard] },
   // { path: 'budget-calculator', component: BudgetCalculatorComponent, canActivate: [AuthGuard] }
