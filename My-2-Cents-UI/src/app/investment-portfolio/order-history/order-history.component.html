@@ -1,12 +1,12 @@
-<div>
+<div class="orderHistory">
     <h1>Order history</h1>
-    <div class="tableContainer">
-        <div class="cryptoTable">
-            <h2>Crypto</h2>
+    <div class="tableContainer">    
+        <div>
+            <h2>Stock</h2>
             <table>
                 <thead>
                     <tr>
-                        <th>NAME</th>
+                        <th>Name</th>
                         <th>Amount Invested</th>
                         <th>Date</th>
                         <th>Shares</th>
@@ -14,7 +14,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let order of listOfCryptoOrders">
+                    <tr *ngFor="let order of listOfStockOrders">
                         <td>{{order.name}}</td>
                         <td>${{order.currentInvestment}}</td>
                         <td>{{order.initialInvestmentDate}}</td>
@@ -24,12 +24,12 @@
                 </tbody>
             </table>
         </div>
-        <div>
-            <h2>Stock</h2>
+        <div class="cryptoTable">
+            <h2>Crypto</h2>
             <table>
                 <thead>
                     <tr>
-                        <th>NAME</th>
+                        <th>Name</th>
                         <th>Amount Invested</th>
                         <th>Date</th>
                         <th>Shares</th>
@@ -37,7 +37,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let order of listOfStockOrders">
+                    <tr *ngFor="let order of listOfCryptoOrders">
                         <td>{{order.name}}</td>
                         <td>${{order.currentInvestment}}</td>
                         <td>{{order.initialInvestmentDate}}</td>

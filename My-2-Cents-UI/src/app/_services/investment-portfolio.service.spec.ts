@@ -4,7 +4,7 @@ import { InvestmentPortfolioService } from './investment-portfolio.service';
 
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
-import { CryptoAsset, StockAsset } from 'src/app/_models/investmentPortfolio';
+import { CryptoAsset, CryptoOrder, StockAsset } from 'src/app/_models/investmentPortfolio';
 
 describe('InvestmentPortfolioService', () => {
   let service: InvestmentPortfolioService;
@@ -21,6 +21,16 @@ describe('InvestmentPortfolioService', () => {
       cryptoPrice: 300
     }
   ];
+
+  let dummyCrptoOrder:CryptoOrder[] =[
+    {
+      name: "Dogecoin",
+      currentInvestment: 100,
+      initialInvestmentDate: "04/01/2022",
+      ownedShares: 450,
+      transactionType: "Buy"
+    }
+  ]
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -47,5 +57,15 @@ describe('InvestmentPortfolioService', () => {
     const httpReq = httpMock.expectOne("https://localhost:7106/api/CryptoPortfolio/GetCryptoAssetTable?_userID=1");
     expect(httpReq.request.method).toBe("GET");
     httpReq.flush(dummyCrypto);
+  });
+
+  it('should get crypto order history', () => {
+    service.getAllCryptoOrderHistoryByUser(1).subscribe((response) => {
+      expect(response[0].name.toBe(dummyCrptoOrder[0].name));
+    });
+
+    const httpReq = httpMock.expectOne("https://localhost:7106/api/CryptoPortfolio/GetCryptoOrderhistoryTable?_userID=1");
+    expect(httpReq.request.method).toBe("GET");
+    httpReq.flush(dummyCrptoOrder);
   });
 });

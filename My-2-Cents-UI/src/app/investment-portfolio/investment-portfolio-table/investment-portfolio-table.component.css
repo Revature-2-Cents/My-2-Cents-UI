@@ -1,8 +1,13 @@
 .tableContainer{
     justify-content: center;
     display: flex;
-    /* padding: 5rem; */
 }
-/* .cryptoTable{
-    margin-right: 5rem;
-} */
+
+table, th, td{
+    border: 1px solid black;
+    text-align: center;
+    padding: 0.4rem;
+    margin-right: 0.3rem;
+    table-layout: fixed;
+    width: 100%;
+}

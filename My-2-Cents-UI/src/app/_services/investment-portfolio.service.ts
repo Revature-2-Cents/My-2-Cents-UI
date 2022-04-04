@@ -32,4 +32,7 @@ export class InvestmentPortfolioService {
     return this.http.get<any>(this.ApiURL + `CryptoPortfolio/GetCryptoAssetTable?_userID=${userId}`);
   }
 
+  getTotalInvestmentByUser(userId: string | number | any): Observable<any> {
+    return this.http.get<any>(this.ApiURL + `UserPortfolio/UserInvestmentSum/${userId}`);
+  }
 }

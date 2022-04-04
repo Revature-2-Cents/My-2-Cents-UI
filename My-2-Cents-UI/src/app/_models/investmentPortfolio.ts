@@ -1,7 +1,7 @@
 export interface CryptoOrder {
   name: string;
   currentInvestment: number;
-  initialInvestmentDate: Date;
+  initialInvestmentDate: string;
   ownedShares: number;
   transactionType: string
 }
@@ -9,7 +9,7 @@ export interface CryptoOrder {
 export interface StockOrder {
   name: string;
   currentInvestment: number;
-  initialInvestmentDate: Date;
+  initialInvestmentDate: string;
   ownedShares: number;
   transactionType: string
 }
@@ -35,3 +35,8 @@ export interface CryptoAsset {
   returns: number;
   cryptoPrice: number
 }
+
+export interface TotalInvestment {
+  userInvestmentSum: number;
+}
+

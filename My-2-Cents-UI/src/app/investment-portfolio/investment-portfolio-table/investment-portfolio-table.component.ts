@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { take } from 'rxjs/operators';
-import { CryptoAsset, StockAsset } from 'src/app/_models/investmentPortfolio';
+import { CryptoAsset, StockAsset, TotalInvestment } from 'src/app/_models/investmentPortfolio';
 import { User } from 'src/app/_models/User';
 import { AccountService } from 'src/app/_services/account.service';
 import { InvestmentPortfolioService } from 'src/app/_services/investment-portfolio.service';
@@ -16,7 +16,9 @@ export class InvestmentPortfolioTableComponent implements OnInit {
   user = <User>{};
   listOfStockAssets: StockAsset[];
   listOfCryptoAssets: CryptoAsset[];
-  //userId: number | undefined;
+  totalInvestment: TotalInvestment;
+  userId: number;
+
 
   constructor(
     private accountService: AccountService,
@@ -29,6 +31,7 @@ export class InvestmentPortfolioTableComponent implements OnInit {
   ngOnInit(): void {
     this.getAllStockAssetsByUser(this.user.userId);
     this.getAllCryptoAssetsByUser(this.user.userId);
+    this.getTotalInvestmentByUser(this.user.userId);
   }
   //jasmine
   getAllStockAssetsByUser(userId) {
@@ -44,4 +47,16 @@ export class InvestmentPortfolioTableComponent implements OnInit {
       console.log(result);
     });
   }
+
+  
+  getTotalInvestmentByUser(userId) {
+    this.investmentPortfolioServce.getTotalInvestmentByUser(userId).subscribe(result => {
+      this.totalInvestment = result;
+      console.log(result);
+    });
+  }
+
+
+
+
 }
