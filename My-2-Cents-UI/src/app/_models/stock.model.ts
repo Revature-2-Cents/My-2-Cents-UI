@@ -16,11 +16,13 @@ export interface Stock {
     // fiftyTwoWeekHighChangePercent: number;
     // fiftyTwoWeekLow: number;
     // fiftyTwoWeekHigh: number;
+    
+    stockId: number;
+    currentPrice: number;
+    priceChange: number;
+    priceChangePercentage: number;
+    name: string;
+    shortenedName: string;
+    lastUpdate: string;
 
-    StockID :number;
-     CurrentPrice:number;
-     Name:string;
-     ShortName:string;
-     PriceChange:number;
-     PriceChangePercentage:number;
 }

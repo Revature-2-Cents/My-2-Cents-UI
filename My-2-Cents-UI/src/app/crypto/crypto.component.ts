@@ -62,7 +62,8 @@ export class CryptoComponent implements OnInit {
       shortenedName: '',
       currentPrice: 0,
       priceChange: 0,
-      priceChangePercentage: 0
+      priceChangePercentage: 0,
+      cryptoNameId:''
     };
     this.graph = {
       prices: []

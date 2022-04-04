@@ -21,7 +21,8 @@ describe('CryptoComponent', () => {
       shortenedName: "btc",
       currentPrice: 46536.00000000,
       priceChange: 420.37000000,
-      priceChangePercentage: 0.91155
+      priceChangePercentage: 0.91155,
+      cryptoNameId:"bitcoin"
     }
   ];
 

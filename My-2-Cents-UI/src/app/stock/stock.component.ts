@@ -61,13 +61,15 @@ export class StockComponent implements OnInit {
       // fiftyTwoWeekLow: 0,
       // fiftyTwoWeekHigh: 0
       
-    //  StockID :1,
-    //  CurrentPrice:352.00000000,
-    //  Name:"Microsoft",
-    //  ShortName:"MSFT",
-    //  PriceChange:0.00000000,
-    //  PriceChangePercentage:0
-   
+     stockId :1,
+     currentPrice:352.00000000,
+     name:"Microsoft",
+     shortenedName:"MSFT",
+     priceChange:0.00000000,
+     priceChangePercentage:0,
+    lastUpdate: "2022-03-22 01:10:00.000"
+
+
     };
     this.lineChartData = {
       datasets: [
@@ -88,13 +90,17 @@ export class StockComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.stockName = this.router.snapshot.paramMap.get("stockname");
+    this.stockName = this.router.snapshot.paramMap.get("shortenedName");
     let headers = new HttpHeaders();
 
     this.service
-    .getStockByName(this.stockName)
+    .loadStock()
     .subscribe((res) => {
-      this.stock = res["quoteResponse"].result[0];
+      res.forEach(r => {
+        if (r.shortenedName = this.stockName) {
+          this.stock = r;
+        }
+      });
     },
     (err) => console.log(err));
 

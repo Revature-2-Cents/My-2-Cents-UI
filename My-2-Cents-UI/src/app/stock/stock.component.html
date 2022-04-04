@@ -1,49 +1,52 @@
 <section class="ml-1">
     <div class="row justify-content-center">
-          <div class="container col-md-8 col-12">
-              <div class="card text-black h-100" style="border-radius: 25px;">
-                  <div class="card-body p-md-5">
-                      <div class="row justify-content-center">
-                          <div class="col-12 mx-auto">
-                              <table class="table table-borderless cryptoTable">
-                                  <tbody>
-                                      <tr>
-                                          <td >{{stock.longName}}</td>
-                                          <td>{{stock.regularMarketPrice}}</td>
-                                          <td [ngClass]="stock.regularMarketChangePercent > 0 ? 'cryptoGreen' : 'cryptoRed'">{{stock.regularMarketChangePercent > 0 ? '+' : ''}}{{stock.regularMarketChange}}</td>
-                                          <td [ngClass]="stock.regularMarketChangePercent > 0 ? 'cryptoGreen' : 'cryptoRed'">{{stock.regularMarketChangePercent > 0 ? '+' : ''}}{{convertDecimal(stock.regularMarketChangePercent)}}%</td>
-                                      </tr>
-                                  </tbody>
-                              </table>
-                              <div class="flex">
-                                  <div class="flex-item">
+        <div class="container col-md-8 col-12">
+            <div class="card text-black h-100" style="border-radius: 25px;">
+                <div class="card-body p-md-5">
+                    <div class="row justify-content-center">
+                        <div class="col-12 mx-auto">
+                            <table class="table table-borderless cryptoTable">
+                                <tbody>
+                                    <tr>
+                                        <td>{{stock.shortenedName}}</td>
+                                        <td>{{stock.currentPrice}}</td>
+                                        <td [ngClass]="stock.priceChangePercentage > 0 ? 'cryptoGreen' : 'cryptoRed'">
+                                            {{stock.priceChangePercentage > 0 ? '+' : ''}}{{stock.priceChange}}</td>
+                                        <td [ngClass]="stock.priceChangePercentage > 0 ? 'cryptoGreen' : 'cryptoRed'">
+                                            {{stock.priceChangePercentage > 0 ? '+' :
+                                            ''}}{{convertDecimal(stock.priceChangePercentage)}}%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="flex">
+                                <div class="flex-item">
                                     <div style="display: block;">
-                                      <canvas baseChart class="chart" width="400" height="400"
-                                                [data]="lineChartData"
-                                                [options]="lineChartOptions"
-                                                [type]="lineChartType">
-                                      </canvas>
+                                        <canvas baseChart class="chart" width="400" height="400" [data]="lineChartData"
+                                            [options]="lineChartOptions" [type]="lineChartType">
+                                        </canvas>
                                     </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <div class="container col-md-4 col-12">
-              <div class="card text-black" style="border-radius: 25px;">
-                  <div class="card-body p-md-5">
-                      <div class="row justify-content-center">
-                          <div class="col-12 col-lg-10 col-xl-8 mx-auto">
-                            <div class="d-grid gap-2">
-                                <button type="button" class="btn btn-primary btn-lg buy" (click)="attemptPurchase()">Buy Market</button>
-                                <button type="button" class="btn btn-primary btn-lg sell" (click)="attemptSell()">Sell Market</button>
+                                </div>
                             </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          </div>
-  </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container col-md-4 col-12">
+            <div class="card text-black" style="border-radius: 25px;">
+                <div class="card-body p-md-5">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-lg-10 col-xl-8 mx-auto">
+                            <div class="d-grid gap-2">
+                                <button type="button" class="btn btn-primary btn-lg buy" (click)="attemptPurchase()">Buy
+                                    Market</button>
+                                <button type="button" class="btn btn-primary btn-lg sell" (click)="attemptSell()">Sell
+                                    Market</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

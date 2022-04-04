@@ -14,12 +14,13 @@ describe('StockComponent', () => {
 
    let dummyStockDatabase:Stock[] = [
     {
-     StockID :1,
-     CurrentPrice:352.00000000,
-     Name:"Microsoft",
-     ShortName:"MSFT",
-     PriceChange:0.00000000,
-     PriceChangePercentage:0
+     stockId :1,
+     currentPrice:352.00000000,
+     name:"Microsoft",
+     shortenedName:"MSFT",
+     priceChange:0.00000000,
+     priceChangePercentage:0,
+    lastUpdate: "2022-03-22 01:10:00.000"
    
     }
   ];

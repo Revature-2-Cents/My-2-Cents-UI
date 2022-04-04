@@ -61,6 +61,7 @@ body.light-mode {
 .dark-mode .form-control {
   background-color: rgba(0,0,0,0) ! important;
   color: rgb(200, 200, 200) !important;
+  border-color: white;
 }
 
 .card {
