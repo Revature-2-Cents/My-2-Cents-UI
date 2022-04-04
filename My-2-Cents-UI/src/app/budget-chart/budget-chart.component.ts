@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, DoCheck, Input, OnInit } from '@angular/core';
 import { Chart, ChartType } from 'chart.js';
 
 @Component({
@@ -6,21 +6,42 @@ import { Chart, ChartType } from 'chart.js';
   templateUrl: './budget-chart.component.html',
   styleUrls: ['./budget-chart.component.css']
 })
-export class BudgetChartComponent implements OnInit {
+export class BudgetChartComponent implements OnInit, DoCheck {
 
-  want: number;
-  save: number;
+  want: number = 0;
+  save: number = 0;
 
   @Input()
   userIncome: number;
   @Input()
   userExpenses: number;
+  @Input()
+  buttonCheck : boolean;
   // @Input()
   // useChart: boolean;
+  need: number = 0;
+
+  
 
   
 
   constructor() { }
+
+  ngDoCheck(): void {
+    if (this.buttonCheck)
+    {
+      console.log("buttonCheck returned true")
+      this.buttonCheck = false;
+      this.calculate();
+      
+      // this.createChart();
+      
+    }
+    else
+    {
+      console.log("buttonCheck returned false")
+    }
+    }
 
   
 
@@ -39,42 +60,47 @@ export class BudgetChartComponent implements OnInit {
   {
     if (this.userExpenses <= this.userIncome * 0.5)
     {
+      this.need = this.userExpenses;
       this.want = this.userIncome * (0.3 + (0.5 - (this.userExpenses / this.userIncome)));
       this.save = this.userIncome * 0.2;
     }
     else if (this.userExpenses <= this.userIncome * 0.8) 
     {
+      this.need = this.userExpenses;
       this.want = this.userIncome * (0.8 - (this.userExpenses / this.userIncome));
       this.save = this.userIncome * 0.2;
     }
     else if (this.userExpenses <= this.userIncome * 0.99)
     {
+      this.need = this.userExpenses;
       this.want = 0;
       this.save = this.userIncome * (1 - (this.userExpenses / this.userIncome));
     }
     else
     {
+      this.need = this.userExpenses;
       this.want = 0;
       this.save = 0;
     }
+    console.log(this.need, this.want, this.save)
   }
 
   createChart()
   {
+    // if (this.buttonCheck)
+    // {
+    //   console.log("I got this far")
+    //   myChart.destroy();
+      
+    // }
     const ctx = document.getElementById('myChart');
     const myChart = new Chart("myChart", {
       type: 'doughnut',
       data: {
-        // labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
         labels: ['Expenses', 'Wants', 'Save'],
         datasets: [{
-          label: '# of Votes',
-          // data: [this.income, this.expenses],
-          data: [this.userExpenses, this.want, this.save],
+          data: [this.need, this.want, this.save],
           backgroundColor: [
-            // 'rgba(255, 99, 132, 1)',
-            // 'rgba(54, 162, 235, 1)',
-            // 'rgba(255, 206, 86, 1)'
             'rgba(255, 25, 4, 0.5)', //#ff1904
             'rgba(25, 4, 255, 0.5)', //#1904ff
             'rgba(4, 255, 25, 0.5)'  //#04ff19
@@ -94,32 +120,14 @@ export class BudgetChartComponent implements OnInit {
             'rgba(50, 230, 65, 1)', //#32e641
             'rgba(230, 65, 50, 1)', //#e64132
             
-            // 'rgba(75, 192, 192, 1)',
-            // 'rgba(153, 102, 255, 1)',
-            // 'rgba(255, 159, 64, 1)'
           ],
-          // data: [12, 19, 3, 5, 2, 3],
-          // backgroundColor: [
-          //   'rgba(255, 99, 132, 0.2)',
-          //   'rgba(54, 162, 235, 0.2)',
-          //   'rgba(255, 206, 86, 0.2)',
-          //   'rgba(75, 192, 192, 0.2)',
-          //   'rgba(153, 102, 255, 0.2)',
-          //   'rgba(255, 159, 64, 0.2)'
-          // ],
-          // borderColor: [
-          //   'rgba(255, 99, 132, 1)',
-          //   'rgba(54, 162, 235, 1)',
-          //   'rgba(255, 206, 86, 1)',
-          //   'rgba(75, 192, 192, 1)',
-          //   'rgba(153, 102, 255, 1)',
-          //   'rgba(255, 159, 64, 1)'
-          // ],
           borderWidth: 2
         }]
       },
       options: { 
-      }
+        responsive:true,
+        maintainAspectRatio: true,
+        },
     });
   }
 

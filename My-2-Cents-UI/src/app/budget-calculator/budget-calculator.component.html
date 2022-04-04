@@ -2,7 +2,7 @@
     <div class="box-1">
         <img src="https://media.discordapp.net/attachments/937791410889981983/938171320074661888/Logo.png">
         <div>
-            <h2 style="font-weight: 900; font-size: 3vw;">Budget Calculator</h2>
+            <h2 class="title">Budget Calculator</h2>
         </div>
     </div>
     <div class="box-2">
@@ -37,12 +37,12 @@
 <div class="container-2" *ngIf="useChart">
     <div class="box-3">
         <div class="chart">
-            <app-budget-chart [userIncome]="userIncome" [userExpenses]="userExpenses"></app-budget-chart>      
+            <app-budget-chart [userIncome]="userIncome" [userExpenses]="userExpenses" [buttonCheck] = "buttonCheck"></app-budget-chart>      
         </div>
     </div>  
     <div class="box-4">
-        <div class="textbox">
-            <app-budget-info [userIncome]="userIncome" [userExpenses]="userExpenses"></app-budget-info>
+        <div class="budgetinfo">
+            <app-budget-info [userIncome]="userIncome" [userExpenses]="userExpenses" style="height: 100%; display: block;"></app-budget-info>
         </div>
     </div>
 </div>
