@@ -8,7 +8,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { InvestmentPortfolioTableComponent } from './investment-portfolio-table.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { User } from '../../_models/User';
-import { CryptoAsset, StockAsset } from '../../_models/investmentPortfolio';
+import { CryptoAsset, StockAsset, TotalInvestment } from '../../_models/investmentPortfolio';
 
 describe('InvestmentPortfolioTableComponent', () => {
   let component: InvestmentPortfolioTableComponent;
@@ -31,43 +31,53 @@ describe('InvestmentPortfolioTableComponent', () => {
   //   userName: "testing"
   // }
 
-  // let mockCryptoAsset:CryptoAsset[] = [
-  //   {
-  //     currentInvestment: 10,
-  //     initialInvestmentDate: "test",
-  //     name: "testing",
-  //     ownedShares: 10,
-  //     returns: 10,
-  //     sharePrice: 10,
-  //     cryptoPrice: 10
-  //   }
-  // ];
+  let mockCryptoAsset:CryptoAsset[] = [
+    {
+      currentInvestment: 10,
+      initialInvestmentDate: "test",
+      name: "testing",
+      ownedShares: 10,
+      returns: 10,
+      sharePrice: 10,
+      cryptoPrice: 10
+    }
+  ];
 
-  // let mockStockAsset:StockAsset[] = [
-  //   {
-  //     currentInvestment: 10,
-  //     initialInvestmentDate: "test",
-  //     name: "testing",
-  //     ownedShares: 10,
-  //     returns: 10,
-  //     sharePrice: 10,
-  //     stockPrice: 10
-  //   }
-  // ]
+  let mockStockAsset:StockAsset[] = [
+    {
+      currentInvestment: 10,
+      initialInvestmentDate: "test",
+      name: "testing",
+      ownedShares: 10,
+      returns: 10,
+      sharePrice: 10,
+      stockPrice: 10
+    }
+  ]
+
+  let MockTotalInvestment:TotalInvestment = {
+    userInvestmentSum: 10
+  }
   
-  // class InvestmentPortfolioMockService {
-  //   getAllStockAssetByUser(userId: number) {
-  //     return new Observable((observable) => {
-  //       observable.next(mockStockAsset)
-  //     })
-  //   };
+  class InvestmentPortfolioMockService {
+    getAllStockAssetByUser(userId: number) {
+      return new Observable((observable) => {
+        observable.next(mockStockAsset)
+      })
+    };
 
-  //   getAllCryptoAssetsByUser(userId: number) {
-  //     return new Observable((observable) => {
-  //       observable.next(mockCryptoAsset)
-  //     })
-  //   };
-  // }
+    getAllCryptoAssetByUser(userId: number) {
+      return new Observable((observable) => {
+        observable.next(mockCryptoAsset)
+      })
+    };
+
+    getTotalInvestmentByUser(userId: number) {
+      return new Observable((observable) => {
+        observable.next(MockTotalInvestment)
+      })
+    };
+  }
 
   // class AccountMockService {
   //   private currentUserSource = new ReplaySubject<User>(1);
@@ -86,7 +96,7 @@ describe('InvestmentPortfolioTableComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ InvestmentPortfolioTableComponent ],
-      providers: [{provide: InvestmentPortfolioService}],
+      providers: [{provide: InvestmentPortfolioService, useClass: InvestmentPortfolioMockService}],
       imports: [ RouterTestingModule, HttpClientTestingModule ]
     })
     .compileComponents();
@@ -104,6 +114,10 @@ describe('InvestmentPortfolioTableComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  /*it('should get crypto assests by user', () => {
+    
+  });*/
 
   /*it('should call ngOnInit', () => {
     const fixture = TestBed.createComponent(InvestmentPortfolioTableComponent);
