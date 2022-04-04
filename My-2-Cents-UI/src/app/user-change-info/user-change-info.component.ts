@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { UserProfile } from 'src/app/userprofile';
-import { My2CentsService } from '../my2-cents.service';
+import { UserProfile } from 'src/app/_models/userprofile';
+import { My2CentsService } from '../_services/my2-cents.service';
 
 @Component({
   selector: 'app-user-change-info',
@@ -52,15 +52,13 @@ this.display ="";
 }
 
   GetUserProfile() {
-    console.log(this.userId)
-      this.my2centsService
-       // .getUserInfo(this.UserLoginInfo.userID)
-       .getUserInfo(this.userId)
-        .subscribe((data) => {
-          this.data = data;
-         // this.inputData = this.data;
-        });
+    console.log(this.userId);
+    this.my2centsService
+      .getUserInfo(this.userId)
+      .subscribe((data) => {
+        this.data = data;
+        // this.inputData = this.data;
+      });
     }
-
 
 }

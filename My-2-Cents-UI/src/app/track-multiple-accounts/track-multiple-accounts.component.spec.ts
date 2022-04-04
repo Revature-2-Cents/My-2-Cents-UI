@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { AuthModule } from '@auth0/auth0-angular';
 import { TrackMultipleAccountsComponent } from './track-multiple-accounts.component';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
@@ -12,10 +11,6 @@ describe('TrackMultipleAccountsComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ TrackMultipleAccountsComponent ],
       imports: [
-        AuthModule.forRoot({
-          domain: 'environment.auth.domain',
-          clientId: 'environment.auth.clientId'
-        }),
         HttpClientTestingModule
       ]
     })

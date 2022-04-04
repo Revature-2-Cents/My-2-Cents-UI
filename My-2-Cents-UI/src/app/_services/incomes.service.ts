@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { Incomes } from './mock-incomes';
+import { Incomes } from '../_models/mock-incomes';
 
 import { lastValueFrom } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class IncomesService {
+  private readonly apiUrl = environment.apiUrl;
   incomes: Incomes[] = [];
-
-  defaultUrl = 'https://my2centsapi.azurewebsites.net';
 
   constructor(private http: HttpClient) {}
 
@@ -31,7 +31,7 @@ export class IncomesService {
   getAccountInfo(accountId: number): Promise<Incomes[]> {
     return lastValueFrom(
       this.http.get<Incomes[]>(
-        this.defaultUrl + `/api/Transactions/${accountId}`
+        this.apiUrl + `Transactions/${accountId}`
       )
     );
   }
