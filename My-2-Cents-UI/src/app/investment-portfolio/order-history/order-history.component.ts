@@ -31,7 +31,7 @@ export class OrderHistoryComponent implements OnInit {
     this.getAllStockOrderHistoryByUser(this.user.userId);
 
   }
-
+  //matthew
   getAllCryptoOrderHistoryByUser(userId) {
     this.investmentPortfolioServce.getAllCryptoOrderHistoryByUser(userId).subscribe(result => {
       this.listOfCryptoOrders = result;
@@ -39,6 +39,7 @@ export class OrderHistoryComponent implements OnInit {
     });
 
   }
+  //hyunsoo
   getAllStockOrderHistoryByUser(userId) {
     this.investmentPortfolioServce.getAllStockOrderHistoryByUser(userId).subscribe(result => {
       this.listOfStockOrders = result;

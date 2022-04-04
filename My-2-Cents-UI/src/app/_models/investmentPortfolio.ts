@@ -28,7 +28,7 @@ export interface StockAsset {
 
 export interface CryptoAsset {
   name: string;
-  initialInvestmentDate: Date;
+  initialInvestmentDate: string;
   currentInvestment: number;
   ownedShares: number;
   sharePrice: number;

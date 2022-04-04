@@ -30,14 +30,14 @@ export class InvestmentPortfolioTableComponent implements OnInit {
     this.getAllStockAssetsByUser(this.user.userId);
     this.getAllCryptoAssetsByUser(this.user.userId);
   }
-
+  //jasmine
   getAllStockAssetsByUser(userId) {
     this.investmentPortfolioServce.getAllStockAssetByUser(userId).subscribe(result => {
       this.listOfStockAssets = result;
       console.log(result);
     });
   }
-
+  //vijhan
   getAllCryptoAssetsByUser(userId) {
     this.investmentPortfolioServce.getAllCryptoAssetByUser(userId).subscribe(result => {
       this.listOfCryptoAssets = result;
