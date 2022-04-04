@@ -65,7 +65,11 @@ export class BudgetCalculatorComponent implements OnInit {
   returnButtonEventListener(buttonReturn: boolean)
   {
     this.buttonCheck = buttonReturn;
-    this.buttonCheck2 = buttonReturn;
+  }
+  
+  returnButton2EventListener(buttonReturn2: boolean)
+  {
+    this.buttonCheck2 = buttonReturn2;
   }
 
 
