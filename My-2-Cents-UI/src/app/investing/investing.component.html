@@ -22,7 +22,7 @@
                   </tr>
                 </thead>
                 <tbody id="crypto">
-                  <tr *ngFor="let coin of filteredCoins" [routerLink]="['/crypto', coin.name]" class ="cryptoSelect">
+                  <tr *ngFor="let coin of filteredCoins" [routerLink]="['/crypto', coin.cryptoNameId]" class ="cryptoSelect">
                     <td><img [src]="coin.imageURL" alt="{{ coin.name }}" class="cryptologo"/></td>
                     <td>{{coin.name}}</td>
                     <td class="text-uppercase">{{coin.shortenedName}}</td>
@@ -60,7 +60,7 @@
                 <tbody id="crypto">
                   <tr *ngFor="let stock of filteredStocks" class ="cryptoSelect">
                     <td>{{stock.name}}</td>
-                    <td class="text-uppercase">{{stock.symbol}}</td>
+                    <td class="text-uppercase">{{stock.shortenedName}}</td>
                   </tr>
                 </tbody>
               </table>
@@ -75,12 +75,12 @@
                   </tr>
                 </thead>
                 <tbody id="crypto">
-                  <tr *ngFor="let stock of stocks" [routerLink]="['/stock', stock.symbol]" class ="cryptoSelect">
-                    <td>{{stock.longName}}</td>
-                    <td class="text-uppercase">{{stock.symbol}}</td>
-                    <td>{{stock.regularMarketPrice}}</td>
-                    <td [ngClass]="stock.regularMarketChangePercent > 0 ? 'cryptoGreen' : 'cryptoRed'">{{stock.regularMarketChange > 0 ? '+' : ''}}{{stock.regularMarketChangePercent.toLocaleString()}}</td>
-                    <td [ngClass]="stock.regularMarketChangePercent > 0 ? 'cryptoGreen' : 'cryptoRed'">{{stock.regularMarketChangePercent > 0 ? '+' : ''}}{{service.convertDecimal(stock.regularMarketChangePercent)}}%</td>
+                  <tr *ngFor="let stock of stocks" [routerLink]="['/stock', stock.shortenedName]" class ="cryptoSelect">
+                    <td>{{stock.name}}</td>
+                    <td class="text-uppercase">{{stock.shortenedName}}</td>
+                    <td>{{stock.currentPrice}}</td>
+                    <td [ngClass]="stock.priceChangePercentage > 0 ? 'cryptoGreen' : 'cryptoRed'">{{stock.priceChangePercentage > 0 ? '+' : ''}}{{stock.priceChange}}</td>
+                    <td [ngClass]="stock.priceChangePercentage > 0 ? 'cryptoGreen' : 'cryptoRed'">{{stock.priceChangePercentage > 0 ? '+' : ''}}{{service.convertDecimal(stock.priceChangePercentage)}}%</td>
                   </tr>
                 </tbody>
               </table>

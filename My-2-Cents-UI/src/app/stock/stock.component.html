@@ -8,10 +8,10 @@
                               <table class="table table-borderless cryptoTable">
                                   <tbody>
                                       <tr>
-                                          <td>{{stock.longName}}</td>
-                                          <td>{{stock.regularMarketPrice}}</td>
-                                          <td [ngClass]="stock.regularMarketChangePercent > 0 ? 'cryptoGreen' : 'cryptoRed'">{{stock.regularMarketChangePercent > 0 ? '+' : ''}}{{stock.regularMarketChange}}</td>
-                                          <td [ngClass]="stock.regularMarketChangePercent > 0 ? 'cryptoGreen' : 'cryptoRed'">{{stock.regularMarketChangePercent > 0 ? '+' : ''}}{{convertDecimal(stock.regularMarketChangePercent)}}%</td>
+                                          <td>{{stock.shortenedName}}</td>
+                                          <td>{{stock.currentPrice}}</td>
+                                          <td [ngClass]="stock.priceChangePercentage > 0 ? 'cryptoGreen' : 'cryptoRed'">{{stock.priceChangePercentage > 0 ? '+' : ''}}{{stock.priceChange}}</td>
+                                          <td [ngClass]="stock.priceChangePercentage > 0 ? 'cryptoGreen' : 'cryptoRed'">{{stock.priceChangePercentage > 0 ? '+' : ''}}{{convertDecimal(stock.priceChangePercentage)}}%</td>
                                       </tr>
                                   </tbody>
                               </table>

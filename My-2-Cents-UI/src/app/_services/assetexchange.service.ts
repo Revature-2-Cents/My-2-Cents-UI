@@ -13,7 +13,9 @@ import { Stock } from '../_models/stock.model';
 export class AssetExchangeService {
 
   private readonly apiUrl = environment.apiUrl;
-  constructor(private http:HttpClient) { }
+
+  constructor(private http:HttpClient) {
+  }
 
   convertDecimal(num:number) {
     return Math.round(num * 100) / 100;
@@ -21,29 +23,27 @@ export class AssetExchangeService {
 
   loadCrypto(): Observable<MarketCoin[]>
   {
-    return this.http.get<MarketCoin[]>('https://localhost:7106/api/InvestmentPlatform/GetCrypto');
+    return this.http.get<MarketCoin[]>(this.apiUrl + "InvestmentPlatform/GetCrypto");
   }
 
   loadStock(): Observable<Stock[]>
   {
-    return this.http.get<Stock[]>('https://yfapi.net/v6/finance/quote?region=US&lang=en&symbols=DIA%2CSPY%2CQQQ%2CIWM');
+    return this.http.get<Stock[]>(this.apiUrl + "InvestmentPlatform/GetStocks");
   }
 
   loadDailyChart(cryptoName:string|null) : Observable<GraphCoin>
   {
     let cryptoNameString:string = <string>cryptoName;
     cryptoNameString = cryptoNameString.toLowerCase();
-    return this.http.get<GraphCoin>("https://api.coingecko.com/api/v3/coins/${cryptoNameString}/market_chart?vs_currency=usd&days=365&interval=daily`");
-  }
-
-  getStockByName(stockName:string|null) : Observable<Stock>
-  {
-    return this.http.get<Stock>("https://yfapi.net/v6/finance/quote?region=US&lang=en&symbols=${stockName}");
+    return this.http.get<GraphCoin>("https://api.coingecko.com/api/v3/coins/"+cryptoNameString+"/market_chart?vs_currency=usd&days=365&interval=daily");
   }
 
   loadDailyStockChart(stockName:string|null) : Observable<GraphStock>
   {
-    return this.http.get<GraphStock>("https://yfapi.net/v8/finance/chart/"+stockName+"?range=1y&region=US&interval=1d&lang=en");
+    const header = {
+      'x-api-key': 'm8QWRJUyDw7auYEcpsDWw9ybkKbTYvaKCumN7pA3'
+    }
+    return this.http.get<GraphStock>("https://yfapi.net/v8/finance/chart/"+stockName+"?range=1y&region=US&interval=1d&lang=en", { headers: header });
   }
 
   buyCryptoInFiat(userID:number, amount:number, coin:MarketCoin)
@@ -72,26 +72,26 @@ export class AssetExchangeService {
 
   buyStockInFiat(userID:number, amount:number, stock:Stock)
   {
-    var stockID = stock.id;
-    return this.http.post<MarketCoin>(this.apiUrl + "InvestmentPlatform/PlaceOrderStockFiat?p_userID="+userID+"&p_stockID="+stockID+"&amount="+amount, stock);
+    var stockID = stock.stockId;
+    return this.http.post<Stock>(this.apiUrl + "InvestmentPlatform/PlaceOrderStockFiat?p_userID="+userID+"&p_stockID="+stockID+"&amount="+amount, stock);
   }
 
   buyStock(userID:number, amount:number, stock:Stock)
   {
-    var stockID = coin.cryptoId;
-    return this.http.post<MarketCoin>(this.apiUrl + "InvestmentPlatform/PlaceOrderStock?p_userID="+userID+"&_stockID="+stockID+"&amount="+amount, stock);
+    var stockID = stock.stockId;
+    return this.http.post<Stock>(this.apiUrl + "InvestmentPlatform/PlaceOrderStock?p_userID="+userID+"&_stockID="+stockID+"&amount="+amount, stock);
   }
 
   sellStockInFiat(userID:number, amount:number, stock:Stock)
   {
-    var stockID = stock.id;
-    return this.http.post<MarketCoin>(this.apiUrl + "InvestmentPlatform/SellStockFiat?p_userID="+userID+"&p_stockID="+stockID+"&amount="+amount, stock);
+    var stockID = stock.stockId;
+    return this.http.post<Stock>(this.apiUrl + "InvestmentPlatform/SellStockFiat?p_userID="+userID+"&p_stockID="+stockID+"&amount="+amount, stock);
   }
 
   sellStock(userID:number, amount:number, stock:Stock)
   {
-    var stockID = stock.id;
-    return this.http.post<MarketCoin>(this.apiUrl + "InvestmentPlatform/SellStock?p_userID="+userID+"&p_stockID="+stockID+"&amount="+amount, stock);
+    var stockID = stock.stockId;
+    return this.http.post<Stock>(this.apiUrl + "InvestmentPlatform/SellStock?p_userID="+userID+"&p_stockID="+stockID+"&amount="+amount, stock);
   }
 
 }

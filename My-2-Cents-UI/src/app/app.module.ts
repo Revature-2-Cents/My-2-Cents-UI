@@ -53,7 +53,7 @@ import { NgChartsModule } from 'ng2-charts';
     NgChartsModule,
     RouterModule.forRoot([
       {path: "crypto/:cryptoname", component: CryptoComponent},
-      {path: "stock/:stockname", component: StockComponent}
+      {path: "stock/:shortenedName", component: StockComponent}
     ])
   ],
   providers: [

@@ -6,4 +6,5 @@ export interface MarketCoin {
     currentPrice: number;
     priceChange: number;
     priceChangePercentage: number;
+    cryptoNameId: string;
 }

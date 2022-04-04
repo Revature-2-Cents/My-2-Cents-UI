@@ -43,23 +43,13 @@ export class StockComponent implements OnInit {
 
   constructor(private router:ActivatedRoute, public service:AssetExchangeService) {
     this.stock = {
-      symbol: '',
-      marketCap: 0,
-      longName: '',
+      stockId: 0,
+      currentPrice: 0,
+      priceChange: 0,
+      priceChangePercentage: 0,
       name: '',
-      regularMarketPrice: 0,
-      regularMarketChange: 0,
-      regularMarketChangePercent: 0,
-      regularMarketDayHigh: 0,
-      regularMarketDayLow: 0,
-      regularMarketVolume: 0,
-      fiftyTwoWeekLowChange: 0,
-      fiftyTwoWeekLowChangePercent: 0,
-      fiftyTwoWeekRange: 0,
-      fiftyTwoWeekHighChange: 0,
-      fiftyTwoWeekHighChangePercent: 0,
-      fiftyTwoWeekLow: 0,
-      fiftyTwoWeekHigh: 0
+      shortenedName: '',
+      lastUpdate: ''
     };
     this.lineChartData = {
       datasets: [
@@ -80,13 +70,17 @@ export class StockComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.stockName = this.router.snapshot.paramMap.get("stockname");
+    this.stockName = this.router.snapshot.paramMap.get("shortenedName");
     let headers = new HttpHeaders();
 
     this.service
-    .getStockByName(this.stockName)
+    .loadStock()
     .subscribe((res) => {
-      this.stock = res["quoteResponse"].result[0];
+      res.forEach(r => {
+        if (r.shortenedName = this.stockName) {
+          this.stock = r;
+        }
+      });
     },
     (err) => console.log(err));
 
