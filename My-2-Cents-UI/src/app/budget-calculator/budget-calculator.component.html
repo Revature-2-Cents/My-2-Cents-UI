@@ -42,12 +42,12 @@
 <div class="container-2" *ngIf="useChart">
     <div class="box-3">
         <div class="chart">
-            <app-budget-chart [userIncome]="userIncome" [userExpenses]="userExpenses" [buttonCheck] = "buttonCheck"></app-budget-chart>      
+            <app-budget-chart [userIncome]="userIncome" [userExpenses]="userExpenses" [buttonCheck] = "buttonCheck" (buttonReturn) = "returnButtonEventListener($event)"></app-budget-chart>      
         </div>
     </div>  
     <div class="box-4">
         <div class="budgetinfo">
-            <app-budget-info [userIncome]="userIncome" [userExpenses]="userExpenses" style="height: 100%; display: block;"></app-budget-info>
+            <app-budget-info [userIncome]="userIncome" [userExpenses]="userExpenses" [buttonCheck2] = "buttonCheck2" style="height: 100%; display: block;"></app-budget-info>
         </div>
     </div>
 </div>

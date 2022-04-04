@@ -1,16 +1,18 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-budget-info',
   templateUrl: './budget-info.component.html',
   styleUrls: ['./budget-info.component.css']
 })
-export class BudgetInfoComponent implements OnInit {
+export class BudgetInfoComponent implements OnInit, OnChanges, AfterViewInit {
 
   @Input()
   userIncome: number = 0;
   @Input()
   userExpenses: number = 0;
+  @Input()
+  buttonCheck2: boolean = false;
 
 
   displayBudgetInfo = true; //this property will be used to display the correct user budget information like income,expenses,wants,and savings in conjunction with *ngIf 
@@ -88,9 +90,31 @@ export class BudgetInfoComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
     this.createPercentage();
     this.createGoals();
+    }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (this.buttonCheck2)
+    {
+      console.log("b-info:buttonCheck returned true");
+      this.createPercentage();
+      console.log("this is the new expenses: " + this.expenses);
+      this.createGoals();
+      this.buttonCheck2 = false;
+      // this.buttonReturn.emit(false);
+      
+    }
+    else
+    {
+      console.log("b-info:buttonCheck returned false");
+    }
+  }
+
+  ngOnInit(): void {
+    // this.createPercentage();
+    // this.createGoals();
   }
 
 }
