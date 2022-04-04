@@ -10,7 +10,19 @@ describe('InvestmentPortfolioService', () => {
   let service: InvestmentPortfolioService;
   let httpMock: HttpTestingController;
 
-  let dummyCrypto:CryptoAsset[] = [
+  let dummyStock: StockAsset[] = [
+    {
+      name: "Amazon",
+      initialInvestmentDate: "12/11/2021",
+      currentInvestment: 1000,
+      ownedShares: 12,
+      sharePrice: 120,
+      returns: 10,
+      stockPrice: 1700
+    }
+  ];
+
+  let dummyCrypto: CryptoAsset[] = [
     {
       name: "Bitcoin",
       initialInvestmentDate: "03/31/2022",
@@ -22,7 +34,7 @@ describe('InvestmentPortfolioService', () => {
     }
   ];
 
-  let dummyCrptoOrder:CryptoOrder[] =[
+  let dummyCrptoOrder: CryptoOrder[] = [
     {
       name: "Dogecoin",
       currentInvestment: 100,
@@ -47,6 +59,16 @@ describe('InvestmentPortfolioService', () => {
 
   it('should be created', () => {
     expect(service).toBeTruthy();
+  });
+
+  it('should get stock assets', () => {
+    service.getAllStockAssetByUser(1).subscribe((response) => {
+      expect(response[0].name.toBe(dummyStock[0].name));
+    });
+
+    const httpReq = httpMock.expectOne("https://localhost:7106/api/StockPortfolio/StockOrders/AssetsPortfolio/1");
+    expect(httpReq.request.method).toBe("GET");
+    httpReq.flush(dummyStock);
   });
 
   it('should get crypto assets', () => {
