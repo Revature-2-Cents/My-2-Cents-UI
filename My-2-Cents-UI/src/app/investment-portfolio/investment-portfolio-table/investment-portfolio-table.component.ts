@@ -17,7 +17,7 @@ export class InvestmentPortfolioTableComponent implements OnInit {
   listOfStockAssets: StockAsset[];
   listOfCryptoAssets: CryptoAsset[];
   totalInvestment: TotalInvestment;
-  userId: number;
+  //userId: number;
 
 
   constructor(
@@ -25,13 +25,16 @@ export class InvestmentPortfolioTableComponent implements OnInit {
     private investmentPortfolioServce: InvestmentPortfolioService,
     private http: HttpClient,
     private router: Router) {
-    this.accountService.currentUser.pipe(take(1)).subscribe((data) => this.user = data)
+    this.accountService.currentUser.pipe(take(1)).subscribe((data) => this.user = data);
+    this.investmentPortfolioServce.getTotalInvestmentByUser(this.user.userId).subscribe(result => {
+      this.totalInvestment = result;
+      console.log(result);
+    });
   }
 
   ngOnInit(): void {
     this.getAllStockAssetsByUser(this.user.userId);
     this.getAllCryptoAssetsByUser(this.user.userId);
-    this.getTotalInvestmentByUser(this.user.userId);
   }
   //jasmine
   getAllStockAssetsByUser(userId) {
@@ -44,14 +47,6 @@ export class InvestmentPortfolioTableComponent implements OnInit {
   getAllCryptoAssetsByUser(userId) {
     this.investmentPortfolioServce.getAllCryptoAssetByUser(userId).subscribe(result => {
       this.listOfCryptoAssets = result;
-      console.log(result);
-    });
-  }
-
-  
-  getTotalInvestmentByUser(userId) {
-    this.investmentPortfolioServce.getTotalInvestmentByUser(userId).subscribe(result => {
-      this.totalInvestment = result;
       console.log(result);
     });
   }
