@@ -11,14 +11,22 @@
                 <label class="form-label" style="font-size: 150%;">Income</label>
                 <div>
                     <input type="number" class="form-control" [(ngModel)]="userIncome" formControlName="income">
+                    <div *ngIf="(UserIncome?.touched || UserIncome?.dirty) && UserIncome?.errors">
+                        <span *ngIf="UserIncome?.errors?.['required']" style="color:red">Required(Numbers only)</span>
+                    </div>
+                     <span *ngIf="UserIncome.touched && UserIncome.errors?.['pattern']" style="color:red">Numbers Only Please</span>
                 </div>
             </div>
             <div>
                 <label id="label" class="form-label" style="font-size: 150%;">Expenses</label>
                 <div>
                     <input type="number" class="form-control" [(ngModel)]="userExpenses" formControlName="expenses">
+                    <div *ngIf="(UserExpense?.touched || UserExpense?.dirty) && UserExpense.errors">
+                        <span *ngIf="UserExpense.errors?.['required']" style="color:red">Required(Numbers Only)</span>
+                    </div>
                 </div>
             </div>
+            
             <div style="padding-top: 1rem;">
                 <button type="submit" class="btn btn-primary" (click)="onClick(budgetFormGroup)">SUBMIT</button>
             </div>
