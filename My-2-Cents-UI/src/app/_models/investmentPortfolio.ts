@@ -35,3 +35,8 @@ export interface CryptoAsset {
   returns: number;
   cryptoPrice: number
 }
+
+export interface TotalInvestment {
+  userInvestmentSum: number;
+}
+
