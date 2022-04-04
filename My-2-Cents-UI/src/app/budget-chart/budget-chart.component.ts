@@ -1,60 +1,63 @@
-import { Component, DoCheck, Input, OnInit } from '@angular/core';
-import { Chart, ChartType } from 'chart.js';
+import { AfterViewInit, Component, DoCheck, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Chart, ChartType, Point } from 'chart.js';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-budget-chart',
   templateUrl: './budget-chart.component.html',
   styleUrls: ['./budget-chart.component.css']
 })
-export class BudgetChartComponent implements OnInit, DoCheck {
+export class BudgetChartComponent implements AfterViewInit, OnChanges {
 
   want: number = 0;
   save: number = 0;
-
-  @Input()
-  userIncome: number;
-  @Input()
-  userExpenses: number;
-  @Input()
-  buttonCheck : boolean;
-  // @Input()
-  // useChart: boolean;
   need: number = 0;
+  updateChart: boolean;
 
+  @Input()
+  userIncome: number = 0;
+
+  @Input()
+  userExpenses: number = 0;
+
+  @Input()
+  buttonCheck : boolean = true;
+
+  @Output()
+  buttonReturn = new EventEmitter<boolean>();
+
+  private myChart: Chart;
   
 
   
 
-  constructor() { }
+  constructor() {   }
 
-  ngDoCheck(): void {
+  ngOnChanges(changes: SimpleChanges): void {
     if (this.buttonCheck)
     {
       console.log("buttonCheck returned true")
-      this.buttonCheck = false;
       this.calculate();
-      
-      // this.createChart();
+      console.log(this.myChart.data.datasets[0].data);
+      this.myChart.data.datasets[0].data = [this.need, this.want, this.save];
+      console.log(this.myChart.data.datasets[0].data);
+      this.myChart.update();
+      console.log(this.myChart.data.datasets[0].data);
+      this.buttonCheck = false;
+      this.buttonReturn.emit(false);
       
     }
     else
     {
-      console.log("buttonCheck returned false")
+      console.log("buttonCheck returned false");
     }
-    }
+  }
 
-  
-
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
     this.calculate();
     this.createChart();
   }
 
-
-  update()
-  {
-    
-  }
 
   calculate()
   {
@@ -82,19 +85,13 @@ export class BudgetChartComponent implements OnInit, DoCheck {
       this.want = 0;
       this.save = 0;
     }
-    console.log(this.need, this.want, this.save)
+    // console.log(this.need, this.want, this.save)
   }
 
   createChart()
   {
-    // if (this.buttonCheck)
-    // {
-    //   console.log("I got this far")
-    //   myChart.destroy();
-      
-    // }
     const ctx = document.getElementById('myChart');
-    const myChart = new Chart("myChart", {
+    this.myChart = new Chart("myChart", {
       type: 'doughnut',
       data: {
         labels: ['Expenses', 'Wants', 'Save'],
@@ -129,6 +126,7 @@ export class BudgetChartComponent implements OnInit, DoCheck {
         maintainAspectRatio: true,
         },
     });
+
   }
 
 }
