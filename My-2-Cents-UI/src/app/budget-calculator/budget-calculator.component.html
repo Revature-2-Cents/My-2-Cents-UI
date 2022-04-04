@@ -47,7 +47,7 @@
     </div>  
     <div class="box-4">
         <div class="budgetinfo">
-            <app-budget-info [userIncome]="userIncome" [userExpenses]="userExpenses" [buttonCheck2] = "buttonCheck2" style="height: 100%; display: block;"></app-budget-info>
+            <app-budget-info [userIncome]="userIncome" [userExpenses]="userExpenses" [buttonCheck2] = "buttonCheck2" (buttonReturn2) = "returnButton2EventListener($event)" style="height: 100%; display: block;"></app-budget-info>
         </div>
     </div>
 </div>

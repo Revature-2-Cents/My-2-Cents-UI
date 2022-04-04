@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { AfterViewInit, Component, Input, OnChanges, OnInit, Output, SimpleChanges, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-budget-info',
@@ -13,6 +13,9 @@ export class BudgetInfoComponent implements OnInit, OnChanges, AfterViewInit {
   userExpenses: number = 0;
   @Input()
   buttonCheck2: boolean = false;
+
+  @Output()
+  buttonReturn2 = new EventEmitter<boolean>();
 
 
   displayBudgetInfo = true; //this property will be used to display the correct user budget information like income,expenses,wants,and savings in conjunction with *ngIf 
@@ -103,7 +106,7 @@ export class BudgetInfoComponent implements OnInit, OnChanges, AfterViewInit {
       console.log("this is the new expenses: " + this.expenses);
       this.createGoals();
       this.buttonCheck2 = false;
-      // this.buttonReturn.emit(false);
+      this.buttonReturn2.emit(false);
       
     }
     else
