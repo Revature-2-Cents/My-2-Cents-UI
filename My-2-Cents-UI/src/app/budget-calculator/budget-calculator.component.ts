@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators, ReactiveFormsModule, FormsModule } 
 import { delay } from 'rxjs';
 import { BudgetChartComponent } from '../budget-chart/budget-chart.component';
 import { BudgetInfoComponent } from '../budget-info/budget-info.component';
+import { IncomesService } from '../_services/incomes.service';
 // import { Chart } from 'node_modules/chart.js';
 @Component({
   selector: 'app-budget-calculator',
@@ -10,18 +11,23 @@ import { BudgetInfoComponent } from '../budget-info/budget-info.component';
   styleUrls: ['./budget-calculator.component.css']
 })
 export class BudgetCalculatorComponent implements OnInit {
-
   budgetFormGroup = new FormGroup({
-    income: new FormControl([Validators.required]),
-    expenses: new FormControl(),
+    income: new FormControl(0, [Validators.required]),
+    expenses: new FormControl(0,[Validators.required]),
     wants: new FormControl(),
     savings: new FormControl(),
   })
   
-  get income()
+  get UserIncome()
   {
     return this.budgetFormGroup.get("income");
   }
+
+  get UserExpense()
+  {
+    return this.budgetFormGroup.get("expenses");
+  }
+
   userIncome: number ;
   userExpenses: number ;
   userWants: number;
