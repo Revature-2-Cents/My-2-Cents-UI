@@ -4,7 +4,7 @@ import { InvestmentPortfolioService } from './investment-portfolio.service';
 
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
-import { CryptoAsset, CryptoOrder, StockAsset } from 'src/app/_models/investmentPortfolio';
+import { CryptoAsset, CryptoOrder, StockAsset, StockOrder } from 'src/app/_models/investmentPortfolio';
 
 describe('InvestmentPortfolioService', () => {
   let service: InvestmentPortfolioService;
@@ -31,6 +31,16 @@ describe('InvestmentPortfolioService', () => {
       transactionType: "Buy"
     }
   ]
+
+  let dummyStockOrderHistory:StockOrder[] = [
+    {
+      name: "Nintendo",
+      currentInvestment: 1,
+      initialInvestmentDate: "01/1/1111",
+      ownedShares: 1,
+      transactionType: "buy"
+    }
+  ];
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -68,4 +78,16 @@ describe('InvestmentPortfolioService', () => {
     expect(httpReq.request.method).toBe("GET");
     httpReq.flush(dummyCrptoOrder);
   });
+
+  it('should get user stock order history', () => {
+    service.getAllStockOrderHistoryByUser(1).subscribe((response) => {
+      expect(response[0].name.toBe(dummyStockOrderHistory[0].name));
+    });
+
+    const httpReq = httpMock.expectOne("https://localhost:7106/api/StockPortfolio/StockOrders/OrderPortfolio/1");
+    expect(httpReq.request.method).toBe("GET");
+    httpReq.flush(dummyStockOrderHistory);
+  });
+
 });
+
