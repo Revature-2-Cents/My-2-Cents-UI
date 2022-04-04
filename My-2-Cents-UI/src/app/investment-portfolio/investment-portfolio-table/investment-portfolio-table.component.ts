@@ -13,18 +13,22 @@ import { InvestmentPortfolioService } from 'src/app/_services/investment-portfol
   styleUrls: ['./investment-portfolio-table.component.css']
 })
 export class InvestmentPortfolioTableComponent implements OnInit {
-  user: User;
+  user = <User>{};
   listOfStockAssets: StockAsset[];
   listOfCryptoAssets: CryptoAsset[];
+<<<<<<< HEAD
   totalInvestment: TotalInvestment;
   userId: number;
+=======
+  //userId: number | undefined;
+>>>>>>> d300b59f9f76f87b8ce59cd70ccf5114f8577006
 
-  constructor(private route: ActivatedRoute,
+  constructor(
     private accountService: AccountService,
     private investmentPortfolioServce: InvestmentPortfolioService,
     private http: HttpClient,
     private router: Router) {
-    this.accountService.currentUser.pipe(take(1)).subscribe(user => this.user = user)
+    this.accountService.currentUser.pipe(take(1)).subscribe((data) => this.user = data)
   }
 
   ngOnInit(): void {
@@ -46,6 +50,7 @@ export class InvestmentPortfolioTableComponent implements OnInit {
       console.log(result);
     });
   }
+<<<<<<< HEAD
   
   getTotalInvestmentByUser(userId) {
     this.investmentPortfolioServce.getTotalInvestmentByUser(userId).subscribe(result => {
@@ -56,4 +61,6 @@ export class InvestmentPortfolioTableComponent implements OnInit {
 
 
 
+=======
+>>>>>>> d300b59f9f76f87b8ce59cd70ccf5114f8577006
 }
