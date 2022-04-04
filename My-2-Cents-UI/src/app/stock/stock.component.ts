@@ -43,23 +43,31 @@ export class StockComponent implements OnInit {
 
   constructor(private router:ActivatedRoute, public service:AssetExchangeService) {
     this.stock = {
-      symbol: '',
-      marketCap: 0,
-      longName: '',
-      name: '',
-      regularMarketPrice: 0,
-      regularMarketChange: 0,
-      regularMarketChangePercent: 0,
-      regularMarketDayHigh: 0,
-      regularMarketDayLow: 0,
-      regularMarketVolume: 0,
-      fiftyTwoWeekLowChange: 0,
-      fiftyTwoWeekLowChangePercent: 0,
-      fiftyTwoWeekRange: 0,
-      fiftyTwoWeekHighChange: 0,
-      fiftyTwoWeekHighChangePercent: 0,
-      fiftyTwoWeekLow: 0,
-      fiftyTwoWeekHigh: 0
+      // symbol: '',
+      // marketCap: 0,
+      // longName: '',
+      // name: '',
+      // regularMarketPrice: 0,
+      // regularMarketChange: 0,
+      // regularMarketChangePercent: 0,
+      // regularMarketDayHigh: 0,
+      // regularMarketDayLow: 0,
+      // regularMarketVolume: 0,
+      // fiftyTwoWeekLowChange: 0,
+      // fiftyTwoWeekLowChangePercent: 0,
+      // fiftyTwoWeekRange: 0,
+      // fiftyTwoWeekHighChange: 0,
+      // fiftyTwoWeekHighChangePercent: 0,
+      // fiftyTwoWeekLow: 0,
+      // fiftyTwoWeekHigh: 0
+      
+    //  StockID :1,
+    //  CurrentPrice:352.00000000,
+    //  Name:"Microsoft",
+    //  ShortName:"MSFT",
+    //  PriceChange:0.00000000,
+    //  PriceChangePercentage:0
+   
     };
     this.lineChartData = {
       datasets: [

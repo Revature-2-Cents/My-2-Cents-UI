@@ -8,7 +8,7 @@
                               <table class="table table-borderless cryptoTable">
                                   <tbody>
                                       <tr>
-                                          <td>{{stock.longName}}</td>
+                                          <td >{{stock.longName}}</td>
                                           <td>{{stock.regularMarketPrice}}</td>
                                           <td [ngClass]="stock.regularMarketChangePercent > 0 ? 'cryptoGreen' : 'cryptoRed'">{{stock.regularMarketChangePercent > 0 ? '+' : ''}}{{stock.regularMarketChange}}</td>
                                           <td [ngClass]="stock.regularMarketChangePercent > 0 ? 'cryptoGreen' : 'cryptoRed'">{{stock.regularMarketChangePercent > 0 ? '+' : ''}}{{convertDecimal(stock.regularMarketChangePercent)}}%</td>
