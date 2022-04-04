@@ -8,11 +8,11 @@
                               <table class="table table-borderless cryptoTable">
                                   <tbody>
                                       <tr>
-                                          <td><img [src]="coin.imageURL" class="cryptologo"/></td>
-                                          <td>{{coin.name}}</td>
-                                          <td>{{coin.currentPrice}}</td>
-                                          <td [ngClass]="coin.priceChangePercentage > 0 ? 'cryptoGreen' : 'cryptoRed'">{{coin.priceChange > 0 ? '+' : ''}}{{coin.priceChange}}</td>
-                                          <td [ngClass]="coin.priceChangePercentage > 0 ? 'cryptoGreen' : 'cryptoRed'">{{coin.priceChangePercentage > 0 ? '+' : ''}}{{service.convertDecimal(coin.priceChangePercentage)}}%</td>
+                                          <td><img *ngIf = "coin" [src]="coin.imageURL" class="cryptologo"/></td>
+                                          <td *ngIf = "coin">{{coin.name}}</td>
+                                          <td *ngIf = "coin">{{coin.currentPrice}}</td>
+                                          <td *ngIf = "coin" [ngClass]="coin.priceChangePercentage > 0 ? 'cryptoGreen' : 'cryptoRed'">{{coin.priceChange > 0 ? '+' : ''}}{{coin.priceChange}}</td>
+                                          <td *ngIf = "coin" [ngClass]="coin.priceChangePercentage > 0 ? 'cryptoGreen' : 'cryptoRed'">{{coin.priceChangePercentage > 0 ? '+' : ''}}{{service.convertDecimal(coin.priceChangePercentage)}}%</td>
                                       </tr>
                                   </tbody>
                               </table>

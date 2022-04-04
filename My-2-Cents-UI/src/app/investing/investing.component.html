@@ -48,7 +48,7 @@
       </div>
     </div>
   </div>
-   <!--cryptocurrency market section end -->
+  <!--cryptocurrency market section end -->
 
    <!--stock market section start -->
 <div *ngIf="showList" class="container h-100" style="padding-top: 5%; padding-bottom: 5%">
@@ -58,9 +58,8 @@
           <div class="card-body p-md-5">
             <div class="row justify-content-center">
               <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">US Stock Market</p>
-              <input type="text" class="form-control border-1 my-4 text-center rounded-0"
-              (keyup)="searchStock()"
-              [(ngModel)]="searchStockText"/>
+              <input type="text" class="form-control border-1 my-4 text-center rounded-0" (keyup)="searchStock()"
+                [(ngModel)]="searchStockText" />
               <table class="table" *ngIf="isSearching">
                 <thead class="thead-dark">
                   <tr>
@@ -69,7 +68,7 @@
                   </tr>
                 </thead>
                 <tbody id="crypto">
-                  <tr *ngFor="let stock of filteredStocks" class ="cryptoSelect">
+                  <tr *ngFor="let stock of filteredStocks" class="cryptoSelect">
                     <td>{{stock.name}}</td>
                     <td class="text-uppercase">{{stock.shortenedName}}</td>
                   </tr>
@@ -90,14 +89,17 @@
                     <td>{{stock.name}}</td>
                     <td class="text-uppercase">{{stock.shortenedName}}</td>
                     <td>{{stock.currentPrice}}</td>
-                    <td [ngClass]="stock.priceChangePercentage > 0 ? 'cryptoGreen' : 'cryptoRed'">{{stock.priceChangePercentage > 0 ? '+' : ''}}{{stock.priceChange}}</td>
-                    <td [ngClass]="stock.priceChangePercentage > 0 ? 'cryptoGreen' : 'cryptoRed'">{{stock.priceChangePercentage > 0 ? '+' : ''}}{{service.convertDecimal(stock.priceChangePercentage)}}%</td>
+                    <td [ngClass]="stock.priceChangePercentage > 0 ? 'cryptoGreen' : 'cryptoRed'">
+                      {{stock.priceChangePercentage > 0 ? '+' : ''}}{{stock.priceChange}}</td>
+                    <td [ngClass]="stock.priceChangePercentage > 0 ? 'cryptoGreen' : 'cryptoRed'">
+                      {{stock.priceChangePercentage > 0 ? '+' :
+                      ''}}{{service.convertDecimal(stock.priceChangePercentage)}}%</td>
                   </tr>
                 </tbody>
               </table>
             </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-   <!--stock market section end -->
+    <!--stock market section end -->

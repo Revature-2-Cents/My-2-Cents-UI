@@ -67,7 +67,7 @@ export class CryptoComponent implements OnInit {
       currentPrice: 0,
       priceChange: 0,
       priceChangePercentage: 0,
-      cryptoNameId: ''
+      cryptoNameId:''
     };
     this.graph = {
       prices: []
@@ -100,12 +100,12 @@ export class CryptoComponent implements OnInit {
 
     this.cryptoName = this.Crypto.cryptoNameId;
     this.service.loadCrypto().subscribe((res) => {
-      var temp = res.find(d => d.cryptoNameId == this.cryptoName);
+      var temp = res.find(d => d.name == this.cryptoName);
       this.coin = temp;
     },
     (err) => console.log(err));
 
-    this.service.loadDailyChart(this.cryptoName).subscribe((res) => {
+    /*this.service.loadDailyChart(this.cryptoName).subscribe((res) => {
       this.graph = res;
 
       var time = this.graph.prices.map(x => x[0]);
@@ -132,7 +132,7 @@ export class CryptoComponent implements OnInit {
         labels: date
       };
     },
-    (err) => console.log(err));
+    (err) => console.log(err));*/
 
     this.updateCash();
 
