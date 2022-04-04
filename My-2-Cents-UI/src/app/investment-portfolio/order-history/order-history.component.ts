@@ -37,8 +37,8 @@ export class OrderHistoryComponent implements OnInit {
       this.listOfCryptoOrders = result;
       console.log(result);
     });
-
   }
+  
   //hyunsoo
   getAllStockOrderHistoryByUser(userId) {
     this.investmentPortfolioServce.getAllStockOrderHistoryByUser(userId).subscribe(result => {
