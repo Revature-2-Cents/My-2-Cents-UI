@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { AssetExchangeService } from '../_services/assetexchange.service';
 
 import { StockComponent } from './stock.component';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { HttpClientTestingModule} from '@angular/common/http/testing';
 
 describe('StockComponent', () => {
   let component: StockComponent;
@@ -28,6 +28,7 @@ describe('StockComponent', () => {
    class StockMockService{
     loadStock(){return new Observable((observable) =>{observable.next(dummyStockDatabase)})};
     getStockByName(stockName:string|null){};
+    loadDailyStockChart(stockName:string|null){return new Observable((observable) =>{observable.next(dummyStockDatabase)})};
    }
   beforeEach(async () => {
     await TestBed.configureTestingModule({

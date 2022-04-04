@@ -19,7 +19,6 @@ export class InvestingComponent implements OnInit {
   searchStocks: Stock[] = [];
   filteredStocks: Stock[] = [];
   stocks: Stock[] = [];
-  tradableCoins: MarketCoin[] = [];
   coins: MarketCoin[] = [];
   filteredCoins: MarketCoin[] = [];
   searchCryptoText = '';
@@ -31,7 +30,7 @@ export class InvestingComponent implements OnInit {
   @Input() User = <User>{};
 
   constructor(public service:AssetExchangeService) {
-    this.tradableSymbols = ["btc", "eth", "bnb", "xrp", "doge", "shib", "usdt", "usdc", "ada", "ltc", "bch", "xlm", "xmr"];
+    
   }
 
   convertDecimal(num:number) {
@@ -39,7 +38,7 @@ export class InvestingComponent implements OnInit {
   }
 
   searchCoin() {
-    this.filteredCoins = this.tradableCoins.filter(
+    this.filteredCoins = this.coins.filter(
       (coin) => coin.name.toLowerCase().includes(this.searchCryptoText.toLowerCase()) ||
                 coin.shortenedName.toLowerCase().includes(this.searchCryptoText.toLowerCase())
     );
@@ -69,7 +68,7 @@ export class InvestingComponent implements OnInit {
 
         this.filteredStocks = this.searchStocks.filter(
           (stock) => stock.name.toLowerCase().includes(this.searchStockText.toLowerCase()) ||
-                    stock.symbol.toLowerCase().includes(this.searchStockText.toLowerCase())
+                    stock.shortenedName.toLowerCase().includes(this.searchStockText.toLowerCase())
         );
     }
   }
@@ -81,7 +80,8 @@ export class InvestingComponent implements OnInit {
     this.service
     .loadStock()
     .subscribe((res) => {
-      this.stocks = res["quoteResponse"].result;
+      console.log(res);
+      this.stocks = res;
     },
     (err) => console.log(err));
   }
@@ -91,13 +91,7 @@ export class InvestingComponent implements OnInit {
       .loadCrypto()
       .subscribe((res) => {
       this.coins = res;
-      this.tradableCoins = [];
-      for(var coin in this.coins) {
-        if(this.tradableSymbols.find(u=> u == this.coins[coin].shortenedName)) {
-          this.tradableCoins.push(this.coins[coin]);
-        }
-      }
-      this.filteredCoins = this.tradableCoins;
+      this.filteredCoins = this.coins;
       },
       (err) => console.log(err));
 
