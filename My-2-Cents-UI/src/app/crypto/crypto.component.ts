@@ -136,7 +136,6 @@ export class CryptoComponent implements OnInit {
     (err) => console.log(err));
 
     this.updateCash();
-
     this.purchasing = this.formBuilder.group(
       {
         amount: [
