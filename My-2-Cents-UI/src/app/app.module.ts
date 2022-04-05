@@ -43,7 +43,6 @@ import { BudgetInfoComponent } from './budget-info/budget-info.component';
     HttpClientModule,
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule,
     AppRoutingModule,
     ReactiveFormsModule,
     NgChartsModule

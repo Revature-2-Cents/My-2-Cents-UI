@@ -1,11 +1,6 @@
-import { ThisReceiver } from '@angular/compiler';
-import { Component, Input, OnInit, NgModule } from '@angular/core';
-import { FormControl, FormGroup, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { delay } from 'rxjs';
-import { BudgetChartComponent } from '../budget-chart/budget-chart.component';
-import { BudgetInfoComponent } from '../budget-info/budget-info.component';
-import { IncomesService } from '../_services/incomes.service';
-// import { Chart } from 'node_modules/chart.js';
+import { Component, OnInit} from '@angular/core';
+import { FormControl, FormGroup, Validators} from '@angular/forms';
+
 @Component({
   selector: 'app-budget-calculator',
   templateUrl: './budget-calculator.component.html',
@@ -37,7 +32,6 @@ export class BudgetCalculatorComponent implements OnInit {
   buttonCheck: boolean = false;
   buttonCheck2: boolean = false;
 
-
   constructor() {  }
 
   ngOnInit(): void {
@@ -45,11 +39,8 @@ export class BudgetCalculatorComponent implements OnInit {
 
   onClick(budgetFormGroup: FormGroup) {
     this.userIncome = budgetFormGroup.get("income").value;
-    console.log(this.userIncome);
    
     this.userExpenses = budgetFormGroup.get("expenses").value;
-    console.log(this.userExpenses);
-    console.log("Button check is = " + this.buttonCheck);
     if (!this.useChart)
     {
       this.useChart = !this.useChart;      
@@ -59,7 +50,6 @@ export class BudgetCalculatorComponent implements OnInit {
       this.buttonCheck = true;
       this.buttonCheck2 = true;
     }
-    console.log("Button check is = " + this.buttonCheck);
   }
   
   returnButtonEventListener(buttonReturn: boolean)
@@ -71,13 +61,6 @@ export class BudgetCalculatorComponent implements OnInit {
   {
     this.buttonCheck2 = buttonReturn2;
   }
-
-
-
-
-
-
-
 }
 
 

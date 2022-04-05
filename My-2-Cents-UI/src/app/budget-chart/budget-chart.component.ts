@@ -1,6 +1,5 @@
-import { AfterViewInit, Component, DoCheck, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
-import { Chart, ChartType, Point } from 'chart.js';
-import { Observable, Subscription } from 'rxjs';
+import { AfterViewInit, Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
+import { Chart } from 'chart.js';
 
 @Component({
   selector: 'app-budget-chart',
@@ -36,20 +35,12 @@ export class BudgetChartComponent implements AfterViewInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if (this.buttonCheck)
     {
-      console.log("buttonCheck returned true")
       this.calculate();
-      console.log(this.myChart.data.datasets[0].data);
       this.myChart.data.datasets[0].data = [this.need, this.want, this.save];
-      console.log(this.myChart.data.datasets[0].data);
       this.myChart.update();
-      console.log(this.myChart.data.datasets[0].data);
       this.buttonCheck = false;
       this.buttonReturn.emit(false);
       
-    }
-    else
-    {
-      console.log("buttonCheck returned false");
     }
   }
 
@@ -85,7 +76,6 @@ export class BudgetChartComponent implements AfterViewInit, OnChanges {
       this.want = 0;
       this.save = 0;
     }
-    // console.log(this.need, this.want, this.save)
   }
 
   createChart()
@@ -126,7 +116,5 @@ export class BudgetChartComponent implements AfterViewInit, OnChanges {
         maintainAspectRatio: true,
         },
     });
-
   }
-
 }
