@@ -1,12 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { Account } from '../account';
-import { TransferService } from '../transfer.service';
+import { Account } from '../_models/account';
+import { TransferService } from '../_services/transfer.service';
 import { Location } from '@angular/common';
 
 import { TestBed, async } from '@angular/core/testing';
 
-import { My2CentsService } from '../my2-cents.service';
+import { My2CentsService } from '../_services/my2-cents.service';
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Component({

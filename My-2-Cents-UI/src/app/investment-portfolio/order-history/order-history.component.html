@@ -1,0 +1,51 @@
+<div class="orderHistory">
+    <h1>Order history</h1>
+    <div class="tableContainer">    
+        <div>
+            <h2>Stock</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Amount Invested</th>
+                        <th>Date</th>
+                        <th>Shares</th>
+                        <th>Transaction Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let order of listOfStockOrders">
+                        <td>{{order.name}}</td>
+                        <td>${{order.currentInvestment}}</td>
+                        <td>{{order.initialInvestmentDate}}</td>
+                        <td>{{order.ownedShares}}</td>
+                        <td>{{order.transactionType}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="cryptoTable">
+            <h2>Crypto</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Amount Invested</th>
+                        <th>Date</th>
+                        <th>Shares</th>
+                        <th>Transaction Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let order of listOfCryptoOrders">
+                        <td>{{order.name}}</td>
+                        <td>${{order.currentInvestment}}</td>
+                        <td>{{order.initialInvestmentDate}}</td>
+                        <td>{{order.ownedShares}}</td>
+                        <td>{{order.transactionType}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

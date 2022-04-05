@@ -1,9 +1,9 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, Inject, Injectable, Input, OnInit } from '@angular/core';
-import { AuthService } from '@auth0/auth0-angular';
 import { HttpClient } from '@angular/common/http';
-import { UserLoginInfo } from '../Login';
-import { My2CentsService } from '../my2-cents.service';
+import { My2CentsService } from '../_services/my2-cents.service';
+import { User } from '../_models/User';
+import { AccountService } from '../_services/account.service';
 
 @Injectable({
   providedIn: 'root',
@@ -20,13 +20,13 @@ export class UserProfileComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private my2centsService: My2CentsService,
-    public auth: AuthService,
+    public accountService: AccountService,
     @Inject(DOCUMENT) private doc: Document
   ) {}
 
   @Input() userId: number = -1;
 
-  @Input() UserLoginInfo = <UserLoginInfo>{};
+  @Input() User = <User>{};
   ngOnInit(): void {
     //console.log(this.userId);
     this.GetUserProfile();
@@ -37,13 +37,11 @@ export class UserProfileComponent implements OnInit {
   }
 
   GetUserProfile() {
-    if (this.auth.user$) {
-      this.my2centsService
-        .getUserInfo(this.UserLoginInfo.userID)
-        .subscribe((data) => {
-          this.data = data;
-          //console.log(this.data);
-        });
-    }
+    this.my2centsService
+      .getUserInfo(this.User.userId)
+      .subscribe((data) => {
+        this.data = data;
+        //console.log(this.data);
+      });
   }
 }

@@ -1,0 +1,92 @@
+<div>
+    <h2 >
+         Total Investment: ${{totalInvestment.userInvestmentSum}}
+    </h2>
+</div>
+<h1 id="heading">Assets</h1>
+<div class="tableContainer">
+    <div class="stockTable">
+            <h2>
+                Stocks
+            </h2>
+            <table class="child">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Investment Buy Date</th>
+                        <th>Amount Invested</th>
+                        <th>Shares Owned</th>
+                        <th>Price Per Share</th>
+                        <th>Gain/Loss</th>
+                        <th>Dollar Value</th>
+                    </tr>
+    
+                </thead>
+                <tbody>
+                    <tr *ngFor="let stockData of listOfStockAssets">
+                        <td>{{stockData.name}}</td>
+                        <td>
+                            {{stockData.initialInvestmentDate}}
+                        </td>
+                        <td>
+                            ${{stockData.currentInvestment}}
+                        </td>
+                        <td>
+                            {{stockData.ownedShares}}
+                        </td>
+                        <td>
+                            ${{stockData.sharePrice}}
+                        </td>
+                        <td>
+                           {{stockData.returns}}%
+                        </td>
+                        <td>
+                            ${{stockData.stockPrice}}
+                        </td>
+                </tbody>
+            </table>
+        </div>
+        <div class="stockTable">
+            <h2>
+                Crypto
+            </h2>
+            <table class="child">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Investment Buy Date</th>
+                        <th>Amount Invested</th>
+                        <th>Shares Owned</th>
+                        <th>Price Per Share</th>
+                        <th>Gain/Loss</th>
+                        <th>Dollar Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let cryptoData of listOfCryptoAssets">
+                    <td>{{cryptoData.name}}</td>
+                    <td>
+                        {{cryptoData.initialInvestmentDate}}
+                    </td>
+                    <td>
+                        ${{cryptoData.currentInvestment}}
+                    </td>
+                    <td>
+                        {{cryptoData.ownedShares}}
+                    </td>
+                    <td>
+                        ${{cryptoData.sharePrice}}
+                    </td>
+                    <td>
+                        {{cryptoData.returns}}%
+                    </td>
+                    <td>
+                        ${{cryptoData.cryptoPrice}}
+                    </td>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+    <div>
+    </div>
