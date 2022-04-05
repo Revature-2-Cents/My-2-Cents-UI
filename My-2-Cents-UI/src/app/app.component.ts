@@ -3,7 +3,6 @@ import { DOCUMENT } from '@angular/common';
 import { User } from './_models/User';
 import { AccountService } from './_services/account.service';
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

@@ -1,11 +1,11 @@
-import { AfterViewInit, Component, Input, OnChanges, OnInit, Output, SimpleChanges, EventEmitter } from '@angular/core';
+import { AfterViewInit, Component, Input, OnChanges, Output, SimpleChanges, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-budget-info',
   templateUrl: './budget-info.component.html',
   styleUrls: ['./budget-info.component.css']
 })
-export class BudgetInfoComponent implements OnInit, OnChanges, AfterViewInit {
+export class BudgetInfoComponent implements OnChanges, AfterViewInit {
 
   @Input()
   userIncome: number = 0;
@@ -24,7 +24,6 @@ export class BudgetInfoComponent implements OnInit, OnChanges, AfterViewInit {
   wants: number;
   savings: number;
 
-  //change these to be percentages of Income
   expensesPercentage: ConstrainDouble = 0;
   wantsPercentage:ConstrainDouble = 0;
   savingsPercentage:ConstrainDouble = 0;
@@ -36,8 +35,6 @@ export class BudgetInfoComponent implements OnInit, OnChanges, AfterViewInit {
 
     this.income = this.userIncome;
     this.expenses = this.userExpenses;
-    // this.wants = (this.userIncome - this.userExpenses) * 0.6;
-    // this.savings = (this.userIncome - this.userExpenses) * 0.4;
 
     if (this.userExpenses <= this.userIncome * 0.5) {
       this.wants = Math.round(((this.userIncome * (0.3 + (0.5 - (this.userExpenses / this.userIncome)))) + Number.EPSILON) * 100) / 100;
@@ -87,7 +84,6 @@ export class BudgetInfoComponent implements OnInit, OnChanges, AfterViewInit {
     {
       this.savingsGoal = "NO";
     }
-
   }
 
 
@@ -101,23 +97,10 @@ export class BudgetInfoComponent implements OnInit, OnChanges, AfterViewInit {
   ngOnChanges(changes: SimpleChanges): void {
     if (this.buttonCheck2)
     {
-      console.log("b-info:buttonCheck returned true");
       this.createPercentage();
-      console.log("this is the new expenses: " + this.expenses);
       this.createGoals();
       this.buttonCheck2 = false;
       this.buttonReturn2.emit(false);
-      
-    }
-    else
-    {
-      console.log("b-info:buttonCheck returned false");
     }
   }
-
-  ngOnInit(): void {
-    // this.createPercentage();
-    // this.createGoals();
-  }
-
 }
