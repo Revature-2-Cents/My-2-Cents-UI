@@ -115,9 +115,12 @@ describe('InvestmentPortfolioTableComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  /*it('should get crypto assests by user', () => {
+  it('should get crypto assests by user', () => {
     
-  });*/
+    component.getAllCryptoAssetsByUser(1);
+    expect(component.listOfCryptoAssets).toEqual(mockCryptoAsset);
+  });
+
 
   /*it('should call ngOnInit', () => {
     const fixture = TestBed.createComponent(InvestmentPortfolioTableComponent);
