@@ -18,6 +18,10 @@ import { CreateProfileComponent } from './create-profile/create-profile.componen
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { JwtInterceptor } from './_interceptors/jwt.interceptor';
+import { BudgetCalculatorComponent } from './budget-calculator/budget-calculator.component';
+import { BudgetChartComponent } from './budget-chart/budget-chart.component';
+import { NgChartsModule } from 'ng2-charts';
+import { BudgetInfoComponent } from './budget-info/budget-info.component';
 
 @NgModule({
   declarations: [
@@ -30,18 +34,22 @@ import { JwtInterceptor } from './_interceptors/jwt.interceptor';
     TrackMultipleAccountsComponent,
     UserChangeInfoComponent,
     CreateProfileComponent,
-    RegisterComponent
+    RegisterComponent,
+    BudgetCalculatorComponent,
+    BudgetChartComponent,
+    BudgetInfoComponent
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgChartsModule
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

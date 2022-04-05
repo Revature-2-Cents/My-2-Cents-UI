@@ -1,0 +1,53 @@
+<div class="container-1">
+    <div class="box-1">
+        <img src="https://media.discordapp.net/attachments/937791410889981983/938171320074661888/Logo.png">
+        <div>
+            <h2 class="title">Budget Calculator</h2>
+        </div>
+    </div>
+    <div class="box-2">
+        <form [formGroup]="budgetFormGroup">
+            <div>
+                <label class="form-label" style="font-size: 150%;">Income</label>
+                <div>
+                    <input type="number" class="form-control" [(ngModel)]="userIncome" formControlName="income">
+                    <div *ngIf="(UserIncome?.touched || UserIncome?.dirty) && UserIncome?.errors">
+                        <span *ngIf="UserIncome?.errors?.['required']" style="color:red">Required(Numbers only)</span>
+                    </div>
+                     <span *ngIf="UserIncome.touched && UserIncome.errors?.['pattern']" style="color:red">Numbers Only Please</span>
+                </div>
+            </div>
+            <div>
+                <label id="label" class="form-label" style="font-size: 150%;">Expenses</label>
+                <div>
+                    <input type="number" class="form-control" [(ngModel)]="userExpenses" formControlName="expenses">
+                    <div *ngIf="(UserExpense?.touched || UserExpense?.dirty) && UserExpense.errors">
+                        <span *ngIf="UserExpense.errors?.['required']" style="color:red">Required(Numbers Only)</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="padding-top: 1rem;">
+                <button type="submit" class="btn btn-primary" (click)="onClick(budgetFormGroup)">SUBMIT</button>
+            </div>
+        </form>
+        <div style="margin-top: 2rem; margin-bottom: 2rem; display: inline-flex;">
+            <div class="shadowbox">
+                <p>Enter your monthly income and expenses.<br> Let us do all the rest.<br> It's that simple.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-2" *ngIf="useChart">
+    <div class="box-3">
+        <div class="chart">
+            <app-budget-chart [userIncome]="userIncome" [userExpenses]="userExpenses" [buttonCheck] = "buttonCheck" (buttonReturn) = "returnButtonEventListener($event)"></app-budget-chart>      
+        </div>
+    </div>  
+    <div class="box-4">
+        <div class="budgetinfo">
+            <app-budget-info [userIncome]="userIncome" [userExpenses]="userExpenses" [buttonCheck2] = "buttonCheck2" (buttonReturn2) = "returnButton2EventListener($event)" style="height: 100%; display: block;"></app-budget-info>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,162 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+    font-size: .7rem;
+  }
+
+  body {  
+    width:100vw;
+    height:100vh;
+  }
+
+.container-1{
+    border: 0.25rem solid rgb(223, 178, 38);
+    display: flex;
+    background: radial-gradient(#e9f1f7, #c2c3d3, #9a9aa8);
+    border-radius: 1rem;
+    justify-content: center;
+}
+
+.container-1 div{
+    text-align: center;
+    font-weight: 900;
+    font-size: 18px;
+}
+
+
+.box-1{
+    flex: 1;
+    border: 0.25rem solid rgb(223, 178, 38);
+    padding-top: 1rem;
+    text-align: center;
+    flex-shrink: 1;
+    min-height: 0;
+    min-width: 0;
+    overflow:hidden; 
+
+}
+
+.box-2{
+    border: 0.25rem solid rgb(223, 178, 38);
+    flex: 1;
+    padding-top: 5rem;
+    flex-shrink: 1;
+    overflow:hidden; 
+}
+
+
+.box-1 img{
+    max-width: 60%;
+    height: auto;
+}
+
+.box-2 input{
+    width: 11.5rem;
+    height: 2.75rem; 
+    font-size: 150%; 
+    min-width: auto;
+    min-height: auto;
+}
+
+.container-2{
+    border: 0.25rem solid rgb(223, 178, 38);
+    display: flex;
+    background: radial-gradient(#e9f1f7, #c2c3d3, #9a9aa8);
+    align-items: center;
+    flex-direction: row;
+    border-radius: 1rem;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.container-2 div{
+    text-align: center;
+    font-weight: 900;
+    font-size: 18px;
+}
+
+
+.box-3{
+    flex: 1;
+}
+
+.box-4{
+    flex: 1;
+    flex-shrink: 1;
+    min-height: 0;
+    min-width: 0;
+    flex-wrap: wrap;
+    font-size: 5vw;
+    text-align: center;
+}
+
+.chart{
+    width: 40vw;
+    height: 40vw;
+    justify-content: center;
+}
+
+.budgetinfo {
+    display: inline-flex;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    display: block;
+    font-size: 1rem;
+    padding: .75rem;
+
+}
+
+.shadowbox{
+    box-shadow: 10px 10px 10px;
+    width:25vw; 
+    border: 0.25rem solid rgb(253, 181, 21);
+    text-align: center; 
+    border-radius: 25px;
+    flex-shrink: 1;
+    font-size: 5;
+}
+
+.title{
+    font-weight: 900; 
+    font-size: 3vw;
+}
+
+@media screen and (min-width: 600px) {
+    .container-2{
+      flex-direction: row;
+    }  
+    
+  
+    * {
+        font-size: 1rem;
+      }
+    }
+
+
+@media screen and (max-width: 450px) {
+    .container-1{
+        flex-direction: column;
+    }
+
+    .container-2{
+        justify-content: center;
+        align-items: center;
+    }
+
+    .chart{
+        width: 80vw;
+        height: 80vw;
+    }
+    
+    .shadowbox{
+        width: 80vw;
+    }
+    .title{
+        font-size: 1.25rem;
+    }
+    
+    
+    * {
+        font-size: 1rem;
+        }
+    }
