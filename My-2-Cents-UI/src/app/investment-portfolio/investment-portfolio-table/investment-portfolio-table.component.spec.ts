@@ -122,7 +122,9 @@ describe('InvestmentPortfolioTableComponent', () => {
   });
 
   it('should get stock asset by user', () => {
-    expect(component.getAllStockAssetsByUser).toEqual(mockStockAsset);
+
+    component.getAllStockAssetsByUser(1);
+    expect(component.listOfStockAssets).toEqual(mockStockAsset);
   });
 
   /*it('should call ngOnInit', () => {
