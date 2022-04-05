@@ -14,7 +14,9 @@ import { My2CentsService } from '../_services/my2-cents.service';
 @Component({
   selector: 'app-crypto',
   templateUrl: './crypto.component.html',
-  styleUrls: ['./crypto.component.css']
+  styleUrls: [
+    "../../../node_modules/bootstrap/dist/css/bootstrap.css",
+    './crypto.component.css']
 })
 export class CryptoComponent implements OnInit {
 
@@ -35,7 +37,7 @@ export class CryptoComponent implements OnInit {
   cryptoName:string | null = "No Crypto Selected";
   coin: MarketCoin;
   graph: GraphCoin;
-  user: User;
+  user = <User>{};
   currentCash: number;
 
   @Input() Crypto = <MarketCoin>{};
@@ -88,6 +90,7 @@ export class CryptoComponent implements OnInit {
       ],
       labels: [ 'January', 'February', 'March', 'April', 'May', 'June', 'July' ]
     };
+    this.account.currentUser.pipe(take(1)).subscribe((data) => this.user = data);
   }
 
   updateCash(): void
@@ -96,16 +99,14 @@ export class CryptoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.account.currentUser.pipe(take(1)).subscribe((data) => this.user = data);
-
     this.cryptoName = this.Crypto.cryptoNameId;
     this.service.loadCrypto().subscribe((res) => {
-      var temp = res.find(d => d.name == this.cryptoName);
+      var temp = res.find(d => d.cryptoNameId == this.cryptoName);
       this.coin = temp;
     },
     (err) => console.log(err));
 
-    /*this.service.loadDailyChart(this.cryptoName).subscribe((res) => {
+    this.service.loadDailyChart(this.cryptoName).subscribe((res) => {
       this.graph = res;
 
       var time = this.graph.prices.map(x => x[0]);
@@ -132,7 +133,7 @@ export class CryptoComponent implements OnInit {
         labels: date
       };
     },
-    (err) => console.log(err));*/
+    (err) => console.log(err));
 
     this.updateCash();
 

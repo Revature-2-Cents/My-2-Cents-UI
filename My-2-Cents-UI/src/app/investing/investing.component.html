@@ -58,8 +58,6 @@
           <div class="card-body p-md-5">
             <div class="row justify-content-center">
               <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">US Stock Market</p>
-              <input type="text" class="form-control border-1 my-4 text-center rounded-0" (keyup)="searchStock()"
-                [(ngModel)]="searchStockText" />
               <table class="table" *ngIf="isSearching">
                 <thead class="thead-dark">
                   <tr>

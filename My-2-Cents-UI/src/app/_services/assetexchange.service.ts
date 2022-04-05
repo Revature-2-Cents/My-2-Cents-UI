@@ -55,7 +55,7 @@ export class AssetExchangeService {
   buyCrypto(userID:number, amount:number, coin:MarketCoin)
   {
     var cryptoID = coin.cryptoId;
-    return this.http.post<MarketCoin>(this.apiUrl + "InvestmentPlatform/PlaceOrderCrypto?p_userID="+userID+"&p_cryptoID="+cryptoID+"&amount="+amount, coin);
+    return this.http.post<MarketCoin>(this.apiUrl + "InvestmentPlatform/PlaceOrderCrypto?_userID="+userID+"&_cryptoID="+cryptoID+"&amount="+amount, coin);
   }
 
   sellCryptoInFiat(userID:number, amount:number, coin:MarketCoin)
@@ -79,7 +79,7 @@ export class AssetExchangeService {
   buyStock(userID:number, amount:number, stock:Stock)
   {
     var stockID = stock.stockId;
-    return this.http.post<Stock>(this.apiUrl + "InvestmentPlatform/PlaceOrderStock?p_userID="+userID+"&_stockID="+stockID+"&amount="+amount, stock);
+    return this.http.post<Stock>(this.apiUrl + "InvestmentPlatform/PlaceOrderStock?p_userID="+userID+"&p_stockID="+stockID+"&amount="+amount, stock);
   }
 
   sellStockInFiat(userID:number, amount:number, stock:Stock)

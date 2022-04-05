@@ -1,3 +1,5 @@
+import { AccountService } from './../_services/account.service';
+import { User } from './../_models/User';
 import { observable, Observable } from 'rxjs';
 import { AssetExchangeService } from './../_services/assetexchange.service';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
@@ -26,12 +28,35 @@ describe('CryptoComponent', () => {
     }
   ];
 
-  class CryptoMockService{
-   loadCrypto(){return new Observable((observable) =>{observable.next(dummyCryptoDatabase)})};
-   buyCrypto(userID:number, amount:number, coin:MarketCoin){};
-   sellCrypto(userID:number, amount:number, coin:MarketCoin){};
+  let mockUpdateCash = {
+    accountID: 10,
+    totalBalance: 10,
+    accountType: "CheckingTesting",
+    interest: 10
   }
 
+  let mockGraphCoin = {
+    price: [ 1, 2 , 4 ]
+  }
+ 
+  class CryptoMockService{
+    loadCrypto(){return new Observable((observable) =>{observable.next(dummyCryptoDatabase)})};
+    buyCrypto(userID:number, amount:number, coin:MarketCoin){};
+    sellCrypto(userID:number, amount:number, coin:MarketCoin){};
+    loadDailyChart(cryptoName:string|null){return new Observable((observable) =>{observable.next(mockGraphCoin)})};
+    updateCash(){
+      return new Observable((observable) => {
+        observable.next(mockUpdateCash);
+      })
+    };
+
+    convertDecimal(num:number) {
+      return Math.round(num * 100) / 100;
+    }
+  }
+
+  
+ 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
@@ -40,7 +65,7 @@ describe('CryptoComponent', () => {
         ReactiveFormsModule
       ],
       declarations: [ CryptoComponent ],
-      providers:[{provide:AssetExchangeService, useClass : CryptoMockService}]
+      providers:[{provide:AssetExchangeService, useClass : CryptoMockService }]
     })
     .compileComponents();
     service = TestBed.inject(AssetExchangeService);
@@ -55,5 +80,5 @@ describe('CryptoComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  // it('should fetch loadCrypto() async data' , async())
+
 });

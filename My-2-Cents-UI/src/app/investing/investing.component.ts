@@ -9,7 +9,10 @@ import { AssetExchangeService } from '../_services/assetexchange.service';
 @Component({
   selector: 'app-investing',
   templateUrl: './investing.component.html',
-  styleUrls: ['./investing.component.css']
+  styleUrls: [
+    "../../../node_modules/bootstrap/dist/css/bootstrap.css",
+    './investing.component.css'
+  ]
 })
 export class InvestingComponent implements OnInit {
 
