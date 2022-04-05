@@ -65,4 +65,15 @@ describe('OrderHistoryComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should get stock order history by user', () => {
+    component.getAllStockOrderHistoryByUser(1);
+    expect(component.listOfStockOrders).toEqual(mockStockOrder);
+  });
+
+  it('should get crypto order history by user', () => {
+    component.getAllStockOrderHistoryByUser(1);
+    expect(component.listOfCryptoOrders).toEqual(mockCryptoOrder);
+  });
+
 });
