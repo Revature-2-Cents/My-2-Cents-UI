@@ -15,7 +15,7 @@ describe('InvestmentPortfolioTableComponent', () => {
   let fixture: ComponentFixture<InvestmentPortfolioTableComponent>;
   let service: InvestmentPortfolioService;
   //let service1: AccountService;
-  
+
 
   /*class InvestmentMockService {
     getAllCryptoOrderHistoryByUser(userId: string | number | any){};
@@ -31,7 +31,7 @@ describe('InvestmentPortfolioTableComponent', () => {
   //   userName: "testing"
   // }
 
-  let mockCryptoAsset:CryptoAsset[] = [
+  let mockCryptoAsset: CryptoAsset[] = [
     {
       currentInvestment: 10,
       initialInvestmentDate: "test",
@@ -43,7 +43,7 @@ describe('InvestmentPortfolioTableComponent', () => {
     }
   ];
 
-  let mockStockAsset:StockAsset[] = [
+  let mockStockAsset: StockAsset[] = [
     {
       currentInvestment: 10,
       initialInvestmentDate: "test",
@@ -55,10 +55,10 @@ describe('InvestmentPortfolioTableComponent', () => {
     }
   ]
 
-  let MockTotalInvestment:TotalInvestment = {
+  let MockTotalInvestment: TotalInvestment = {
     userInvestmentSum: 10
   }
-  
+
   class InvestmentPortfolioMockService {
     getAllStockAssetByUser(userId: number) {
       return new Observable((observable) => {
@@ -82,12 +82,12 @@ describe('InvestmentPortfolioTableComponent', () => {
   // class AccountMockService {
   //   private currentUserSource = new ReplaySubject<User>(1);
   //   currentUser = this.currentUserSource.asObservable();
-    
+
   //   setCurrentUser(user: User) {
   //     const token = this.getDecodeToken(user.token);
   //     this.currentUserSource.next(userInfo);
   //   }
-  
+
   //   getDecodeToken(token){
   //     return JSON.parse(atob(token.split('.')[1]));
   //   }
@@ -95,11 +95,11 @@ describe('InvestmentPortfolioTableComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ InvestmentPortfolioTableComponent ],
-      providers: [{provide: InvestmentPortfolioService, useClass: InvestmentPortfolioMockService}],
-      imports: [ RouterTestingModule, HttpClientTestingModule ]
+      declarations: [InvestmentPortfolioTableComponent],
+      providers: [{ provide: InvestmentPortfolioService, useClass: InvestmentPortfolioMockService }],
+      imports: [RouterTestingModule, HttpClientTestingModule]
     })
-    .compileComponents();
+      .compileComponents();
     //{provide: InvestmentPortfolioService, useClass: InvestmentMockService}
 
     service = TestBed.inject(InvestmentPortfolioService);
@@ -115,9 +115,15 @@ describe('InvestmentPortfolioTableComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  /*it('should get crypto assests by user', () => {
-    
-  });*/
+  it('should get crypto assests by user', () => {
+
+    component.getAllCryptoAssetsByUser(1);
+    expect(component.listOfCryptoAssets).toEqual(mockCryptoAsset);
+  });
+
+  it('should get stock asset by user', () => {
+    expect(component.getAllStockAssetsByUser).toEqual(mockStockAsset);
+  });
 
   /*it('should call ngOnInit', () => {
     const fixture = TestBed.createComponent(InvestmentPortfolioTableComponent);

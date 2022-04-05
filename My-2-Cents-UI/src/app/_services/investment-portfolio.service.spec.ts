@@ -101,6 +101,7 @@ describe('InvestmentPortfolioService', () => {
     httpReq.flush(dummyCrptoOrder);
   });
 
+
   it('should get user stock order history', () => {
     service.getAllStockOrderHistoryByUser(1).subscribe((response) => {
       expect(response[0].name.toBe(dummyStockOrderHistory[0].name));
@@ -120,6 +121,17 @@ describe('InvestmentPortfolioService', () => {
     expect(httpReq.request.method).toBe("GET");
     httpReq.flush(dummyStockOrderHistory);
   });
+
+
+  it('should get totalinvestment', () => {
+    service.getTotalInvestmentByUser(1).subscribe((response) => {
+      expect(response.toBe(10));
+    });
+
+    const httpReq = httpMock.expectOne("https://localhost:7106/api/UserPortfolio/UserInvestmentSum/1");
+    expect(httpReq.request.method).toBe("GET");
+    httpReq.flush(10);
+  }) 
 
 });
 
