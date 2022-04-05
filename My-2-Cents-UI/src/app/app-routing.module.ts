@@ -11,6 +11,7 @@ import { TrackIncomeComponent } from './track-income/track-income.component';
 import { CreateProfileComponent } from './create-profile/create-profile.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './_authGuards/auth.guard';
+import { BudgetCalculatorComponent } from './budget-calculator/budget-calculator.component';
 
 const routes: Routes = [
   // {
@@ -22,11 +23,12 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'dashboard', component: TrackMultipleAccountsComponent, canActivate: [AuthGuard] },
   { path: 'track-income/:AccountID', component: TrackIncomeComponent, canActivate: [AuthGuard] },
-  { path: 'create-profile', component: CreateProfileComponent, canActivate: [AuthGuard] }
+  { path: 'create-profile', component: CreateProfileComponent, canActivate: [AuthGuard] },
+  { path: 'budget-calculator', component: BudgetCalculatorComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

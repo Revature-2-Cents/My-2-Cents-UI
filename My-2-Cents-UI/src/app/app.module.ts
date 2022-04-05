@@ -19,14 +19,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { JwtInterceptor } from './_interceptors/jwt.interceptor';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faIcons, faPersonMilitaryToPerson, faUser, faUserGroup } from '@fortawesome/free-solid-svg-icons';
 import { InvestingComponent } from './investing/investing.component';
 import { CryptoComponent } from './crypto/crypto.component';
 import { StockComponent } from './stock/stock.component';
 import { RouterModule } from '@angular/router';
+
+import { BudgetCalculatorComponent } from './budget-calculator/budget-calculator.component';
+import { BudgetChartComponent } from './budget-chart/budget-chart.component';
 import { NgChartsModule } from 'ng2-charts';
-
-
+import { BudgetInfoComponent } from './budget-info/budget-info.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,10 @@ import { NgChartsModule } from 'ng2-charts';
     RegisterComponent,
     InvestingComponent,
     CryptoComponent,
-    StockComponent
+    StockComponent,
+    BudgetCalculatorComponent,
+    BudgetChartComponent,
+    BudgetInfoComponent
   ],
   imports: [
     HttpClientModule,
@@ -51,15 +55,11 @@ import { NgChartsModule } from 'ng2-charts';
     AppRoutingModule,
     ReactiveFormsModule,
     FontAwesomeModule,
-    NgChartsModule,
-    RouterModule.forRoot([
-      //{path: "crypto/:cryptoname", component: CryptoComponent},
-      //{path: "stock/:shortenedName", component: StockComponent}
-    ])
+    NgChartsModule
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

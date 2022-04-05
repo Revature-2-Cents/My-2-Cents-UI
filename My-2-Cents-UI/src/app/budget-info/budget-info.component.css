@@ -1,0 +1,156 @@
+.textbox-1 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  display: block;
+  font-size: 1rem;
+  padding: 1rem;
+  width: 40vw;
+}
+
+.textbox-2 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  display: block;
+  font-size: 1rem;
+  padding: 1rem;
+  width: 40vw;
+}
+
+table{
+  font-size: 1.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+
+th, td {
+    padding: 5px;
+    text-align: center;
+    border: solid black;
+    font-size: 1rem;
+  }
+
+  th {
+    background: radial-gradient(#00d2e9ff, #045962ff);
+    color: rgb(223, 178, 38);
+    font-weight: 900;
+    text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black, 1px 1px black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
+  }
+  
+  td{
+    background: rgba(250, 244, 232, 0.829);
+  }
+
+  .budget-table{
+    display: inline-flex;
+    margin-top: 1rem;
+  }
+
+  h3{
+    font-weight: 900;
+    padding-top: .25rem;
+    padding-bottom: .25rem;
+    background: radial-gradient(#00d2e9ff, #045962ff);
+    border: 0.35rem solid rgb(253, 181, 21);
+    border-radius: 25px;
+    box-shadow: 10px 10px 10px;
+  }
+
+  .shadow{
+    border: 0.35rem solid rgb(253, 181, 21);
+    box-shadow: 10px 10px 10px; 
+    border-radius: 25px;
+    min-width: 0;
+  }
+
+  p{
+    font-size: .85rem; 
+    margin-left: 2rem; 
+    margin-right: 2rem;
+    padding: .5rem;
+    background-color: rgba(250, 244, 232, 0.829);
+    border-radius: 25px;
+  }
+
+
+  @media screen and (max-width: 450px) {
+
+    .textbox-1{
+      width: 90vw;
+    }
+    
+    .textbox-2{
+      width: 90vw;
+    }
+
+    p{
+      width: 70vw;
+      margin-right: auto;
+      margin-left: auto;
+      text-align: center;
+    }
+
+  * {
+      font-size: 1rem;
+    }
+
+    th,td{
+      font-size: .69rem;
+
+    }
+
+    table{
+      width: 20vw;
+    }
+
+}
+
+@media screen and (max-width: 280px) {
+
+
+    .textbox-1{
+      width: 85vw;
+    }
+  
+    .textbox-2{
+      width: 85vw;
+    }
+
+}
+
+@media screen and (max-width: 540px) {
+
+  th,td{
+    font-size: .45rem;
+  }
+
+  .textbox-1{
+    width: 80vw;
+  }
+
+  .textbox-2{
+    width: 80vw;
+  }
+
+}
+
+
+@media screen and (min-width: 760px) {
+
+
+  th,td{
+    font-size: .75rem;
+  }
+
+  .textbox-1{
+    width: 42vw;
+  }
+
+  .textbox-2{
+    width: 42vw;
+  }
+
+}
+
