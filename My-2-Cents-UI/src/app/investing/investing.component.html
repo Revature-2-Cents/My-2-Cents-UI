@@ -1,0 +1,103 @@
+<div *ngIf="!showList">
+  <div class="form-group row mb-2">
+    <button type="submit" class="btn btn-secondary btn-sm" (click)="showListings()">Show Stocks & Cryptos</button>
+</div>
+<div *ngIf="forNav=='Crypto'">
+  <app-crypto [Crypto]="selectedAsset"></app-crypto>
+</div>
+<div *ngIf="forNav=='Stock'">
+  <app-stock [Stock]="selectedAsset"></app-stock>
+</div>
+</div>
+<!--cryptocurrency market section start -->
+<div *ngIf="showList" class="container h-100" style="padding-top: 5%; padding-bottom: 5%">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-12 col-xl-11">
+        <div class="card" style="border-radius: 25px; overflow-x: auto;">
+          <div class="card-body p-md-5">
+            <div class="row justify-content-center">
+              <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Cryptocurrencies</p>
+              <input type="text" class="form-control border-1 my-4 text-center rounded-0"
+              autofocus
+              (keyup)="searchCoin()"
+              [(ngModel)]="searchCryptoText"/>
+              <table class="table">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Logo</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Symbol</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Change</th>
+                    <th scope="col">% Change</th>
+                  </tr>
+                </thead>
+                <tbody id="crypto">
+                  <tr *ngFor="let coin of filteredCoins" (click)="nav('Crypto', coin)" class ="cryptoSelect">
+                    <td><img [src]="coin.imageURL" alt="{{ coin.name }}" class="cryptologo"/></td>
+                    <td>{{coin.name}}</td>
+                    <td class="text-uppercase">{{coin.shortenedName}}</td>
+                    <td>{{coin.currentPrice}}</td>
+                    <td [ngClass]="coin.priceChangePercentage > 0 ? 'cryptoGreen' : 'cryptoRed'">{{coin.priceChange > 0 ? '+' : ''}}{{coin.priceChange.toLocaleString()}}</td>
+                    <td [ngClass]="coin.priceChangePercentage > 0 ? 'cryptoGreen' : 'cryptoRed'">{{coin.priceChangePercentage > 0 ? '+' : ''}}{{service.convertDecimal(coin.priceChangePercentage)}}%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--cryptocurrency market section end -->
+
+   <!--stock market section start -->
+<div *ngIf="showList" class="container h-100" style="padding-top: 5%; padding-bottom: 5%">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-12 col-xl-11">
+        <div class="card" style="border-radius: 25px; overflow-x: auto;">
+          <div class="card-body p-md-5">
+            <div class="row justify-content-center">
+              <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">US Stock Market</p>
+              <table class="table" *ngIf="isSearching">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Symbol</th>
+                  </tr>
+                </thead>
+                <tbody id="crypto">
+                  <tr *ngFor="let stock of filteredStocks" class="cryptoSelect">
+                    <td>{{stock.name}}</td>
+                    <td class="text-uppercase">{{stock.shortenedName}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <table class="table" *ngIf="isDefault">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Symbol</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Change</th>
+                    <th scope="col">% Change</th>
+                  </tr>
+                </thead>
+                <tbody id="crypto">
+                  <tr *ngFor="let stock of stocks" (click)="nav('Stock', stock)" class ="cryptoSelect">
+                    <td>{{stock.name}}</td>
+                    <td class="text-uppercase">{{stock.shortenedName}}</td>
+                    <td>{{stock.currentPrice}}</td>
+                    <td [ngClass]="stock.priceChangePercentage > 0 ? 'cryptoGreen' : 'cryptoRed'">
+                      {{stock.priceChangePercentage > 0 ? '+' : ''}}{{stock.priceChange}}</td>
+                    <td [ngClass]="stock.priceChangePercentage > 0 ? 'cryptoGreen' : 'cryptoRed'">
+                      {{stock.priceChangePercentage > 0 ? '+' :
+                      ''}}{{service.convertDecimal(stock.priceChangePercentage)}}%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--stock market section end -->

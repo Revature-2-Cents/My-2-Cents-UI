@@ -14,6 +14,9 @@
     <a (click)="nav('Dashboard')">Dashboard</a>
     <a id="user-profile" (click)="nav('My Profile')">My Profile</a>
     <a (click)="nav('Transfer Money')">Transfer Money</a>
+    <a (click)="nav('Budget Calculator')">Budget Calculator</a>
+    <a class="nav-link" (click)="nav('Invest')">Invest</a>
+    <a class="nav-link" (click)="onToggle()">Change Theme</a>
     <a (click)="logout()">Log out</a>
   </nav>
   <div class="navname">
@@ -68,14 +71,25 @@
     </ng-template>
 
     <div *ngIf="NavName=='My Profile'">
-      <div *ngIf="auth.user$ | async as user">
-        <app-user-profile [UserLoginInfo]=UserLoginInfo [userId]=UserLoginInfo.userID></app-user-profile>
+      <div *ngIf="accountService.currentUser | async as user">
+        <app-user-profile [User]=User [userId]=User.userId></app-user-profile>
       </div>
     </div>
 
     <div *ngIf="NavName=='Transfer Money'">
-      <div *ngIf="auth.user$ | async as user">
-        <app-transfer-money [(account)]=viewAccounts [userId]=UserLoginInfo.userID></app-transfer-money>
+      <div *ngIf="accountService.currentUser | async as user">
+        <app-transfer-money [(account)]=viewAccounts [userId]=User.userId></app-transfer-money>
+      </div>
+    </div>
+
+    <div *ngIf="NavName=='Invest'">
+      <div *ngIf="accountService.currentUser | async as user">
+        <app-investing></app-investing>
+        </div>
+        </div>
+    <div *ngIf="NavName=='Budget Calculator'">
+      <div *ngIf="accountService.currentUser | async as user">
+        <app-budget-calculator></app-budget-calculator>
       </div>
     </div>
   </div>

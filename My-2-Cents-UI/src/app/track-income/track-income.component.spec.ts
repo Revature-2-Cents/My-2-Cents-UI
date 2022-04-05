@@ -4,10 +4,10 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClient } from '@angular/common/http';
 import { TrackIncomeComponent } from './track-income.component';
 import { ActivatedRoute } from '@angular/router';
-import { IncomesService } from '../incomes.service';
+import { IncomesService } from '../_services/incomes.service';
 import * as Rx from 'rxjs';
 import { delay } from "rxjs/operators";
-import { Incomes } from '../mock-incomes'
+import { Incomes } from '../_models/mock-incomes'
 
 
 describe('TrackIncomeComponent', () => {

@@ -78,3 +78,60 @@ fieldset {
   background-color: rgba(219, 176, 83, 0.418);
   color:rgb(250, 244, 232)
 }
+
+.dark-mode .card {
+  background-color: rgba(243, 239, 239, 0) !important;
+  border: .15em solid rgb(255, 255, 255);
+  color:#fff;
+}
+
+.dark-mode .form-control {
+  background-color: rgb(0,0,0) ! important;
+  color: rgb(200, 200, 200) !important;
+  border-color: white;
+}
+
+.dark-mode .card {
+  background-color: rgb(0,0,0) !important;
+  color: rgb(200, 200, 200) !important;
+  border-color: rgb(255, 255, 255) !important;
+}
+.dark-mode .table {
+  background-color: rgb(0,0,0) !important;
+  color: rgb(200, 200, 200) !important;
+}
+
+.dark-mode .cryptoGreen {
+  color: rgb(0, 203, 0) !important;
+}
+.dark-mode .cryptoRed {
+  color: rgb(229, 0, 0) !important;
+}
+
+.dark-mode .buy {
+  background-color: rgb(0, 203, 0) !important;
+  border-color: rgb(0, 203, 0) !important;
+}
+.dark-mode .sell {
+  background-color: rgb(229, 0, 0) !important;
+  border-color: rgb(229, 0, 0) !important;
+}
+.dark-mode .buy:hover {
+  background-color: rgb(0, 146, 0) !important;
+  border-color: rgb(0, 146, 0) !important;
+}
+.dark-mode .sell:hover {
+  background-color: rgb(163, 0, 0) !important;
+  border-color: rgb(163, 0, 0) !important;
+}
+
+.dark-mode .component {
+  background: radial-gradient(#373737, #242424 , #2d2d2d);
+  border: .15em solid grey;
+  margin-top: 5px;
+  margin-left: 3em;
+  margin-right: 3em;
+
+  border-radius: 15px;
+  padding: 1em 3em;
+}
