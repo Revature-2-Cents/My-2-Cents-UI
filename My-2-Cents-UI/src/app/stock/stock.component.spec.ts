@@ -6,6 +6,7 @@ import { AssetExchangeService } from '../_services/assetexchange.service';
 
 import { StockComponent } from './stock.component';
 import { HttpClientTestingModule} from '@angular/common/http/testing';
+import { ReactiveFormsModule } from '@angular/forms';
 
 describe('StockComponent', () => {
   let component: StockComponent;
@@ -34,7 +35,8 @@ describe('StockComponent', () => {
     await TestBed.configureTestingModule({
       imports:[
         RouterTestingModule,
-        HttpClientTestingModule
+        HttpClientTestingModule,
+        ReactiveFormsModule
       ],
       declarations: [ StockComponent ],
       providers :[{provide:AssetExchangeService, useClass : StockMockService}]

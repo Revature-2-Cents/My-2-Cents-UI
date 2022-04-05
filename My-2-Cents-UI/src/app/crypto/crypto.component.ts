@@ -35,7 +35,7 @@ export class CryptoComponent implements OnInit {
   cryptoName:string | null = "No Crypto Selected";
   coin: MarketCoin;
   graph: GraphCoin;
-  user: User;
+  user = <User>{};
   currentCash: number;
 
   @Input() Crypto = <MarketCoin>{};
@@ -88,6 +88,7 @@ export class CryptoComponent implements OnInit {
       ],
       labels: [ 'January', 'February', 'March', 'April', 'May', 'June', 'July' ]
     };
+    this.account.currentUser.pipe(take(1)).subscribe((data) => this.user = data);
   }
 
   updateCash(): void
@@ -96,7 +97,7 @@ export class CryptoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.account.currentUser.pipe(take(1)).subscribe((data) => this.user = data);
+    
 
     this.cryptoName = this.Crypto.cryptoNameId;
     this.service.loadCrypto().subscribe((res) => {
@@ -135,7 +136,6 @@ export class CryptoComponent implements OnInit {
     (err) => console.log(err));*/
 
     this.updateCash();
-
     this.purchasing = this.formBuilder.group(
       {
         amount: [

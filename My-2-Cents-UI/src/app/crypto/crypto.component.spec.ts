@@ -1,3 +1,5 @@
+import { AccountService } from './../_services/account.service';
+import { User } from './../_models/User';
 import { observable, Observable } from 'rxjs';
 import { AssetExchangeService } from './../_services/assetexchange.service';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
@@ -26,12 +28,28 @@ describe('CryptoComponent', () => {
     }
   ];
 
+  let mockUpdateCash = {
+    accountID: 10,
+    totalBalance: 10,
+    accountType: "CheckingTesting",
+    interest: 10
+  }
+ 
   class CryptoMockService{
    loadCrypto(){return new Observable((observable) =>{observable.next(dummyCryptoDatabase)})};
    buyCrypto(userID:number, amount:number, coin:MarketCoin){};
    sellCrypto(userID:number, amount:number, coin:MarketCoin){};
   }
 
+  class cashMockSevice{
+    updateCash(){
+      return new Observable((observable) => {
+        observable.next(mockUpdateCash);
+      })
+    };
+  }
+  
+ 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
@@ -40,7 +58,7 @@ describe('CryptoComponent', () => {
         ReactiveFormsModule
       ],
       declarations: [ CryptoComponent ],
-      providers:[{provide:AssetExchangeService, useClass : CryptoMockService}]
+      providers:[{provide:AssetExchangeService, useClass : CryptoMockService,cashMockSevice }]
     })
     .compileComponents();
     service = TestBed.inject(AssetExchangeService);
@@ -55,5 +73,5 @@ describe('CryptoComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  // it('should fetch loadCrypto() async data' , async())
+
 });
