@@ -108,6 +108,16 @@ describe('InvestmentPortfolioService', () => {
 
     const httpReq = httpMock.expectOne("https://localhost:7106/api/StockPortfolio/StockOrders/OrderPortfolio/1");
     expect(httpReq.request.method).toBe("GET");
+    httpReq.flush(10);
+  });
+   
+  it('should get user stock order history', () => {
+    service.getAllStockOrderHistoryByUser(1).subscribe((response) => {
+      expect(response[0].name.toBe(dummyStockOrderHistory[0].name));
+    });
+
+    const httpReq = httpMock.expectOne("https://localhost:7106/api/StockPortfolio/StockOrders/OrderPortfolio/1");
+    expect(httpReq.request.method).toBe("GET");
     httpReq.flush(dummyStockOrderHistory);
   });
 
